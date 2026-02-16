@@ -84,7 +84,10 @@ export default function HomeCrossfade() {
     <div className="bg-black">
       {/* HERO */}
       <section
-        ref={(n) => (heroRef.current = n)}
+        ref={(n) => {
+  heroRef.current = n;
+}}
+
         className="relative min-h-[92vh] w-full overflow-hidden bg-black"
         style={{
           opacity: heroOpacity,
@@ -117,7 +120,11 @@ export default function HomeCrossfade() {
       {/* PHILOSOPHY */}
       <section
         id="philosophy"
-        ref={(n) => (philRef.current = n)}
+        ref={(n) => {
+  philRef.current = n;
+}}
+
+
         className="relative w-full bg-black"
         style={{
           opacity: philOpacity,
