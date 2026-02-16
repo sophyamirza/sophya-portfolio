@@ -31,30 +31,35 @@ export default function NavBar() {
                 href={item.href}
                 className={[
                   "group relative px-1 py-2 text-sm tracking-[0.18em] transition-colors duration-300",
-                  active ? "text-white" : "text-white/80 hover:text-black",
+                  active ? "text-white" : "text-white/80",
                 ].join(" ")}
               >
-                {/* label */}
-                <span className="relative z-10">{item.label}</span>
-
-                {/* inverted thermal wash on hover (behind text) */}
+                {/* TEXT: invert + glow on hover */}
                 <span
                   className={[
-                    "pointer-events-none absolute inset-x-0 bottom-1 h-[1.25em] -z-0",
-                    "origin-bottom scale-y-0 transition-transform duration-300 ease-out",
-                    "group-hover:scale-y-100",
-                    "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-90",
+                    "relative z-10 transition-all duration-300",
+                    "group-hover:text-black",
+                    // glow (inverted look): dark text + bright halo
+                    "group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]",
+                    "group-hover:drop-shadow-[0_0_26px_rgba(57,255,20,0.18)]",
+                    active ? "text-white" : "",
                   ].join(" ")}
-                />
+                >
+                  {item.label}
+                </span>
 
-                {/* thermal underline */}
+                {/* THERMAL UNDERLINE: fade + slide in, then fade out */}
                 <span
                   className={[
                     "pointer-events-none absolute left-0 -bottom-0.5 h-[2px] w-full",
-                    "origin-left scale-x-0 transition-transform duration-300 ease-out",
                     "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]",
-                    "group-hover:scale-x-100",
-                    active ? "scale-x-100 opacity-95" : "opacity-85",
+                    "origin-left transition-all duration-300 ease-out",
+                    // default hidden
+                    "scale-x-0 opacity-0",
+                    // hover shown
+                    "group-hover:scale-x-100 group-hover:opacity-90",
+                    // active page underline stays subtle
+                    active ? "scale-x-100 opacity-70" : "",
                   ].join(" ")}
                 />
               </Link>
