@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, FileText } from "lucide-react";
+import { Mail, Linkedin, FileText } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -55,13 +55,10 @@ function ContactCard({
           hover:bg-white/[0.05]
         "
       >
-        {/* subtle hover glow */}
         <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100
                         bg-[radial-gradient(700px_300px_at_30%_20%,rgba(57,255,20,0.12),transparent_55%)]" />
 
         <div className="relative flex items-start gap-5">
-          
-          {/* FLOATING ICON — NO BOX */}
           <div className="mt-1 text-[#39ff14] drop-shadow-[0_0_18px_rgba(57,255,20,0.35)]">
             {icon}
           </div>
@@ -86,38 +83,18 @@ function ContactCard({
 export default function ContactPage() {
   const EMAIL = "sophyamirza@gmail.com";
   const LINKEDIN = "https://www.linkedin.com/in/sophya-mirza-4947981b7/";
-  const GITHUB = "https://github.com/Sophyamirza";
+  const SUBSTACK = "https://substack.com/@sophyamirza";
   const RESUME = "/S__MIRZA_Resume_LaTeX.pdf";
-
 
   return (
     <main className="relative min-h-screen bg-black text-white overflow-hidden">
-      
-      {/* atmosphere layers */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_700px_at_50%_0%,rgba(255,255,255,0.05),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_500px_at_40%_55%,rgba(57,255,20,0.06),transparent_60%)]" />
       <div className="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.9)_85%)]" />
 
       <section className="mx-auto max-w-6xl px-6 md:px-16 pt-20 pb-20">
         <motion.div variants={container} initial="hidden" animate="show">
-          
-          {/* TITLE */}
-          <motion.h1
-            variants={fadeUp}
-            className="
-              text-center leading-[0.9]
-              text-6xl md:text-8xl
-              font-['Playfair_Display']
-              text-white
-            "
-          >
-          
-            <span className="block italic text-[#39ff14] drop-shadow-[0_0_35px_rgba(57,255,20,0.25)]">
-         
-            </span>
-          </motion.h1>
 
-          {/* GRID */}
           <motion.div
             variants={container}
             className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto"
@@ -134,16 +111,16 @@ export default function ContactPage() {
               icon={<Linkedin size={22} />}
               label="LinkedIn"
               href={LINKEDIN}
-              display="@SophyaMirza"
+              display="@sophyamirza"
               hint="Let's connect!"
             />
 
             <ContactCard
-              icon={<Github size={22} />}
-              label="GitHub"
-              href={GITHUB}
-              display="github.com/Sophyamirza"
-              hint="Code + hardware projects."
+              icon={<FileText size={22} />}
+              label="Substack"
+              href={SUBSTACK}
+              display="@sophyamirza"
+              hint="Writing + technical reflections."
             />
 
             <ContactCard
@@ -155,7 +132,6 @@ export default function ContactPage() {
             />
           </motion.div>
 
-          {/* Footer line */}
           <motion.p
             variants={fadeUp}
             className="mt-20 text-center text-sm md:text-base text-white/60 max-w-2xl mx-auto"
@@ -163,6 +139,7 @@ export default function ContactPage() {
             Open to prop, mech, design engineering roles.
             Let’s build something ambitious.
           </motion.p>
+
         </motion.div>
       </section>
     </main>
