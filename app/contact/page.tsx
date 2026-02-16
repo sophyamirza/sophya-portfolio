@@ -134,7 +134,7 @@ export default function ContactPage() {
               icon={<Linkedin size={22} />}
               label="LinkedIn"
               href={LINKEDIN}
-              display="linkedin.com/in/sophya-mirza-4947981b7"
+              display="@SophyaMirza"
               hint="Let's connect!"
             />
 
