@@ -135,7 +135,7 @@ export default function ContactPage() {
               label="LinkedIn"
               href={LINKEDIN}
               display="linkedin.com/in/sophya-mirza-4947981b7"
-              hint="Professional inquiries."
+              hint="Let's connect!"
             />
 
             <ContactCard
