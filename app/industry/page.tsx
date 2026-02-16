@@ -63,7 +63,7 @@ export default function IndustryPage() {
       {
         org: "Proterra",
         role: "Thermals / Battery R&D Co-op",
-        when: "MAY 2022 – DEC 2022",
+        when: "MAY 2022 – DEC 20s22",
         tags: "BATTERIES · THERMALS · TEST · MANUFACTURING QUALITY",
         logo: "/logos/proterra.PNG",
       },
