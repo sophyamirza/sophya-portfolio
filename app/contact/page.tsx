@@ -87,7 +87,7 @@ export default function ContactPage() {
   const EMAIL = "sophyamirza@gmail.com";
   const LINKEDIN = "https://www.linkedin.com/in/sophya-mirza-4947981b7/";
   const GITHUB = "https://github.com/Sophyamirza";
-  const RESUME = "/Sophya_Mirza_Resume.pdf"; // adjust if needed
+  const RESUME = "/S__MIRZA_Resume_LaTeX.pdf"; // adjust if needed
 
   return (
     <main className="relative min-h-screen bg-black text-white overflow-hidden">
