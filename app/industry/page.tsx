@@ -150,7 +150,10 @@ export default function IndustryPage() {
               return (
                 <div
                   key={i}
-                  ref={(el) => (itemRefs.current[i] = el)}
+                  ref={(el) => {
+  itemRefs.current[i] = el;
+}}
+
                   className="relative"
                   style={{
                     opacity: 0.35 + v * 0.65,
