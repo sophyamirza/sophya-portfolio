@@ -11,6 +11,23 @@ const nav = [
   { href: "/contact", label: "CONTACT" },
 ];
 
+// ROYGBIV-ish thermal colors (matches your underline palette vibe)
+const hoverColorByHref: Record<string, string> = {
+  "/bio": "group-hover:text-[#ff0033]", // Red
+  "/works": "group-hover:text-[#ff7a00]", // Orange
+  "/industry": "group-hover:text-[#ffe600]", // Yellow
+  "/recreation": "group-hover:text-[#39ff14]", // Green
+  "/contact": "group-hover:text-[#00b3ff]", // Blue (thermal-cyan)
+};
+
+const glowByHref: Record<string, string> = {
+  "/bio": "group-hover:drop-shadow-[0_0_18px_rgba(255,0,51,0.45)]",
+  "/works": "group-hover:drop-shadow-[0_0_18px_rgba(255,122,0,0.45)]",
+  "/industry": "group-hover:drop-shadow-[0_0_18px_rgba(255,230,0,0.45)]",
+  "/recreation": "group-hover:drop-shadow-[0_0_18px_rgba(57,255,20,0.45)]",
+  "/contact": "group-hover:drop-shadow-[0_0_18px_rgba(0,179,255,0.45)]",
+};
+
 export default function NavBar() {
   const pathname = usePathname();
 
@@ -34,32 +51,25 @@ export default function NavBar() {
                   active ? "text-white" : "text-white/80",
                 ].join(" ")}
               >
-                {/* TEXT: invert + glow on hover */}
                 <span
                   className={[
                     "relative z-10 transition-all duration-300",
-                    "group-hover:text-black",
-                    // glow (inverted look): dark text + bright halo
-                    "group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]",
-                    "group-hover:drop-shadow-[0_0_26px_rgba(57,255,20,0.18)]",
-                    active ? "text-white" : "",
+                    hoverColorByHref[item.href] ?? "group-hover:text-white",
+                    glowByHref[item.href] ?? "group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.35)]",
                   ].join(" ")}
                 >
                   {item.label}
                 </span>
 
-                {/* THERMAL UNDERLINE: fade + slide in, then fade out */}
+                {/* Thermal underline (fade + slide in) */}
                 <span
                   className={[
                     "pointer-events-none absolute left-0 -bottom-0.5 h-[2px] w-full",
                     "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]",
                     "origin-left transition-all duration-300 ease-out",
-                    // default hidden
                     "scale-x-0 opacity-0",
-                    // hover shown
                     "group-hover:scale-x-100 group-hover:opacity-90",
-                    // active page underline stays subtle
-                    active ? "scale-x-100 opacity-70" : "",
+                    active ? "scale-x-100 opacity-65" : "",
                   ].join(" ")}
                 />
               </Link>
