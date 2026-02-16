@@ -22,7 +22,7 @@ export default function IndustryPage() {
         role: "Venture Capital",
         when: "2025 – Present",
         tags: "VENTURE · DEEP TECH · STARTUPS · DILIGENCE",
-        logo: "/logos/haas.png",
+        logo: "/logos/haas.PNG",
       },
       {
         org: "Astranis",
@@ -33,24 +33,24 @@ export default function IndustryPage() {
       },
       {
         org: "Space Technologies & Rocketry",
-        role: "Propulsion RE → Deputy → Lead",
+        role: "Propulsion RE → Deputy Lead",
         when: "NOV 2021 – JAN 2025",
         tags: "PROPULSION · LOX/ETHYL FEED · VALVES · ENGINE TEST",
-        logo: "/logos/star.png",
+        logo: "/logos/star.PNG",
       },
       {
         org: "SpaceX",
         role: "Starship Primary Structures RE Intern",
         when: "APR 2024 – AUG 2024",
         tags: "PRIMARY STRUCTURES · MANUFACTURING · TPS · CRYO QUAL",
-        logo: "/logos/spacex.png",
+        logo: "/logos/spacex.PNG",
       },
       {
         org: "SAE International",
         role: "AM / SAF / Aerospace Standards",
         when: "AUG 2023 – AUG 2024",
         tags: "STANDARDS · CERTIFICATION · ADDITIVE · SAF",
-        logo: "/logos/sae.png",
+        logo: "/logos/sae.PNG",
       },
       {
         org: "NASA — SSL TRACERS",
