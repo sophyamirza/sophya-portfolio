@@ -18,10 +18,10 @@ export default function IndustryPage() {
   const milestones: Milestone[] = useMemo(
     () => [
       {
-        org: "Haas VC Fellow",
+        org: "NewSpace Fellow",
         role: "Venture Capital",
         when: "2025 – Present",
-        tags: "VENTURE · DEEP TECH · STARTUPS · DILIGENCE",
+        tags: "VENTURE · DEEP TECH · STARTUPS · ",
         logo: "/logos/haas.PNG",
       },
       {
