@@ -32,17 +32,17 @@ function LoopMarquee() {
   const text = "Design → Manufacture → Build → Test → Learn →";
 
   return (
-    <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen mt-14 md:mt-20">
-      <div className="relative overflow-hidden border-y border-white/10 bg-black">
+    <div className="relative left-1/2 -translate-x-1/2 w-[100vw] mt-24 md:mt-32">
+      <div className="relative w-full overflow-hidden border-y border-white/10 bg-black">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_140px_at_20%_50%,rgba(255,255,255,0.08),transparent_60%)]" />
 
         <div className="marquee flex w-[200%] whitespace-nowrap">
           {[0, 1].map((row) => (
             <div
               key={row}
-              className="flex w-1/2 items-center gap-8 py-3 px-10 md:px-16 text-[11px] tracking-[0.34em] text-white/55 uppercase"
+              className="flex w-1/2 items-center gap-8 py-4 px-0 text-[11px] tracking-[0.34em] text-white/55 uppercase"
             >
-              {Array.from({ length: 18 }).map((_, i) => (
+              {Array.from({ length: 22 }).map((_, i) => (
                 <span key={`${row}-${i}`} className="whitespace-nowrap">
                   {text}
                 </span>
@@ -124,13 +124,12 @@ export default function HomeCrossfade() {
   const philOpacity = t;
 
   return (
-    <div className="bg-black">
+    <div className="bg-black overflow-x-clip">
       {/* HERO */}
       <section
         ref={(n) => {
-  heroRef.current = n;
-}}
-
+          heroRef.current = n;
+        }}
         className="relative min-h-[92vh] w-full overflow-hidden bg-black"
         style={{
           opacity: heroOpacity,
@@ -146,7 +145,9 @@ export default function HomeCrossfade() {
         </div>
 
         <div className="absolute z-10 bottom-14 right-14 text-right md:bottom-16 md:right-16">
-          <div className="text-xs tracking-[0.35em] text-white/60">UC BERKELEY</div>
+          <div className="text-xs tracking-[0.35em] text-white/60">
+            UC BERKELEY
+          </div>
           <div className="mt-2 text-3xl md:text-4xl italic leading-tight text-white/90">
             MECHANICAL ENGINEER
           </div>
@@ -160,26 +161,30 @@ export default function HomeCrossfade() {
       <section
         id="philosophy"
         ref={(n) => {
-  philRef.current = n;
-}}
-
+          philRef.current = n;
+        }}
         className="relative w-full bg-black"
         style={{
           opacity: philOpacity,
-          transform: `translate3d(0, ${Math.round((1 - philOpacity) * 10)}px, 0)`,
+          transform: `translate3d(0, ${Math.round(
+            (1 - philOpacity) * 10
+          )}px, 0)`,
         }}
       >
         <div className="mx-auto max-w-6xl px-6 py-28 min-h-[92vh]">
           <div className="flex flex-col md:flex-row md:gap-12">
             <div className="max-w-3xl pt-10">
-              <div className="text-xs tracking-[0.35em] text-white/60">PHILOSOPHY</div>
+              <div className="text-xs tracking-[0.35em] text-white/60">
+                PHILOSOPHY
+              </div>
 
               <PhilosophyTitle />
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-white/75">
-                I take ambiguous problems and turn them into clear requirements and scope. I move fast
-                from first-principles trades to concrete designs, prototype early, and close loops
-                through test and iteration.
+                I take ambiguous problems and turn them into clear
+                requirements and scope. I move fast from first-principles
+                trades to concrete designs, prototype early, and close
+                loops through test and iteration.
               </p>
 
               <LoopMarquee />
@@ -195,21 +200,40 @@ export default function HomeCrossfade() {
 
         {/* PORTFOLIO */}
         <div className="mx-auto max-w-6xl px-6 pb-28">
-          <div className="text-xs tracking-[0.35em] text-white/60">PORTFOLIO</div>
+          <div className="text-xs tracking-[0.35em] text-white/60">
+            PORTFOLIO
+          </div>
           <h2 className="mt-3 text-4xl md:text-5xl tracking-wide text-white">
             PROJECT HIGHLIGHTS
           </h2>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
-            <HighlightCard title="ALULA" subtitle="Liquid Bi-Prop Engine" tags="PROPULSION · VALVES · FEED SYSTEM" />
-            <HighlightCard title="KITTA" subtitle="Drone Delivery Platform" tags="UAV · AUTONOMY" />
-            <HighlightCard title="RescueBot" subtitle="Quadruped Robot" tags="ROBOTICS · CONTROL" />
-            <HighlightCard title="XLDsl + SQUIDs" subtitle="Cryogenic Systems" tags="CRYOGENICS · INSTRUMENTATION" />
+            <HighlightCard
+              title="ALULA"
+              subtitle="Liquid Bi-Prop Engine"
+              tags="PROPULSION · VALVES · FEED SYSTEM"
+            />
+            <HighlightCard
+              title="KITTA"
+              subtitle="Drone Delivery Platform"
+              tags="UAV · AUTONOMY"
+            />
+            <HighlightCard
+              title="RescueBot"
+              subtitle="Quadruped Robot"
+              tags="ROBOTICS · CONTROL"
+            />
+            <HighlightCard
+              title="XLDsl + SQUIDs"
+              subtitle="Cryogenic Systems"
+              tags="CRYOGENICS · INSTRUMENTATION"
+            />
           </div>
 
           <div className="mt-20 flex flex-col items-center gap-5">
             <p className="text-white/60 text-sm tracking-wide text-center max-w-2xl">
-              Projects spanning propulsion, robotics, autonomy, cryogenics, and product design.
+              Projects spanning propulsion, robotics, autonomy,
+              cryogenics, and product design.
             </p>
 
             <Link
