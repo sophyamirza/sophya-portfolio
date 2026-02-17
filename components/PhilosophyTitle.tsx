@@ -25,7 +25,7 @@ export default function PhilosophyTitle() {
       </h2>
 
       {/* PROCESS MARQUEE */}
-      <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen mt-8 overflow-hidden border-y border-white/10 bg-black">
+      <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen mt-24 overflow-hidden border-y border-white/10 bg-black">
         <div
           className="flex w-[200%] whitespace-nowrap py-4"
           style={{ animation: "marqueeX 18s linear infinite" }}
