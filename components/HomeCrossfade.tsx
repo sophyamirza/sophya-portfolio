@@ -27,55 +27,6 @@ function HighlightCard({
   );
 }
 
-/* FULL BLEED MARQUEE */
-function LoopMarquee() {
-  const text = "Design → Manufacture → Build → Test → Learn →";
-
-  return (
-    <div className="relative left-1/2 -translate-x-1/2 w-[100vw] mt-24 md:mt-32">
-      <div className="relative w-full overflow-hidden border-y border-white/10 bg-black">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_140px_at_20%_50%,rgba(255,255,255,0.08),transparent_60%)]" />
-
-        <div className="marquee flex w-[200%] whitespace-nowrap">
-          {[0, 1].map((row) => (
-            <div
-              key={row}
-              className="flex w-1/2 items-center gap-8 py-4 px-0 text-[11px] tracking-[0.34em] text-white/55 uppercase"
-            >
-              {Array.from({ length: 22 }).map((_, i) => (
-                <span key={`${row}-${i}`} className="whitespace-nowrap">
-                  {text}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <style jsx>{`
-          .marquee {
-            animation: marquee 42s linear infinite;
-            will-change: transform;
-          }
-          @keyframes marquee {
-            from {
-              transform: translate3d(0, 0, 0);
-            }
-            to {
-              transform: translate3d(-50%, 0, 0);
-            }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .marquee {
-              animation: none;
-              transform: none;
-            }
-          }
-        `}</style>
-      </div>
-    </div>
-  );
-}
-
 export default function HomeCrossfade() {
   const heroRef = useRef<HTMLElement | null>(null);
   const philRef = useRef<HTMLElement | null>(null);
@@ -187,7 +138,7 @@ export default function HomeCrossfade() {
                 loops through test and iteration.
               </p>
 
-              <LoopMarquee />
+             
             </div>
 
             <div className="flex-1 mt-20 md:mt-28">
