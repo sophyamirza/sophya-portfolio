@@ -133,13 +133,12 @@ export default function HomeCrossfade() {
     <PhilosophyTitle />
   </div>
 
-  <p className="mt-14 text-xl md:text-2xl leading-[1.6] text-white/80">
-    I take ambiguous problems and turn them into clear
-    requirements and scope. I move fast from first principles
-    hand calcs to trades and designs, prototyping early, and closing
-    loops through test and iteration.
-  </p>
-</div>
+  <ul className="mt-14 space-y-3 text-xl md:text-2xl leading-[1.6] text-white/80">
+  <li>• Turn ambiguity into clear requirements and scope</li>
+  <li>• Move fast from first principle, hand calcs to designs & trades</li>
+  <li>• Prototype early, test often, close loops</li>
+</ul>
+
 
 
              
