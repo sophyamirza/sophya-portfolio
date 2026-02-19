@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import HeroScene from "@/components/HeroScene";
@@ -19,9 +20,9 @@ function HighlightCard({
   tags: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 hover:border-white/35 hover:bg-white/[0.04] transition-all duration-300">
-      <h3 className="text-2xl md:text-3xl mb-2 text-white">{title}</h3>
-      <p className="text-white/70 mb-5">{subtitle}</p>
+    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:border-white/35 hover:bg-white/[0.04]">
+      <h3 className="mb-2 text-2xl text-white md:text-3xl">{title}</h3>
+      <p className="mb-5 text-white/70">{subtitle}</p>
       <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
     </div>
   );
@@ -95,11 +96,11 @@ export default function HomeCrossfade() {
           </div>
         </div>
 
-        <div className="absolute z-10 bottom-14 right-14 text-right md:bottom-16 md:right-16">
+        <div className="absolute bottom-14 right-14 z-10 text-right md:bottom-16 md:right-16">
           <div className="text-xs tracking-[0.35em] text-white/60">
             UC BERKELEY
           </div>
-          <div className="mt-2 text-3xl md:text-4xl italic leading-tight text-white/90">
+          <div className="mt-2 text-3xl italic leading-tight text-white/90 md:text-4xl">
             MECHANICAL ENGINEER
           </div>
         </div>
@@ -117,35 +118,60 @@ export default function HomeCrossfade() {
         className="relative w-full bg-black"
         style={{
           opacity: philOpacity,
-          transform: `translate3d(0, ${Math.round(
-            (1 - philOpacity) * 10
-          )}px, 0)`,
+          transform: `translate3d(0, ${Math.round((1 - philOpacity) * 10)}px, 0)`,
         }}
       >
-        <div className="mx-auto max-w-6xl px-6 py-28 min-h-[92vh]">
+        <div className="mx-auto min-h-[92vh] max-w-6xl px-6 py-28">
           <div className="flex flex-col md:flex-row md:gap-12">
             <div className="max-w-3xl pt-20">
-  <div className="text-xs tracking-[0.35em] text-white/50">
-    PHILOSOPHY
-  </div>
+              <div className="text-xs tracking-[0.35em] text-white/50">
+                PHILOSOPHY
+              </div>
 
-  <div className="mt-6">
-    <PhilosophyTitle />
-  </div>
+              <div className="mt-6">
+                <PhilosophyTitle />
+              </div>
 
-  <ul className="mt-14 space-y-3 text-xl md:text-2xl leading-[1.6] text-white/80">
-  <li>• Turn ambiguity into clear requirements and scope</li>
-  <li>• Move fast from first principle, hand calcs to designs & trades</li>
-  <li>• Prototype early, test often, close loops</li>
-</ul>
+              {/* subtle themed accent line */}
+              <div className="mt-10 h-px w-24 bg-gradient-to-r from-white/10 via-white/25 to-transparent" />
 
+              {/* animated bullets */}
+              <motion.ul
+                className="mt-12 space-y-4 text-xl md:text-2xl leading-[1.6] text-white/80"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.12 } },
+                }}
+              >
+                {[
+                  "Turn ambiguity into clear requirements and scope",
+                  "Move fast from first principles, hand calcs to designs and trades",
+                  "Prototype early, test often, close loops",
+                ].map((text, i) => (
+                  <motion.li
+                    key={i}
+                    className="flex items-start gap-3"
+                    variants={{
+                      hidden: { opacity: 0, y: 12 },
+                      show: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <span className="mt-[2px] h-2 w-2 rounded-full bg-[rgba(255,59,31,0.55)] shadow-[0_0_18px_rgba(255,59,31,0.18)]" />
+                    <span>{text}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
 
-
-             
+              {/* subtle warm glow under bullets */}
+              <div className="pointer-events-none mt-10 h-10 w-full rounded-3xl bg-[radial-gradient(500px_60px_at_15%_40%,rgba(255,59,31,0.10),transparent_70%)]" />
             </div>
 
-            <div className="flex-1 mt-20 md:mt-28">
-              <p className="text-right text-3xl md:text-5xl italic text-white/20 tracking-wide select-none pointer-events-none">
+            <div className="mt-20 flex-1 md:mt-28">
+              <p className="select-none pointer-events-none text-right text-3xl italic tracking-wide text-white/20 md:text-5xl">
                 Turning science fiction into engineered systems.
               </p>
             </div>
@@ -157,11 +183,17 @@ export default function HomeCrossfade() {
           <div className="text-xs tracking-[0.35em] text-white/60">
             PORTFOLIO
           </div>
-          <h2 className="mt-3 text-4xl md:text-5xl tracking-wide text-white">
-            PROJECT HIGHLIGHTS
-          </h2>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+          <div className="mt-3 flex items-end justify-between gap-6">
+            <h2 className="text-4xl tracking-wide text-white md:text-5xl">
+              PROJECT HIGHLIGHTS
+            </h2>
+
+            {/* subtle accent */}
+            <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-[rgba(255,59,31,0.22)] md:block" />
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
             <HighlightCard
               title="ALULA"
               subtitle="Liquid Bi-Prop Engine"
@@ -185,14 +217,14 @@ export default function HomeCrossfade() {
           </div>
 
           <div className="mt-20 flex flex-col items-center gap-5">
-            <p className="text-white/60 text-sm tracking-wide text-center max-w-2xl">
-              Projects spanning propulsion, robotics, autonomy,
-              cryogenics, and product design.
+            <p className="max-w-2xl text-center text-sm tracking-wide text-white/60">
+              Projects spanning propulsion, robotics, autonomy, cryogenics, and
+              product design.
             </p>
 
             <Link
               href="/works"
-              className="inline-flex items-center justify-center px-10 py-3 rounded-full border border-white/20 text-white text-xs tracking-[0.22em] uppercase hover:border-white/60 hover:bg-white/5 transition-all duration-300"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
             >
               View All Works →
             </Link>
