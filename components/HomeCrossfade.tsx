@@ -124,19 +124,22 @@ export default function HomeCrossfade() {
       >
         <div className="mx-auto max-w-6xl px-6 py-28 min-h-[92vh]">
           <div className="flex flex-col md:flex-row md:gap-12">
-            <div className="max-w-3xl pt-10">
-              <div className="text-xs tracking-[0.35em] text-white/60">
-                PHILOSOPHY
-              </div>
+            <div className="max-w-3xl pt-20">
+  <div className="text-xs tracking-[0.35em] text-white/50">
+    PHILOSOPHY
+  </div>
 
-              <PhilosophyTitle />
+  <div className="mt-6">
+    <PhilosophyTitle />
+  </div>
 
-              <p className="mt-14 text-lg md:text-xl leading-relaxed text-white/75">
-  I take ambiguous problems and turn them into clear
-  requirements and scope. I move fast from first principles
-  hand calcs to trades and designs, prototyping early, and closing
-  loops through test and iteration.
-</p>
+  <p className="mt-14 text-xl md:text-2xl leading-[1.6] text-white/80">
+    I take ambiguous problems and turn them into clear
+    requirements and scope. I move fast from first principles
+    hand calcs to trades and designs, prototyping early, and closing
+    loops through test and iteration.
+  </p>
+</div>
 
 
              
