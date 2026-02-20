@@ -67,12 +67,6 @@ const sections: Section[] = [
   },
 ];
 
-const workflows = [
-  { k: "DESIGN", v: "First principles → requirements → CAD → interfaces" },
-  { k: "BUILD", v: "Prototype early → DFM → fast iteration loops" },
-  { k: "TEST", v: "Instrumentation → procedures → repeatability" },
-  { k: "ITERATE", v: "Data → root cause → changes → validate" },
-];
 
 const container: Variants = {
   hidden: { opacity: 0, y: 12 },
@@ -164,31 +158,10 @@ export default function ToolkitPage() {
               See projects that use this →
             </Link>
 
-            <div className="text-xs tracking-[0.22em] text-white/45">
-              Tools, methods, standards, and edge cases I’ve earned.
-            </div>
+            
           </div>
         </div>
 
-        <div className="mt-14 rounded-3xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
-          <div className="text-xs tracking-[0.35em] text-white/50">HOW I WORK</div>
-
-          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-4">
-            {workflows.map((w) => (
-              <div
-                key={w.k}
-                className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.04]"
-              >
-                <div className="text-sm tracking-[0.22em] text-white/80">
-                  {w.k}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">
-                  {w.v}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         <motion.div
           className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2"
