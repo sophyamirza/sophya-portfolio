@@ -167,10 +167,10 @@ export default function IndustryPage() {
             ].join(" ")}
           >
             <img
-              src="/images/campanile.svg"
-              alt=""
-              className="h-full w-full object-contain object-right"
-            />
+  src="/images/campanile.svg"
+  className="invert opacity-[0.12] mix-blend-screen"
+  alt=""
+/>
           </div>
         </div>
 
