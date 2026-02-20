@@ -19,7 +19,7 @@ export default function IndustryPage() {
   const milestones: Milestone[] = useMemo(
     () => [
       {
-        org: "Space Fellow",
+        org: "VC Technical Fellow",
         role: "Venture Capital",
         when: "2025 – Present",
         tags: "VENTURE · DEEP TECH · STARTUPS",
