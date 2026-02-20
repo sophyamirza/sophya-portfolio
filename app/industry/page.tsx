@@ -18,10 +18,10 @@ export default function IndustryPage() {
   const milestones: Milestone[] = useMemo(
     () => [
       {
-        org: "NewSpace Fellow",
+        org: "Space Fellow",
         role: "Venture Capital",
         when: "2025 – Present",
-        tags: "VENTURE · DEEP TECH · STARTUPS · ",
+        tags: "VENTURE · DEEP TECH · STARTUPS ",
         logo: "/logos/haas.PNG",
       },
       {
@@ -73,6 +73,13 @@ export default function IndustryPage() {
         when: "JAN 2022 – AUG 2023",
         tags: "CRYOGENICS · INSTRUMENTATION · SUPERCONDUCTING SYSTEMS",
         logo: "/logos/lbnl.PNG",
+      },
+       {
+        org: "Design for Nanomanufacturing Lab",
+        role: " Mechanical Engineer ",
+        when: "AUG 2022 – MAY 2023",
+        tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
+        logo: "/logos/DFM.PNG",
       },
     ],
     []
