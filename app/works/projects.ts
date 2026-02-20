@@ -3,196 +3,389 @@ export type Project = {
   slug: string;
   title: string;
   subtitle: string;
-  year: string;
-  cover: string; // /public path
+
+  year: string;      // sorting key (ex: "2026", "2021")
+  yearLabel: string; // display label (ex: "2021–2023")
+
   tags: string[];
+  cover?: string; // optional: "/projects/<slug>/cover.png"
+
+  // list-level copy (used on gallery page or SEO)
   overview: string;
   highlights: string[];
+
+  // detail-page fields (match your screenshot layout)
+  status?: string;        // e.g. "In Progress", "Deployed", "Prototype Validated"
+  date?: string;          // e.g. "January 2026"
+  focusArea?: string;     // e.g. "Aerodynamics & Composites"
+  team?: string;          // e.g. "Sophya Mirza" or "Sophya Mirza, ..."
+  systemOverview?: string;
+  toolsAndSkills?: string[];
+  contributions?: string[];
+  results?: string[];
+
+  // future-proofing (optional)
+  gallery?: string[]; // image paths
+};
+
+const PH = {
+  systemOverview:
+    "{insert system overview here: architecture, constraints, analysis approach, validation plan, and key design decisions.}",
+  contributions: [
+    "{insert contribution here}",
+    "{insert contribution here}",
+    "{insert contribution here}",
+  ],
+  results: [
+    "{insert result here: metrics, validation outcome, performance improvement}",
+    "{insert result here}",
+  ],
+  tools: ["{insert tool}", "{insert tool}", "{insert tool}"],
 };
 
 export const PROJECTS: Project[] = [
+  // =========================
   // 2026
+  // =========================
   {
-    slug: "tesla-m3-rear-wing",
-    title: "Vehicle Optimized Aero CF Rear Wing",
-    subtitle: "Tesla Model 3",
+    slug: "cf-rear-wing",
+    title: "Vehicle Optimized Carbon Fiber Rear Wing",
+    subtitle: "Custom Tesla Model 3 mods",
     year: "2026",
-    cover: "/projects/tesla-m3-rear-wing/cover.png",
-    tags: ["Aero", "Composites", "Design"],
+    yearLabel: "2026",
+    tags: ["Aerodynamics", "Composites", "Downforce", "Spoiler"],
     overview:
-      "A carbon fiber rear wing concept focused on aero performance and manufacturability, sized and iterated through design trades and practical build constraints.",
+      "Carbon fiber rear wing concept focused on aero performance, vehicle integration, and manufacturability, iterated through design trades and build constraints.",
     highlights: [
-      "Defined design intent and constraints (vehicle integration, loads, packaging)",
-      "Iterated geometry via aero + structural trade space exploration",
-      "Designed for manufacturability and assembly realities",
+      "Defined constraints: packaging, mounts, loads, manufacturability",
+      "Iterated geometry through aero + structural trade space",
+      "Designed for assembly, serviceability, and repeatable fabrication",
     ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Aerodynamics & Composites",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: [
+      "CFD",
+      "Composites layup",
+      "CAD",
+      "Vehicle integration",
+      ...PH.tools,
+    ],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
+    slug: "blunt-body-analysis",
+    title: "Blunt Body Analysis",
+    subtitle: "Supersonic flow over a blunt body",
+    year: "2026",
+    yearLabel: "2026",
+    tags: ["Aerodynamics", "ANSYS", "Simulation", "Mesh refinement"],
+    overview:
+      "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
+    highlights: [
+      "Built and refined meshes to resolve key gradients",
+      "Ran parameter and convergence checks",
+      "Interpreted flow features and sensitivity to numerical choices",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "High-Speed Aerodynamics",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
 
+  // =========================
   // 2025
+  // =========================
   {
     slug: "alula",
     title: "ALULA",
-    subtitle: "Liquid Bi-Prop Engine",
+    subtitle: "Liquid bi-prop engine rocket",
     year: "2025",
-    cover: "/projects/alula/cover.png",
-    tags: ["Propulsion", "Valves", "Feed System", "Cryogenics", "Ethyl/lox"],
+    yearLabel: "2025",
+    tags: ["Feed System", "Cryogenics", "Fluids P&ID", "Propulsion", "Ethanol/LOX"],
     overview:
-      "A propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
+      "Propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
     highlights: [
-      "Engine, chamber, and injector design work",
-      "Feed system layout, valves, and interfaces",
-      "Integrated a test stand workflow to close loops quickly",
+      "Owned major architecture decisions and interfaces",
+      "Developed feed system concepts and documentation (P&ID mindset)",
+      "Closed loops through prototyping and validation",
     ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Propulsion Systems",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["P&ID", "Feed system design", "Cryogenic handling", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
-  
-  
   {
-    slug: "space-bears",
-    title: "Space Bears",
+    slug: "nasa-suits-spacebears",
+    title: "NASA SUITS",
+    subtitle: "Founding team SPACEBEARS — UI tech for Artemis",
+    year: "2025",
+    yearLabel: "2025",
+    tags: ["RESTful API", "Embedded Systems", "AR/XR", "LiDAR", "Sensors"],
+    overview:
+      "Spacesuit user interface technology targeting the Artemis campaign, spanning sensing, integration, and software-hardware interface considerations.",
+    highlights: [
+      "Defined system interfaces and integration constraints",
+      "Worked across embedded + sensing + UX requirements",
+      "Built toward reliable, testable subsystem behavior",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Embedded Sensing & Human Systems",
+    team: "Sophya Mirza, {insert team here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Embedded systems", "APIs", "Sensors", "LiDAR", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
+    slug: "rescuebot",
+    title: "RescueBot",
     subtitle: "Quadrupedal robot",
     year: "2025",
-    cover: "/projects/space-bears/cover.png",
-    tags: ["Robotics", "Mechanisms", "Integration"],
+    yearLabel: "2025",
+    tags: ["Gait optimization", "Mechanism design", "Automation", "Controls"],
     overview:
-      "A quadruped robotics build emphasizing mechanical robustness and iterative integration.",
+      "Quadruped robotics project focused on mechanical robustness and performance iteration through testing.",
     highlights: [
-      "Mechanical design for durability and serviceability",
-      "Integration and bring-up support",
-      "Iterated based on real testing and failure modes",
+      "Mechanism design informed by load paths and serviceability",
+      "Iterated gaits and control behavior from test data",
+      "Integrated subsystems for repeatable performance",
     ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Robotics & Mechanisms",
+    team: "Sophya Mirza, {insert team here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Mechanism design", "Controls", "Prototyping", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
   {
-    slug: "bike-project",
-    title: "Bike Project",
-    subtitle: "Mechanical build + iteration",
+    slug: "bike-frame-optimization",
+    title: "Bike Frame Optimization",
+    subtitle: "Drag analysis of truncated NACA-profiled tube",
     year: "2025",
-    cover: "/projects/bike-project/cover.png",
-    tags: ["Mechanical", "Design", "Build"],
+    yearLabel: "2025",
+    tags: ["Wind Tunnel Testing", "CFD", "MATLAB", "Aerodynamics"],
     overview:
-      "A hands-on mechanical build focused on design iteration, practicality, and clean execution.",
+      "Aerodynamic analysis of truncated NACA-profiled tubing combining testing and simulation to guide geometry choices.",
     highlights: [
-      "Defined requirements and constraints upfront",
-      "Built and iterated based on ride/test feedback",
-      "Documented decisions and tradeoffs",
+      "Compared drag trends across geometry variants",
+      "Built a workflow tying CFD, test, and post-processing",
+      "Used results to inform practical design direction",
     ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Aero Testing & CFD",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Wind tunnel testing", "CFD", "MATLAB", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
 
+  // =========================
   // 2024
+  // =========================
   {
-    slug: "ptsd",
-    title: "PTSD",
-    subtitle: "Project (add short description)",
+    slug: "helium-dunk-probe",
+    title: "Helium Dunk Probe",
+    subtitle: "Dewar instrument",
     year: "2024",
-    cover: "/projects/ptsd/cover.png",
-    tags: ["Project", "Systems"],
+    yearLabel: "2024",
+    tags: ["Vacuum Hardware", "Cryogenic Instrumentation", "GSE design", "Testing"],
     overview:
-      "A 2024 project page placeholder—swap in your real overview and highlights.",
-    highlights: ["Key highlight 1", "Key highlight 2", "Key highlight 3"],
+      "Cryogenic dewar probe hardware with vacuum-compatible design, integration, and test procedures.",
+    highlights: [
+      "Designed vacuum-compatible mechanical hardware",
+      "Owned integration details and testing approach",
+      "Improved reliability through iteration and documentation",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Cryogenic Instrumentation",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
   {
     slug: "metamorphic-designs",
     title: "Metamorphic Designs",
-    subtitle: "Adaptive structures / mechanisms",
+    subtitle: "Adaptive furniture design",
     year: "2024",
-    cover: "/projects/metamorphic-designs/cover.png",
-    tags: ["Mechanisms", "Structures", "Design"],
+    yearLabel: "2024",
+    tags: ["Product Design", "CNC Routing", "Prototyping", "Market Analysis", "Urban Design"],
     overview:
-      "Metamorphic design concepts exploring geometry change, compliance, and practical constraints.",
+      "Adaptive furniture concepts exploring transformable geometry, manufacturability, and real-world constraints.",
     highlights: [
-      "Explored mechanisms and morphing concepts",
-      "Iterated via prototypes and constraint-driven design",
-      "Documented tradeoffs and performance targets",
+      "Prototyped and refined mechanisms with practical constraints",
+      "Balanced aesthetics, function, and manufacturability",
+      "Incorporated market and user considerations into design choices",
     ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Product Design & Prototyping",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["CNC routing", "Prototyping", "Design for manufacture", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
   {
-    slug: "airbearings",
-    title: "Airbearings",
-    subtitle: "Precision motion / low friction systems",
+    slug: "pneumatic-magnetometer-boom-gse",
+    title: "Pneumatic Magnetometer Boom GSE",
+    subtitle: "Air bearing test stand",
     year: "2024",
-    cover: "/projects/airbearings/cover.png",
-    tags: ["Precision", "Mechanics", "Test"],
+    yearLabel: "2024",
+    tags: ["Pneumatics", "Air Bearings", "Instrumentation", "GSE design", "Testing"],
     overview:
-      "Airbearing-related work focused on precision motion and integration constraints.",
-    highlights: ["System integration", "Test/validation", "Iteration and tuning"],
+      "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
+    highlights: [
+      "Designed pneumatic architecture and integration points",
+      "Instrumented the setup for clean data capture",
+      "Validated behavior through testing and iteration",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Test Systems & GSE",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Pneumatics", "Air bearings", "Instrumentation", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
   {
-    slug: "six-axis-arm",
-    title: "6-Axis Arm",
-    subtitle: "Robot arm design + integration",
+    slug: "patris",
+    title: "PATRIS",
+    subtitle: "Probing articulated tubular robotic inspection",
     year: "2024",
-    cover: "/projects/six-axis-arm/cover.png",
-    tags: ["Robotics", "Mechanisms", "Control"],
+    yearLabel: "2024",
+    tags: ["Planetary Gearbox", "Cable actuation", "Joint-space PID", "Embedded motor control", "3D Printing"],
     overview:
-      "A 6-axis arm build centered on mechanical design, integration, and performance validation.",
-    highlights: ["Kinematics-driven design", "Integration + bring-up", "Testing"],
+      "Robotic inspection system emphasizing drivetrain design, embedded motor control, and controllable articulation.",
+    highlights: [
+      "Designed transmission and actuation approach",
+      "Implemented and tuned joint-space control behavior",
+      "Built prototypes to validate mechanics + control integration",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Robotics & Embedded Control",
+    team: "Sophya Mirza, {insert team here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Gearbox design", "Embedded control", "3D printing", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
+    slug: "bluefors-dr1-cryostat",
+    title: "BlueFors DR1 Cryostat",
+    subtitle: "Superconducting transition instrumentation",
+    year: "2024",
+    yearLabel: "2024",
+    tags: ["Closed-cycle cryostat", "XLDsl dilution fridge", "PCB design", "Mechanical enclosure", "ANSYS", "DAQ", "ATP authoring"],
+    overview:
+      "Cryostat instrumentation and enclosure work spanning integration constraints, analysis, and test procedure authoring.",
+    highlights: [
+      "Designed mechanical enclosure + interfaces",
+      "Supported analysis and integration constraints",
+      "Authored test procedures (ATP) and supported bring-up",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Cryogenics & Test Engineering",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
 
+  // =========================
   // 2021–2023
+  // =========================
   {
-    slug: "ussv",
-    title: "USSV",
-    subtitle: "Systems build (2021–2023)",
-    year: "2023",
-    cover: "/projects/ussv/cover.png",
-    tags: ["Systems", "Build", "Integration"],
-    overview:
-      "USSV work across multiple years—system design and execution with iterative refinement.",
-    highlights: ["Scope + requirements", "Build and integration", "Testing"],
-  },
-  {
-    slug: "wind-turbine",
-    title: "Wind Turbine Project",
-    subtitle: "Design + build + iteration",
-    year: "2023",
-    cover: "/projects/wind-turbine/cover.png",
-    tags: ["Energy", "Mechanics", "Design"],
-    overview:
-      "A turbine build focused on constraint-driven design and practical performance validation.",
-    highlights: ["Design trades", "Fabrication", "Test and iteration"],
-  },
-  {
-    slug: "dfm",
-    title: "DFM",
-    subtitle: "Design for manufacturability",
-    year: "2022",
-    cover: "/projects/dfm/cover.png",
-    tags: ["Manufacturing", "Design", "Process"],
-    overview:
-      "DFM work emphasizing manufacturable designs, clean interfaces, and practical process choices.",
-    highlights: ["Tolerance/interfaces", "Process tradeoffs", "Documentation"],
-  },
-  {
-    slug: "cmb-dunk-probe",
-    title: "CMB Dunk Probe",
-    subtitle: "Cryogenic hardware",
-    year: "2022",
-    cover: "/projects/cmb-dunk-probe/cover.png",
-    tags: ["Cryogenics", "Instrumentation", "Build"],
-    overview:
-      "Cryogenic probe hardware work supporting experimental operations and reliability.",
-    highlights: ["Mechanical design", "Integration", "Experimental support"],
-  },
-  {
-    slug: "cmb-bluefors-instrument",
-    title: "CMB BlueFors Instrument",
-    subtitle: "Cryostat integration",
-    year: "2022",
-    cover: "/projects/cmb-bluefors-instrument/cover.png",
-    tags: ["Cryogenics", "Integration", "Systems"],
-    overview:
-      "BlueFors cryostat instrumentation integration with tight constraints and careful procedures.",
-    highlights: ["Constraint-driven design", "Integration", "Operational reliability"],
-  },
-  {
-    slug: "4680-test-fixture",
+    slug: "4680-liion-test-fixture",
     title: "4680 Li-ion Cell Test Fixture",
-    subtitle: "Battery test hardware",
+    subtitle: "Battery cell charging and discharging",
     year: "2021",
-    cover: "/projects/4680-test-fixture/cover.png",
-    tags: ["Batteries", "Thermals", "Test"],
+    yearLabel: "2021–2023",
+    tags: ["High voltage", "Power electronics", "Custom fixture", "Fiber temp sensing", "Circuit design"],
     overview:
-      "A test fixture built to support repeatable battery characterization and safe operation.",
-    highlights: ["Mechanical fixture design", "Test workflow", "Iteration"],
+      "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
+    highlights: [
+      "Designed fixture for repeatability and safety",
+      "Integrated sensing strategy for thermal/behavior insight",
+      "Iterated based on testing and failure modes",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Test Hardware & Power",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["HV safety", "Power electronics", "Fixture design", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
+    slug: "kitta",
+    title: "KITTA",
+    subtitle: "Drone delivery platform",
+    year: "2021",
+    yearLabel: "2021–2023",
+    tags: ["UAV", "Payload release mechanism", "Autonomy", "Path planning"],
+    overview:
+      "Drone delivery platform work spanning mechanism design and autonomy-related system considerations.",
+    highlights: [
+      "Designed payload release mechanism with real constraints",
+      "Considered autonomy + path planning requirements",
+      "Prototyped and iterated to improve reliability",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "UAV Mechanisms",
+    team: "Sophya Mirza, {insert team here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Mechanism design", "Rapid prototyping", "Integration", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
+    slug: "usv",
+    title: "USV",
+    subtitle: "Unmanned sea surface vehicle",
+    year: "2021",
+    yearLabel: "2021–2023",
+    tags: ["3D Printing", "Enclosure design", "Mechanism design", "Integration"],
+    overview:
+      "Unmanned sea surface vehicle work focused on enclosure/mechanism design and practical integration.",
+    highlights: [
+      "Designed enclosure and mechanisms for environmental constraints",
+      "Built prototypes with fast iteration loops",
+      "Integrated subsystems for dependable operation",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Marine Robotics Hardware",
+    team: "Sophya Mirza, {insert team here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Enclosure design", "3D printing", "Integration", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
   },
 ];
 
