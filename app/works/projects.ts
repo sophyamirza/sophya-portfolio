@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Liquid Bi-Prop Engine",
     year: "2025",
     cover: "/projects/alula/cover.png",
-    tags: ["Propulsion", "Valves", "Feed System"],
+    tags: ["Propulsion", "Valves", "Feed System", "Cryogenics", "Ethyl/lox"],
     overview:
       "A propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
     highlights: [
@@ -44,51 +44,8 @@ export const PROJECTS: Project[] = [
       "Integrated a test stand workflow to close loops quickly",
     ],
   },
-  {
-    slug: "test-stand",
-    title: "Test Stand",
-    subtitle: "Build → instrument → test → iterate",
-    year: "2025",
-    cover: "/projects/test-stand/cover.png",
-    tags: ["Test", "DAQ", "Instrumentation"],
-    overview:
-      "A modular test stand built for rapid iteration, repeatability, and clean data capture.",
-    highlights: [
-      "Designed test architecture around safety + repeatability",
-      "Integrated sensors/DAQ and validated data quality",
-      "Used test results to drive design revisions",
-    ],
-  },
-  {
-    slug: "feed-system",
-    title: "Feed System",
-    subtitle: "Lines, regs, valves, interfaces",
-    year: "2025",
-    cover: "/projects/feed-system/cover.png",
-    tags: ["Propulsion", "Fluids", "Integration"],
-    overview:
-      "A propulsion feed system effort balancing packaging, flow, sealing, and integration constraints.",
-    highlights: [
-      "Performed first-principles sizing and layout trades",
-      "Owned interfaces and assembly/serviceability",
-      "Validated integrity with leak/fit checks and iterative improvements",
-    ],
-  },
-  {
-    slug: "valves",
-    title: "Valves",
-    subtitle: "Sealing interfaces and reliability",
-    year: "2025",
-    cover: "/projects/valves/cover.png",
-    tags: ["Valves", "Seals", "Reliability"],
-    overview:
-      "Valve and sealing work focused on reliability under real test constraints and iteration cadence.",
-    highlights: [
-      "Redesigned interfaces to improve sealing robustness",
-      "Built test plans to validate workmanship and repeatability",
-      "Documented learnings to accelerate future iterations",
-    ],
-  },
+  
+  
   {
     slug: "space-bears",
     title: "Space Bears",
