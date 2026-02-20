@@ -206,7 +206,7 @@ export default function HomeCrossfade() {
             />
             <HighlightCard
               title="KITTA"
-              subtitle="Drone Delivery Platform"
+              subtitle="DARPA Challenge ~ Drone Delivery Platform"
               tags="UAV · AUTONOMY"
               href="/works/kitta"
             />
