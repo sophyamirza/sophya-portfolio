@@ -68,7 +68,7 @@ export default function RecreationPage() {
               <div>
                 <h3 className="text-2xl tracking-tight">Yuri’s Night</h3>
                 <div className="mt-1 text-white/60">
-                  Organizer · Interactives Coordinator · Sponsorship Lead
+                  Organizer · Interactives Coordinator · Sponsorship 
                 </div>
 
                 <ul className="mt-5 space-y-2 text-white/80">

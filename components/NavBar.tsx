@@ -7,7 +7,7 @@ const nav = [
   { href: "/bio", label: "BIO" },
   { href: "/works", label: "WORKS" },
   { href: "/industry", label: "INDUSTRY" },
-  { href: "/recreation", label: "RECREATION" },
+  { href: "/recreation", label: "COMMUNITY" },
   { href: "/contact", label: "CONTACT" },
 ];
 
