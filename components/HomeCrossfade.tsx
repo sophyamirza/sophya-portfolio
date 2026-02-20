@@ -14,17 +14,25 @@ function HighlightCard({
   title,
   subtitle,
   tags,
+  href,
 }: {
   title: string;
   subtitle: string;
   tags: string;
+  href: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:border-white/35 hover:bg-white/[0.04]">
-      <h3 className="mb-2 text-2xl text-white md:text-3xl">{title}</h3>
-      <p className="mb-5 text-white/70">{subtitle}</p>
-      <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
-    </div>
+    <Link href={href} className="group block">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:border-white/35 hover:bg-white/[0.04]">
+        <h3 className="mb-2 text-2xl text-white md:text-3xl">{title}</h3>
+        <p className="mb-5 text-white/70">{subtitle}</p>
+        <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
+
+        <div className="mt-6 text-xs tracking-[0.22em] uppercase text-white/55 transition-colors duration-300 group-hover:text-white/80">
+          View project →
+        </div>
+      </div>
+    </Link>
   );
 }
 
@@ -132,10 +140,8 @@ export default function HomeCrossfade() {
                 <PhilosophyTitle />
               </div>
 
-              {/* subtle themed accent line */}
               <div className="mt-10 h-px w-24 bg-gradient-to-r from-white/10 via-white/25 to-transparent" />
 
-              {/* animated bullets */}
               <motion.ul
                 className="mt-12 space-y-4 text-xl md:text-2xl leading-[1.6] text-white/80"
                 initial="hidden"
@@ -166,7 +172,6 @@ export default function HomeCrossfade() {
                 ))}
               </motion.ul>
 
-              {/* subtle warm glow under bullets */}
               <div className="pointer-events-none mt-10 h-10 w-full rounded-3xl bg-[radial-gradient(500px_60px_at_15%_40%,rgba(255,59,31,0.10),transparent_70%)]" />
             </div>
 
@@ -189,7 +194,6 @@ export default function HomeCrossfade() {
               PROJECT HIGHLIGHTS
             </h2>
 
-            {/* subtle accent */}
             <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-[rgba(255,59,31,0.22)] md:block" />
           </div>
 
@@ -198,21 +202,25 @@ export default function HomeCrossfade() {
               title="ALULA"
               subtitle="Liquid Bi-Prop Engine"
               tags="PROPULSION · VALVES · FEED SYSTEM"
+              href="/works/alula"
             />
             <HighlightCard
               title="KITTA"
               subtitle="Drone Delivery Platform"
               tags="UAV · AUTONOMY"
+              href="/works/kitta"
             />
             <HighlightCard
               title="RescueBot"
               subtitle="Quadruped Robot"
               tags="ROBOTICS · CONTROL"
+              href="/works/rescuebot"
             />
             <HighlightCard
               title="XLDsl + SQUIDs"
               subtitle="Cryogenic Systems"
               tags="CRYOGENICS · INSTRUMENTATION"
+              href="/works/bluefors-dr1-cryostat"
             />
           </div>
 
