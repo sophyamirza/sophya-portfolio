@@ -1,10 +1,11 @@
 // app/works/projects.ts
+
 export type Project = {
   slug: string;
   title: string;
   subtitle: string;
 
-  year: string;      // sorting key (ex: "2026", "2021")
+  year: string; // sorting key (ex: "2026", "2021")
   yearLabel: string; // display label (ex: "2021–2023")
 
   tags: string[];
@@ -15,10 +16,10 @@ export type Project = {
   highlights: string[];
 
   // detail-page fields (match your screenshot layout)
-  status?: string;        // e.g. "In Progress", "Deployed", "Prototype Validated"
-  date?: string;          // e.g. "January 2026"
-  focusArea?: string;     // e.g. "Aerodynamics & Composites"
-  team?: string;          // e.g. "Sophya Mirza" or "Sophya Mirza, ..."
+  status?: string; // e.g. "In Progress", "Deployed", "Prototype Validated"
+  date?: string; // e.g. "January 2026"
+  focusArea?: string; // e.g. "Aerodynamics & Composites"
+  team?: string; // e.g. "Sophya Mirza" or "Sophya Mirza, ..."
   systemOverview?: string;
   toolsAndSkills?: string[];
   contributions?: string[];
@@ -42,6 +43,8 @@ const PH = {
   ],
   tools: ["{insert tool}", "{insert tool}", "{insert tool}"],
 };
+
+const TEAM_PH = "Sophya Mirza, {insert team here}";
 
 export const PROJECTS: Project[] = [
   // =========================
@@ -143,7 +146,7 @@ export const PROJECTS: Project[] = [
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "Embedded Sensing & Human Systems",
-    team: "Sophya Mirza, {insert team here}",
+    team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Embedded systems", "APIs", "Sensors", "LiDAR", ...PH.tools],
     contributions: PH.contributions,
@@ -166,7 +169,7 @@ export const PROJECTS: Project[] = [
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "Robotics & Mechanisms",
-    team: "Sophya Mirza, {insert team here}",
+    team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Mechanism design", "Controls", "Prototyping", ...PH.tools],
     contributions: PH.contributions,
@@ -285,7 +288,7 @@ export const PROJECTS: Project[] = [
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "Robotics & Embedded Control",
-    team: "Sophya Mirza, {insert team here}",
+    team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Gearbox design", "Embedded control", "3D printing", ...PH.tools],
     contributions: PH.contributions,
@@ -358,7 +361,7 @@ export const PROJECTS: Project[] = [
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "UAV Mechanisms",
-    team: "Sophya Mirza, {insert team here}",
+    team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Mechanism design", "Rapid prototyping", "Integration", ...PH.tools],
     contributions: PH.contributions,
@@ -381,7 +384,7 @@ export const PROJECTS: Project[] = [
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "Marine Robotics Hardware",
-    team: "Sophya Mirza, {insert team here}",
+    team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Enclosure design", "3D printing", "Integration", ...PH.tools],
     contributions: PH.contributions,

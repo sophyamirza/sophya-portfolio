@@ -17,7 +17,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
         className="w-full"
       >
         {children}
-      </motion.main>
+      </motion. main>
     </AnimatePresence>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
-import { Analytics } from "@vercel/analytics/next"
+
+import { Analytics } from "@vercel/analytics/next";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
@@ -13,6 +14,9 @@ type Milestone = {
 };
 
 const clamp = (n: number, a = 0, b = 1) => Math.min(b, Math.max(a, n));
+
+const THERMAL_GRADIENT =
+  "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
 
 export default function IndustryPage() {
   const milestones: Milestone[] = useMemo(
@@ -58,12 +62,11 @@ export default function IndustryPage() {
         when: "MAY 2023 – AUG 2023",
         tags: "GSE · STRUCTURAL TEST · SATELLITE INTEGRATION",
         logo: "/logos/NASA.png",
-        
       },
       {
         org: "Proterra",
         role: "Thermals / Battery R&D Co-op",
-        when: "MAY 2022 – DEC 20s22",
+        when: "MAY 2022 – DEC 2022",
         tags: "BATTERIES · THERMALS · TEST · MANUFACTURING QUALITY",
         logo: "/logos/proterra.PNG",
       },
@@ -74,11 +77,12 @@ export default function IndustryPage() {
         tags: "CRYOGENICS · INSTRUMENTATION · SUPERCONDUCTING SYSTEMS",
         logo: "/logos/lbnl.PNG",
       },
-       {
+      {
         org: "Design for Nanomanufacturing Lab",
-        role: " Mechanical Engineer ",
+        role: "Mechanical Engineer",
         when: "AUG 2022 – MAY 2023",
-        tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
+        tags:
+          "PHOTOLITHOGRAPHY · MICROFLUIDICS · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
         logo: "/logos/DFM.png",
       },
     ],
@@ -129,25 +133,52 @@ export default function IndustryPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Campanile background */}
-      <div className="fixed right-24 top-24 bottom-0 pointer-events-none opacity-[0.06]">
-        <img src="/images/campanile.svg" className="h-[140vh]" alt="" />
+      <Analytics />
+
+      {/* subtle global haze */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_18%_12%,rgba(59,130,246,0.10),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1100px_720px_at_78%_18%,rgba(6,182,212,0.08),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(900px_560px_at_70%_80%,rgba(239,68,68,0.06),transparent_62%)]" />
+        <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
       {/* Header */}
-      <div className="px-8 md:px-20 pt-20">
+      <div className="relative px-8 md:px-20 pt-20">
         <h1 className="text-5xl md:text-6xl tracking-tight">EXPERIENCE</h1>
-        <p className="mt-4 text-white/60 max-w-2xl">
+        <div
+          className="mt-6 h-px w-[220px] opacity-90"
+          style={{ background: THERMAL_GRADIENT }}
+        />
+        <p className="mt-6 text-white/60 max-w-2xl">
           A vertical timeline of engineering roles across propulsion, structures,
           cryogenics, batteries, and aerospace systems.
         </p>
       </div>
 
       <section className="relative mt-14 pb-32">
+        {/* Campanile watermark (premium: sticky + masked + behind content) */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden md:block">
+          <div
+            className={[
+              "sticky top-24 h-[calc(100vh-6rem)] w-[460px]",
+              "text-white opacity-[0.08]",
+              "[mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]",
+            ].join(" ")}
+          >
+            <img
+              src="/images/campanile.svg"
+              alt=""
+              className="h-full w-full object-contain object-right"
+            />
+          </div>
+        </div>
+
         {/* center line */}
         <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-white/15" />
 
-        <div className="mx-auto max-w-6xl px-6 md:px-16">
+        {/* give right padding so campanile never collides with cards */}
+        <div className="relative mx-auto max-w-6xl px-6 md:px-16 md:pr-[520px]">
           <div className="flex flex-col gap-16">
             {milestones.map((m, i) => {
               const left = i % 2 === 0;
@@ -158,9 +189,8 @@ export default function IndustryPage() {
                 <div
                   key={i}
                   ref={(el) => {
-  itemRefs.current[i] = el;
-}}
-
+                    itemRefs.current[i] = el;
+                  }}
                   className="relative"
                   style={{
                     opacity: 0.35 + v * 0.65,
@@ -186,7 +216,9 @@ export default function IndustryPage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2">
-                    <div className={left ? "md:pr-10" : "md:col-start-2 md:pl-10"}>
+                    <div
+                      className={left ? "md:pr-10" : "md:col-start-2 md:pl-10"}
+                    >
                       <div
                         className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm"
                         style={{
@@ -200,12 +232,17 @@ export default function IndustryPage() {
                       >
                         <div className="flex items-center gap-4 mb-3">
                           <div className="flex items-center gap-3">
-                            <Image src={m.logo} alt={m.org} width={36} height={36} />
+                            <Image
+                              src={m.logo}
+                              alt={m.org}
+                              width={36}
+                              height={36}
+                            />
 
                             {m.secondaryLogo && (
                               <Image
                                 src={m.secondaryLogo}
-                                alt="SSL"
+                                alt="Secondary logo"
                                 width={30}
                                 height={30}
                               />
@@ -223,6 +260,16 @@ export default function IndustryPage() {
                         <div className="mt-3 text-[11px] tracking-[0.18em] text-white/45">
                           {m.tags}
                         </div>
+
+                        {/* subtle active underline */}
+                        <div
+                          className="mt-5 h-px w-0 transition-all duration-300"
+                          style={{
+                            background: THERMAL_GRADIENT,
+                            width: active ? 160 : 0,
+                            opacity: active ? 0.85 : 0,
+                          }}
+                        />
                       </div>
                     </div>
 
