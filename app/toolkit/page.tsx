@@ -5,7 +5,7 @@ export default function ToolkitPage() {
         <div className="text-xs tracking-[0.35em] text-white/50">TOOLKIT</div>
 
         <h1 className="mt-4 text-4xl md:text-5xl tracking-wide">
-          Engineering Skillsets
+          Technical Arsenal
         </h1>
 
         <p className="mt-6 max-w-2xl text-white/70">
@@ -17,48 +17,60 @@ export default function ToolkitPage() {
 
           {/* COLUMN 1 */}
           <div>
-            <h3 className="text-lg tracking-wide mb-4">Mechanical + Systems</h3>
+            <h3 className="text-lg tracking-wide mb-4">CAD</h3>
             <ul className="space-y-2 text-white/70">
-              <li>CAD (SolidWorks, CATIA)</li>
-              <li>Mechanism Design</li>
-              <li>Composites Layup</li>
-              <li>Vacuum + Cryogenic Hardware</li>
-              <li>Test Stands & GSE</li>
-              <li>Integration Engineering</li>
+              <li>Solidworks</li>
+              <li>CATIA</li>
+              <li>NX</li>
+              <li>Fusion</li>
+              <li>Onshape</li>
+              <li>GD&T & DFM</li>
+              <li>PDM & PLM</li>
             </ul>
           </div>
 
           {/* COLUMN 2 */}
           <div>
-            <h3 className="text-lg tracking-wide mb-4">Analysis + Simulation</h3>
+            <h3 className="text-lg tracking-wide mb-4">ANALYSIS + SIM</h3>
             <ul className="space-y-2 text-white/70">
-              <li>CFD (ANSYS Fluent)</li>
-              <li>Structural FEA</li>
-              <li>Thermal Analysis</li>
-              <li>Convergence Studies</li>
+              <li>ANSYS</li>
+              <li>ANSA</li>
+              <li>LabVIEW</li>
+              <li>Abaqus</li>
               <li>MATLAB</li>
+              <li>Python, Excel</li>
+              <li>Thermal Desktop</li>
+              <li>Nastran</li>
+              <li>FEA, CFD, FMEA</li>
+              
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg tracking-wide mb-4">Build + Test</h3>
+            <h3 className="text-lg tracking-wide mb-4">BUILD, INTEGRATION & TEST</h3>
             <ul className="space-y-2 text-white/70">
-              <li>Prototyping & Fabrication</li>
-              <li>P&ID Mindset</li>
-              <li>Instrumentation</li>
-              <li>DAQ Integration</li>
+              <li>Prototyping & Dev articles</li>
+                <li>CNC & Manual Machining</li>
+              <li>Fluids P&ID Design, Cryo experience</li>
+              <li>3D Printing: FDM & SLA</li>
+              <li>Instrumentation, Seals, manifold, tubes</li>
+              <li>DAQ</li>
+              <li>Valves & regulators</li>
               <li>ATP Authoring</li>
+              <li>Sift, Grafana, Ion, WarpDrive</li>
+              <li>Amateur welding: MIG, HHLBW, Stud, TIG</li>
+              <li> cleanroom (ISO 8)</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg tracking-wide mb-4">Software + Web</h3>
+            <h3 className="text-lg tracking-wide mb-4">ADDITIONAL</h3>
             <ul className="space-y-2 text-white/70">
-              <li>Next.js App Router</li>
-              <li>Tailwind CSS</li>
-              <li>Framer Motion</li>
-              <li>React</li>
-              <li>Interactive Canvas Graphics</li>
+              <li>Polyglot: English, Farsi, Spanish, Hindi, Urdu, Arabic</li>
+              <li>EAGLE</li> 
+              <li>Altium</li>
+              <li> S-016, 91-710 & addit. standards</li>
+              <li> ESD Rev L(24) by NASA JPL</li>
             </ul>
           </div>
         </div>
