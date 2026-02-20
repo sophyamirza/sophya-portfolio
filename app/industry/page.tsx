@@ -79,7 +79,7 @@ export default function IndustryPage() {
         role: " Mechanical Engineer ",
         when: "AUG 2022 – MAY 2023",
         tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
-        logo: "/logos/DFM.PNG",
+        logo: "/logos/DFM.png",
       },
     ],
     []
