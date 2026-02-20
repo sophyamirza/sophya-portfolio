@@ -17,7 +17,7 @@ const sections: Section[] = [
   {
     title: "CAD",
     subtitle: "Design intent, integration-ready assemblies, DFM-first.",
-    previewSrc: "/toolkit/cad.png",
+    previewSrc: "/toolkit/cad.PNG",
     items: [
       "SolidWorks",
       "CATIA",
@@ -31,7 +31,7 @@ const sections: Section[] = [
   {
     title: "Analysis + Sim",
     subtitle: "Validate trades, converge answers, quantify risk.",
-    previewSrc: "/toolkit/analysis.png",
+    previewSrc: "/toolkit/analysis.PNG",
     items: [
       "ANSYS (Fluent / Mechanical)",
       "ANSA",
@@ -47,7 +47,7 @@ const sections: Section[] = [
   {
     title: "Build, Integration + Test",
     subtitle: "Prototype fast, acquire diagnostics, close loops.",
-    previewSrc: "/toolkit/test.png",
+    previewSrc: "/toolkit/test.PNG",
     items: [
       "Prototyping + dev hardware",
       "CNC + manual machining",
@@ -63,7 +63,7 @@ const sections: Section[] = [
   {
     title: "Additional",
     subtitle: "Standards, EE tooling, and communication edge.",
-    previewSrc: "/toolkit/additional.png",
+    previewSrc: "/toolkit/additional.PNG",
     items: [
       "Polyglot: English, Farsi, Spanish, Hindi, Urdu, Arabic",
       "EAGLE",
