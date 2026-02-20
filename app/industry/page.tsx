@@ -1,7 +1,7 @@
 "use client";
 
 import { Analytics } from "@vercel/analytics/next";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 type Milestone = {
@@ -145,7 +145,7 @@ export default function IndustryPage() {
         <div
           className={[
             "sticky top-24 h-[calc(100vh-6rem)] w-[460px]",
-            "invert opacity-[0.10] mix-blend-screen",
+            "invert opacity-[0.12] mix-blend-screen",
             "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
           ].join(" ")}
         >
@@ -182,18 +182,23 @@ export default function IndustryPage() {
               const active = i === activeIndex;
               const v = vis[i] ?? 0;
 
+              // Premium visibility: never let items disappear
+              const base = 0.58;
+              const opacity = base + (1 - base) * v;
+
               const motionStyle: React.CSSProperties = {
-                opacity: 0.35 + v * 0.65,
-                transform: `translate3d(0, ${Math.round((1 - v) * 18)}px, 0)`,
-                transition: "opacity 160ms linear, transform 160ms linear",
+                opacity,
+                transform: `translate3d(0, ${Math.round((1 - v) * 10)}px, 0)`,
+                transition: "opacity 220ms ease, transform 220ms ease",
+                willChange: "opacity, transform",
               };
 
               const cardStyle: React.CSSProperties = {
                 borderColor: active
-                  ? "rgba(255,255,255,0.22)"
+                  ? "rgba(255,255,255,0.24)"
                   : "rgba(255,255,255,0.10)",
                 boxShadow: active
-                  ? "0 0 40px rgba(255,255,255,0.08)"
+                  ? "0 0 44px rgba(255,255,255,0.09)"
                   : "0 0 28px rgba(255,255,255,0.04)",
               };
 
@@ -243,7 +248,7 @@ export default function IndustryPage() {
 
               return (
                 <div
-                  key={i}
+                  key={m.org}
                   ref={(el) => {
                     itemRefs.current[i] = el;
                   }}
@@ -260,9 +265,9 @@ export default function IndustryPage() {
                     {left && Card}
                   </div>
 
-                  {/* CENTER COLUMN: dot exactly on the line */}
+                  {/* CENTER COLUMN: dot centered on the line */}
                   <div className="relative md:col-start-2 flex items-start justify-center">
-                    <div className="relative mt-10">
+                    <div className="relative mt-10 flex items-center justify-center">
                       <div
                         className="rounded-full"
                         style={{
@@ -270,11 +275,11 @@ export default function IndustryPage() {
                           height: active ? 14 : 10,
                           background: active
                             ? "rgba(255,255,255,0.95)"
-                            : "rgba(255,255,255,0.7)",
+                            : "rgba(255,255,255,0.70)",
                           boxShadow: active
-                            ? "0 0 24px rgba(255,255,255,0.2)"
-                            : "0 0 14px rgba(255,255,255,0.1)",
-                          transition: "all 160ms linear",
+                            ? "0 0 24px rgba(255,255,255,0.22)"
+                            : "0 0 14px rgba(255,255,255,0.10)",
+                          transition: "all 220ms ease",
                         }}
                       />
                     </div>
