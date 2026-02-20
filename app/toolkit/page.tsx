@@ -9,8 +9,7 @@ export default function ToolkitPage() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-white/70">
-          Full lifecycle hardware ownership from first principles to deployed
-          systems. Design, analysis, build, test, iterate.
+          Design, Build, Test, Iterate!
         </p>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
