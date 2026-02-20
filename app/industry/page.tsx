@@ -149,6 +149,7 @@ export default function IndustryPage() {
             "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
           ].join(" ")}
         >
+          {/* use <img> to avoid Next Image remote/static config issues for svg */}
           <img
             src="/images/campanile.svg"
             alt=""
@@ -170,20 +171,17 @@ export default function IndustryPage() {
       {/* Timeline */}
       <section className="relative mt-14 pb-32">
         <div className="relative mx-auto max-w-6xl px-6 md:px-16">
-          {/* 3-col grid: left cards | center line | right cards */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_72px_1fr] gap-y-16">
-            {/* center line (md+) */}
-            <div className="pointer-events-none hidden md:block col-start-2 row-start-1 row-end-[999] relative">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-white/15" />
-            </div>
+          {/* center line (md+) */}
+          <div className="pointer-events-none hidden md:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-white/15" />
 
+          <div className="flex flex-col gap-16">
             {milestones.map((m, i) => {
               const left = i % 2 === 0;
               const active = i === activeIndex;
               const v = vis[i] ?? 0;
 
-              // Premium visibility: never let items disappear
-              const base = 0.58;
+              // never fully disappear
+              const base = 0.62;
               const opacity = base + (1 - base) * v;
 
               const motionStyle: React.CSSProperties = {
@@ -248,24 +246,18 @@ export default function IndustryPage() {
 
               return (
                 <div
-                  key={m.org}
+                  key={`${m.org}-${m.when}`}
                   ref={(el) => {
                     itemRefs.current[i] = el;
                   }}
-                  className="contents"
+                  className="grid grid-cols-1 md:grid-cols-[1fr_72px_1fr] gap-y-6 md:gap-y-0"
                 >
-                  {/* LEFT COLUMN */}
-                  <div
-                    className={
-                      left
-                        ? "md:col-start-1"
-                        : "md:col-start-1 md:opacity-0 md:pointer-events-none"
-                    }
-                  >
-                    {left && Card}
+                  {/* LEFT */}
+                  <div className="md:col-start-1">
+                    {left ? Card : <div className="hidden md:block" />}
                   </div>
 
-                  {/* CENTER COLUMN: dot centered on the line */}
+                  {/* CENTER DOT */}
                   <div className="relative md:col-start-2 flex items-start justify-center">
                     <div className="relative mt-10 flex items-center justify-center">
                       <div
@@ -285,15 +277,9 @@ export default function IndustryPage() {
                     </div>
                   </div>
 
-                  {/* RIGHT COLUMN */}
-                  <div
-                    className={
-                      left
-                        ? "md:col-start-3 md:opacity-0 md:pointer-events-none"
-                        : "md:col-start-3"
-                    }
-                  >
-                    {!left && Card}
+                  {/* RIGHT */}
+                  <div className="md:col-start-3">
+                    {!left ? Card : <div className="hidden md:block" />}
                   </div>
                 </div>
               );
