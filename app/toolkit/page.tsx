@@ -41,7 +41,7 @@ const sections: Section[] = [
   },
   {
     title: "Build, Integration + Test",
-    subtitle: "Prototype fast, instrument deeply, close loops.",
+    subtitle: "Prototype fast, Acquire diagnostics , Close loops.",
     items: [
       "Prototyping + dev hardware",
       "CNC + manual machining",
@@ -145,7 +145,7 @@ export default function ToolkitPage() {
             <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
 
             <p className="mt-6 max-w-2xl text-white/70">
-              Design, build, test, iterate — with a bias toward shipping hardware
+              Design, build, test, iterate,  with a bias toward shipping hardware
               that works in real constraints.
             </p>
           </div>
