@@ -219,24 +219,7 @@ export default function BioPage() {
 
           {/* RIGHT: rail lists (sticky) */}
           <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-              <div className="mt-4 space-y-2 text-white/70">
-                {[
-                  { id: "bio", label: "BIO" },
-                  { id: "manifesto", label: "MANIFESTO" },
-                ].map((x) => (
-                  <a
-                    key={x.id}
-                    href={`#${x.id}`}
-                    className="block rounded-xl px-3 py-2 text-sm tracking-[0.18em] transition-all duration-300 hover:bg-white/[0.03] hover:text-white"
-                  >
-                    {x.label}
-                  </a>
-                ))}
-              </div>
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-        
-            </div>
+    
 
             <RailBlock
               title="EXPERIENCE"
@@ -260,7 +243,8 @@ export default function BioPage() {
                 "Robotics",
                 "Cryogenics",
                 "Community building",
-                "Photography",
+                "35 mm Film Photography", 
+                "Muay Thai kickboxing", 
                 "Jiu-jitsu",
               ]}
             />
