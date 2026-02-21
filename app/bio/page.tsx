@@ -97,7 +97,6 @@ export default function BioPage() {
           <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
             {/* BIO */}
             <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
-            <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">Background</h2>
             <div className={`mt-4 h-[2px] w-44 ${THERMAL} opacity-55`} />
 
             <div className="mt-8 space-y-6 text-[15px] leading-relaxed text-white/75">
@@ -221,7 +220,6 @@ export default function BioPage() {
           {/* RIGHT: rail lists (sticky) */}
           <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-              <div className="text-xs tracking-[0.35em] text-white/50">SECTIONS</div>
               <div className="mt-4 space-y-2 text-white/70">
                 {[
                   { id: "bio", label: "BIO" },
@@ -237,9 +235,7 @@ export default function BioPage() {
                 ))}
               </div>
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-              <div className="mt-6 text-[11px] tracking-[0.28em] text-white/45">
-                DESIGN · INTEGRATE · TEST · FIX · SHIP
-              </div>
+        
             </div>
 
             <RailBlock
