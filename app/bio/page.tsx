@@ -1,84 +1,58 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 const THERMAL =
   "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]";
 
-const sections = [
-  { id: "bio", label: "BIO" },
-  { id: "manifesto", label: "MANIFESTO" },
-  { id: "experience", label: "EXPERIENCE" },
-  { id: "design", label: "DESIGN + FABRICATION" },
-  { id: "education", label: "EDUCATION" },
-  { id: "interests", label: "INTERESTS" },
-];
-
-function SectionHeader({
-  id,
-  label,
+function RailBlock({
   title,
+  items,
+  accent = "text-white/80",
 }: {
-  id: string;
-  label: string;
   title: string;
+  items: string[];
+  accent?: string;
 }) {
   return (
-    <div id={id} className="scroll-mt-28">
-      <div className="text-xs tracking-[0.35em] text-white/50">{label}</div>
-      <h2 className="mt-3 text-3xl md:text-4xl tracking-tight text-white">
-        {title}
-      </h2>
-      <div className={`mt-4 h-[2px] w-36 ${THERMAL} opacity-60`} />
+    <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
+      <div className="flex items-center justify-between">
+        <div className="text-xs tracking-[0.35em] text-white/50">{title}</div>
+        <div className={`h-2 w-2 rounded-full ${THERMAL} opacity-70`} />
+      </div>
+      <div className="mt-4 space-y-2">
+        {items.map((x) => (
+          <div key={x} className={`text-sm ${accent}`}>
+            {x}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-function Sidebar() {
-  return (
-    <aside className="hidden lg:block lg:col-span-4">
-      <div className="sticky top-24 rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-        <div className="text-xs tracking-[0.35em] text-white/50">SECTIONS</div>
+function Highlight({
+  children,
+  tone = "thermal",
+}: {
+  children: React.ReactNode;
+  tone?: "thermal" | "warm" | "cool";
+}) {
+  const cls =
+    tone === "thermal"
+      ? "text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.20)]"
+      : tone === "warm"
+      ? "text-[rgba(255,59,31,0.95)]"
+      : "text-[rgba(0,179,255,0.95)]";
 
-        <nav className="mt-5 flex flex-col gap-2">
-          {sections.map((s) => (
-            <a
-              key={s.id}
-              href={`#${s.id}`}
-              className="group flex items-center justify-between rounded-2xl border border-transparent px-3 py-2 text-sm text-white/70 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.03] hover:text-white"
-            >
-              <span className="tracking-[0.18em]">{s.label}</span>
-              <span className="opacity-0 transition-opacity duration-300 group-hover:opacity-70">
-                →
-              </span>
-            </a>
-          ))}
-        </nav>
-
-        <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-
-        <div className="mt-6 text-xs tracking-[0.28em] text-white/45">
-          DESIGN · INTEGRATE · TEST · FIX · SHIP
-        </div>
-      </div>
-    </aside>
-  );
-}
-
-function Tag({ children }: { children: string }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-white/70 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06] hover:text-white">
-      {children}
-    </span>
-  );
+  return <span className={`font-semibold ${cls}`}>{children}</span>;
 }
 
 export default function BioPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* subtle haze */}
+      {/* haze */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_18%_12%,rgba(59,130,246,0.08),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(1100px_650px_at_78%_18%,rgba(6,182,212,0.06),transparent_55%)]" />
@@ -87,79 +61,103 @@ export default function BioPage() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-20 md:pt-24">
-        {/* Header */}
-        <div className="flex flex-col gap-5">
-          <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
+        {/* top title */}
+        <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
+        <h1 className="mt-4 text-6xl md:text-7xl tracking-tight">Sophya Mirza</h1>
+        <div className={`mt-5 h-[2px] w-64 ${THERMAL} opacity-70`} />
+        <p className="mt-6 max-w-3xl text-white/65">
+          Mechanical engineer designing, building, and testing hardware at the
+          extremes. Bias toward shipping. Tight feedback loops. Extreme ownership.
+        </p>
 
-          <div className="flex flex-col gap-3">
-            <h1 className="text-6xl md:text-7xl tracking-tight">Sophya Mirza</h1>
-            <div className={`h-[2px] w-56 ${THERMAL} opacity-70`} />
-            <p className="max-w-2xl text-white/65">
-              Mechanical engineer designing, building, and testing hardware at the
-              extremes. Bias toward shipping. Tight feedback loops. Extreme ownership.
-            </p>
-          </div>
-        </div>
-
-        {/* Layout */}
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12">
-          {/* Main column */}
-          <div className="lg:col-span-8">
-            {/* Bio */}
-            <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
-              <SectionHeader id="bio" label="BIO" title="Background" />
-
-              <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-white/75">
-                <p>
-                  I grew up in LA, between backyard experiments, late night takeout,
-                  and the constant roar of LAX. Somewhere between breakthrough tech
-                  in Gundo and fortune cookies, I learned that enthusiasm is something
-                  you create.
-                </p>
-
-                <p>
-                  I’ve always been driven to understand how things actually work by
-                  building them. What started as science fairs and a chance to meet
-                  the President became something deeper after watching the Space
-                  Shuttle fly over my school on its final journey. Months later, I
-                  found myself competing beneath that same shuttle at the Science
-                  Center, a full circle moment that set the direction.
-                </p>
-
-                <p>
-                  At 14, I spent a summer in rural NC bouldering the Chimneys, touring
-                  wind farms and hydroelectric dams, and getting hooked on turbines
-                  and generators. That experience led to my earliest projects
-                  refurbishing generators and cemented what I care about most: hands
-                  on engineering, validation through testing, and learning by doing.
-                </p>
-
-                <p>
-                  Since then, I’ve worked and interned every summer learning how real
-                  hardware gets built, shipped, and occasionally redesigned overnight.
-                  Along the way, I’ve taken extreme ownership across propulsion
-                  systems, vehicle structures, and test infrastructure at SpaceX,
-                  Astranis, Proterra, NASA, and SSL, growing from a member to lead
-                  engineer on my bipropellant rocketry team and founding teams that
-                  built critical technology for EVA missions for Artemis.
-                </p>
-
-                <p>
-                  Today, I bring that same enthusiasm to designing, building, and
-                  testing end to end hardware, driven by fast iteration, deep
-                  ownership, and turning science fiction into engineered reality.
-                </p>
-              </div>
-            </section>
-
-            {/* Manifesto */}
-            <section className="mt-10 rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
-              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <SectionHeader
-                  id="manifesto"
-                  label="MANIFESTO"
-                  title="Rebuild the Loop"
+        {/* 3-column layout */}
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-[360px_1fr_320px]">
+          {/* LEFT: photo (sticky) */}
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4">
+              <div className={`h-[2px] w-full ${THERMAL} opacity-35`} />
+              <div className="mt-4 relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-white/10">
+                {/* change this path */}
+                <Image
+                  src="/images/bio.jpg"
+                  alt="Sophya Mirza"
+                  fill
+                  sizes="360px"
+                  className="object-cover"
+                  priority={false}
                 />
+              </div>
+              <div className="mt-4 text-xs tracking-[0.35em] text-white/50">
+                LOS ANGELES · BERKELEY
+              </div>
+            </div>
+          </aside>
+
+          {/* CENTER: long text (Bio + Manifesto under it) */}
+          <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
+            {/* BIO */}
+            <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
+            <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">Background</h2>
+            <div className={`mt-4 h-[2px] w-44 ${THERMAL} opacity-55`} />
+
+            <div className="mt-8 space-y-6 text-[15px] leading-relaxed text-white/75">
+              <p>
+                I grew up in LA, between backyard experiments, late night takeout,
+                and the constant roar of LAX. Somewhere between breakthrough tech in
+                Gundo and fortune cookies, I learned that enthusiasm is something you
+                create.
+              </p>
+
+              <p>
+                I’ve always been driven to understand how things actually work by
+                building them. What started as science fairs and a chance to meet the
+                President became something deeper after watching the{" "}
+                <Highlight tone="cool">Space Shuttle</Highlight> fly over my school on
+                its final journey. Months later, I found myself competing beneath
+                that same shuttle at the Science Center, a full circle moment that
+                set the direction.
+              </p>
+
+              <p>
+                At 14, I spent a summer in rural NC bouldering the Chimneys, touring
+                wind farms and hydroelectric dams, and getting hooked on turbines and
+                generators. That experience led to my earliest projects refurbishing
+                generators and cemented what I care about most:{" "}
+                <Highlight tone="warm">hands on engineering</Highlight>, validation
+                through testing, and learning by doing.
+              </p>
+
+              <p>
+                Since then, I’ve worked and interned every summer learning how real
+                hardware gets built, shipped, and occasionally redesigned overnight.
+                Along the way, I’ve taken extreme ownership across propulsion
+                systems, vehicle structures, and test infrastructure at{" "}
+                <Highlight>SpaceX</Highlight>, <Highlight>Astranis</Highlight>,{" "}
+                <Highlight>Proterra</Highlight>, <Highlight>NASA</Highlight>, and{" "}
+                <Highlight>SSL</Highlight>, growing from a member to lead engineer on
+                my bipropellant rocketry team and founding teams that built critical
+                technology for EVA missions for Artemis.
+              </p>
+
+              <p>
+                Today, I bring that same enthusiasm to designing, building, and
+                testing end to end hardware, driven by fast iteration, deep
+                ownership, and turning science fiction into engineered reality.
+              </p>
+            </div>
+
+            {/* MANIFESTO directly under bio */}
+            <div className="mt-14">
+              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <div className="text-xs tracking-[0.35em] text-white/50">
+                    MANIFESTO
+                  </div>
+                  <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">
+                    Rebuild the Loop
+                  </h2>
+                  <div className={`mt-4 h-[2px] w-44 ${THERMAL} opacity-55`} />
+                </div>
 
                 <Link
                   href="https://YOUR_SUBSTACK_URL_HERE"
@@ -170,13 +168,7 @@ export default function BioPage() {
                 </Link>
               </div>
 
-              <motion.div
-                className="mt-8 space-y-5 text-[15px] leading-relaxed text-white/75"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
+              <div className="mt-8 space-y-6 text-[15px] leading-relaxed text-white/75">
                 <p className="text-white/85">Our future depends on making things again.</p>
 
                 <p>
@@ -191,17 +183,19 @@ export default function BioPage() {
                 </p>
 
                 <p>
-                  Manufacturing is 11% of U.S. GDP but fuels nearly 70% of private R&D.
-                  Offshoring stretched lead times and slowed iteration. To meet rising
-                  demand in technology, space, energy, and defense, we need production
-                  at home.
+                  Manufacturing is 11% of U.S. GDP but fuels nearly 70% of private
+                  R&D. Offshoring stretched lead times and slowed iteration. To meet
+                  rising demand in technology, space, energy, and defense, we need
+                  production at home.
                 </p>
 
-                <p>Onshoring is compression: redesign Monday, cut Friday.</p>
+                <p>
+                  <Highlight tone="warm">Onshoring is compression:</Highlight> redesign
+                  Monday, cut Friday. Progress lives where loops close and ownership
+                  is absolute.
+                </p>
 
-                <p>Progress lives where loops close and ownership is absolute.</p>
-
-                <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
                   <p className="text-white/85">If it breaks, I own it.</p>
                   <p className="text-white/85">If a test fails, I own it.</p>
                   <p className="mt-3 text-white/70">
@@ -209,127 +203,73 @@ export default function BioPage() {
                     never leaves the whiteboard.
                   </p>
 
-                  <div className="mt-6 h-px w-44 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="mt-6 h-px w-52 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                   <p className="mt-6 text-white/80">
-                    Success is cycle time. It’s hardware that survives contact with reality.
+                    Success is cycle time. It’s hardware that survives contact with
+                    reality.
                   </p>
 
                   <p className="mt-4 text-white/85">
                     Design. Integrate. Test. Fix. Ship. (Repeat)
                   </p>
                 </div>
-              </motion.div>
-            </section>
+              </div>
+            </div>
+          </section>
 
-            {/* Interests (main column, matches reference vibe) */}
-            <section className="mt-10 rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
-              <SectionHeader id="interests" label="INTERESTS" title="What I’m drawn to" />
-              <div className="mt-8 flex flex-wrap gap-2.5">
+          {/* RIGHT: rail lists (sticky) */}
+          <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
+              <div className="text-xs tracking-[0.35em] text-white/50">SECTIONS</div>
+              <div className="mt-4 space-y-2 text-white/70">
                 {[
-                  "Propulsion",
-                  "Test engineering",
-                  "Manufacturing",
-                  "Robotics",
-                  "Aero + structures",
-                  "Cryogenics",
-                  "Deep tech startups",
-                  "Community building",
-                  "Photography",
-                  "Jiu-jitsu",
+                  { id: "bio", label: "BIO" },
+                  { id: "manifesto", label: "MANIFESTO" },
                 ].map((x) => (
-                  <Tag key={x}>{x}</Tag>
+                  <a
+                    key={x.id}
+                    href={`#${x.id}`}
+                    className="block rounded-xl px-3 py-2 text-sm tracking-[0.18em] transition-all duration-300 hover:bg-white/[0.03] hover:text-white"
+                  >
+                    {x.label}
+                  </a>
                 ))}
               </div>
-            </section>
-          </div>
-
-          {/* Sidebar column */}
-          <div className="lg:col-span-4">
-            <Sidebar />
-
-            {/* Reference-style stacked lists (right rail content) */}
-            <div className="mt-10 lg:mt-0 lg:sticky lg:top-[26rem] space-y-6 hidden lg:block">
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-                <div className="text-xs tracking-[0.35em] text-white/50">
-                  EXPERIENCE
-                </div>
-                <div className="mt-4 space-y-2 text-white/75">
-                  {["SpaceX", "Astranis", "NASA", "Proterra", "SSL / Cryogenics"].map(
-                    (x) => (
-                      <div key={x} className="text-sm">
-                        {x}
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-                <div className="text-xs tracking-[0.35em] text-white/50">
-                  DESIGN
-                </div>
-                <div className="mt-4 space-y-2 text-white/75">
-                  {["CAD + GD&T", "DFM", "Interfaces", "Architecture + trades"].map(
-                    (x) => (
-                      <div key={x} className="text-sm">
-                        {x}
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-                <div className="text-xs tracking-[0.35em] text-white/50">
-                  FABRICATION
-                </div>
-                <div className="mt-4 space-y-2 text-white/75">
-                  {["Prototyping", "CNC + manual machining", "3D printing", "Composites"].map(
-                    (x) => (
-                      <div key={x} className="text-sm">
-                        {x}
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-                <div className="text-xs tracking-[0.35em] text-white/50">
-                  EDUCATION
-                </div>
-                <div className="mt-4 text-sm text-white/75">
-                  UC Berkeley Mechanical Engineering
-                </div>
+              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+              <div className="mt-6 text-[11px] tracking-[0.28em] text-white/45">
+                DESIGN · INTEGRATE · TEST · FIX · SHIP
               </div>
             </div>
 
-            {/* Small portrait block (optional, matches the reference layout) */}
-            <div className="mt-10 hidden lg:block">
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4">
-                <div className={`h-[2px] w-full ${THERMAL} opacity-40`} />
-                <div className="mt-4 relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-white/10">
-                  {/* Replace with your own image path */}
-                  <Image
-                    src="/images/bio.jpg"
-                    alt="Sophya Mirza"
-                    fill
-                    sizes="(min-width: 1024px) 320px, 0px"
-                    className="object-cover"
-                    priority={false}
-                  />
-                </div>
-                <div className="mt-4 text-xs tracking-[0.35em] text-white/50">
-                  LOS ANGELES → BERKELEY
-                </div>
-              </div>
-            </div>
-          </div>
+            <RailBlock
+              title="EXPERIENCE"
+              items={["SpaceX", "Astranis", "NASA", "Proterra", "SSL (Cryogenics)"]}
+            />
+            <RailBlock
+              title="DESIGN"
+              items={["System architecture", "Interfaces", "CAD + GD&T", "DFM trades"]}
+            />
+            <RailBlock
+              title="FABRICATION"
+              items={["Prototyping", "CNC + manual machining", "3D printing", "Composites"]}
+            />
+            <RailBlock title="EDUCATION" items={["UC Berkeley · Mechanical Engineering"]} />
+            <RailBlock
+              title="INTERESTS"
+              items={[
+                "Propulsion",
+                "Test engineering",
+                "Manufacturing",
+                "Robotics",
+                "Cryogenics",
+                "Community building",
+                "Photography",
+                "Jiu-jitsu",
+              ]}
+            />
+          </aside>
         </div>
-
-        {/* bottom divider */}
-        <div className="mt-16 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
     </main>
   );
