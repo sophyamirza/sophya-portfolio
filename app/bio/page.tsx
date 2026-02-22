@@ -85,7 +85,7 @@ export default function BioPage() {
                 />
               </div>
               <div className="mt-4 text-xs tracking-[0.35em] text-white/50">
-                LOS ANGELES · BERKELEY
+                LA· SF
               </div>
             </div>
           </aside>
@@ -100,14 +100,14 @@ export default function BioPage() {
               <p>
                 I grew up in LA, between backyard experiments, late night takeout,
                 and the constant roar of LAX. Somewhere between breakthrough tech in
-                Gundo and fortune cookies, I learned that enthusiasm is something you create.
+                Gundo and fortune cookies, I learned that enthusiasm is something I create.
               </p>
 
               <p>
                 I’ve always been driven to understand how things actually work by
                 building them. What started as science fairs and a chance to meet the
-                President became something deeper after watching the{" "}
-                <Highlight tone="cool">Space Shuttle</Highlight> fly over my school.
+                President became something deeper after watching the
+                Space Shuttle fly over my school.
               </p>
 
               <p>
