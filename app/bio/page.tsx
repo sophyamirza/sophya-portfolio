@@ -126,7 +126,7 @@ export default function BioPage() {
       {
         src: "/images/scicenter.jpg",
         alt: "California Science Center: Scott Manley (left), Sophya (Center), Jeanette Epps (Right)",
-        caption: "California science center with Scott Manley + Jeanette Epps",
+        caption: "California Science Center: Scott Manley (left), Sophya (Center), Jeanette Epps (Right)",
       },
     ],
     []
