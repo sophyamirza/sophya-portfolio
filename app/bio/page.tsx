@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const THERMAL =
   "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]";
@@ -22,7 +22,7 @@ function ChipSection({
 }) {
   const clean = items.map((x) => x.trim()).filter(Boolean);
 
-  const container = {
+  const container: Variants = {
     hidden: {},
     show: {
       transition: {
@@ -32,7 +32,7 @@ function ChipSection({
     },
   };
 
-  const chip = {
+  const chip: Variants = {
     hidden: { opacity: 0, y: 8, scale: 0.98 },
     show: {
       opacity: 1,
@@ -52,12 +52,9 @@ function ChipSection({
     ? "px-2.5 py-1 text-[11px] sm:text-[12px]"
     : "px-3 py-1 text-[11px] sm:text-[12px]";
 
-  // Default chip style
-  const defaultChip =
-    "border border-white/12 bg-white/[0.03] text-white/75";
+  const defaultChip = "border border-white/12 bg-white/[0.03] text-white/75";
 
   // Thermal chip style (gradient border)
-  // Technique: outer gradient wrapper + inner dark pill
   const thermalOuter =
     `p-[1px] rounded-full ${THERMAL} ` +
     "shadow-[0_0_22px_rgba(255,255,255,0.08)]";
@@ -73,12 +70,7 @@ function ChipSection({
         variants={container}
         initial="hidden"
         animate="show"
-        className={[
-          "mt-4 flex flex-wrap",
-          dense ? "gap-2" : "gap-2",
-          // tighter wrap on mobile (less horizontal dead space)
-          "max-w-full",
-        ].join(" ")}
+        className={["mt-4 flex flex-wrap", "gap-2", "max-w-full"].join(" ")}
       >
         {clean.map((x) =>
           variant === "thermal" ? (
@@ -238,7 +230,6 @@ export default function BioPage() {
           {/* RIGHT SIDEBAR */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-              {/* EXPERIENCE gets thermal chips */}
               <ChipSection
                 title="EXPERIENCE"
                 variant="thermal"
