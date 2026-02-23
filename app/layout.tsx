@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CursorHalo />
         <NavBar />
         <PageTransition>{children}</PageTransition>
+        <SpeedInsights />
       </body>
     </html>
   );
