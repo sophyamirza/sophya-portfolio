@@ -125,7 +125,7 @@ export default function BioPage() {
       { src: "/images/bio.jpg", alt: "Sophya Mirza headshot", caption: "" },
       {
         src: "/images/scicenter.jpg",
-        alt: "California Science Center with Scott Manley and Jeanette Epps",
+        alt: "California Science Center: Scott Manley (left), Sophya (Center), Jeanette Epps (Right)",
         caption: "California science center with Scott Manley + Jeanette Epps",
       },
     ],
