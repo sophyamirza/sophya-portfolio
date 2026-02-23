@@ -1,61 +1,103 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const THERMAL =
   "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]";
 
-function RailSection({
-  title,
-  items,
-}: {
-  title: string;
-  items: string[];
-}) {
-  return (
-    <div className="pt-7 first:pt-0">
-      <div className="text-xs tracking-[0.35em] text-white/55">{title}</div>
-      <div className={`mt-3 h-[2px] w-28 ${THERMAL} opacity-45`} />
-      <div className="mt-4 space-y-2">
-        {items.map((x) => (
-          <div key={x} className="text-sm text-white/75">
-            {x}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+type ChipVariant = "default" | "thermal";
 
 function ChipSection({
   title,
   items,
+  variant = "default",
+  dense = false,
 }: {
   title: string;
   items: string[];
+  variant?: ChipVariant;
+  dense?: boolean;
 }) {
-  const clean = items
-    .map((x) => x.trim())
-    .filter((x) => x.length > 0);
+  const clean = items.map((x) => x.trim()).filter(Boolean);
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.035,
+        delayChildren: 0.06,
+      },
+    },
+  };
+
+  const chip = {
+    hidden: { opacity: 0, y: 8, scale: 0.98 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const baseChip =
+    "inline-flex items-center rounded-full backdrop-blur-md transition " +
+    "hover:bg-white/[0.06] hover:border-white/25 " +
+    "hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_10px_30px_rgba(0,0,0,0.35)] " +
+    "active:scale-[0.99]";
+
+  const sizeChip = dense
+    ? "px-2.5 py-1 text-[11px] sm:text-[12px]"
+    : "px-3 py-1 text-[11px] sm:text-[12px]";
+
+  // Default chip style
+  const defaultChip =
+    "border border-white/12 bg-white/[0.03] text-white/75";
+
+  // Thermal chip style (gradient border)
+  // Technique: outer gradient wrapper + inner dark pill
+  const thermalOuter =
+    `p-[1px] rounded-full ${THERMAL} ` +
+    "shadow-[0_0_22px_rgba(255,255,255,0.08)]";
+  const thermalInner =
+    "rounded-full border border-white/10 bg-black/60 text-white/85";
 
   return (
     <div className="pt-7 first:pt-0">
       <div className="text-xs tracking-[0.35em] text-white/55">{title}</div>
       <div className={`mt-3 h-[2px] w-28 ${THERMAL} opacity-45`} />
 
-      {/* chips */}
-      <div className="mt-4 flex flex-wrap gap-2">
-        {clean.map((x) => (
-          <span
-            key={x}
-            className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-[12px] tracking-wide text-white/75 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] hover:border-white/18 hover:bg-white/[0.05]"
-          >
-            {x}
-          </span>
-        ))}
-      </div>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className={[
+          "mt-4 flex flex-wrap",
+          dense ? "gap-2" : "gap-2",
+          // tighter wrap on mobile (less horizontal dead space)
+          "max-w-full",
+        ].join(" ")}
+      >
+        {clean.map((x) =>
+          variant === "thermal" ? (
+            <motion.span key={x} variants={chip} className={thermalOuter}>
+              <span className={`${baseChip} ${sizeChip} ${thermalInner}`}>
+                {x}
+              </span>
+            </motion.span>
+          ) : (
+            <motion.span
+              key={x}
+              variants={chip}
+              className={`${baseChip} ${sizeChip} ${defaultChip}`}
+            >
+              {x}
+            </motion.span>
+          )
+        )}
+      </motion.div>
     </div>
   );
 }
@@ -88,10 +130,10 @@ export default function BioPage() {
         <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1500px] px-10 pb-28 pt-20 md:pt-24">
+      <div className="relative mx-auto w-full max-w-[1500px] px-6 sm:px-10 pb-28 pt-20 md:pt-24">
         {/* header */}
         <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
-        <h1 className="mt-4 text-6xl md:text-7xl tracking-tight">
+        <h1 className="mt-4 text-5xl sm:text-6xl md:text-7xl tracking-tight">
           SOPHYA MIRZA
         </h1>
         <div className={`mt-5 h-[2px] w-64 ${THERMAL} opacity-70`} />
@@ -101,9 +143,9 @@ export default function BioPage() {
           ownership.
         </p>
 
-        {/* UPDATED GRID */}
-        <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[360px_minmax(0,1fr)_280px]">
-          {/* LEFT IMAGE (smaller) */}
+        {/* grid */}
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:gap-12 lg:grid-cols-[360px_minmax(0,1fr)_300px]">
+          {/* LEFT IMAGE */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4">
               <div className={`h-[2px] w-full ${THERMAL} opacity-35`} />
@@ -122,12 +164,12 @@ export default function BioPage() {
             </div>
           </aside>
 
-          {/* CENTER BIO (now wider) */}
-          <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-10">
+          {/* CENTER */}
+          <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-10">
             <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
             <div className={`mt-4 h-[2px] w-44 ${THERMAL} opacity-55`} />
 
-            <div className="mt-8 space-y-6 text-[16px] leading-relaxed text-white/75">
+            <div className="mt-8 space-y-6 text-[15px] sm:text-[16px] leading-relaxed text-white/75">
               <p>
                 A few years ago, a fortune cookie told me that I create
                 enthusiasm. I grew up in LA, a melting pot shaped by backyard
@@ -170,7 +212,7 @@ export default function BioPage() {
               </p>
             </div>
 
-            {/* MANIFESTO (added under BIO) */}
+            {/* MANIFESTO */}
             <div className="mt-14">
               <div className="text-xs tracking-[0.35em] text-white/50">
                 MANIFESTO
@@ -193,57 +235,56 @@ export default function BioPage() {
             </div>
           </section>
 
-          {/* THINNER RIGHT SIDEBAR */}
+          {/* RIGHT SIDEBAR */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
-              <RailSection
+              {/* EXPERIENCE gets thermal chips */}
+              <ChipSection
                 title="EXPERIENCE"
+                variant="thermal"
+                dense
                 items={[
-                  "SPACEX",
-                  "ASTRANIS",
+                  "SpaceX",
+                  "Astranis",
                   "NASA",
-                  "PROTERRA",
-                  "SPACE SCIENCES LAB",
-                  "SAE INTERNATIONAL",
-                  "LAWRENCE BERKELEY NATIONAL LABS",
+                  "Proterra",
+                  "Space Sciences Lab",
+                  "SAE International",
+                  "Lawrence Berkeley National Lab",
                 ]}
               />
 
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
-
-              <RailSection
+              <ChipSection
                 title="DESIGN"
-                items={["NX", "CATIA", "SOLIDWORKS", "GD&T, PLM, PDM"]}
+                dense
+                items={["NX", "CATIA", "SolidWorks", "GD&T", "PLM", "PDM"]}
               />
 
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
-
-              <RailSection
+              <ChipSection
                 title="FABRICATION"
-                items={["Prototyping", "CNC", "3D printing", "Composites"]}
+                dense
+                items={["Prototyping", "CNC", "3D Printing", "Composites"]}
               />
 
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
-
-              <RailSection
+              <ChipSection
                 title="EDUCATION"
+                dense
                 items={["UC Berkeley · Mechanical Engineering"]}
               />
 
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
-
-              {/* ✅ INTERESTS AS BUBBLES */}
               <ChipSection
                 title="INTERESTS"
+                dense
                 items={[
                   "Investing podcasts & market mechanics",
                   "Tech disruptors & sci-fi novels",
                   "CNC & manual machining",
                   "Jiu jitsu",
                   "Climbing, hiking & solo backpacking",
-                  "hosting builder events",
-                  "Cooking Persian food",
+                  "Fostering builder communities",
+                  "Industry engagement",
                   "Mentorship & STEM advocacy",
+                  "Cooking Persian food",
                 ]}
               />
 
