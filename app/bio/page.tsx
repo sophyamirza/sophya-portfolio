@@ -126,7 +126,8 @@ export default function BioPage() {
       {
         src: "/images/scicenter.jpg",
         alt: "California Science Center: Scott Manley (left), Sophya (Center), Jeanette Epps (Right)",
-        caption: "California Science Center: Scott Manley (left), Sophya (Center), Jeanette Epps (Right)",
+        caption:
+          "California Science Center: Scott Manley (left), Sophya (Center), Jeanette Epps (Right)",
       },
     ],
     []
@@ -297,18 +298,46 @@ export default function BioPage() {
               </div>
               <div className={`mt-4 h-[2px] w-56 ${THERMAL} opacity-55`} />
 
-              <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-white/70">
+              <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-white/70">
                 <p>
-                  <Highlight>Build real things.</Highlight>
+                  Our future depends on <Highlight>making things again</Highlight>
+                  , with fast loops from design to test to iteration.
                 </p>
-                <p>Test early. Break fast. Learn faster.</p>
                 <p>
-                  <Highlight tone="warm">Own the outcome end to end.</Highlight>
+                  <Highlight tone="warm">Onshoring is compression</Highlight>:
+                  shorter lead times, tighter feedback, and better ownership.
                 </p>
-                <p>Optimize for signal, not comfort.</p>
-                <p>Bias toward shipping.</p>
-                <p>Respect craft. Earn trust.</p>
-                <p>Do hard things with good people.</p>
+                <p>
+                  Extreme ownership closes the loop: if it breaks, I own it. If a
+                  test fails, I own it.
+                </p>
+                <p>
+                  Success is cycle time.{" "}
+                  <Highlight tone="cool">Ship hardware that survives reality.</Highlight>
+                </p>
+
+                {/* CTA */}
+                <div className="pt-4">
+                  <a
+                    href="https://sophyamirza.substack.com/p/build-real-things"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={[
+                      "inline-flex items-center justify-center gap-2",
+                      "rounded-full px-4 py-2 text-[12px] sm:text-[13px]",
+                      "border border-white/14 bg-white/[0.03] text-white/80",
+                      "hover:bg-white/[0.06] hover:border-white/25",
+                      "hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_10px_30px_rgba(0,0,0,0.35)]",
+                      "active:scale-[0.99]",
+                      "transition",
+                    ].join(" ")}
+                  >
+                    Read the manifesto
+                    <span aria-hidden className="text-white/55">
+                      ↗
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -340,7 +369,15 @@ export default function BioPage() {
               <ChipSection
                 title="FABRICATION"
                 dense
-                items={["Prototyping", "CNC", "3D Printing", "Composites"]}
+                items={[
+                  "Prototyping",
+                  "CNC",
+                  "Manual Milling + Turning",
+                  "3D Printing",
+                  "amateur welding (MIG, HHLBW, Stud, TIG)",
+                  "CF Layups",
+                  "waterjet/laser",
+                ]}
               />
 
               <ChipSection

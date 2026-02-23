@@ -45,16 +45,16 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Build, Integration + Test",
-    subtitle: "Prototype fast, acquire diagnostics, close loops.",
+    title: "DEV + TEST",
+    subtitle: "Prototyping, diagnostics, ATPs, Acceptance/Quals Testing",
     previewSrc: "/toolkit/test.PNG",
     items: [
       "Prototyping + dev hardware",
       "CNC + manual machining",
-      "Fluids P&ID mindset, cryo experience",
+      "Fluids P&ID, cryo experience",
       "3D printing (FDM + SLA)",
       "Instrumentation (seals, manifolds, tubing)",
-      "DAQ integration",
+      "DAQ (NI, Beckhoff, Arduino, etc.",
       "Valves + regulators",
       "ATP authoring",
       "Sift, Grafana, Ion, WarpDrive",
@@ -259,8 +259,7 @@ export default function ToolkitPage() {
 
         <div className="mt-16 flex flex-col items-center gap-4">
           <p className="max-w-2xl text-center text-sm tracking-wide text-white/55">
-            This toolkit is intentional: the goal is tighter feedback loops,
-            higher test fidelity, and faster iteration with fewer surprises.
+            
           </p>
 
           <div className="h-px w-64 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
