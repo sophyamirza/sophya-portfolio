@@ -148,7 +148,7 @@ export default function BioPage() {
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
               <RailSection
                 title="EXPERIENCE"
-                items={["SpaceX", "Astranis", "NASA", "Proterra", "SSL"]}
+                items={["SPACEX", "ASTRANIS", "NASA", "PROTERRA", "SPACE SCIENCES LAB", "SAE INTERNATIONAL", "LAWRENCE BERKELEY NATIONAL LABS",]}
               />
 
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
