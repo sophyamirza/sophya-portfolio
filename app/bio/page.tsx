@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 const THERMAL =
   "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]";
@@ -22,6 +23,37 @@ function RailSection({
           <div key={x} className="text-sm text-white/75">
             {x}
           </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ChipSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: string[];
+}) {
+  const clean = items
+    .map((x) => x.trim())
+    .filter((x) => x.length > 0);
+
+  return (
+    <div className="pt-7 first:pt-0">
+      <div className="text-xs tracking-[0.35em] text-white/55">{title}</div>
+      <div className={`mt-3 h-[2px] w-28 ${THERMAL} opacity-45`} />
+
+      {/* chips */}
+      <div className="mt-4 flex flex-wrap gap-2">
+        {clean.map((x) => (
+          <span
+            key={x}
+            className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-[12px] tracking-wide text-white/75 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] hover:border-white/18 hover:bg-white/[0.05]"
+          >
+            {x}
+          </span>
         ))}
       </div>
     </div>
@@ -97,26 +129,44 @@ export default function BioPage() {
 
             <div className="mt-8 space-y-6 text-[16px] leading-relaxed text-white/75">
               <p>
-               A few years ago, a fortune cookie told me that I create enthusiasm. I grew up in LA, a melting pot shaped by backyard innovation, late night takeout, and the constant roar of LAX. Somewhere between the breakthrough tech in Gundo and those fortune cookies, I leaned into that idea. Pairing my energy with extreme ownership I’ve had the privilege to own high consequence hardware at SpaceX, NASA, Astranis, SSL, Proterra, and beyond.
+                A few years ago, a fortune cookie told me that I create
+                enthusiasm. I grew up in LA, a melting pot shaped by backyard
+                innovation, late night takeout, and the constant roar of LAX.
+                Somewhere between the breakthrough tech in Gundo and those
+                fortune cookies, I leaned into that idea. Pairing my energy with
+                extreme ownership I’ve had the privilege to own high consequence
+                hardware at SpaceX, NASA, Astranis, SSL, Proterra, and beyond.
               </p>
 
               <p>
-                I’ve always been a tinkerer, inventor, and builder. What started as robotics competitions and science fairs to meet the President, quickly became something deeper the day I watched the Space Shuttle fly over my school on its final journey. That moment lit a fuse that has been burning ever since. Years later, I found myself underneath that same shuttle at the same science center, doing what I loved most while earning national awards and scholarships along the way.
-
+                I’ve always been a tinkerer, inventor, and builder. What started
+                as robotics competitions and science fairs to meet the President,
+                quickly became something deeper the day I watched the Space
+                Shuttle fly over my school on its final journey. That moment lit
+                a fuse that has been burning ever since. Years later, I found
+                myself underneath that same shuttle at the same science center,
+                doing what I loved most while earning national awards and
+                scholarships along the way.
               </p>
 
               <p>
-               At 14, I really ran with it, spending a summer in rural NC living alongside adventurous college students, climbing in the Chimneys, roaming wind farms, touring hydroelectric dams, and getting mesmerized by turbines and generators. That experience sparked my earliest projects refurbishing generators and cemented what I care about most: scrappy hands on engineering, validation through testing, and learning by doing.
+                At 14, I really ran with it, spending a summer in rural NC living
+                alongside adventurous college students, climbing in the Chimneys,
+                roaming wind farms, touring hydroelectric dams, and getting
+                mesmerized by turbines and generators. That experience sparked
+                my earliest projects refurbishing generators and cemented what I
+                care about most: scrappy hands on engineering, validation
+                through testing, and learning by doing.
               </p>
 
               <p>
-                Those principles still guide me today, now, paired with a bigger vision for impact.
-
+                Those principles still guide me today, now, paired with a bigger
+                vision for impact.
               </p>
 
               <p>
-                I hope to bring that same enthusiasm, ownership, and curiosity to your team!
-
+                I hope to bring that same enthusiasm, ownership, and curiosity
+                to your team!
               </p>
             </div>
 
@@ -148,14 +198,22 @@ export default function BioPage() {
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
               <RailSection
                 title="EXPERIENCE"
-                items={["SPACEX", "ASTRANIS", "NASA", "PROTERRA", "SPACE SCIENCES LAB", "SAE INTERNATIONAL", "LAWRENCE BERKELEY NATIONAL LABS",]}
+                items={[
+                  "SPACEX",
+                  "ASTRANIS",
+                  "NASA",
+                  "PROTERRA",
+                  "SPACE SCIENCES LAB",
+                  "SAE INTERNATIONAL",
+                  "LAWRENCE BERKELEY NATIONAL LABS",
+                ]}
               />
 
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
               <RailSection
                 title="DESIGN"
-                items={["System architecture", "CAD + GD&T", "DFM trades"]}
+                items={["NX", "CATIA", "SOLIDWORKS", "GD&T, PLM, PDM"]}
               />
 
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
@@ -174,14 +232,27 @@ export default function BioPage() {
 
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
-              <RailSection
+              {/* ✅ INTERESTS AS BUBBLES */}
+              <ChipSection
                 title="INTERESTS"
                 items={[
-                  "Propulsion",
-                  "Manufacturing",
-                  "Cryogenics",
-                  "Muay Thai",
-                  "Jiu-jitsu",
+                  "Investing podcasts & market mechanics",
+                  "Building for American dynamism",
+                  "Tech disruptors",
+                  "Leadership reading",
+                  "Sci-fi novels",
+                  "Side projects",
+                  "Creative design concepts",
+                  "CNC & manual machining",
+                  "Jiu jitsu",
+                  "Climbing",
+                  "Hiking",
+                  "Solo backpacking",
+                  "Founder + builder communities",
+                  "Hosting dinners with friends",
+                  "Community building",
+                  "Industry engagement",
+                  "Mentorship & advocacy",
                 ]}
               />
 
