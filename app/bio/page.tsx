@@ -180,9 +180,8 @@ export default function BioPage() {
 
         <div className={`mt-5 h-[2px] w-64 ${THERMAL} opacity-70`} />
         <p className="mt-6 max-w-3xl text-white/65">
-          Mechanical engineer designing, building, and testing hardware at the
-          extremes. Bias toward shipping. Tight feedback loops. Extreme
-          ownership.
+          DESIGN. BUILD. TEST. SHIP.
+        
         </p>
 
         {/* grid */}
