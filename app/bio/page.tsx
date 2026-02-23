@@ -237,22 +237,13 @@ export default function BioPage() {
                 title="INTERESTS"
                 items={[
                   "Investing podcasts & market mechanics",
-                  "Building for American dynamism",
-                  "Tech disruptors",
-                  "Leadership reading",
-                  "Sci-fi novels",
-                  "Side projects",
-                  "Creative design concepts",
+                  "Tech disruptors & sci-fi novels",
                   "CNC & manual machining",
                   "Jiu jitsu",
-                  "Climbing",
-                  "Hiking",
-                  "Solo backpacking",
-                  "Founder + builder communities",
-                  "Hosting dinners with friends",
-                  "Community building",
-                  "Industry engagement",
-                  "Mentorship & advocacy",
+                  "Climbing, hiking & solo backpacking",
+                  "hosting builder events",
+                  "Cooking Persian food",
+                  "Mentorship & STEM advocacy",
                 ]}
               />
 
