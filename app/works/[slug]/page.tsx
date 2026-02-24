@@ -156,36 +156,40 @@ export default async function ProjectPage({
         />
 
         {/* hero */}
-        <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-          {p.gallery?.length ? (
-            <>
-              {/* NOTE: uses your current ImageCarousel layout; it will render fine even nested */}
-              <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
-              <div
-                className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
-                style={{ background: THERMAL_GRADIENT }}
-              />
-            </>
-          ) : p.cover ? (
-            <>
-              <Image
-                src={p.cover}
-                alt={p.title}
-                fill
-                className="object-cover opacity-95"
-                sizes="100vw"
-                priority
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
-              <div
-                className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
-                style={{ background: THERMAL_GRADIENT }}
-              />
-            </>
-          ) : (
-            <HeroPlaceholder title={p.title} />
-          )}
-        </div>
+<div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+  {p.gallery?.length ? (
+    <>
+      <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
+
+      {/* top thermal line */}
+      <div
+        className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] z-30"
+        style={{ background: THERMAL_GRADIENT }}
+      />
+
+      {/* subtle top fade (optional, helps readability) */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
+    </>
+  ) : p.cover ? (
+    <>
+      <Image
+        src={p.cover}
+        alt={p.title}
+        fill
+        className="object-cover opacity-95"
+        sizes="100vw"
+        priority
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
+      <div
+        className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
+        style={{ background: THERMAL_GRADIENT }}
+      />
+    </>
+  ) : (
+    <HeroPlaceholder title={p.title} />
+  )}
+</div>
       </section>
 
       {/* body */}
