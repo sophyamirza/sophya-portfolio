@@ -3,20 +3,39 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
-type Props = { images: string[]; alt?: string };
+type Props = {
+  images: string[];
+  alt?: string;
 
-export default function ImageCarousel({ images, alt = "Project image" }: Props) {
+  /**
+   * When true, the carousel fills the parent container.
+   * Use this inside your hero wrapper (which already sets aspect ratio, border, rounding, etc).
+   */
+  fillParent?: boolean;
+};
+
+export default function ImageCarousel({
+  images,
+  alt = "Project image",
+  fillParent = false,
+}: Props) {
   const safeImages = useMemo(() => images?.filter(Boolean) ?? [], [images]);
   const [idx, setIdx] = useState(0);
 
   if (safeImages.length === 0) return null;
 
-  const prev = () => setIdx((i) => (i - 1 + safeImages.length) % safeImages.length);
+  const prev = () =>
+    setIdx((i) => (i - 1 + safeImages.length) % safeImages.length);
   const next = () => setIdx((i) => (i + 1) % safeImages.length);
 
+  // If fillParent, we assume the parent provides: relative + aspect + rounding + border + overflow-hidden
+  const wrapperClass = fillParent
+    ? "absolute inset-0"
+    : "relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5";
+
   return (
-    <div className="w-full">
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+    <div className={fillParent ? "relative h-full w-full" : "w-full"}>
+      <div className={wrapperClass}>
         <Image
           key={safeImages[idx]}
           src={safeImages[idx]}
@@ -30,12 +49,14 @@ export default function ImageCarousel({ images, alt = "Project image" }: Props) 
         <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
           <div className="flex gap-2">
             <button
+              type="button"
               onClick={prev}
               className="rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm backdrop-blur hover:bg-black/55"
             >
               Prev
             </button>
             <button
+              type="button"
               onClick={next}
               className="rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm backdrop-blur hover:bg-black/55"
             >
