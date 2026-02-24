@@ -1,5 +1,6 @@
 "use client";
 
+import StarOrbsBackground from "@/components/StarOrbsBackground";
 import { Analytics } from "@vercel/analytics/next";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
@@ -44,35 +45,35 @@ export default function IndustryPage() {
         org: "SpaceX",
         role: "Starship Primary Structures RE Intern",
         when: "APR 2024 – AUG 2024",
-        tags: "PRIMARY STRUCTURES · MANUFACTURING · TPS · CRYO QUAL",
+        tags: "PRIMARY STRUCTURES DESIGN · WELD PROCESSES · TPS · HEADER TANK QUAL",
         logo: "/logos/spacex.PNG",
       },
       {
         org: "SAE International",
         role: "AM / SAF / Aerospace Standards",
         when: "AUG 2023 – AUG 2024",
-        tags: "STANDARDS · CERTIFICATION · ADDITIVE · SAF",
+        tags: "STANDARDS · SOFTWARE AUTOMATION · CERTIFICATION · ADDITIVE MANUFACTURING · SUSTAINABLE AVIATION FUELS",
         logo: "/logos/sae.PNG",
       },
       {
         org: "NASA — SSL TRACERS",
         role: "Mechanical Intern",
         when: "MAY 2023 – AUG 2023",
-        tags: "GSE · STRUCTURAL TEST · SATELLITE INTEGRATION",
+        tags: "GSE DESIGN· TVAC, VIBE, MOI TESTING · INTEGRATION  ·  PNEUMATIC PROTOTYPING",
         logo: "/logos/NASA.png",
       },
       {
         org: "Proterra",
         role: "Thermals / Battery R&D Co-op",
         when: "MAY 2022 – DEC 2022",
-        tags: "BATTERIES · THERMALS · TEST · MANUFACTURING QUALITY",
+        tags: "BATTERIES · THERMALS · TEST FIXTURE DESIGN· MANUFACTURING QUALITY",
         logo: "/logos/proterra.PNG",
       },
       {
         org: "Lawrence Berkeley National Lab",
         role: "Cryogenic Mechanical Engineer",
         when: "JAN 2022 – AUG 2023",
-        tags: "CRYOGENICS · INSTRUMENTATION · SUPERCONDUCTING SYSTEMS",
+        tags: "CRYOGENICS · INSTRUMENTATION DESIGN· SUPERCONDUCTING SYSTEMS",
         logo: "/logos/lbnl.PNG",
       },
       {
@@ -80,7 +81,7 @@ export default function IndustryPage() {
         role: "Mechanical Engineer",
         when: "AUG 2022 – MAY 2023",
         tags:
-          "PHOTOLITHOGRAPHY · MICROFLUIDICS · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
+          "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN· VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
         logo: "/logos/DFM.png",
       },
     ],
@@ -130,8 +131,11 @@ export default function IndustryPage() {
   }, [milestones]);
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white relative">
       <Analytics />
+
+      {/* 🌌 glowing orb background */}
+      <StarOrbsBackground />
 
       {/* subtle haze */}
       <div className="pointer-events-none fixed inset-0">
@@ -150,7 +154,6 @@ export default function IndustryPage() {
             "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
           ].join(" ")}
         >
-          {/* use <img> to avoid Next Image remote/static config issues for svg */}
           <img
             src="/images/campanile.svg"
             alt=""
@@ -160,8 +163,7 @@ export default function IndustryPage() {
       </div>
 
       {/* Header */}
-      <div className="relative px-8 md:px-20 pt-20">
-        {/* Title + button (right next to the last "E") */}
+      <div className="relative z-10 px-8 md:px-20 pt-20">
         <div className="flex items-end gap-6 flex-wrap">
           <h1 className="text-5xl md:text-6xl tracking-tight">EXPERIENCE</h1>
 
@@ -188,9 +190,8 @@ export default function IndustryPage() {
       </div>
 
       {/* Timeline */}
-      <section className="relative mt-14 pb-32">
+      <section className="relative z-10 mt-14 pb-32">
         <div className="relative mx-auto max-w-7xl px-6 md:px-16">
-          {/* center line (md+) */}
           <div className="pointer-events-none hidden md:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-white/15" />
 
           <div className="flex flex-col gap-12 md:gap-14">
@@ -199,7 +200,6 @@ export default function IndustryPage() {
               const active = i === activeIndex;
               const v = vis[i] ?? 0;
 
-              // never fully disappear
               const base = 0.62;
               const opacity = base + (1 - base) * v;
 
@@ -207,7 +207,6 @@ export default function IndustryPage() {
                 opacity,
                 transform: `translate3d(0, ${Math.round((1 - v) * 10)}px, 0)`,
                 transition: "opacity 220ms ease, transform 220ms ease",
-                willChange: "opacity, transform",
               };
 
               const cardStyle: React.CSSProperties = {
@@ -226,25 +225,13 @@ export default function IndustryPage() {
                     style={cardStyle}
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="flex items-center gap-3">
-                        <Image
-                          src={m.logo}
-                          alt={m.org}
-                          width={44}
-                          height={44}
-                          className="rounded"
-                        />
-                        {m.secondaryLogo && (
-                          <Image
-                            src={m.secondaryLogo}
-                            alt=""
-                            width={36}
-                            height={36}
-                            className="rounded"
-                          />
-                        )}
-                      </div>
-
+                      <Image
+                        src={m.logo}
+                        alt={m.org}
+                        width={44}
+                        height={44}
+                        className="rounded"
+                      />
                       <div className="text-sm tracking-[0.28em] text-white/55">
                         {m.when}
                       </div>
@@ -259,7 +246,6 @@ export default function IndustryPage() {
                       {m.tags}
                     </div>
 
-                    {/* subtle thermal accent line */}
                     <div className="mt-7 h-px w-52 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-60" />
                   </div>
                 </div>
@@ -269,18 +255,16 @@ export default function IndustryPage() {
                 <div
                   key={`${m.org}-${m.when}`}
                   ref={(el) => {
-                    itemRefs.current[i] = el;
-                  }}
+  itemRefs.current[i] = el;
+}}
                   className="grid grid-cols-1 md:grid-cols-[1fr_72px_1fr] gap-y-8 md:gap-y-0"
                 >
-                  {/* LEFT */}
                   <div className="md:col-start-1">
                     {left ? Card : <div className="hidden md:block" />}
                   </div>
 
-                  {/* CENTER DOT */}
                   <div className="relative md:col-start-2 flex items-start justify-center">
-                    <div className="relative mt-12 flex items-center justify-center">
+                    <div className="relative mt-12">
                       <div
                         className="rounded-full"
                         style={{
@@ -289,16 +273,11 @@ export default function IndustryPage() {
                           background: active
                             ? "rgba(255,255,255,0.95)"
                             : "rgba(255,255,255,0.70)",
-                          boxShadow: active
-                            ? "0 0 24px rgba(255,255,255,0.22)"
-                            : "0 0 14px rgba(255,255,255,0.10)",
-                          transition: "all 220ms ease",
                         }}
                       />
                     </div>
                   </div>
 
-                  {/* RIGHT */}
                   <div className="md:col-start-3">
                     {!left ? Card : <div className="hidden md:block" />}
                   </div>
