@@ -95,20 +95,51 @@ export default function RecreationPage() {
     );
   }
 
-  // ✅ Add as many images as you want here (just drop them in /public/community/sallysnight/...)
-  // Example paths:
-  // /public/community/sallysnight/group.png  -> src "/community/sallysnight/group.PNG"
-  // /public/community/sallysnight/panel.png  -> src "/community/sallysnight/panel.PNG"
+  // ✅ Images (paths match your /public/community/... folders)
   const sallysNightImages = useMemo(
     () => [
-      { src: "/community/sallysnight/sallysnight-group.PNG", alt: "Sally’s Night group photo" },
-      { src: "/community/sallysnight/sallysnight-panel.PNG", alt: "Sally’s Night panel photo" },
-      { src: "/community/sallysnight/sallys-dti.PNG", alt: "Sally’s Night networking" }
-      // Add more like these:
-      // { src: "/community/sallysnight/01.png", alt: "Sally’s Night networking" },
-      // { src: "/community/sallysnight/02.png", alt: "Sally’s Night venue" },
-      // { src: "/community/sallysnight/03.png", alt: "Sally’s Night attendees" },
+      {
+        src: "/community/sallysnight/sallysnight-group.PNG",
+        alt: "Sally’s Night group photo",
+      },
+      {
+        src: "/community/sallysnight/sallysnight-panel.PNG",
+        alt: "Sally’s Night panel photo",
+      },
+      {
+        src: "/community/sallysnight/sallys-dti.PNG",
+        alt: "Sally’s Night sponsorship / partnership",
+      },
     ],
+    []
+  );
+
+  const yurisNightImages = useMemo(
+    () => [
+      { src: "/community/yurisnight/yuris1.PNG", alt: "Yuri’s Night photo 1" },
+      { src: "/community/yurisnight/yuris2.PNG", alt: "Yuri’s Night photo 2" },
+    ],
+    []
+  );
+
+  const frcImages = useMemo(
+    () => [
+      { src: "/community/frc/frc1.PNG", alt: "FIRST Robotics photo 1" },
+      { src: "/community/frc/frc2.png", alt: "FIRST Robotics photo 2" }, // note lowercase .png
+    ],
+    []
+  );
+
+  const techriseImages = useMemo(
+    () => [
+      { src: "/community/techrise/techrise1.PNG", alt: "NASA TechRise photo 1" },
+      { src: "/community/techrise/techrise2.PNG", alt: "NASA TechRise photo 2" },
+    ],
+    []
+  );
+
+  const tmgImages = useMemo(
+    () => [{ src: "/community/tmg/tmg1.PNG", alt: "The Mars Generation photo" }],
     []
   );
 
@@ -128,10 +159,10 @@ export default function RecreationPage() {
 
         {/* INTRO */}
         <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/80">
-          Outside of owning critical hardware systems, I actively facilitate discussion
-          and build collaborative spaces where engineers, scientists, creatives, and
-          visionaries come together to push ambitious technical ideas into real-world
-          impact.
+          Outside of owning critical hardware systems, I actively facilitate
+          discussion and build collaborative spaces where engineers, scientists,
+          creatives, and visionaries come together to push ambitious technical
+          ideas into real-world impact.
         </p>
 
         {/* ECOSYSTEM BUILDING */}
@@ -143,7 +174,6 @@ export default function RecreationPage() {
           <div className="mt-10 grid gap-14">
             {/* Sally's Night */}
             <div className="grid md:grid-cols-2 gap-8 items-start">
-              {/* ✅ Carousel lives exactly where the placeholder was */}
               <ImageCarousel
                 images={sallysNightImages}
                 altBase="Sally’s Night event photos"
@@ -156,16 +186,30 @@ export default function RecreationPage() {
                 </div>
 
                 <ul className="mt-5 space-y-2 text-white/80">
-                  <li>• Led a team of 4+ to organize El Segundo's Space Happy Hour's Sally's Night International series</li>
-                  <li>• Secured strategic sponsorships and partnerships with Distruptive Technology Index, SpaceWERX, SMorpheus Space and Astrolab, supporting local growth and international expansion</li>
-                  <li>• Curated and moderated Pioneering Pathways, a panel on building bridges across space, business, and storytelling, convening operators, founders, and creatives (100+ attendees, 32+ companies)</li>
+                  <li>
+                    • Led a team of 4+ to organize El Segundo&apos;s SHH Sally&apos;s Night
+                    International series
+                  </li>
+                  <li>
+                    • Secured strategic sponsorships and partnerships with Disruptive
+                    Technology Index, SpaceWERX, Morpheus Space and Astrolab,
+                    supporting local growth and international expansion
+                  </li>
+                  <li>
+                    • Curated and moderated Pioneering Pathways, a panel on building
+                    bridges across space, business, and storytelling, convening
+                    operators, founders, and creatives (100+ attendees, 32+ companies)
+                  </li>
                 </ul>
               </div>
             </div>
 
             {/* Yuri's Night */}
             <div className="grid md:grid-cols-2 gap-8 items-start">
-              <ImagePlaceholder label="{insert Yuri’s Night images here}" />
+              <ImageCarousel
+                images={yurisNightImages}
+                altBase="Yuri’s Night event photos"
+              />
 
               <div>
                 <h3 className="text-2xl tracking-tight">Yuri’s Night</h3>
@@ -174,9 +218,9 @@ export default function RecreationPage() {
                 </div>
 
                 <ul className="mt-5 space-y-2 text-white/80">
-                  <li>• Coordinated interactive technical exhibits and builder showcases</li>
-                  <li>• Led sponsor outreach and partnership development</li>
-                  <li>• Supported large-scale aerospace community activation</li>
+                  <li>• Coordinating interactive technical exhibits and builder showcases</li>
+                  <li>• Sponsorship outreach and partnerships development</li>
+                  <li>• Supporting large scale aerospace community discussion</li>
                 </ul>
               </div>
             </div>
@@ -191,7 +235,7 @@ export default function RecreationPage() {
 
           <div className="mt-10 grid gap-10 md:grid-cols-3">
             <div>
-              <ImagePlaceholder label="{FIRST Robotics images}" />
+              <ImageCarousel images={frcImages} altBase="FIRST Robotics images" />
               <h3 className="mt-4 text-xl">FIRST Robotics</h3>
               <p className="mt-2 text-white/70 text-sm">
                 Mechanical design mentorship and systems integration guidance.
@@ -199,7 +243,7 @@ export default function RecreationPage() {
             </div>
 
             <div>
-              <ImagePlaceholder label="{NASA TechRise images}" />
+              <ImageCarousel images={techriseImages} altBase="NASA TechRise images" />
               <h3 className="mt-4 text-xl">NASA TechRise</h3>
               <p className="mt-2 text-white/70 text-sm">
                 Student payload advising and technical feasibility review.
@@ -207,10 +251,14 @@ export default function RecreationPage() {
             </div>
 
             <div>
-              <ImagePlaceholder label="{Mars Generation images}" />
+              <ImageCarousel
+                images={tmgImages}
+                altBase="The Mars Generation images"
+              />
               <h3 className="mt-4 text-xl">The Mars Generation</h3>
               <p className="mt-2 text-white/70 text-sm">
-                Ambassador supporting next-generation space advocacy and outreach.
+                Ambassador supporting next-generation space advocacy and outreach,
+                previous scholarship recipient.
               </p>
             </div>
           </div>
