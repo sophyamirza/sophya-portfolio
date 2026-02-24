@@ -136,7 +136,7 @@ export default function ContactPage() {
             variants={fadeUp}
             className="mt-20 text-center text-sm md:text-base text-white/60 max-w-2xl mx-auto"
           >
-            Open to mech, design, manufacturing, build, prop, test engineering roles.
+            Open to engineering roles.
             Let’s build something ambitious!
           </motion.p>
 

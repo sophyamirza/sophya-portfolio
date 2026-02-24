@@ -97,6 +97,12 @@ export const PROJECTS: Project[] = [
     date: "2026",
     focusArea: "Aerodynamics",
 
+    // ✅ added: carousel image paths (matches your folder + uppercase .PNG)
+    gallery: Array.from({ length: 16 }, (_, i) => {
+      const n = i + 1;
+      return `/projects/BLUNTBODY/contour${n}.PNG`;
+    }),
+
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
     contributions: PH.contributions,
@@ -277,7 +283,13 @@ export const PROJECTS: Project[] = [
     subtitle: "Probing articulated tubular robotic inspection",
     year: "2024",
     yearLabel: "2024",
-    tags: ["Planetary Gearbox", "Cable actuation", "Joint-space PID", "Embedded motor control", "3D Printing"],
+    tags: [
+      "Planetary Gearbox",
+      "Cable actuation",
+      "Joint-space PID",
+      "Embedded motor control",
+      "3D Printing",
+    ],
     overview:
       "Robotic inspection system emphasizing drivetrain design, embedded motor control, and controllable articulation.",
     highlights: [
@@ -300,7 +312,15 @@ export const PROJECTS: Project[] = [
     subtitle: "Superconducting transition instrumentation",
     year: "2024",
     yearLabel: "2024",
-    tags: ["Closed-cycle cryostat", "XLDsl dilution fridge", "PCB design", "Mechanical enclosure", "ANSYS", "DAQ", "ATP authoring"],
+    tags: [
+      "Closed-cycle cryostat",
+      "XLDsl dilution fridge",
+      "PCB design",
+      "Mechanical enclosure",
+      "ANSYS",
+      "DAQ",
+      "ATP authoring",
+    ],
     overview:
       "Cryostat instrumentation and enclosure work spanning integration constraints, analysis, and test procedure authoring.",
     highlights: [
