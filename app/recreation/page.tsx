@@ -103,7 +103,7 @@ export default function RecreationPage() {
     () => [
       { src: "/community/sallysnight/sallysnight-group.PNG", alt: "Sally’s Night group photo" },
       { src: "/community/sallysnight/sallysnight-panel.PNG", alt: "Sally’s Night panel photo" },
-
+      { src: "/community/sallysnight/sallys-dti.PNG", alt: "Sally’s Night networking" }
       // Add more like these:
       // { src: "/community/sallysnight/01.png", alt: "Sally’s Night networking" },
       // { src: "/community/sallysnight/02.png", alt: "Sally’s Night venue" },
@@ -156,9 +156,9 @@ export default function RecreationPage() {
                 </div>
 
                 <ul className="mt-5 space-y-2 text-white/80">
-                  <li>• Co-led Space Happy Hour’s Sally’s Night aerospace networking platform</li>
-                  <li>• Secured sponsorship for inaugural international expansion</li>
-                  <li>• Curated and hosted Los Angeles event in El Segundo (100+ attendees)</li>
+                  <li>• Led a team of 4+ to organize El Segundo's Space Happy Hour's Sally's Night International series</li>
+                  <li>• Secured strategic sponsorships and partnerships with Distruptive Technology Index, SpaceWERX, SMorpheus Space and Astrolab, supporting local growth and international expansion</li>
+                  <li>• Curated and moderated Pioneering Pathways, a panel on building bridges across space, business, and storytelling, convening operators, founders, and creatives (100+ attendees, 32+ companies)</li>
                 </ul>
               </div>
             </div>
