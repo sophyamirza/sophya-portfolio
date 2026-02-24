@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECTS_BY_SLUG } from "../projects";
+import ImageCarousel from "@/app/works/components/ImageCarousel";
+import { PROJECTS_BY_SLUG } from "@/app/works/projects";
 
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
@@ -156,7 +157,16 @@ export default async function ProjectPage({
 
         {/* hero */}
         <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-          {p.cover ? (
+          {/* ✅ CHANGED: show carousel when gallery exists; otherwise fall back to cover/placeholder */}
+          {p.gallery?.length ? (
+            <>
+              <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
+              <div
+                className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
+                style={{ background: THERMAL_GRADIENT }}
+              />
+            </>
+          ) : p.cover ? (
             <>
               <Image
                 src={p.cover}
