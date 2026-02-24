@@ -23,6 +23,10 @@ export default function IndustryPage() {
         role: "Venture Capital",
         when: "2025 – Present",
         tags: "VENTURE · DEEP TECH · STARTUPS",
+        bullets: [
+          "Sourced and conducted market research 23+ early stage deep tech startups spanning aero, manufacturing, infrastructure, building a 50  ",
+          "Led technical and commercial dilligence for 3 series A candidates, producing 5+ investment",
+        ],
         logo: "/logos/haas.PNG",
       },
       {
