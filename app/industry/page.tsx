@@ -3,6 +3,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Milestone = {
   org: string;
@@ -23,10 +24,6 @@ export default function IndustryPage() {
         role: "Venture Capital",
         when: "2025 – Present",
         tags: "VENTURE · DEEP TECH · STARTUPS",
-        bullets: [
-          "Sourced and conducted market research 23+ early stage deep tech startups spanning aero, manufacturing, infrastructure, building a 50  ",
-          "Led technical and commercial dilligence for 3 series A candidates, producing 5+ investment",
-        ],
         logo: "/logos/haas.PNG",
       },
       {
@@ -162,8 +159,25 @@ export default function IndustryPage() {
         </div>
       </div>
 
+      {/* ✅ Top bar with "Detailed Resume" button */}
+      <div className="relative z-20 px-8 md:px-20 pt-6">
+        <div className="flex items-center justify-end">
+          <Link
+            href="/contact#resume"
+            className={[
+              "inline-flex items-center rounded-full border border-white/15",
+              "bg-white/[0.03] px-4 py-2 text-xs tracking-[0.22em] uppercase",
+              "text-white/80 hover:text-white hover:border-white/25",
+              "transition",
+            ].join(" ")}
+          >
+            Detailed Resume
+          </Link>
+        </div>
+      </div>
+
       {/* Header */}
-      <div className="relative px-8 md:px-20 pt-20">
+      <div className="relative px-8 md:px-20 pt-12">
         <h1 className="text-5xl md:text-6xl tracking-tight">EXPERIENCE</h1>
         <div className="mt-4 h-[2px] w-44 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
         <p className="mt-4 text-white/60 max-w-2xl">
