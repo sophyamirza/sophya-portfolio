@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { useMemo, useState } from "react";
+
 export default function RecreationPage() {
   const THERMAL_GRADIENT =
     "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
@@ -13,6 +18,99 @@ export default function RecreationPage() {
       </div>
     );
   }
+
+  function ImageCarousel({
+    images,
+    altBase,
+  }: {
+    images: { src: string; alt?: string }[];
+    altBase: string;
+  }) {
+    const [idx, setIdx] = useState(0);
+    const count = images.length;
+
+    const prev = () => setIdx((i) => (i - 1 + count) % count);
+    const next = () => setIdx((i) => (i + 1) % count);
+
+    const current = images[idx];
+
+    return (
+      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]">
+        {/* subtle background + vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(900px_420px_at_20%_20%,rgba(59,130,246,0.12),transparent_60%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent z-10" />
+
+        {/* image */}
+        <Image
+          src={current.src}
+          alt={current.alt ?? `${altBase} (${idx + 1}/${count})`}
+          fill
+          priority
+          className="object-cover"
+        />
+
+        {/* controls */}
+        {count > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous image"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 rounded-full border border-white/15 bg-black/40 px-3 py-2 text-white/85 backdrop-blur hover:bg-black/55"
+            >
+              <span className="text-lg leading-none">‹</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next image"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 rounded-full border border-white/15 bg-black/40 px-3 py-2 text-white/85 backdrop-blur hover:bg-black/55"
+            >
+              <span className="text-lg leading-none">›</span>
+            </button>
+
+            {/* dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-2 backdrop-blur">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setIdx(i)}
+                  aria-label={`Go to image ${i + 1}`}
+                  className={`h-2 w-2 rounded-full transition ${
+                    i === idx ? "bg-white/90" : "bg-white/35 hover:bg-white/55"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* counter */}
+            <div className="absolute top-3 right-3 z-20 rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs text-white/80 backdrop-blur">
+              {idx + 1} / {count}
+            </div>
+          </>
+        )}
+      </div>
+    );
+  }
+
+  // ✅ Add as many images as you want here (just drop them in /public/community/sallysnight/...)
+  // Example paths:
+  // /public/community/sallysnight/group.png  -> src "/community/sallysnight/group.PNG"
+  // /public/community/sallysnight/panel.png  -> src "/community/sallysnight/panel.PNG"
+  const sallysNightImages = useMemo(
+    () => [
+      { src: "/community/sallysnight/sallysnight-group.PNG", alt: "Sally’s Night group photo" },
+      { src: "/community/sallysnight/sallysnight-panel.PNG", alt: "Sally’s Night panel photo" },
+
+      // Add more like these:
+      // { src: "/community/sallysnight/01.png", alt: "Sally’s Night networking" },
+      // { src: "/community/sallysnight/02.png", alt: "Sally’s Night venue" },
+      // { src: "/community/sallysnight/03.png", alt: "Sally’s Night attendees" },
+    ],
+    []
+  );
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -45,7 +143,11 @@ export default function RecreationPage() {
           <div className="mt-10 grid gap-14">
             {/* Sally's Night */}
             <div className="grid md:grid-cols-2 gap-8 items-start">
-              <ImagePlaceholder label="{insert Sally’s Night images here}" />
+              {/* ✅ Carousel lives exactly where the placeholder was */}
+              <ImageCarousel
+                images={sallysNightImages}
+                altBase="Sally’s Night event photos"
+              />
 
               <div>
                 <h3 className="text-2xl tracking-tight">Sally’s Night</h3>
@@ -68,7 +170,7 @@ export default function RecreationPage() {
               <div>
                 <h3 className="text-2xl tracking-tight">Yuri’s Night</h3>
                 <div className="mt-1 text-white/60">
-                  Organizer · Interactives Coordinator · Sponsorship 
+                  Organizer · Interactives Coordinator · Sponsorship
                 </div>
 
                 <ul className="mt-5 space-y-2 text-white/80">
