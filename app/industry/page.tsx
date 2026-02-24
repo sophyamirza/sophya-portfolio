@@ -177,14 +177,35 @@ export default function IndustryPage() {
       </div>
 
       {/* Header */}
-      <div className="relative px-8 md:px-20 pt-12">
-        <h1 className="text-5xl md:text-6xl tracking-tight">EXPERIENCE</h1>
-        <div className="mt-4 h-[2px] w-44 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
-        <p className="mt-4 text-white/60 max-w-2xl">
-          A vertical timeline of engineering roles across propulsion, structures,
-          cryogenics, batteries, and aerospace systems.
-        </p>
-      </div>
+<div className="relative px-8 md:px-20 pt-20">
+  <div className="flex items-start justify-between gap-6">
+    {/* Left: Title + underline */}
+    <div>
+      <h1 className="text-5xl md:text-6xl tracking-tight">EXPERIENCE</h1>
+      <div className="mt-4 h-[2px] w-44 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
+    </div>
+
+    {/* Right: Button */}
+    <Link
+      href="/contact#resume"
+      className={[
+        "mt-2 inline-flex items-center rounded-full border border-white/15",
+        "bg-white/[0.03] px-5 py-2 text-xs tracking-[0.22em] uppercase",
+        "text-white/80 hover:text-white hover:border-white/25",
+        "transition",
+        "backdrop-blur-sm",
+      ].join(" ")}
+    >
+      Detailed Resume
+    </Link>
+  </div>
+
+  {/* Description stays under title area */}
+  <p className="mt-4 text-white/60 max-w-2xl">
+    A vertical timeline of engineering roles across propulsion, structures,
+    cryogenics, batteries, and aerospace systems.
+  </p>
+</div>
 
       {/* Timeline */}
       <section className="relative mt-14 pb-32">
