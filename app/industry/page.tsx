@@ -112,7 +112,7 @@ export default function IndustryPage() {
           bestIdx = i;
         }
 
-        return clamp(1 - dist / (vh * 0.65), 0, 1);
+        return clamp(1 - dist / (vh * 0.75), 0, 1);
       });
 
       setActiveIndex(bestIdx);
@@ -182,18 +182,18 @@ export default function IndustryPage() {
         <div className="mt-4 h-[2px] w-44 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
 
         <p className="mt-4 text-white/60 max-w-2xl">
-          A vertical timeline of engineering roles across propulsion, structures,
-          cryogenics, batteries, and aerospace systems.
+          A timeline of engineering roles across propulsion, structures,
+          cryogenics, batteries, and research.
         </p>
       </div>
 
       {/* Timeline */}
       <section className="relative mt-14 pb-32">
-        <div className="relative mx-auto max-w-6xl px-6 md:px-16">
+        <div className="relative mx-auto max-w-7xl px-6 md:px-16">
           {/* center line (md+) */}
           <div className="pointer-events-none hidden md:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-white/15" />
 
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-12 md:gap-14">
             {milestones.map((m, i) => {
               const left = i % 2 === 0;
               const active = i === activeIndex;
@@ -222,43 +222,45 @@ export default function IndustryPage() {
               const Card = (
                 <div className="relative" style={motionStyle}>
                   <div
-                    className="rounded-2xl border bg-white/[0.02] p-6 backdrop-blur-sm"
+                    className="rounded-2xl border bg-white/[0.02] p-7 md:p-8 backdrop-blur-sm"
                     style={cardStyle}
                   >
-                    <div className="flex items-center gap-4 mb-3">
+                    <div className="flex items-center gap-4 mb-4">
                       <div className="flex items-center gap-3">
                         <Image
                           src={m.logo}
                           alt={m.org}
-                          width={36}
-                          height={36}
+                          width={44}
+                          height={44}
                           className="rounded"
                         />
                         {m.secondaryLogo && (
                           <Image
                             src={m.secondaryLogo}
                             alt=""
-                            width={30}
-                            height={30}
+                            width={36}
+                            height={36}
                             className="rounded"
                           />
                         )}
                       </div>
 
-                      <div className="text-xs tracking-[0.28em] text-white/55">
+                      <div className="text-sm tracking-[0.28em] text-white/55">
                         {m.when}
                       </div>
                     </div>
 
-                    <div className="text-2xl">{m.org}</div>
-                    <div className="text-white/75">{m.role}</div>
+                    <div className="text-3xl md:text-4xl">{m.org}</div>
+                    <div className="text-white/75 text-base md:text-lg">
+                      {m.role}
+                    </div>
 
-                    <div className="mt-3 text-[11px] tracking-[0.18em] text-white/45">
+                    <div className="mt-4 text-xs md:text-sm tracking-[0.18em] text-white/45">
                       {m.tags}
                     </div>
 
                     {/* subtle thermal accent line */}
-                    <div className="mt-6 h-px w-44 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-60" />
+                    <div className="mt-7 h-px w-52 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-60" />
                   </div>
                 </div>
               );
@@ -269,7 +271,7 @@ export default function IndustryPage() {
                   ref={(el) => {
                     itemRefs.current[i] = el;
                   }}
-                  className="grid grid-cols-1 md:grid-cols-[1fr_72px_1fr] gap-y-6 md:gap-y-0"
+                  className="grid grid-cols-1 md:grid-cols-[1fr_72px_1fr] gap-y-8 md:gap-y-0"
                 >
                   {/* LEFT */}
                   <div className="md:col-start-1">
@@ -278,7 +280,7 @@ export default function IndustryPage() {
 
                   {/* CENTER DOT */}
                   <div className="relative md:col-start-2 flex items-start justify-center">
-                    <div className="relative mt-10 flex items-center justify-center">
+                    <div className="relative mt-12 flex items-center justify-center">
                       <div
                         className="rounded-full"
                         style={{
