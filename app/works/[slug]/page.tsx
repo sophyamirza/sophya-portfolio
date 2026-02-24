@@ -1,7 +1,9 @@
+// app/works/[slug]/page.tsx
+
 import Link from "next/link";
 import Image from "next/image";
-import ImageCarousel from "@/app/works/components/ImageCarousel";
-import { PROJECTS_BY_SLUG } from "@/app/works/projects";
+import ImageCarousel from "../components/ImageCarousel";
+import { PROJECTS_BY_SLUG } from "../projects";
 
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
@@ -53,6 +55,7 @@ export default async function ProjectPage({
     );
   }
 
+  // fully typed (no any)
   const yearLabel = p.yearLabel ?? p.year;
   const status = p.status ?? "{insert status here}";
   const team = p.team ?? "{insert team here}";
@@ -93,7 +96,7 @@ export default async function ProjectPage({
           ← Back to Works
         </Link>
 
-        {/* top meta row */}
+        {/* top meta row like reference */}
         <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="text-xs tracking-[0.35em] text-white/45">
@@ -146,26 +149,22 @@ export default async function ProjectPage({
           ))}
         </div>
 
-        {/* divider */}
+        {/* thin thermal divider */}
         <div
           className="mt-10 h-px w-full opacity-80"
           style={{ background: THERMAL_GRADIENT }}
         />
 
-        {/* HERO (✅ carousel replaces placeholder/cover when gallery exists) */}
+        {/* hero */}
         <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
           {p.gallery?.length ? (
             <>
-              <ImageCarousel
-                images={p.gallery}
-                alt={`${p.title} contours`}
-                fillParent
-              />
+              {/* NOTE: uses your current ImageCarousel layout; it will render fine even nested */}
+              <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
               <div
                 className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
                 style={{ background: THERMAL_GRADIENT }}
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
             </>
           ) : p.cover ? (
             <>
@@ -192,8 +191,9 @@ export default async function ProjectPage({
       {/* body */}
       <section className="relative mx-auto max-w-6xl px-6 pb-28">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* LEFT */}
+          {/* LEFT: main narrative */}
           <div className="md:col-span-2">
+            {/* SYSTEM OVERVIEW */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 SYSTEM OVERVIEW
@@ -203,6 +203,7 @@ export default async function ProjectPage({
               </p>
             </div>
 
+            {/* MY CONTRIBUTIONS */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 MY CONTRIBUTIONS
@@ -229,6 +230,7 @@ export default async function ProjectPage({
               </ol>
             </div>
 
+            {/* RESULTS */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 RESULTS
@@ -252,8 +254,9 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT: sidebar cards */}
           <aside className="space-y-10">
+            {/* TOOLS & SKILLS */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 TOOLS & SKILLS
@@ -271,6 +274,7 @@ export default async function ProjectPage({
               </div>
             </div>
 
+            {/* DATE */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 DATE
@@ -283,6 +287,7 @@ export default async function ProjectPage({
               </div>
             </div>
 
+            {/* FOCUS AREA */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 FOCUS AREA
