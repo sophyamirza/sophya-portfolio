@@ -161,10 +161,14 @@ export const PROJECTS: Project[] = [
       return `/projects/BLUNTBODY/contour${n}.PNG`;
     }),
 
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
+    systemOverview: "Performed mesh-converged CFD simulations of supersonic flow over a blunt body to capture detached normal shock formation and stagnation behavior. Results were quantitatively validated against analytical normal shock relations, achieving ≤0.4% error across pressure, temperature, and density ratios. Conducted Mach sensitivity studies (M=2–3) to evaluate shock stand-off distance and subsonic region evolution.",
+    toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study"],
+    contributions: ["Developed converged baseline CFD solution and applied pressure-gradient-based adaptive mesh refinement to resolve detached normal shock structure",
+    "Validated CFD pressure, temperature, and density ratios against analytical normal shock equations with ≤0.4% discrepancy",
+    "Extracted symmetry-line flow properties to identify shock location and quantify stagnation pressure recovery",
+    "Performed Mach sweep (2.0–3.0) to analyze shock stand-off distance, sonic line contraction, and subsonic region behavior",
+    "Evaluated total pressure loss across the normal shock and verified stagnation trends using compressible flow theory",], 
+    results: ["Achieved solver convergence in ~1500 iterations; performed adaptive mesh refinement in high pressure-gradient regions (>5×10⁷ Pa/m) to improve shock resolution", "Measured stagnation point pressure of ~430 kPa, confirming expected total pressure loss across the shock followed by isentropic recovery to stagnation", "Simulated Mach 2.0, 2.5, and 3.0 flow over a blunt body to resolve bow shock formation, stagnation behavior, and subsonic regions", "Demonstrated physically consistent trends with increasing Mach number: stronger shocks, higher post-shock pressure/temperature, and shrinking subsonic regions (sonic line moving closer to the body)"  ],
   },
 
   // =========================
