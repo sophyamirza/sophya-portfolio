@@ -249,7 +249,7 @@ export default function BioPage() {
 
             <div className="mt-8 space-y-6 text-[15px] sm:text-[16px] leading-relaxed text-white/75">
               <p>
-                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in Los Angeles between backyard builds and the roar of LAX, I learned early that progress comes from ownership and iteration. Watching the Space Shuttle fly over my school and seeing Anousheh Ansari reach space made this path tangible and set the direction.
+                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between backyard builds, takeout and the roar of LAX, I learned early that progress comes from ownership and iteration. Watching the Space Shuttle fly over my school to the California Science Center and watching videos of Anousheh Ansari, another American Iranian woman reach space made this path tangible and set the direction.
               </p>
 
               <p>
