@@ -81,6 +81,7 @@ export const PROJECTS: Project[] = [
     "Cryogenic handling",
     "RPA",
     "MATLAB",
+    "long nights cronking fittings and bending hardine"
   ],
 
   contributions: [
@@ -129,21 +130,30 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "blunt-body-analysis",
-    title: "Blunt Body Analysis",
-    subtitle: "Supersonic flow over a blunt body",
-    year: "2026",
-    yearLabel: "2026",
-    tags: ["Aerodynamics", "ANSYS", "Simulation", "Mesh refinement"],
-    overview:
-      "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
-    highlights: [
-      "Built and refined meshes to resolve key gradients",
-      "Ran parameter and convergence checks",
-      "Interpreted flow features and sensitivity to numerical choices",
-    ],
-    status: "COMPLETED",
-    date: "2026",
-    focusArea: "Aerodynamics",
+  title: "CFD Validation of Supersonic Shock Formation",
+  subtitle: "Mesh-Converged Analysis of Normal Shock Behavior and Stagnation Properties (Mach 2–3)",
+  year: "2026",
+  yearLabel: "2026",
+  tags: [
+    "Compressible Flow",
+    "Supersonic Aerodynamics",
+    "ANSYS Fluent",
+    "CFD Validation",
+    "Mesh Refinement",
+    "Shock Physics",
+  ],
+  overview:
+    "Performed mesh-converged CFD simulations of supersonic flow over a blunt body to capture detached normal shock formation and stagnation behavior. Results were quantitatively validated against analytical normal shock relations, achieving ≤0.4% error across pressure, temperature, and density ratios. Conducted Mach sensitivity studies (M=2–3) to evaluate shock stand-off distance and subsonic region evolution.",
+  highlights: [
+    "Developed converged baseline CFD solution and applied pressure-gradient-based adaptive mesh refinement to resolve detached normal shock structure",
+    "Validated CFD pressure, temperature, and density ratios against analytical normal shock equations with ≤0.4% discrepancy",
+    "Extracted symmetry-line flow properties to identify shock location and quantify stagnation pressure recovery",
+    "Performed Mach sweep (2.0–3.0) to analyze shock stand-off distance, sonic line contraction, and subsonic region behavior",
+    "Evaluated total pressure loss across the normal shock and verified stagnation trends using compressible flow theory",
+  ],
+  status: "COMPLETED",
+  date: "2026",
+  focusArea: "Supersonic Aerodynamics & CFD Validation",
 
     // ✅ added: carousel image paths (matches your folder + uppercase .PNG)
     gallery: Array.from({ length: 16 }, (_, i) => {
