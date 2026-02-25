@@ -51,28 +51,53 @@ export const PROJECTS: Project[] = [
   // 2026
   // =========================
   {
-    slug: "alula",
-    title: "ALULA",
-    subtitle: "Liquid bi-prop engine rocket",
-    year: "2026",
-    yearLabel: "2026",
-    tags: ["Feed System", "Cryogenics", "Fluids P&ID", "Propulsion", "Ethanol/LOX"],
-    overview:
-      "Propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
-    highlights: [
-      "Owned major architecture decisions and interfaces",
-      "Developed feed system concepts and documentation (P&ID mindset)",
-      "Closed loops through prototyping and validation",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Propulsion Systems",
-    team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["P&ID", "Feed system design", "Cryogenic handling", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
+  slug: "alula",
+  title: "ALULA",
+  subtitle: "Liquid bi-prop engine rocket",
+  year: "2026",
+  yearLabel: "2026",
+  tags: ["Propulsion", "Feed System", "Cryogenics", "Fluids P&ID", "Ethanol/LOX"],
+  overview:
+    "Liquid ethanol/LOX rocket program spanning propulsion architecture, feed system integration, and test-driven iteration to flight.",
+  highlights: [
+    "Led feed system build and critical valve hardware for ethanol/LOX",
+    "Designed + machined flight components (RQD, injector, nozzle)",
+    "Validated hardware through Mojave testing and successful launch + recovery",
+  ],
+  status: "COMPLETED",
+  date: "LAUNCHED",
+  focusArea: "Propulsion Engineering",
+
+  systemOverview:
+    "ALULA is a student-built liquid bi-propellant rocket using ethanol and liquid oxygen. The propulsion stack includes a pressure-fed cryogenic feed system, purpose-built valves and disconnects for safe ground operations, and a manufacturable de Laval nozzle selected to balance performance with the realities of student-shop tooling. The program closed design-test loops through subsystem verification, integrated hot-fire and range testing, and culminated in a flight campaign with successful recovery.",
+
+  toolsAndSkills: [
+    "SolidWorks CAD",
+    "Manual milling (Bridgeport)",
+    "Lathe machining",
+    "Injector / nozzle manufacturing",
+    "Fluids P&ID",
+    "Feed system design",
+    "Cryogenic handling",
+    "RPA",
+    "MATLAB",
+  ],
+
+  contributions: [
+    "Owned Remote Quick Disconnect (RQD) from design → manufacturing → assembly → test → flight; modeled in SolidWorks, machined on lathe + Bridgeport, and validated in ground ops and launch environment.",
+    "Machined the injector and supported end-to-end propulsion hardware fabrication for flight-ready integration.",
+    "Built an RPA-driven workflow to optimize thrust chamber/nozzle geometry for the vehicle mission; selected a manufacturable de Laval nozzle over a bell nozzle due to tooling constraints, then verified integrity with thermal + force simulation prior to machining an aluminum nozzle used on launch.",
+    "Designed a pressure-actuated valve and led the build/integration of the ethanol/LOX feed system (interfaces, routing, and assembly readiness for test).",
+    "Designed and produced the final iteration pyro valve to regulate LOX/ethanol lines: SolidWorks design → prototype aluminum machining → flight stainless version for cryogenic compatibility; performed thermal and pressure-drop analysis and validated against real testing. (0.05 g black powder actuator with e-match ignition driving piston for flow control.)",
+    "Handled logistics and test execution support, including transporting critical propulsion hardware to Mojave for range testing and iteration.",
+  ],
+
+  results: [
+    "Won the Friends of Amateur Rocketry ‘Dollar Per Foot’ competition.",
+    "Reached an apogee of 6,126 ft.",
+    "Successful flight recovery.",
+  ],
+},
   {
     slug: "cf-rear-wing",
     title: "Vehicle Optimized Carbon Fiber Rear Wing",
