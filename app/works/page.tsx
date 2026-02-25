@@ -33,66 +33,18 @@ function PlaceholderPreview({ title }: { title: string }) {
   );
 }
 
-/**
- * ProjectType (internal) -> display label (what you want shown on Works page)
- * Keep keys in sync with ProjectType union in projects.ts
- */
-const SECTION_LABELS: Record<string, string> = {
-  "Propulsion & Fluids": "Propulsion, GSE, Fluids",
-  "Test Systems & Instrumentation": "Test Fixtures, Cryogenics & Instrumentation",
-  "Analysis & Simulation": "Analysis & Sims",
-  "Product Design & Mechanisms": "Product Design & Dev",
-  "Robotics & Autonomy": "Robotics, UAVs & Autonomy",
-  "Power & Energy Systems": "Power & Energy Systems",
-};
-
-/** Control the order of sections on the Works page */
-const SECTION_ORDER = [
-  "Propulsion & Fluids",
-  "Test Systems & Instrumentation",
-  "Analysis & Simulation",
-  "Product Design & Mechanisms",
-  "Robotics & Autonomy",
-  "Power & Energy Systems",
-] as const;
-
-function groupByType(projects: typeof PROJECTS) {
-  return SECTION_ORDER.map((type) => ({
-    type,
-    title: SECTION_LABELS[type] ?? type,
-    projects: projects.filter((p) => p.projectType === type),
-  })).filter((g) => g.projects.length > 0);
-}
-
-function CTAButton({
-  href,
-  label,
-  isExternal = true,
-}: {
-  href: string;
-  label: string;
-  isExternal?: boolean;
-}) {
-  const common =
-    "inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-5 py-3 text-sm text-white/80 backdrop-blur hover:border-white/35 hover:text-white transition";
-
-  if (isExternal) {
-    return (
-      <a href={href} target="_blank" rel="noreferrer" className={common}>
-        {label}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} className={common}>
-      {label}
-    </Link>
-  );
+function groupByYear(projects: typeof PROJECTS) {
+  const sorted = [...projects].sort((a, b) => Number(b.year) - Number(a.year));
+  return sorted.reduce<Record<string, typeof PROJECTS>>((acc, p) => {
+    acc[p.yearLabel] ||= [];
+    acc[p.yearLabel].push(p);
+    return acc;
+  }, {});
 }
 
 export default function WorksPage() {
-  const sections = useMemo(() => groupByType(PROJECTS), []);
+  const grouped = useMemo(() => groupByYear(PROJECTS), []);
+  const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [hover, setHover] = useState<HoverState>({ on: false });
@@ -109,24 +61,24 @@ export default function WorksPage() {
         ref={containerRef}
         onMouseMove={onMove}
         onMouseLeave={() => setHover({ on: false })}
-        className="relative mx-auto max-w-6xl px-6 pt-24 pb-24"
+        className="mx-auto max-w-6xl px-6 pt-24 pb-32"
       >
         <h1 className="text-6xl md:text-7xl tracking-tight">
           Engineering Gallery
         </h1>
 
-        {/* SECTION GROUPS */}
+        {/* YEAR GROUPS */}
         <div className="mt-16 space-y-20">
-          {sections.map((section) => (
-            <div key={section.type}>
-              {/* SECTION DIVIDER */}
+          {years.map((year) => (
+            <div key={year}>
+              {/* YEAR DIVIDER */}
               <div className="flex items-center gap-6 mb-10">
                 <div
                   className="h-px flex-1 opacity-80"
                   style={{ background: THERMAL_GRADIENT }}
                 />
                 <div className="text-xs tracking-[0.35em] text-white/60">
-                  {section.title}
+                  {year}
                 </div>
                 <div
                   className="h-px flex-1 opacity-80"
@@ -136,7 +88,7 @@ export default function WorksPage() {
 
               {/* PROJECTS */}
               <div className="space-y-12">
-                {section.projects.map((p) => (
+                {grouped[year].map((p) => (
                   <Link
                     key={p.slug}
                     href={`/works/${p.slug}`}
@@ -187,64 +139,22 @@ export default function WorksPage() {
           ))}
         </div>
 
-        {/* ✅ END CAP / FOOTER NAV — prevents “glitchy” end-of-page */}
-        <div className="mt-24">
-          <div className="flex items-center gap-6 mb-10">
-            <div
-              className="h-px flex-1 opacity-70"
-              style={{ background: THERMAL_GRADIENT }}
-            />
-            <div className="text-xs tracking-[0.35em] text-white/50">
-              CONNECT
-            </div>
-            <div
-              className="h-px flex-1 opacity-70"
-              style={{ background: THERMAL_GRADIENT }}
-            />
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-            <div className="text-white/75 text-lg md:text-xl tracking-tight">
-              Want to talk builds, tests, or weird hardware problems?
-            </div>
-            <div className="mt-2 text-white/55 text-sm">
-              Reach out — I read everything.
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <CTAButton
-                href="https://www.linkedin.com/in/sophya-mirza-4947981b7/"
-                label="LinkedIn"
-              />
-              <CTAButton href="mailto:sophyamirza@gmail.com" label="Email" />
-              <CTAButton
-                href="https://sophyamirza.substack.com/"
-                label="Substack"
-              />
-              <CTAButton href="/contact" label="Contact Page" isExternal={false} />
-            </div>
-
-            {/* extra bottom padding so hover preview never clips */}
-            <div className="mt-10 h-10" />
-          </div>
-
-          {/* final spacer */}
-          <div className="h-16" />
-        </div>
-
         {/* HOVER PREVIEW */}
         {hover.on && (
           <div
             className="pointer-events-none absolute z-50"
             style={{
-              transform: `translate3d(${hover.x + 20}px, ${
-                hover.y - 140
-              }px,0)`,
+              transform: `translate3d(${hover.x + 20}px, ${hover.y - 140}px,0)`,
             }}
           >
             <div className="w-[320px] h-[200px] rounded-xl overflow-hidden border border-white/15 bg-black/70">
               {hover.cover ? (
-                <Image src={hover.cover} alt="" fill className="object-cover" />
+                <Image
+                  src={hover.cover}
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
               ) : (
                 <PlaceholderPreview title={hover.title} />
               )}
