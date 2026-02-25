@@ -51,6 +51,29 @@ export const PROJECTS: Project[] = [
   // 2026
   // =========================
   {
+    slug: "alula",
+    title: "ALULA",
+    subtitle: "Liquid bi-prop engine rocket",
+    year: "2025",
+    yearLabel: "2025",
+    tags: ["Feed System", "Cryogenics", "Fluids P&ID", "Propulsion", "Ethanol/LOX"],
+    overview:
+      "Propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
+    highlights: [
+      "Owned major architecture decisions and interfaces",
+      "Developed feed system concepts and documentation (P&ID mindset)",
+      "Closed loops through prototyping and validation",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Propulsion Systems",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["P&ID", "Feed system design", "Cryogenic handling", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
     slug: "cf-rear-wing",
     title: "Vehicle Optimized Carbon Fiber Rear Wing",
     subtitle: "Custom Tesla Model 3 mods",
@@ -112,29 +135,7 @@ export const PROJECTS: Project[] = [
   // =========================
   // 2025
   // =========================
-  {
-    slug: "alula",
-    title: "ALULA",
-    subtitle: "Liquid bi-prop engine rocket",
-    year: "2025",
-    yearLabel: "2025",
-    tags: ["Feed System", "Cryogenics", "Fluids P&ID", "Propulsion", "Ethanol/LOX"],
-    overview:
-      "Propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
-    highlights: [
-      "Owned major architecture decisions and interfaces",
-      "Developed feed system concepts and documentation (P&ID mindset)",
-      "Closed loops through prototyping and validation",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Propulsion Systems",
-    team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["P&ID", "Feed system design", "Cryogenic handling", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
+  
   {
     slug: "nasa-suits-spacebears",
     title: "NASA SUITS",
