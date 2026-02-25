@@ -115,6 +115,32 @@ export const PROJECTS: Project[] = [
     ],
   },
 
+  {
+    slug: "pneumatic-magnetometer-boom-gse",
+    title: "Pneumatic Magnetometer Boom GSE",
+    subtitle: "Air bearing test stand",
+    year: "2024",
+    yearLabel: "2024",
+    projectType: "Test Systems & Instrumentation",
+    tags: ["Pneumatics", "Air Bearings", "Instrumentation", "GSE design", "Testing"],
+    overview:
+      "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
+    highlights: [
+      "Designed pneumatic architecture and integration points",
+      "Instrumented the setup for clean data capture",
+      "Validated behavior through testing and iteration",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Test Systems & GSE",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Pneumatics", "Air bearings", "Instrumentation", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  
+
   // =========================
   // Product Design & Mechanisms
   // =========================
@@ -142,6 +168,7 @@ export const PROJECTS: Project[] = [
     contributions: PH.contributions,
     results: PH.results,
   },
+  
 
   // =========================
   // Analysis & Simulation
@@ -373,30 +400,6 @@ export const PROJECTS: Project[] = [
     results: PH.results,
   },
   {
-    slug: "pneumatic-magnetometer-boom-gse",
-    title: "Pneumatic Magnetometer Boom GSE",
-    subtitle: "Air bearing test stand",
-    year: "2024",
-    yearLabel: "2024",
-    projectType: "Test Systems & Instrumentation",
-    tags: ["Pneumatics", "Air Bearings", "Instrumentation", "GSE design", "Testing"],
-    overview:
-      "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
-    highlights: [
-      "Designed pneumatic architecture and integration points",
-      "Instrumented the setup for clean data capture",
-      "Validated behavior through testing and iteration",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Test Systems & GSE",
-    team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["Pneumatics", "Air bearings", "Instrumentation", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
-  {
     slug: "bluefors-dr1-cryostat",
     title: "BlueFors DR1 Cryostat",
     subtitle: "Superconducting transition instrumentation",
@@ -417,6 +420,30 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", ...PH.tools],
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+  {
+    slug: "4680-liion-test-fixture",
+    title: "4680 Li-ion Cell Test Fixture",
+    subtitle: "Battery cell charging and discharging",
+    year: "2021",
+    yearLabel: "2021–2023",
+    projectType: "Power & Energy Systems",
+    tags: ["High voltage", "Power electronics", "Custom fixture", "Fiber temp sensing", "Circuit design"],
+    overview:
+      "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
+    highlights: [
+      "Designed fixture for repeatability and safety",
+      "Integrated sensing strategy for thermal/behavior insight",
+      "Iterated based on testing and failure modes",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "Test Hardware & Power",
+    team: "Sophya Mirza",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["HV safety", "Power electronics", "Fixture design", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
   },
@@ -452,30 +479,7 @@ export const PROJECTS: Project[] = [
   // =========================
   // Power & Energy Systems
   // =========================
-  {
-    slug: "4680-liion-test-fixture",
-    title: "4680 Li-ion Cell Test Fixture",
-    subtitle: "Battery cell charging and discharging",
-    year: "2021",
-    yearLabel: "2021–2023",
-    projectType: "Power & Energy Systems",
-    tags: ["High voltage", "Power electronics", "Custom fixture", "Fiber temp sensing", "Circuit design"],
-    overview:
-      "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
-    highlights: [
-      "Designed fixture for repeatability and safety",
-      "Integrated sensing strategy for thermal/behavior insight",
-      "Iterated based on testing and failure modes",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Test Hardware & Power",
-    team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["HV safety", "Power electronics", "Fixture design", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
+  
 ];
 
 export const PROJECTS_BY_SLUG = Object.fromEntries(
