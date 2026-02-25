@@ -54,8 +54,8 @@ export const PROJECTS: Project[] = [
     slug: "alula",
     title: "ALULA",
     subtitle: "Liquid bi-prop engine rocket",
-    year: "2025",
-    yearLabel: "2025",
+    year: "2026",
+    yearLabel: "2026",
     tags: ["Feed System", "Cryogenics", "Fluids P&ID", "Propulsion", "Ethanol/LOX"],
     overview:
       "Propulsion build spanning engine architecture through components, integration, and test-driven iteration.",
