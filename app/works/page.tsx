@@ -34,22 +34,19 @@ function PlaceholderPreview({ title }: { title: string }) {
 }
 
 /**
- * Map your internal ProjectType -> the exact section label you want displayed.
- * Keep these keys in sync with ProjectType union in projects.ts.
+ * ProjectType (internal) -> display label (what you want shown on Works page)
+ * Keep keys in sync with ProjectType union in projects.ts
  */
-const SECTION_LABELS = {
+const SECTION_LABELS: Record<string, string> = {
   "Propulsion & Fluids": "Propulsion, GSE, Fluids",
   "Test Systems & Instrumentation": "Test Fixtures, Cryogenics & Instrumentation",
   "Analysis & Simulation": "Analysis & Sims",
   "Product Design & Mechanisms": "Product Design & Dev",
   "Robotics & Autonomy": "Robotics, UAVs & Autonomy",
   "Power & Energy Systems": "Power & Energy Systems",
-} as const;
+};
 
-/**
- * Order the gallery sections exactly how you want them to appear.
- * (You can remove Power & Energy Systems here if you want it to disappear from Works.)
- */
+/** Control the order of sections on the Works page */
 const SECTION_ORDER = [
   "Propulsion & Fluids",
   "Test Systems & Instrumentation",
@@ -59,17 +56,39 @@ const SECTION_ORDER = [
   "Power & Energy Systems",
 ] as const;
 
-type SectionKey = (typeof SECTION_ORDER)[number];
-
 function groupByType(projects: typeof PROJECTS) {
-  // create groups in your desired order
-  const groups = SECTION_ORDER.map((type) => ({
+  return SECTION_ORDER.map((type) => ({
     type,
-    title: SECTION_LABELS[type],
+    title: SECTION_LABELS[type] ?? type,
     projects: projects.filter((p) => p.projectType === type),
   })).filter((g) => g.projects.length > 0);
+}
 
-  return groups;
+function CTAButton({
+  href,
+  label,
+  isExternal = true,
+}: {
+  href: string;
+  label: string;
+  isExternal?: boolean;
+}) {
+  const common =
+    "inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-5 py-3 text-sm text-white/80 backdrop-blur hover:border-white/35 hover:text-white transition";
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noreferrer" className={common}>
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={common}>
+      {label}
+    </Link>
+  );
 }
 
 export default function WorksPage() {
@@ -90,7 +109,7 @@ export default function WorksPage() {
         ref={containerRef}
         onMouseMove={onMove}
         onMouseLeave={() => setHover({ on: false })}
-        className="mx-auto max-w-6xl px-6 pt-24 pb-32"
+        className="relative mx-auto max-w-6xl px-6 pt-24 pb-24"
       >
         <h1 className="text-6xl md:text-7xl tracking-tight">
           Engineering Gallery
@@ -100,7 +119,7 @@ export default function WorksPage() {
         <div className="mt-16 space-y-20">
           {sections.map((section) => (
             <div key={section.type}>
-              {/* SECTION DIVIDER (same style as your year divider) */}
+              {/* SECTION DIVIDER */}
               <div className="flex items-center gap-6 mb-10">
                 <div
                   className="h-px flex-1 opacity-80"
@@ -166,6 +185,51 @@ export default function WorksPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ✅ END CAP / FOOTER NAV — prevents “glitchy” end-of-page */}
+        <div className="mt-24">
+          <div className="flex items-center gap-6 mb-10">
+            <div
+              className="h-px flex-1 opacity-70"
+              style={{ background: THERMAL_GRADIENT }}
+            />
+            <div className="text-xs tracking-[0.35em] text-white/50">
+              CONNECT
+            </div>
+            <div
+              className="h-px flex-1 opacity-70"
+              style={{ background: THERMAL_GRADIENT }}
+            />
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+            <div className="text-white/75 text-lg md:text-xl tracking-tight">
+              Want to talk builds, tests, or weird hardware problems?
+            </div>
+            <div className="mt-2 text-white/55 text-sm">
+              Reach out — I read everything.
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <CTAButton
+                href="https://www.linkedin.com/in/sophya-mirza-4947981b7/"
+                label="LinkedIn"
+              />
+              <CTAButton href="mailto:sophyamirza@gmail.com" label="Email" />
+              <CTAButton
+                href="https://sophyamirza.substack.com/"
+                label="Substack"
+              />
+              <CTAButton href="/contact" label="Contact Page" isExternal={false} />
+            </div>
+
+            {/* extra bottom padding so hover preview never clips */}
+            <div className="mt-10 h-10" />
+          </div>
+
+          {/* final spacer */}
+          <div className="h-16" />
         </div>
 
         {/* HOVER PREVIEW */}
