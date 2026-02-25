@@ -58,7 +58,6 @@ export default async function ProjectPage({
   // fully typed (no any)
   const yearLabel = p.yearLabel ?? p.year;
   const status = p.status ?? "{insert status here}";
-  const team = p.team ?? "{insert team here}";
   const date = p.date ?? "{insert date here}";
   const focusArea = p.focusArea ?? "{insert focus area here}";
 
@@ -112,7 +111,7 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* status + team */}
+          {/* status (TEAM removed) */}
           <div className="md:text-right">
             <div className="text-[11px] tracking-[0.35em] text-white/45">
               STATUS
@@ -129,11 +128,6 @@ export default async function ProjectPage({
             >
               {status}
             </div>
-
-            <div className="mt-5 text-[11px] tracking-[0.35em] text-white/45">
-              TEAM
-            </div>
-            <div className="mt-2 text-sm text-white/70">{team}</div>
           </div>
         </div>
 
@@ -156,40 +150,40 @@ export default async function ProjectPage({
         />
 
         {/* hero */}
-<div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-  {p.gallery?.length ? (
-    <>
-      <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
+        <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+          {p.gallery?.length ? (
+            <>
+              <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
 
-      {/* top thermal line */}
-      <div
-        className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] z-30"
-        style={{ background: THERMAL_GRADIENT }}
-      />
+              {/* top thermal line */}
+              <div
+                className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] z-30"
+                style={{ background: THERMAL_GRADIENT }}
+              />
 
-      {/* subtle top fade (optional, helps readability) */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
-    </>
-  ) : p.cover ? (
-    <>
-      <Image
-        src={p.cover}
-        alt={p.title}
-        fill
-        className="object-cover opacity-95"
-        sizes="100vw"
-        priority
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
-      <div
-        className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
-        style={{ background: THERMAL_GRADIENT }}
-      />
-    </>
-  ) : (
-    <HeroPlaceholder title={p.title} />
-  )}
-</div>
+              {/* subtle top fade (optional, helps readability) */}
+              <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
+            </>
+          ) : p.cover ? (
+            <>
+              <Image
+                src={p.cover}
+                alt={p.title}
+                fill
+                className="object-cover opacity-95"
+                sizes="100vw"
+                priority
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
+              <div
+                className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
+                style={{ background: THERMAL_GRADIENT }}
+              />
+            </>
+          ) : (
+            <HeroPlaceholder title={p.title} />
+          )}
+        </div>
       </section>
 
       {/* body */}
@@ -280,9 +274,7 @@ export default async function ProjectPage({
 
             {/* DATE */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-              <div className="text-xs tracking-[0.35em] text-white/55">
-                DATE
-              </div>
+              <div className="text-xs tracking-[0.35em] text-white/55">DATE</div>
               <div
                 className="mt-4 text-lg text-white/85"
                 style={{ opacity: isPlaceholder(date) ? 0.55 : 1 }}
