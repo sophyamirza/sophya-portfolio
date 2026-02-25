@@ -249,34 +249,15 @@ export default function BioPage() {
 
             <div className="mt-8 space-y-6 text-[15px] sm:text-[16px] leading-relaxed text-white/75">
               <p>
-                A few years ago, a fortune cookie told me that I create
-                enthusiasm. I grew up in LA, a melting pot shaped by backyard
-                innovation, late night takeout, and the constant roar of LAX.
-                Somewhere between the breakthrough tech in Gundo and those
-                fortune cookies, I leaned into that idea. Pairing my energy with
-                extreme ownership I’ve had the privilege to own high consequence
-                hardware at SpaceX, NASA, Astranis, SSL, Proterra, and beyond.
+                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in Los Angeles between backyard builds and the roar of LAX, I learned early that progress comes from ownership and iteration. Watching the Space Shuttle fly over my school and seeing Anousheh Ansari reach space made this path tangible and set the direction.
               </p>
 
               <p>
-                I’ve always been a tinkerer, inventor, and builder. What started
-                as robotics competitions and science fairs to meet the President,
-                quickly became something deeper the day I watched the Space
-                Shuttle fly over my school on its final journey. That moment lit
-                a fuse that has been burning ever since. Years later, I found
-                myself underneath that same shuttle at the same science center,
-                doing what I loved most while earning national awards and
-                scholarships along the way.
+                I’ve always been a builder. What began with robotics competitions and science fairs as a chance to meet the President evolved into hands on engineering focused on design build test loops. A formative summer touring wind farms and hydroelectric dams led me to refurbish generators and sparked a lasting fascination with energy systems, turbomachinery, and high consequence hardware.
               </p>
 
               <p>
-                At 14, I really ran with it, spending a summer in rural NC living
-                alongside adventurous college students, climbing in the Chimneys,
-                roaming wind farms, touring hydroelectric dams, and getting
-                mesmerized by turbines and generators. That experience sparked
-                my earliest projects refurbishing generators and cemented what I
-                care about most: scrappy hands on engineering, validation
-                through testing, and learning by doing.
+                Since then, I’ve worked across propulsion and satellite systems, owning components from CAD and analysis through manufacturing, integration, and test. My focus has been solving real hardware problems under schedule and performance constraints closing loops quickly, validating through data, and taking full responsibility for outcomes.
               </p>
 
               <p>
@@ -285,8 +266,7 @@ export default function BioPage() {
               </p>
 
               <p>
-                I hope to bring that same enthusiasm, ownership, and curiosity
-                to your team!
+                I aim to bring that same rigor, enthusiasm, curiosity, and bias toward execution to your team!
               </p>
             </div>
 
