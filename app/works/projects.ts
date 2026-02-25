@@ -163,7 +163,7 @@ export const PROJECTS: Project[] = [
       "Shock Physics",
     ],
     overview:
-      "Performed mesh-converged CFD simulations of supersonic flow over a blunt body to capture detached normal shock formation and stagnation behavior. Results were quantitatively validated against analytical normal shock relations, achieving ≤0.4% error across pressure, temperature, and density ratios. Conducted Mach sensitivity studies (M=2–3) to evaluate shock stand-off distance and subsonic region evolution.",
+      "Performed mesh converged CFD simulations of supersonic flow over a blunt body to capture detached normal shock formation and stagnation behavior. Results were quantitatively validated against analytical normal shock relations, achieving ≤0.4% error across pressure, temperature, and density ratios. Conducted Mach sensitivity studies (M=2–3) to evaluate shock stand-off distance and subsonic region evolution.",
     highlights: [
       "Developed converged baseline CFD solution and applied pressure-gradient-based adaptive mesh refinement to resolve detached normal shock structure",
       "Validated CFD pressure, temperature, and density ratios against analytical normal shock equations with ≤0.4% discrepancy",

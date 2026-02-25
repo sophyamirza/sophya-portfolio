@@ -33,18 +33,47 @@ function PlaceholderPreview({ title }: { title: string }) {
   );
 }
 
-function groupByYear(projects: typeof PROJECTS) {
-  const sorted = [...projects].sort((a, b) => Number(b.year) - Number(a.year));
-  return sorted.reduce<Record<string, typeof PROJECTS>>((acc, p) => {
-    acc[p.yearLabel] ||= [];
-    acc[p.yearLabel].push(p);
-    return acc;
-  }, {});
+/**
+ * Map your internal ProjectType -> the exact section label you want displayed.
+ * Keep these keys in sync with ProjectType union in projects.ts.
+ */
+const SECTION_LABELS = {
+  "Propulsion & Fluids": "Propulsion, GSE, Fluids",
+  "Test Systems & Instrumentation": "Test Fixtures, Cryogenics & Instrumentation",
+  "Analysis & Simulation": "Analysis & Sims",
+  "Product Design & Mechanisms": "Product Design & Dev",
+  "Robotics & Autonomy": "Robotics, UAVs & Autonomy",
+  "Power & Energy Systems": "Power & Energy Systems",
+} as const;
+
+/**
+ * Order the gallery sections exactly how you want them to appear.
+ * (You can remove Power & Energy Systems here if you want it to disappear from Works.)
+ */
+const SECTION_ORDER = [
+  "Propulsion & Fluids",
+  "Test Systems & Instrumentation",
+  "Analysis & Simulation",
+  "Product Design & Mechanisms",
+  "Robotics & Autonomy",
+  "Power & Energy Systems",
+] as const;
+
+type SectionKey = (typeof SECTION_ORDER)[number];
+
+function groupByType(projects: typeof PROJECTS) {
+  // create groups in your desired order
+  const groups = SECTION_ORDER.map((type) => ({
+    type,
+    title: SECTION_LABELS[type],
+    projects: projects.filter((p) => p.projectType === type),
+  })).filter((g) => g.projects.length > 0);
+
+  return groups;
 }
 
 export default function WorksPage() {
-  const grouped = useMemo(() => groupByYear(PROJECTS), []);
-  const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
+  const sections = useMemo(() => groupByType(PROJECTS), []);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [hover, setHover] = useState<HoverState>({ on: false });
@@ -67,18 +96,18 @@ export default function WorksPage() {
           Engineering Gallery
         </h1>
 
-        {/* YEAR GROUPS */}
+        {/* SECTION GROUPS */}
         <div className="mt-16 space-y-20">
-          {years.map((year) => (
-            <div key={year}>
-              {/* YEAR DIVIDER */}
+          {sections.map((section) => (
+            <div key={section.type}>
+              {/* SECTION DIVIDER (same style as your year divider) */}
               <div className="flex items-center gap-6 mb-10">
                 <div
                   className="h-px flex-1 opacity-80"
                   style={{ background: THERMAL_GRADIENT }}
                 />
                 <div className="text-xs tracking-[0.35em] text-white/60">
-                  {year}
+                  {section.title}
                 </div>
                 <div
                   className="h-px flex-1 opacity-80"
@@ -88,7 +117,7 @@ export default function WorksPage() {
 
               {/* PROJECTS */}
               <div className="space-y-12">
-                {grouped[year].map((p) => (
+                {section.projects.map((p) => (
                   <Link
                     key={p.slug}
                     href={`/works/${p.slug}`}
@@ -144,17 +173,14 @@ export default function WorksPage() {
           <div
             className="pointer-events-none absolute z-50"
             style={{
-              transform: `translate3d(${hover.x + 20}px, ${hover.y - 140}px,0)`,
+              transform: `translate3d(${hover.x + 20}px, ${
+                hover.y - 140
+              }px,0)`,
             }}
           >
             <div className="w-[320px] h-[200px] rounded-xl overflow-hidden border border-white/15 bg-black/70">
               {hover.cover ? (
-                <Image
-                  src={hover.cover}
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
+                <Image src={hover.cover} alt="" fill className="object-cover" />
               ) : (
                 <PlaceholderPreview title={hover.title} />
               )}

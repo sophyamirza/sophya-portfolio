@@ -8,6 +8,16 @@ import { PROJECTS_BY_SLUG } from "../projects";
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
 
+// ✅ NEW: section labels (shown instead of years on slug pages)
+const SECTION_LABELS: Record<string, string> = {
+  "Propulsion & Fluids": "Propulsion, GSE, Fluids",
+  "Test Systems & Instrumentation": "Test Fixtures, Cryogenics & Instrumentation",
+  "Analysis & Simulation": "Analysis & Sims",
+  "Product Design & Mechanisms": "Product Design & Dev",
+  "Robotics & Autonomy": "Robotics, UAVs & Autonomy",
+  "Power & Energy Systems": "Power & Energy Systems",
+};
+
 function HeroPlaceholder({ title }: { title: string }) {
   return (
     <div className="relative h-full w-full">
@@ -55,8 +65,10 @@ export default async function ProjectPage({
     );
   }
 
-  // fully typed (no any)
-  const yearLabel = p.yearLabel ?? p.year;
+  // ✅ NEW: show section label instead of year label
+  const sectionLabel =
+    SECTION_LABELS[p.projectType] ?? p.projectType ?? "Engineering";
+
   const status = p.status ?? "{insert status here}";
   const date = p.date ?? "{insert date here}";
   const focusArea = p.focusArea ?? "{insert focus area here}";
@@ -98,8 +110,9 @@ export default async function ProjectPage({
         {/* top meta row like reference */}
         <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
+            {/* ✅ was yearLabel; now section label */}
             <div className="text-xs tracking-[0.35em] text-white/45">
-              {yearLabel}
+              {sectionLabel}
             </div>
 
             <h1 className="mt-3 text-5xl md:text-6xl tracking-tight">
