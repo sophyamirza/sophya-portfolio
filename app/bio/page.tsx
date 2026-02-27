@@ -74,11 +74,11 @@ function ChipSection({
             key={x}
             variants={chip}
             className={[
-              // Bigger bubble
+              // Smaller bubble
               "px-3.5 py-1.5",
               "rounded-full",
 
-              // Larger font
+              // Smaller font
               "text-[12px] sm:text-[13px]",
               "font-medium tracking-wide",
 
@@ -181,81 +181,110 @@ export default function BioPage() {
           </aside>
 
           {/* CENTER */}
-          <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-10">
-            <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
-            <div className={`mt-4 h-[2px] w-44 ${THERMAL} opacity-55`} />
+          <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-12 flex flex-col">
+            {/* BIO TITLE */}
+            <div
+              className={[
+                "text-lg sm:text-xl tracking-[0.3em]",
+                "text-white/70",
+                playfair.className,
+              ].join(" ")}
+            >
+              BIO
+            </div>
 
-            <div className="mt-8 space-y-6 text-[15px] sm:text-[16px] leading-relaxed text-white/75">
+            <div className={`mt-5 h-[2px] w-56 ${THERMAL} opacity-60`} />
+
+            {/* BIO BODY — larger + same font as page theme */}
+            <div className="mt-10 space-y-7 text-[17px] sm:text-[18px] leading-[1.8] text-white/80">
+              <p>
+                I am a mechanical engineer who designs, builds, and tests hardware
+                at the extremes. I care deeply about fast iteration, ownership,
+                and shipping systems that survive reality.
+              </p>
+
               <p>
                 A few years ago, a fortune cookie told me I create enthusiasm.
-                Growing up in LA between backyard builds, takeout and the roar of
-                LAX, I learned early that progress comes from ownership and
-                iteration. Watching the Space Shuttle fly over my school to the
-                California Science Center and watching videos of Anousheh Ansari,
-                another American Iranian woman reach space made this path
+                Growing up in LA between backyard builds, takeout, and the roar of
+                LAX, I learned early that progress comes from iteration. Watching
+                the Space Shuttle fly over my school to the California Science
+                Center and seeing Anousheh Ansari reach space made this path
                 tangible and set the direction.
               </p>
 
               <p>
-                I’ve always been a builder. What began with robotics competitions
-                and science fairs as a chance to meet the President evolved into
-                hands on engineering focused on design build test loops. A
-                formative summer touring wind farms and hydroelectric dams led
-                me to refurbish generators and sparked a lasting fascination
-                with energy systems, turbomachinery, and high consequence
-                hardware.
+                At heart, I am a builder. What began as robotics competitions and
+                science fairs evolved into hands-on engineering across propulsion
+                and satellite systems. I’ve owned components from CAD and analysis
+                through manufacturing, integration, and test — closing loops
+                quickly, validating with data, and taking full responsibility for
+                performance.
               </p>
 
               <p>
-                Since then, I’ve worked across propulsion and satellite systems,
-                owning components from CAD and analysis through manufacturing,
-                integration, and test. My focus has been solving real hardware
-                problems under schedule and performance constraints closing
-                loops quickly, validating through data, and taking full
-                responsibility for outcomes.
+                My work spans high-consequence hardware under aggressive schedules.
+                I’m most energized when solving real physical problems: sealing
+                interfaces, managing thermal loads, qualifying hardware, and
+                debugging systems until they work.
               </p>
 
-              <p>Those principles still guide me today, now, paired with a bigger vision for impact.</p>
+              <p>
+                I believe the future belongs to teams that shorten the distance
+                between design and test. Onshoring, tight feedback loops, and
+                extreme ownership are not buzzwords to me — they’re how durable
+                systems get built.
+              </p>
 
               <p>
-                I aim to bring that same rigor, enthusiasm, curiosity, and bias
-                toward execution to your team!
+                Outside of engineering, I’m drawn to investing, market mechanics,
+                and sci-fi. I train jiu-jitsu, climb, and spend time fostering
+                builder communities that push ambitious ideas forward.
+              </p>
+
+              <p>
+                I bring rigor, curiosity, and a bias toward execution to every
+                team I join.
               </p>
             </div>
 
             {/* MANIFESTO */}
-            <div className="mt-14">
-              <div className="text-xs tracking-[0.35em] text-white/50">
+            <div className="mt-20">
+              <div
+                className={[
+                  "text-lg sm:text-xl tracking-[0.3em]",
+                  "text-white/70",
+                  playfair.className,
+                ].join(" ")}
+              >
                 MANIFESTO
               </div>
-              <div className={`mt-4 h-[2px] w-56 ${THERMAL} opacity-55`} />
 
-              <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-white/70">
+              <div className={`mt-5 h-[2px] w-64 ${THERMAL} opacity-60`} />
+
+              <div className="mt-10 space-y-7 text-[17px] sm:text-[18px] leading-[1.8] text-white/80">
                 <p>
                   Our future depends on making things again with fast loops from
                   design to test to iteration.
                 </p>
                 <p>
-                  Onshoring is compression: shorter lead times, tighter
-                  feedback, and better ownership.
+                  Onshoring is compression: shorter lead times, tighter feedback,
+                  and better ownership.
                 </p>
                 <p>
-                  Extreme ownership closes the loop: if it breaks, I own it. If
-                  a test fails, I own it.
+                  Extreme ownership closes the loop: if it breaks, I own it. If a
+                  test fails, I own it.
                 </p>
-                <p>
-                  Success is cycle time. Ship hardware that survives reality.
-                </p>
+                <p>Success is cycle time. Ship hardware that survives reality.</p>
 
                 {/* CTA */}
-                <div className="pt-4">
+                <div className="pt-6">
                   <a
                     href="https://sophyamirza.substack.com/p/build-real-things"
                     target="_blank"
                     rel="noreferrer"
                     className={[
                       "inline-flex items-center justify-center gap-2",
-                      "rounded-full px-4 py-2 text-[12px] sm:text-[13px]",
+                      "rounded-full px-5 py-2 text-[13px]",
                       "border border-white/14 bg-white/[0.03] text-white/80",
                       "hover:bg-white/[0.06] hover:border-white/25",
                       "hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_10px_30px_rgba(0,0,0,0.35)]",
