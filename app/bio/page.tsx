@@ -33,70 +33,70 @@ function ChipSection({
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.035,
-        delayChildren: 0.06,
+        staggerChildren: 0.05,
+        delayChildren: 0.08,
       },
     },
   };
 
   const chip: Variants = {
-    hidden: { opacity: 0, y: 8, scale: 0.98 },
+    hidden: { opacity: 0, y: 10 },
     show: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
-  const baseChip =
-    "inline-flex items-center rounded-full backdrop-blur-md transition " +
-    "hover:bg-white/[0.06] hover:border-white/25 " +
-    "hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_10px_30px_rgba(0,0,0,0.35)] " +
-    "active:scale-[0.99]";
-
-  const sizeChip = dense
-    ? "px-2.5 py-1 text-[11px] sm:text-[12px]"
-    : "px-3 py-1 text-[11px] sm:text-[12px]";
-
-  const defaultChip = "border border-white/12 bg-white/[0.03] text-white/75";
-
-  // ✅ Single-color highlight chips (no rainbow)
-  const thermalInner =
-    "border border-white/10 text-white/90 " +
-    "bg-[rgba(0,179,255,0.22)] " +
-    "shadow-[0_0_18px_rgba(0,179,255,0.18)]";
-
   return (
-    <div className="pt-7 first:pt-0">
-      <div className="text-xs tracking-[0.35em] text-white/55">{title}</div>
-      <div className={`mt-3 h-[2px] w-28 ${THERMAL} opacity-45`} />
+    <div className="pt-10 first:pt-0">
+      {/* SECTION TITLE — match editorial style */}
+      <div
+        className={[
+          "text-sm tracking-[0.35em]",
+          "text-white/60",
+          playfair.className,
+        ].join(" ")}
+      >
+        {title}
+      </div>
+
+      <div className={`mt-4 h-[2px] w-32 ${THERMAL} opacity-40`} />
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className={["mt-4 flex flex-wrap", "gap-2", "max-w-full"].join(" ")}
+        className="mt-6 flex flex-wrap gap-4"
       >
-        {clean.map((x) =>
-          variant === "thermal" ? (
-            <motion.span
-              key={x}
-              variants={chip}
-              className={`${baseChip} ${sizeChip} ${thermalInner}`}
-            >
-              {x}
-            </motion.span>
-          ) : (
-            <motion.span
-              key={x}
-              variants={chip}
-              className={`${baseChip} ${sizeChip} ${defaultChip}`}
-            >
-              {x}
-            </motion.span>
-          )
-        )}
+        {clean.map((x) => (
+          <motion.span
+            key={x}
+            variants={chip}
+            className={[
+              // Bigger bubble
+              "px-5 py-2.5",
+              "rounded-full",
+
+              // Larger font
+              "text-[14px] sm:text-[15px]",
+              "font-medium tracking-wide",
+
+              // Cleaner background
+              variant === "thermal"
+                ? "bg-[rgba(0,179,255,0.18)] text-white border border-white/15"
+                : "bg-white/[0.04] text-white/85 border border-white/12",
+
+              // Sleek interaction
+              "transition-all duration-300",
+              "hover:bg-white/[0.08] hover:border-white/30",
+              "hover:scale-[1.02]",
+              "backdrop-blur-md",
+            ].join(" ")}
+          >
+            {x}
+          </motion.span>
+        ))}
       </motion.div>
     </div>
   );
