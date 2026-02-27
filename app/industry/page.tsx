@@ -35,13 +35,6 @@ export default function IndustryPage() {
         logo: "/logos/astranis.PNG",
       },
       {
-        org: "Space Technologies & Rocketry",
-        role: "Propulsion RE → Deputy Lead",
-        when: "NOV 2021 – JAN 2025",
-        tags: "PROPULSION · LOX/ETHYL FEED · VALVES · ENGINE TEST",
-        logo: "/logos/star.PNG",
-      },
-      {
         org: "SpaceX",
         role: "Starship Primary Structures RE Intern",
         when: "APR 2024 – AUG 2024",
@@ -83,6 +76,13 @@ export default function IndustryPage() {
         tags:
           "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN· VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
         logo: "/logos/DFM.png",
+      },
+      {
+        org: "Space Technologies & Rocketry",
+        role: "Propulsion RE → Deputy Lead",
+        when: "NOV 2021 – JAN 2025",
+        tags: "PROPULSION · LOX/ETHYL FEED · VALVES · ENGINE TEST",
+        logo: "/logos/star.PNG",
       },
     ],
     []
