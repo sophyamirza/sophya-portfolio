@@ -146,21 +146,21 @@ export default function IndustryPage() {
       </div>
 
       {/* Campanile watermark */}
-      <div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
-        <div
-          className={[
-            "sticky top-15 h-[calc(100vh-6rem)] w-[300px]",
-            "invert opacity-[0.12] mix-blend-screen",
-            "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
-          ].join(" ")}
-        >
-          <img
-            src="/images/campanile.svg"
-            alt=""
-            className="h-full w-full object-contain object-right"
-          />
-        </div>
-      </div>
+<div className="pointer-events-none fixed inset-y-0 right-10 hidden md:block">
+  <div
+    className={[
+      "sticky top-15 h-[calc(100vh-6rem)] w-[400px]",
+      "invert opacity-[0.10] mix-blend-screen",
+      "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
+    ].join(" ")}
+  >
+    <img
+      src="/images/campanile.svg"
+      alt=""
+      className="w-full h-full object-contain"
+    />
+  </div>
+</div>
 
       {/* Header */}
       <div className="relative z-10 px-8 md:px-20 pt-20">
