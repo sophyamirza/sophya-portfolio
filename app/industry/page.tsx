@@ -149,7 +149,7 @@ export default function IndustryPage() {
       <div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
         <div
           className={[
-            "sticky top-15 h-[calc(100vh-6rem)] w-[460px]",
+            "sticky top-15 h-[calc(100vh-6rem)] w-[300px]",
             "invert opacity-[0.12] mix-blend-screen",
             "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
           ].join(" ")}
