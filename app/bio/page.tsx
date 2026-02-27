@@ -11,10 +11,12 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-const THERMAL =
-  "bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)]";
+// ✅ Sleeker, less “crazy” color (single accent, not rainbow)
+const ACCENT = "bg-[linear-gradient(90deg,rgba(255,255,255,0.10),rgba(255,255,255,0.55),rgba(255,255,255,0.10))]";
+const ACCENT_SOFT = "bg-[linear-gradient(90deg,rgba(255,255,255,0.06),rgba(255,255,255,0.28),rgba(255,255,255,0.06))]";
+const ACCENT_BLUE = "bg-[linear-gradient(90deg,rgba(59,130,246,0.15),rgba(59,130,246,0.55),rgba(59,130,246,0.15))]";
 
-type ChipVariant = "default" | "thermal";
+type ChipVariant = "default" | "accent";
 
 function ChipSection({
   title,
@@ -40,12 +42,12 @@ function ChipSection({
   };
 
   const chip: Variants = {
-    hidden: { opacity: 0, y: 8, scale: 0.98 },
+    hidden: { opacity: 0, y: 8, scale: 0.985 },
     show: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -61,16 +63,16 @@ function ChipSection({
 
   const defaultChip = "border border-white/12 bg-white/[0.03] text-white/75";
 
-  // ✅ Single-color highlight chips (no rainbow)
-  const thermalInner =
-    "border border-white/10 text-white/90 " +
-    "bg-[rgba(0,179,255,0.22)] " +
-    "shadow-[0_0_18px_rgba(0,179,255,0.18)]";
+  // ✅ Single sleek accent chip (subtle blue, no rainbow)
+  const accentChip =
+    "border border-white/10 text-white/88 " +
+    "bg-[rgba(59,130,246,0.14)] " +
+    "shadow-[0_0_18px_rgba(59,130,246,0.12)]";
 
   return (
     <div className="pt-7 first:pt-0">
       <div className="text-xs tracking-[0.35em] text-white/55">{title}</div>
-      <div className={`mt-3 h-[2px] w-28 ${THERMAL} opacity-45`} />
+      <div className={`mt-3 h-[2px] w-28 ${ACCENT_SOFT} opacity-70`} />
 
       <motion.div
         variants={container}
@@ -79,11 +81,11 @@ function ChipSection({
         className={["mt-4 flex flex-wrap", "gap-2", "max-w-full"].join(" ")}
       >
         {clean.map((x) =>
-          variant === "thermal" ? (
+          variant === "accent" ? (
             <motion.span
               key={x}
               variants={chip}
-              className={`${baseChip} ${sizeChip} ${thermalInner}`}
+              className={`${baseChip} ${sizeChip} ${accentChip}`}
             >
               {x}
             </motion.span>
@@ -104,17 +106,15 @@ function ChipSection({
 
 function Highlight({
   children,
-  tone = "thermal",
+  tone = "neutral",
 }: {
   children: React.ReactNode;
-  tone?: "thermal" | "warm" | "cool";
+  tone?: "neutral" | "cool";
 }) {
   const cls =
-    tone === "thermal"
-      ? "text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.20)]"
-      : tone === "warm"
-      ? "text-[rgba(255,59,31,0.95)]"
-      : "text-[rgba(0,179,255,0.95)]";
+    tone === "cool"
+      ? "text-white drop-shadow-[0_0_14px_rgba(59,130,246,0.22)]"
+      : "text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.16)]";
 
   return <span className={`font-semibold ${cls}`}>{children}</span>;
 }
@@ -156,9 +156,9 @@ export default function BioPage() {
     <main className="min-h-screen bg-black text-white">
       {/* haze */}
       <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_18%_12%,rgba(59,130,246,0.08),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(1100px_650px_at_78%_18%,rgba(6,182,212,0.06),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(900px_520px_at_70%_78%,rgba(239,68,68,0.05),transparent_62%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_18%_12%,rgba(59,130,246,0.07),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1100px_650px_at_78%_18%,rgba(255,255,255,0.04),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(900px_520px_at_70%_78%,rgba(239,68,68,0.03),transparent_62%)]" />
         <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
@@ -166,7 +166,6 @@ export default function BioPage() {
         {/* header */}
         <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
 
-        {/* ✅ Title in the same editorial serif style */}
         <h1
           className={[
             "mt-4 tracking-tight",
@@ -178,18 +177,15 @@ export default function BioPage() {
           SOPHYA MIRZA
         </h1>
 
-        <div className={`mt-5 h-[2px] w-64 ${THERMAL} opacity-70`} />
-        <p className="mt-6 max-w-3xl text-white/65">
-          DESIGN. BUILD. TEST. SHIP.
-        
-        </p>
+        <div className={`mt-5 h-[2px] w-64 ${ACCENT} opacity-70`} />
+        <p className="mt-6 max-w-3xl text-white/65">DESIGN. BUILD. TEST. SHIP.</p>
 
         {/* grid */}
         <div className="mt-14 grid grid-cols-1 gap-10 lg:gap-12 lg:grid-cols-[360px_minmax(0,1fr)_300px]">
           {/* LEFT IMAGE (carousel) */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4">
-              <div className={`h-[2px] w-full ${THERMAL} opacity-35`} />
+              <div className={`h-[2px] w-full ${ACCENT_SOFT} opacity-70`} />
 
               <div className="mt-4 relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-white/10">
                 <AnimatePresence mode="wait" initial={false}>
@@ -225,9 +221,7 @@ export default function BioPage() {
                 </button>
 
                 <div className="px-2 text-center text-[11px] tracking-[0.28em] text-white/50">
-                  {photos[idx].caption
-                    ? photos[idx].caption
-                    : "LOS ANGELES · SAN FRANCISCO"}
+                  {photos[idx].caption ? photos[idx].caption : "LOS ANGELES · SAN FRANCISCO"}
                 </div>
 
                 <button
@@ -245,58 +239,70 @@ export default function BioPage() {
           {/* CENTER */}
           <section className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-10">
             <div className="text-xs tracking-[0.35em] text-white/50">BIO</div>
-            <div className={`mt-4 h-[2px] w-44 ${THERMAL} opacity-55`} />
+            <div className={`mt-4 h-[2px] w-44 ${ACCENT_SOFT} opacity-70`} />
 
             <div className="mt-8 space-y-6 text-[15px] sm:text-[16px] leading-relaxed text-white/75">
               <p>
-                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between backyard builds, takeout and the roar of LAX, I learned early that progress comes from ownership and iteration. Watching the Space Shuttle fly over my school to the California Science Center and watching videos of Anousheh Ansari, another American Iranian woman reach space made this path tangible and set the direction.
+                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between
+                backyard builds, takeout, and the roar of LAX, I learned early that progress comes from
+                ownership and iteration. Watching the Space Shuttle fly over my school to the California
+                Science Center—and seeing Anousheh Ansari, another Iranian-American woman, reach
+                space—made this path tangible and set the direction.
               </p>
 
               <p>
-                I’ve always been a builder. What began with robotics competitions and science fairs as a chance to meet the President evolved into hands on engineering focused on design build test loops. A formative summer touring wind farms and hydroelectric dams led me to refurbish generators and sparked a lasting fascination with energy systems, turbomachinery, and high consequence hardware.
+                I’ve always been a builder. What began with robotics competitions and science fairs
+                evolved into hands-on engineering centered on tight design–build–test loops. A formative
+                summer touring wind farms and hydroelectric dams led me to refurbish generators—and
+                sparked a lasting fascination with energy systems, turbomachinery, and high-consequence
+                hardware.
               </p>
 
               <p>
-                Since then, I’ve worked across propulsion and satellite systems, owning components from CAD and analysis through manufacturing, integration, and test. My focus has been solving real hardware problems under schedule and performance constraints closing loops quickly, validating through data, and taking full responsibility for outcomes.
+                Since then, I’ve worked across propulsion and satellite systems, owning components from
+                CAD and analysis through manufacturing, integration, and test. My focus has been solving
+                real hardware problems under schedule and performance constraints—closing loops quickly,
+                validating through data, and taking full responsibility for outcomes.
               </p>
 
-              <p>
-                Those principles still guide me today, now, paired with a bigger
-                vision for impact.
-              </p>
+              <p>Those principles still guide me today—paired with a bigger vision for impact.</p>
 
               <p>
-                I aim to bring that same rigor, enthusiasm, curiosity, and bias toward execution to your team!
+                I aim to bring that same rigor, curiosity, and bias toward execution to your team.
               </p>
             </div>
 
-            {/* MANIFESTO */}
+            {/* ✅ MANIFESTO (sleek card + tightened copy) */}
             <div className="mt-14">
-              <div className="text-xs tracking-[0.35em] text-white/50">
-                MANIFESTO
-              </div>
-              <div className={`mt-4 h-[2px] w-56 ${THERMAL} opacity-55`} />
+              <div className="flex items-baseline justify-between gap-4">
+                <div>
+                  <div className="text-xs tracking-[0.35em] text-white/50">MANIFESTO</div>
+                  <div className={`mt-4 h-[2px] w-56 ${ACCENT_BLUE} opacity-70`} />
+                </div>
 
-              <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-white/70">
-                <p>
-                  Our future depends on <Highlight>making things again</Highlight>
-                  , with fast loops from design to test to iteration.
-                </p>
-                <p>
-                  <Highlight tone="warm">Onshoring is compression</Highlight>:
-                  shorter lead times, tighter feedback, and better ownership.
-                </p>
-                <p>
-                  Extreme ownership closes the loop: if it breaks, I own it. If a
-                  test fails, I own it.
-                </p>
-                <p>
-                  Success is cycle time.{" "}
-                  <Highlight tone="cool">Ship hardware that survives reality.</Highlight>
-                </p>
+                <div className="hidden sm:block text-[11px] tracking-[0.28em] text-white/40">
+                  BUILD REAL THINGS
+                </div>
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7">
+                <div className="pointer-events-none absolute" />
+
+                <div className="space-y-4 text-[14.5px] sm:text-[15px] leading-relaxed text-white/72">
+                  <p>
+                    The future belongs to teams that <Highlight>make things</Highlight>—and learn faster than
+                    reality can break them.
+                  </p>
+                  <p>
+                    The advantage is <Highlight tone="cool">cycle time</Highlight>: design → build → test → iterate.
+                  </p>
+                  <p>
+                    Onshoring is compression. Ownership is the mechanism. If it fails, we fix it—then ship the next one.
+                  </p>
+                </div>
 
                 {/* CTA */}
-                <div className="pt-4">
+                <div className="mt-6 flex flex-wrap items-center gap-3">
                   <a
                     href="https://sophyamirza.substack.com/p/build-real-things"
                     target="_blank"
@@ -316,6 +322,10 @@ export default function BioPage() {
                       ↗
                     </span>
                   </a>
+
+                  <span className="text-[12px] text-white/45">
+                    Full essay on Substack
+                  </span>
                 </div>
               </div>
             </div>
@@ -326,7 +336,7 @@ export default function BioPage() {
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6">
               <ChipSection
                 title="EXPERIENCE"
-                variant="thermal"
+                variant="accent"
                 dense
                 items={[
                   "SpaceX",
@@ -359,11 +369,7 @@ export default function BioPage() {
                 ]}
               />
 
-              <ChipSection
-                title="EDUCATION"
-                dense
-                items={["UC Berkeley · Mechanical Engineering"]}
-              />
+              <ChipSection title="EDUCATION" dense items={["UC Berkeley · Mechanical Engineering"]} />
 
               <ChipSection
                 title="INTERESTS"
