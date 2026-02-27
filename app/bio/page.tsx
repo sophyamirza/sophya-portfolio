@@ -67,7 +67,7 @@ function ChipSection({
         variants={container}
         initial="hidden"
         animate="show"
-        className="mt-6 flex flex-wrap gap-4"
+        className="mt-6 flex flex-wrap gap-2.5"
       >
         {clean.map((x) => (
           <motion.span
@@ -75,11 +75,11 @@ function ChipSection({
             variants={chip}
             className={[
               // Bigger bubble
-              "px-5 py-2.5",
+              "px-3.5 py-1.5",
               "rounded-full",
 
               // Larger font
-              "text-[14px] sm:text-[15px]",
+              "text-[12px] sm:text-[13px]",
               "font-medium tracking-wide",
 
               // Cleaner background
