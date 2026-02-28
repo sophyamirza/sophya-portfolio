@@ -65,7 +65,7 @@ export default async function ProjectPage({
     );
   }
 
-  // ✅ NEW: show section label instead of year label
+  // ✅ show section label instead of year label
   const sectionLabel =
     SECTION_LABELS[p.projectType] ?? p.projectType ?? "Engineering";
 
@@ -73,21 +73,29 @@ export default async function ProjectPage({
   const date = p.date ?? "{insert date here}";
   const focusArea = p.focusArea ?? "{insert focus area here}";
 
+  // ✅ FALLBACKS: prefer detailed fields, but use canonical overview/highlights when missing
   const systemOverview =
     p.systemOverview ??
+    p.overview ??
     "{insert system overview here: architecture, constraints, analysis approach, validation plan, and key design decisions.}";
 
   const toolsAndSkills =
     p.toolsAndSkills ?? ["{insert tool}", "{insert tool}", "{insert tool}"];
 
+  // If you haven't authored contributions yet, show highlights instead.
   const contributions =
-    p.contributions ?? [
+    p.contributions ??
+    p.highlights ??
+    [
       "{insert contribution here}",
       "{insert contribution here}",
       "{insert contribution here}",
     ];
 
-  const results = p.results ?? ["{insert result here}", "{insert result here}"];
+  // If you haven't authored results yet, fallback to highlights (better than placeholders)
+  const results =
+    p.results ??
+    (p.highlights?.length ? p.highlights : ["{insert result here}", "{insert result here}"]);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -107,10 +115,9 @@ export default async function ProjectPage({
           ← Back to Works
         </Link>
 
-        {/* top meta row like reference */}
+        {/* top meta row */}
         <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            {/* ✅ was yearLabel; now section label */}
             <div className="text-xs tracking-[0.35em] text-white/45">
               {sectionLabel}
             </div>
@@ -124,7 +131,7 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* status (TEAM removed) */}
+          {/* status */}
           <div className="md:text-right">
             <div className="text-[11px] tracking-[0.35em] text-white/45">
               STATUS
@@ -168,13 +175,10 @@ export default async function ProjectPage({
             <>
               <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
 
-              {/* top thermal line */}
               <div
                 className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] z-30"
                 style={{ background: THERMAL_GRADIENT }}
               />
-
-              {/* subtle top fade (optional, helps readability) */}
               <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
             </>
           ) : p.cover ? (
@@ -202,7 +206,7 @@ export default async function ProjectPage({
       {/* body */}
       <section className="relative mx-auto max-w-6xl px-6 pb-28">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* LEFT: main narrative */}
+          {/* LEFT */}
           <div className="md:col-span-2">
             {/* SYSTEM OVERVIEW */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
@@ -213,6 +217,31 @@ export default async function ProjectPage({
                 {systemOverview}
               </p>
             </div>
+
+            {/* HIGHLIGHTS (always shows if authored) */}
+            {p.highlights?.length ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <div className="text-xs tracking-[0.35em] text-white/55">
+                  HIGHLIGHTS
+                </div>
+
+                <ul className="mt-6 space-y-3 text-white/80">
+                  {p.highlights.map((h, i) => (
+                    <li key={`${h}-${i}`} className="flex gap-3">
+                      <span
+                        className="mt-[7px] h-2 w-2 rounded-full"
+                        style={{
+                          background: THERMAL_GRADIENT,
+                          boxShadow: "0 0 16px rgba(255,255,255,0.08)",
+                          opacity: 0.9,
+                        }}
+                      />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
 
             {/* MY CONTRIBUTIONS */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
@@ -265,7 +294,7 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* RIGHT: sidebar cards */}
+          {/* RIGHT */}
           <aside className="space-y-10">
             {/* TOOLS & SKILLS */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
