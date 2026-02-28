@@ -110,7 +110,7 @@ export const PROJECTS: Project[] = [
     ],
     results: [
       "Won the Friends of Amateur Rocketry ‘Dollar Per Foot’ competition.",
-      "Reached an apogee of 6,126 ft.",
+      "Reached an apogee of 6,126 ft!",
       "Successful flight recovery.",
     ],
   },
@@ -222,21 +222,22 @@ export const PROJECTS: Project[] = [
   // =========================
   // Test Systems & Instrumentation
   // =========================
-  {
-    slug: "helium-dunk-probe",
-    title: "Helium Dunk Probe",
-    subtitle: "Dewar instrument",
-    year: "2024",
-    yearLabel: "2024",
-    projectType: "Test Systems & Instrumentation",
-    tags: ["Vacuum Hardware", "Cryogenic Instrumentation", "GSE design", "Testing"],
-    overview:
-      "Cryogenic dewar probe hardware with vacuum-compatible design, integration, and test procedures.",
-    highlights: [
-      "Designed vacuum-compatible mechanical hardware",
-      "Owned integration details and testing approach",
-      "Improved reliability through iteration and documentation",
-    ],
+{
+  slug: "helium-dunk-probe",
+  title: "Helium Dunk Probe",
+  subtitle: "Dewar Instrument",
+  year: "2024",
+  yearLabel: "2024",
+  projectType: "Test Systems & Instrumentation",
+  tags: ["Vacuum Hardware", "Cryogenic Instrumentation", "GSE Design", "Testing"],
+  overview:
+    "Designed and fabricated a liquid helium dunk probe enabling 4-point TES resistance measurements at 4.2 K. Integrated with Lakeshore metrology and BlueFors Cryostat systems to validate electrical shorts in superconducting samples.",
+  highlights: [
+    "Reduced test turnaround time by >70% compared to full cryostat cooldowns",
+    "Measured six TES samples (BT10‑01, Q4B–Q6B, SOLF‑2B‑27/34) with µΩ–kΩ resolution (<1% uncertainty)",
+    "Confirmed niobium short in BT10‑01 and characterized cryogenic shorts below 10 mΩ",
+    "Improved probe sensitivity and documentation for next‑generation hardware iteration"
+  ],
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "Cryogenic Instrumentation",
