@@ -8,7 +8,6 @@ import { PROJECTS_BY_SLUG } from "../projects";
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
 
-// ✅ NEW: section labels (shown instead of years on slug pages)
 const SECTION_LABELS: Record<string, string> = {
   "Propulsion & Fluids": "Propulsion, GSE, Fluids",
   "Test Systems & Instrumentation": "Test Fixtures, Cryogenics & Instrumentation",
@@ -65,7 +64,6 @@ export default async function ProjectPage({
     );
   }
 
-  // ✅ show section label instead of year label
   const sectionLabel =
     SECTION_LABELS[p.projectType] ?? p.projectType ?? "Engineering";
 
@@ -73,7 +71,6 @@ export default async function ProjectPage({
   const date = p.date ?? "{insert date here}";
   const focusArea = p.focusArea ?? "{insert focus area here}";
 
-  // ✅ FALLBACKS: prefer detailed fields, but use canonical overview/highlights when missing
   const systemOverview =
     p.systemOverview ??
     p.overview ??
@@ -82,7 +79,6 @@ export default async function ProjectPage({
   const toolsAndSkills =
     p.toolsAndSkills ?? ["{insert tool}", "{insert tool}", "{insert tool}"];
 
-  // If you haven't authored contributions yet, show highlights instead.
   const contributions =
     p.contributions ??
     p.highlights ??
@@ -92,14 +88,15 @@ export default async function ProjectPage({
       "{insert contribution here}",
     ];
 
-  // If you haven't authored results yet, fallback to highlights (better than placeholders)
   const results =
     p.results ??
-    (p.highlights?.length ? p.highlights : ["{insert result here}", "{insert result here}"]);
+    (p.highlights?.length
+      ? p.highlights
+      : ["{insert result here}", "{insert result here}"]);
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* background haze (thermal/analysis) */}
+      {/* background haze */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_18%_12%,rgba(59,130,246,0.10),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(1000px_650px_at_78%_18%,rgba(6,182,212,0.08),transparent_55%)]" />
@@ -115,7 +112,6 @@ export default async function ProjectPage({
           ← Back to Works
         </Link>
 
-        {/* top meta row */}
         <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="text-xs tracking-[0.35em] text-white/45">
@@ -131,7 +127,6 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* status */}
           <div className="md:text-right">
             <div className="text-[11px] tracking-[0.35em] text-white/45">
               STATUS
@@ -151,7 +146,6 @@ export default async function ProjectPage({
           </div>
         </div>
 
-        {/* tags row */}
         <div className="mt-8 flex flex-wrap gap-2">
           {(p.tags ?? []).map((t) => (
             <span
@@ -163,7 +157,6 @@ export default async function ProjectPage({
           ))}
         </div>
 
-        {/* thin thermal divider */}
         <div
           className="mt-10 h-px w-full opacity-80"
           style={{ background: THERMAL_GRADIENT }}
@@ -173,8 +166,7 @@ export default async function ProjectPage({
         <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
           {p.gallery?.length ? (
             <>
-              <ImageCarousel images={p.gallery} alt={`${p.title} contours`} />
-
+              <ImageCarousel images={p.gallery} alt={`${p.title} images`} />
               <div
                 className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] z-30"
                 style={{ background: THERMAL_GRADIENT }}
@@ -218,13 +210,53 @@ export default async function ProjectPage({
               </p>
             </div>
 
-            {/* HIGHLIGHTS (always shows if authored) */}
+            {/* ✅ PHOTO GRID (additional photo boxes) */}
+            {p.photoGrid?.length ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <div className="flex items-center justify-between gap-6">
+                  <div className="text-xs tracking-[0.35em] text-white/55">
+                    PHOTO LOG
+                  </div>
+                  <div
+                    className="h-px flex-1 opacity-60"
+                    style={{ background: THERMAL_GRADIENT }}
+                  />
+                </div>
+
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {p.photoGrid.map((img, idx) => (
+                    <figure
+                      key={`${img.src}-${idx}`}
+                      className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+                    >
+                      <div className="relative aspect-[4/3] w-full">
+                        <Image
+                          src={img.src}
+                          alt={img.alt ?? `${p.title} photo ${idx + 1}`}
+                          fill
+                          className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
+                          sizes="(min-width: 640px) 50vw, 100vw"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
+                      </div>
+
+                      {img.caption ? (
+                        <figcaption className="px-4 py-3 text-sm text-white/70">
+                          {img.caption}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {/* HIGHLIGHTS */}
             {p.highlights?.length ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="text-xs tracking-[0.35em] text-white/55">
                   HIGHLIGHTS
                 </div>
-
                 <ul className="mt-6 space-y-3 text-white/80">
                   {p.highlights.map((h, i) => (
                     <li key={`${h}-${i}`} className="flex gap-3">
@@ -296,7 +328,6 @@ export default async function ProjectPage({
 
           {/* RIGHT */}
           <aside className="space-y-10">
-            {/* TOOLS & SKILLS */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 TOOLS & SKILLS
@@ -314,7 +345,6 @@ export default async function ProjectPage({
               </div>
             </div>
 
-            {/* DATE */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">DATE</div>
               <div
@@ -325,7 +355,6 @@ export default async function ProjectPage({
               </div>
             </div>
 
-            {/* FOCUS AREA */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 FOCUS AREA
