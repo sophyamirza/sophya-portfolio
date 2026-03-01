@@ -153,8 +153,8 @@ export default function HomeCrossfade() {
                 }}
               >
                 {[
-                  "AMBIGUITY INTO CLEAR REQUIREMENTS",
-                  "MOVE FAST FROM 1ST PRINCIPLES + HAND CALCS TO DESIGNS AND TRADES",
+                  "Ambiguity to requirements",
+                  "1st principles hand calcs into design trades",
                   "PROTOYPE EARLY, TEST OFTEN, CLOSE LOOPS",
                 ].map((text, i) => (
                   <motion.li
