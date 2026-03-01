@@ -32,7 +32,6 @@ export type Project = {
   tags: string[];
   cover?: string;
 
-  // ✅ these are your canonical narrative fields
   overview: string;
   highlights: string[];
 
@@ -123,7 +122,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Air bearing test stand",
     year: "2024",
     yearLabel: "2024",
-    projectType: "Propulsion & Fluids",
+    projectType: "Propulsion & Fluids", // ✅ was "Test Systems & Instrumentation"
     tags: ["Pneumatics", "Air Bearings", "Instrumentation", "GSE design", "Testing"],
     overview:
       "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
@@ -223,51 +222,31 @@ export const PROJECTS: Project[] = [
   // =========================
   // Test Systems & Instrumentation
   // =========================
-  {
-    slug: "helium-dunk-probe",
-    title: "Helium Dunk Probe",
-    subtitle: "Dewar Instrument",
-    year: "2024",
-    yearLabel: "2024",
-    projectType: "Test Systems & Instrumentation",
-    tags: ["Vacuum Hardware", "Cryogenic Instrumentation", "GSE Design", "Testing"],
-    overview:
-      "Designed and fabricated a liquid helium dunk probe enabling 4-point TES resistance measurements at 4.2 K. Integrated with Lakeshore metrology and BlueFors Cryostat systems to validate electrical shorts in superconducting samples.",
-    highlights: [
-      "Reduced test turnaround time by >70% compared to full cryostat cooldowns",
-      "Measured six TES samples (BT10-01, Q4B–Q6B, SOLF-2B-27/34) with µΩ–kΩ resolution (<1% uncertainty)",
-      "Confirmed niobium short in BT10-01 and characterized cryogenic shorts below 10 mΩ",
-      "Improved probe sensitivity and documentation for next-generation hardware iteration",
-    ],
+{
+  slug: "helium-dunk-probe",
+  title: "Helium Dunk Probe",
+  subtitle: "Dewar Instrument",
+  year: "2024",
+  yearLabel: "2024",
+  projectType: "Test Systems & Instrumentation",
+  tags: ["Vacuum Hardware", "Cryogenic Instrumentation", "GSE Design", "Testing"],
+  overview:
+    "Designed and fabricated a liquid helium dunk probe enabling 4-point TES resistance measurements at 4.2 K. Integrated with Lakeshore metrology and BlueFors Cryostat systems to validate electrical shorts in superconducting samples.",
+  highlights: [
+    "Reduced test turnaround time by >70% compared to full cryostat cooldowns",
+    "Measured six TES samples (BT10‑01, Q4B–Q6B, SOLF‑2B‑27/34) with µΩ–kΩ resolution (<1% uncertainty)",
+    "Confirmed niobium short in BT10‑01 and characterized cryogenic shorts below 10 mΩ",
+    "Improved probe sensitivity and documentation for next‑generation hardware iteration"
+  ],
     status: "BUILT, TESTED, VALIDATED",
     date: "2024",
     focusArea: "Cryogenic Instrumentation",
     team: "Sophya Mirza",
-
-    // ✅ Make the rendered fields real (even without fallbacks)
-    systemOverview:
-      "Designed and fabricated a liquid helium dunk probe enabling 4-point TES resistance measurements at 4.2 K. Integrated with Lakeshore metrology and BlueFors Cryostat systems to validate electrical shorts in superconducting samples.",
-    toolsAndSkills: [
-      "Vacuum hardware",
-      "Cryogenic testing (LHe 4.2K)",
-      "4-point resistance measurements",
-      "Lakeshore metrology",
-      "BlueFors Cryostat integration",
-      "Test documentation",
-    ],
-    contributions: [
-      "Designed and fabricated the dunk probe mechanical stack for repeatable immersion testing at 4.2K.",
-      "Integrated Lakeshore workflow for 4-point TES resistance measurements across µΩ–kΩ.",
-      "Executed measurement campaign across six TES samples and validated suspected shorts.",
-      "Iterated probe setup to improve sensitivity, repeatability, and documentation handoff.",
-    ],
-    results: [
-      "Reduced test turnaround time by >70% vs full cryostat cooldown cycles.",
-      "Measured six TES samples with <1% uncertainty; resolved cryogenic shorts below 10 mΩ.",
-      "Confirmed niobium short in BT10-01 and characterized short behavior across additional samples.",
-    ],
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design"],
+    contributions: PH.contributions,
+    results: PH.results,
   },
-
   {
     slug: "bluefors-dr1-cryostat",
     title: "BlueFors DR1 Cryostat",
@@ -301,13 +280,14 @@ export const PROJECTS: Project[] = [
     results: PH.results,
   },
 
+  // ✅ MOVED: 4680 fixture under Test Fixtures, Cryogenics & Instrumentation
   {
     slug: "4680-liion-test-fixture",
     title: "4680 Li-ion Cell Test Fixture",
     subtitle: "Battery cell charging and discharging",
     year: "2021",
     yearLabel: "2021–2023",
-    projectType: "Test Systems & Instrumentation",
+    projectType: "Test Systems & Instrumentation", // ✅ was "Power & Energy Systems"
     tags: ["High voltage", "Power electronics", "Custom fixture", "Fiber temp sensing", "Circuit design"],
     overview:
       "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
