@@ -211,7 +211,7 @@ export default async function ProjectPage({
             </div>
 
             {/* ✅ PHOTO GRID (additional photo boxes) */}
-            {p.photoGrid?.length ? (
+            {p.gallery?.length ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center justify-between gap-6">
                   <div className="text-xs tracking-[0.35em] text-white/55">
@@ -223,31 +223,25 @@ export default async function ProjectPage({
                   />
                 </div>
 
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {p.photoGrid.map((img, idx) => (
-                    <figure
-                      key={`${img.src}-${idx}`}
-                      className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
-                    >
-                      <div className="relative aspect-[4/3] w-full">
-                        <Image
-                          src={img.src}
-                          alt={img.alt ?? `${p.title} photo ${idx + 1}`}
-                          fill
-                          className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
-                          sizes="(min-width: 640px) 50vw, 100vw"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
-                      </div>
-
-                      {img.caption ? (
-                        <figcaption className="px-4 py-3 text-sm text-white/70">
-                          {img.caption}
-                        </figcaption>
-                      ) : null}
-                    </figure>
-                  ))}
-                </div>
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+  {p.gallery?.map((src, idx) => (
+    <figure
+      key={`${src}-${idx}`}
+      className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+    >
+      <div className="relative aspect-[4/3] w-full">
+        <Image
+          src={src}
+          alt={`${p.title} photo ${idx + 1}`}
+          fill
+          className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
+          sizes="(min-width: 640px) 50vw, 100vw"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
+      </div>
+    </figure>
+  ))}
+</div>
               </div>
             ) : null}
 
