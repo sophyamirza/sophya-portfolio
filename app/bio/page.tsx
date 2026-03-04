@@ -197,11 +197,8 @@ export default function BioPage() {
 
             {/* BIO BODY — larger + same font as page theme */}
             <div className="mt-10 space-y-7 text-[17px] sm:text-[18px] leading-[1.8] text-white/80">
-              <p>
-                I am a mechanical engineer who designs, builds, and tests hardware
-                at the extremes. I care deeply about fast iteration, ownership,
-                and shipping systems that survive reality.
-              </p>
+              
+        
 
               <p>
                 A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between backyard builds, Chinese takeout, and the roar of LAX, I learned early that the best way to understand the world is to build it.
