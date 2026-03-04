@@ -98,8 +98,8 @@ export const PROJECTS: Project[] = [
     tags: ["Propulsion", "Feed System", "Cryogenics", "Fluids P&ID", "Ethanol/LOX"],
     cover: "/projects/ALULA/feed/01.jpg",
     preview: {
-      staticSrc: "/projects/ALULA/feed/01.jpg",
-      hoverSrc: "/projects/ALULA/rqd/01.jpg",
+      staticSrc: "/projects/ALULA/cover.PNG",
+      hoverSrc: "/projects/ALULA/engine1.PNG",
       alt: "ALULA preview",
     },
     overview:
