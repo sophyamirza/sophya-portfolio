@@ -1,16 +1,14 @@
+// app/works/page.tsx
 "use client";
 
 import Link from "next/link";
 import { useMemo } from "react";
 import { PROJECTS } from "./projects";
+import ProjectRowHoverPreview from "./components/ProjectRowHoverPreview";
 
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
 
-/**
- * ProjectType (internal) -> display label (what you want shown on Works page)
- * Keep keys in sync with ProjectType union in projects.ts
- */
 const SECTION_LABELS: Record<string, string> = {
   "Propulsion & Fluids": "Propulsion, GSE, Fluids",
   "Test Systems & Instrumentation": "Test Fixtures, Cryogenics & Instrumentation",
@@ -20,7 +18,6 @@ const SECTION_LABELS: Record<string, string> = {
   "Power & Energy Systems": "Power & Energy Systems",
 };
 
-/** Control the order of sections on the Works page */
 const SECTION_ORDER = [
   "Propulsion & Fluids",
   "Test Systems & Instrumentation",
@@ -48,11 +45,9 @@ export default function WorksPage() {
           Engineering Gallery
         </h1>
 
-        {/* SECTION GROUPS */}
         <div className="mt-16 space-y-20">
           {sections.map((section) => (
             <div key={section.type}>
-              {/* SECTION DIVIDER */}
               <div className="flex items-center gap-6 mb-10">
                 <div
                   className="h-px flex-1 opacity-80"
@@ -67,10 +62,13 @@ export default function WorksPage() {
                 />
               </div>
 
-              {/* PROJECTS */}
               <div className="space-y-12">
                 {section.projects.map((p) => (
-                  <Link key={p.slug} href={`/works/${p.slug}`} className="group block">
+                  <Link
+                    key={p.slug}
+                    href={`/works/${p.slug}`}
+                    className="group block"
+                  >
                     <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
                       <div>
                         <div className="text-5xl leading-tight tracking-tight">
@@ -89,10 +87,19 @@ export default function WorksPage() {
                           ))}
                         </div>
 
-                        {/* hover underline */}
                         <div
                           className="mt-4 h-px w-0 group-hover:w-[200px] transition-all duration-300"
                           style={{ background: THERMAL_GRADIENT }}
+                        />
+                      </div>
+
+                      {/* ✅ NEW: image on right + hover-follow image */}
+                      <div className="pt-2">
+                        <ProjectRowHoverPreview
+                          title={p.title}
+                          preview={p.preview}
+                          fallbackCover={p.cover}
+                          fallbackGallery={p.gallery}
                         />
                       </div>
                     </div>

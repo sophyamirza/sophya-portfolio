@@ -208,13 +208,13 @@ export default function BioPage() {
                 Growing up in LA between backyard builds, takeout, and the roar of
                 LAX, I learned early that progress comes from iteration. Watching
                 the Space Shuttle fly over my school to the California Science
-                Center and seeing Anousheh Ansari reach space made this path
+                Center and seeing Anousheh Ansari, another American Iranian woman reach space made this path
                 tangible and set the direction.
               </p>
 
               <p>
                 At heart, I am a builder. What began as robotics competitions and
-                science fairs evolved into hands-on engineering across propulsion
+                science fairs to meet the President evolved into hands on engineering across propulsion
                 and satellite systems. I’ve owned components from CAD and analysis
                 through manufacturing, integration, and test — closing loops
                 quickly, validating with data, and taking full responsibility for
@@ -263,8 +263,7 @@ export default function BioPage() {
 
               <div className="mt-10 space-y-7 text-[17px] sm:text-[18px] leading-[1.8] text-white/80">
                 <p>
-                  Our future depends on making things again with fast loops from
-                  design to test to iteration.
+                  Our future depends on making things again!
                 </p>
                 <p>
                   Onshoring is compression: shorter lead times, tighter feedback,

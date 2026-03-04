@@ -210,8 +210,83 @@ export default async function ProjectPage({
               </p>
             </div>
 
-            {/* ✅ PHOTO GRID (additional photo boxes) */}
-            {p.gallery?.length ? (
+            {/* ✅ NEW: STRUCTURED SECTIONS (each with its own photos) */}
+            {p.sections?.length ? (
+              <div className="mt-10 space-y-10">
+                {p.sections.map((s) => (
+                  <section
+                    key={s.id}
+                    id={s.id}
+                    className="rounded-2xl border border-white/10 bg-white/[0.02] p-8"
+                  >
+                    <div className="flex items-center justify-between gap-6">
+                      <div className="text-xs tracking-[0.35em] text-white/55">
+                        SECTION
+                      </div>
+                      <div
+                        className="h-px flex-1 opacity-60"
+                        style={{ background: THERMAL_GRADIENT }}
+                      />
+                    </div>
+
+                    <h2 className="mt-4 text-2xl md:text-3xl tracking-tight text-white/90">
+                      {s.title}
+                    </h2>
+
+                    {s.summary ? (
+                      <p className="mt-4 text-white/75 leading-relaxed">
+                        {s.summary}
+                      </p>
+                    ) : null}
+
+                    {s.bullets?.length ? (
+                      <ul className="mt-5 space-y-2 text-white/80">
+                        {s.bullets.map((b, i) => (
+                          <li key={`${s.id}-b-${i}`} className="flex gap-3">
+                            <span
+                              className="mt-[7px] h-2 w-2 rounded-full"
+                              style={{
+                                background: THERMAL_GRADIENT,
+                                boxShadow: "0 0 16px rgba(255,255,255,0.08)",
+                                opacity: 0.9,
+                              }}
+                            />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {s.images?.length ? (
+                      <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {s.images.map((src, idx) => (
+                          <figure
+                            key={`${s.id}-${src}-${idx}`}
+                            className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+                          >
+                            <div className="relative aspect-[4/3] w-full">
+                              <Image
+                                src={src}
+                                alt={`${p.title} — ${s.title} photo ${
+                                  idx + 1
+                                }`}
+                                fill
+                                className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
+                                sizes="(min-width: 640px) 50vw, 100vw"
+                              />
+                              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
+                            </div>
+                          </figure>
+                        ))}
+                      </div>
+                    ) : null}
+                  </section>
+                ))}
+              </div>
+            ) : null}
+
+            {/* (Optional) Keep a general photo log for non-sectioned projects */}
+            {!p.sections?.length && p.gallery?.length ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center justify-between gap-6">
                   <div className="text-xs tracking-[0.35em] text-white/55">
@@ -224,24 +299,24 @@ export default async function ProjectPage({
                 </div>
 
                 <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-  {p.gallery?.map((src, idx) => (
-    <figure
-      key={`${src}-${idx}`}
-      className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
-    >
-      <div className="relative aspect-[4/3] w-full">
-        <Image
-          src={src}
-          alt={`${p.title} photo ${idx + 1}`}
-          fill
-          className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
-          sizes="(min-width: 640px) 50vw, 100vw"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
-      </div>
-    </figure>
-  ))}
-</div>
+                  {p.gallery?.map((src, idx) => (
+                    <figure
+                      key={`${src}-${idx}`}
+                      className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+                    >
+                      <div className="relative aspect-[4/3] w-full">
+                        <Image
+                          src={src}
+                          alt={`${p.title} photo ${idx + 1}`}
+                          fill
+                          className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
+                          sizes="(min-width: 640px) 50vw, 100vw"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
+                      </div>
+                    </figure>
+                  ))}
+                </div>
               </div>
             ) : null}
 
