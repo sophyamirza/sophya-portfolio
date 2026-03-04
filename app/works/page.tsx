@@ -2,9 +2,13 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { PROJECTS } from "./projects";
-import ProjectRowHoverPreview from "./components/ProjectRowHoverPreview";
+import {
+  ProjectRowFollower,
+  ProjectRowThumb,
+  computeFollowerPos,
+} from "./components/ProjectRowHoverPreview";
 
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
@@ -38,6 +42,23 @@ function groupByType(projects: typeof PROJECTS) {
 export default function WorksPage() {
   const sections = useMemo(() => groupByType(PROJECTS), []);
 
+  // row hover state for follower preview
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const raf = useRef<number | null>(null);
+  const last = useRef({ x: 0, y: 0 });
+
+  const onMove = (e: React.MouseEvent) => {
+    last.current = { x: e.clientX, y: e.clientY };
+
+    if (raf.current) return;
+    raf.current = window.requestAnimationFrame(() => {
+      raf.current = null;
+      setPos(computeFollowerPos(last.current.x, last.current.y));
+    });
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="mx-auto max-w-6xl px-6 pt-24 pb-32">
@@ -63,48 +84,64 @@ export default function WorksPage() {
               </div>
 
               <div className="space-y-12">
-                {section.projects.map((p) => (
-                  <Link
-                    key={p.slug}
-                    href={`/works/${p.slug}`}
-                    className="group block"
-                  >
-                    <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
-                      <div>
-                        <div className="text-5xl leading-tight tracking-tight">
-                          {p.title}
-                        </div>
-                        <div className="mt-3 text-white/60">{p.subtitle}</div>
+                {section.projects.map((p) => {
+                  const show = activeSlug === p.slug;
 
-                        <div className="mt-5 flex flex-wrap gap-2">
-                          {p.tags.slice(0, 5).map((t) => (
-                            <span
-                              key={t}
-                              className="rounded-full border border-white/15 px-3 py-1 text-[11px] text-white/60"
-                            >
-                              {t}
-                            </span>
-                          ))}
+                  return (
+                    <Link
+                      key={p.slug}
+                      href={`/works/${p.slug}`}
+                      className="group block"
+                      onMouseEnter={() => setActiveSlug(p.slug)}
+                      onMouseLeave={() => setActiveSlug((s) => (s === p.slug ? null : s))}
+                      onMouseMove={onMove}
+                    >
+                      <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
+                        <div>
+                          <div className="text-5xl leading-tight tracking-tight">
+                            {p.title}
+                          </div>
+                          <div className="mt-3 text-white/60">{p.subtitle}</div>
+
+                          <div className="mt-5 flex flex-wrap gap-2">
+                            {p.tags.slice(0, 5).map((t) => (
+                              <span
+                                key={t}
+                                className="rounded-full border border-white/15 px-3 py-1 text-[11px] text-white/60"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div
+                            className="mt-4 h-px w-0 group-hover:w-[200px] transition-all duration-300"
+                            style={{ background: THERMAL_GRADIENT }}
+                          />
                         </div>
 
-                        <div
-                          className="mt-4 h-px w-0 group-hover:w-[200px] transition-all duration-300"
-                          style={{ background: THERMAL_GRADIENT }}
-                        />
+                        <div className="pt-2">
+                          <ProjectRowThumb
+                            title={p.title}
+                            preview={p.preview}
+                            fallbackCover={p.cover}
+                            fallbackGallery={p.gallery}
+                          />
+                        </div>
                       </div>
 
-                      {/* ✅ NEW: image on right + hover-follow image */}
-                      <div className="pt-2">
-                        <ProjectRowHoverPreview
-                          title={p.title}
-                          preview={p.preview}
-                          fallbackCover={p.cover}
-                          fallbackGallery={p.gallery}
-                        />
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+                      {/* ✅ follower preview is controlled by hovering the whole row */}
+                      <ProjectRowFollower
+                        title={p.title}
+                        preview={p.preview}
+                        fallbackCover={p.cover}
+                        fallbackGallery={p.gallery}
+                        show={show}
+                        pos={pos}
+                      />
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}
