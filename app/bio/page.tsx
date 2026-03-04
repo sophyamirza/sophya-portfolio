@@ -204,46 +204,30 @@ export default function BioPage() {
               </p>
 
               <p>
-                A few years ago, a fortune cookie told me I create enthusiasm.
-                Growing up in LA between backyard builds, takeout, and the roar of
-                LAX, I learned early that progress comes from iteration. Watching
-                the Space Shuttle fly over my school to the California Science
-                Center and seeing Anousheh Ansari, another American Iranian woman reach space made this path
-                tangible and set the direction.
+                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between backyard builds, Chinese takeout, and the roar of LAX, I learned early that the best way to understand the world is to build it.
               </p>
 
               <p>
-                At heart, I am a builder. What began as robotics competitions and
-                science fairs to meet the President evolved into hands on engineering across propulsion
-                and satellite systems. I’ve owned components from CAD and analysis
-                through manufacturing, integration, and test — closing loops
-                quickly, validating with data, and taking full responsibility for
-                performance.
+                At heart, I am a builder. What began as seeing the Space Shuttle fly over my school on its final journey to the California Science Center, evolved into robotics competitions and science fairs turning my curiosity into a drive to turn science fiction into engineered reality.
               </p>
 
               <p>
-                My work spans high-consequence hardware under aggressive schedules.
-                I’m most energized when solving real physical problems: sealing
-                interfaces, managing thermal loads, qualifying hardware, and
-                debugging systems until they work.
+                At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and working on refurb-ing hydroelectric dams in TN where I got hooked on turbines, generators and the infrastructure that powers the world.
+              </p>
+              That experience led to my earliest projects and cemented what I care about most: hands on engineering, validating ideas through testing, and learning by doing. Since then, I’ve spent every summer working close to hardware, learning how real systems get designed, built, shipped, and sometimes redesigned overnight.
+              <p>
+                Along the way, I’ve taken ownership of high consequence hardware across satellite propulsion systems, EV battery thermal systems, and launch vehicle structures, where clarity and speed matter. I also stepped into leadership on my bipropellant rocketry team and contributed to founding teams developing critical EVA technologies for Artemis.
+
               </p>
 
               <p>
-                I believe the future belongs to teams that shorten the distance
-                between design and test. Onshoring, tight feedback loops, and
-                extreme ownership are not buzzwords to me — they’re how durable
-                systems get built.
+                Thriving in 0-1 environments, I enjoy tackling deeply technical, gritty problems across energy, manufacturing, space, robotics, flight, and adjacent frontiers. Outside of work, I train adaptability under pressure through jiu jitsu and bring that discipline into hardware pragmatism with a dev test first engineering mindset, and systems level thinking.
+
               </p>
 
               <p>
-                Outside of engineering, I’m drawn to investing, market mechanics,
-                and sci-fi. I train jiu-jitsu, climb, and spend time fostering
-                builder communities that push ambitious ideas forward.
-              </p>
+                Today, I hope to bring that same enthusiasm, rigor, and curiosity, and a bias toward execution to your team!
 
-              <p>
-                I bring rigor, curiosity, and a bias toward execution to every
-                team I join.
               </p>
             </div>
 
