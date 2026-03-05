@@ -211,12 +211,12 @@ export default function BioPage() {
                 At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and working on refurb-ing hydroelectric dams in TN where I got hooked on turbines, generators and the infrastructure that powers the world.
               </p>
               That experience led to my earliest projects and cemented what I care about most: hands on engineering, validating ideas through testing, and learning by doing. Since then, I’ve spent every summer working close to hardware, learning how real systems get designed, built, shipped, and sometimes redesigned overnight.
+              
               <p>
                 Along the way, I’ve taken ownership of high consequence hardware across satellite propulsion systems, EV battery thermal systems, and launch vehicle structures, where clarity and speed matter. I also stepped into leadership on my bipropellant rocketry team and contributed to founding teams developing critical EVA technologies for Artemis.
 
               </p>
 
-              
               <p>
                 Today, I hope to bring that same enthusiasm, rigor, and curiosity, and a bias toward execution to your team!
 
@@ -292,6 +292,10 @@ export default function BioPage() {
                   "Space Sciences Lab",
                   "SAE International",
                   "Lawrence Berkeley National Lab",
+                  "Avanti Technologies",
+                  "SPACE",
+                  "NAR"
+            
                 ]}
               />
 

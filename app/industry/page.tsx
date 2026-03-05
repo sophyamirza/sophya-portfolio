@@ -167,6 +167,21 @@ export default function IndustryPage() {
       className="w-full h-full object-contain"
     />
   </div>
+
+<div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
+  <div
+    className={[
+      "sticky top-5 h-[calc(50vh-2rem)] w-[200px]",
+      "invert opacity-[0.10] mix-blend-screen",
+      "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
+    ].join(" ")}
+  >
+    <img
+      src="/images/campanile.svg"
+      alt=""
+      className="w-full h-full object-contain"
+    />
+  </div>
 </div>
 
       {/* Header */}
