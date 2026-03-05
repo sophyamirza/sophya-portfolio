@@ -216,11 +216,7 @@ export default function BioPage() {
 
               </p>
 
-              <p>
-                Thriving in 0-1 environments, I enjoy tackling deeply technical, gritty problems across energy, manufacturing, space, robotics, flight, and adjacent frontiers. Outside of work, I train adaptability under pressure through jiu jitsu and bring that discipline into hardware pragmatism with a dev test first engineering mindset, and systems level thinking.
-
-              </p>
-
+              
               <p>
                 Today, I hope to bring that same enthusiasm, rigor, and curiosity, and a bias toward execution to your team!
 
