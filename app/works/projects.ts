@@ -436,6 +436,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2024",
     projectType: "Test Systems & Instrumentation",
     tags: ["Closed-cycle cryostat", "XLDsl dilution fridge", "PCB design", "Mechanical enclosure", "ANSYS", "DAQ", "ATP authoring"],
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/BLUEFORS/instrument9.PNG",
+      hoverSrc: "/projects/BLUEFORS/instrument10.PNG",
+      alt: "BlueFors DR1 preview",
+    },
     overview:
       "Cryostat instrumentation and enclosure work spanning integration constraints, analysis, and test procedure authoring.",
     highlights: [
