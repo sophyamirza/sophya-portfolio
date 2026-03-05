@@ -84,6 +84,13 @@ export default function IndustryPage() {
         tags: "PROPULSION · LOX/ETHYL FEED · VALVES · ENGINE TEST",
         logo: "/logos/star.PNG",
       },
+       {
+        org: "Avanti Technologies",
+        role: " DIRECTOR OF SYSTEMS ENGINEERING · LEAD RISK MANAGEMENT OFFICER",
+        when: "2020 - 2021",
+        tags: "SYSTEM ARCHITECTURE· QUALITY · INTEGRATION  · RISK MANAGEMENT · SPS",
+        logo: "/logos/avantilogo.PNG",
+      },
     ],
     []
   );
