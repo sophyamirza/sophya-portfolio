@@ -328,6 +328,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2024",
     projectType: "Test Systems & Instrumentation",
     tags: ["Vacuum Hardware", "Cryogenic Instrumentation", "GSE design", "Testing"],
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+      hoverSrc: "/projects/DUNKPROBE/dunkprobebuild.PNG",
+      alt: "Dunk Probe preview",
+    },
     overview:
       "Cryogenic dewar probe hardware with vacuum-compatible design, integration, and test procedures.",
     highlights: [
