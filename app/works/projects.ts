@@ -119,6 +119,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2026",
     projectType: "Analysis & Simulation",
     tags: ["Aerodynamics", "ANSYS", "Simulation", "Mesh refinement"],
+        cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/BLUNTBODY/blunt1.PNG",
+      hoverSrc: "/projects/BLUNTBODY/blunt2.PNG",
+      alt: "Blunt Body Analysis preview",
+    },
     overview:
       "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
     highlights: [
