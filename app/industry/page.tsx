@@ -151,38 +151,20 @@ export default function IndustryPage() {
         <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
-      {/* Campanile watermark (large) */}
-      <div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
+      {/* Campanile watermark (tiled across background) */}
+      <div className="pointer-events-none fixed inset-0 hidden md:block">
         <div
           className={[
-            "sticky top-16 h-[calc(100vh-4rem)] w-[400px]",
-            "invert opacity-[0.10] mix-blend-screen",
-            "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
+            "absolute inset-0",
+            "opacity-[0.06] mix-blend-screen",
+            "invert",
+            "bg-[url('/images/campanile.svg')] bg-repeat",
+            "bg-[length:320px_320px]",
+            "bg-[position:0px_0px]",
+            "blur-[0.2px]",
+            "[mask-image:radial-gradient(circle_at_center,black_0%,black_55%,transparent_78%)]",
           ].join(" ")}
-        >
-          <img
-            src="/images/campanile.svg"
-            alt=""
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </div>
-
-      {/* Campanile watermark (small) */}
-      <div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
-        <div
-          className={[
-            "sticky top-5 h-[calc(50vh-2rem)] w-[200px]",
-            "invert opacity-[0.10] mix-blend-screen",
-            "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
-          ].join(" ")}
-        >
-          <img
-            src="/images/campanile.svg"
-            alt=""
-            className="w-full h-full object-contain"
-          />
-        </div>
+        />
       </div>
 
       {/* Header */}
