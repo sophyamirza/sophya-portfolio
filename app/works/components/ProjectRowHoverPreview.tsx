@@ -35,13 +35,13 @@ export function ProjectRowThumb({
   const staticAlt = preview?.alt ?? `${title} preview`;
 
   return staticSrc ? (
-    <div className="relative h-[92px] w-[150px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+    <div className="relative h-[120px] w-[200px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
       <Image
         src={staticSrc}
         alt={staticAlt}
         fill
         className="object-cover opacity-90 transition-transform duration-300 group-hover:scale-[1.02]"
-        sizes="150px"
+        sizes="200px"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
     </div>
@@ -89,13 +89,13 @@ export function ProjectRowFollower({
           exit={{ opacity: 0, scale: 0.98, filter: "blur(6px)" }}
           transition={{ duration: 0.16 }}
         >
-          <div className="relative h-[220px] w-[340px] overflow-hidden rounded-2xl border border-white/15 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+          <div className="relative h-[260px] w-[420px] overflow-hidden rounded-2xl border border-white/15 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
             <Image
               src={hoverSrc!}
               alt={hoverAlt}
               fill
               className="object-cover opacity-95"
-              sizes="340px"
+              sizes="420px"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
             <div className="absolute bottom-3 left-4 right-4 text-[11px] tracking-[0.28em] uppercase text-white/70">
@@ -113,8 +113,8 @@ export function ProjectRowFollower({
  */
 export function computeFollowerPos(clientX: number, clientY: number) {
   const pad = 18;
-  const w = 340;
-  const h = 220;
+  const w = 420;
+  const h = 260;
 
   const x = clamp(clientX + 22, pad, window.innerWidth - w - pad);
   const y = clamp(clientY + 22, pad, window.innerHeight - h - pad);

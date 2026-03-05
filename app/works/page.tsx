@@ -120,7 +120,7 @@ export default function WorksPage() {
                       }
                       onMouseMove={onMove}
                     >
-                      <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
+                      <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
                         <div>
                           <div className="text-5xl leading-tight tracking-tight">
                             {p.title}
