@@ -200,26 +200,26 @@ export default function BioPage() {
              
 
               <p>
-                A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between backyard builds, Chinese takeout, and the roar of LAX, I learned early that the best way to understand the world is to build it.
+                Hey, I’m Sophya!
               </p>
 
               <p>
-                At heart, I am a builder. What began as seeing the Space Shuttle fly over my school on its final journey to the California Science Center, evolved into robotics competitions and science fairs turning my curiosity into a drive to turn science fiction into engineered reality.
+                A few years ago a fortune cookie told me I create enthusiasm. Growing up between backyard builds, Chinese takeout, and the roar of LAX, I learned early that the best way to understand the world is to build it.
               </p>
 
               <p>
-                At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and working on refurb-ing hydroelectric dams in TN where I got hooked on turbines, generators and the infrastructure that powers the world.
+                At heart, I’m a designer and builder. I’ve owned full lifecycles of high consequence hardware across satellite propulsion systems, launch vehicle structures, EV battery thermal systems, and other systems where clarity and speed matter. I thrive in 0–1 environments and enjoy tackling deeply technical problems across energy, manufacturing, space, robotics, and flight.
               </p>
-              That experience led to my earliest projects and cemented what I care about most: hands on engineering, validating ideas through testing, and learning by doing. Since then, I’ve spent every summer working close to hardware, learning how real systems get designed, built, shipped, and sometimes redesigned overnight.
               
               <p>
-                Along the way, I’ve taken ownership of high consequence hardware across satellite propulsion systems, EV battery thermal systems, and launch vehicle structures, where clarity and speed matter. I also stepped into leadership on my bipropellant rocketry team and contributed to founding teams developing critical EVA technologies for Artemis.
-
+                At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and working on refurb-ing hydroelectric dams in TN. That was where I first got hooked on turbines, generators, and the infrastructure that powers the world.
               </p>
 
               <p>
-                Today, I hope to bring that same enthusiasm, rigor, and curiosity, and a bias toward execution to your team!
-
+                Outside of work, I train jiu jitsu, which has become a way to practice adaptability under pressure. That mindset carries into how I approach engineering: first principles thinking, rapid test cycles, and a bias toward building and learning from real hardware.
+              </p>
+              <p>
+               I’m excited to bring that same enthusiasm, rigor, and curiosity, and a bias toward execution to your team!
               </p>
             </div>
 
@@ -329,11 +329,11 @@ export default function BioPage() {
                 title="INTERESTS"
                 dense
                 items={[
-                  "Investing podcasts & market mechanics",
-                  "Tech disruptors & sci-fi novels",
-                  "CNC & manual machining",
+                  "podcasts",
+                  "sci-fi novels",
+                  "CNC", "",
                   "Jiu jitsu",
-                  "Climbing, hiking & solo backpacking",
+                  "Climbing", "hiking", "backpacking",
                   "Fostering builder communities",
                   "Industry engagement",
                   "Technical Mentorship & STEM advocacy",
