@@ -197,8 +197,7 @@ export default function BioPage() {
 
             {/* BIO BODY — larger + same font as page theme */}
             <div className="mt-10 space-y-7 text-[17px] sm:text-[18px] leading-[1.8] text-white/80">
-              
-        
+             
 
               <p>
                 A few years ago, a fortune cookie told me I create enthusiasm. Growing up in LA between backyard builds, Chinese takeout, and the roar of LAX, I learned early that the best way to understand the world is to build it.
@@ -244,11 +243,11 @@ export default function BioPage() {
 
               <div className="mt-10 space-y-7 text-[17px] sm:text-[18px] leading-[1.8] text-white/80">
                 <p>
-                  Our future depends on making things again!
+                  The future is reindustrialization: making things again.
                 </p>
                 <p>
-                  Onshoring is compression: shorter lead times, tighter feedback,
-                  and better ownership.
+                  Onshoring is compression: tighter loops, faster feedback, greater ownership.
+                
                 </p>
                 <p>
                   Extreme ownership closes the loop: if it breaks, I own it. If a
