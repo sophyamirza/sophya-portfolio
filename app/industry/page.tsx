@@ -85,7 +85,7 @@ export default function IndustryPage() {
       },
       {
         org: "Avanti Technologies",
-        role: "DIRECTOR OF SYSTEMS ENGINEERING · LEAD RISK MANAGEMENT OFFICER",
+        role: "DIRECTOR OF SYSTEMS ENGINEERING · LEAD RMO", 
         when: "2020 - 2021",
         tags: "SYSTEM ARCHITECTURE· QUALITY · INTEGRATION  · RISK MANAGEMENT · SPS",
         logo: "/logos/avantilogo.PNG",

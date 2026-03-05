@@ -31,12 +31,34 @@ const SECTION_ORDER = [
   "Power & Energy Systems",
 ] as const;
 
+type SectionType = (typeof SECTION_ORDER)[number] | "Other";
+
+/**
+ * Robust grouping:
+ * - preserves your desired order
+ * - never silently hides projects whose projectType has a typo / mismatch
+ * - shows unknown types under "Other"
+ */
 function groupByType(projects: typeof PROJECTS) {
-  return SECTION_ORDER.map((type) => ({
-    type,
+  const knownTypes = new Set<string>(SECTION_ORDER);
+
+  const known = SECTION_ORDER.map((type) => ({
+    type: type as SectionType,
     title: SECTION_LABELS[type] ?? type,
     projects: projects.filter((p) => p.projectType === type),
   })).filter((g) => g.projects.length > 0);
+
+  const unknownProjects = projects.filter((p) => !knownTypes.has(p.projectType));
+
+  if (unknownProjects.length > 0) {
+    known.push({
+      type: "Other",
+      title: "Other",
+      projects: unknownProjects,
+    });
+  }
+
+  return known;
 }
 
 export default function WorksPage() {
@@ -93,7 +115,9 @@ export default function WorksPage() {
                       href={`/works/${p.slug}`}
                       className="group block"
                       onMouseEnter={() => setActiveSlug(p.slug)}
-                      onMouseLeave={() => setActiveSlug((s) => (s === p.slug ? null : s))}
+                      onMouseLeave={() =>
+                        setActiveSlug((s) => (s === p.slug ? null : s))
+                      }
                       onMouseMove={onMove}
                     >
                       <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
@@ -130,7 +154,7 @@ export default function WorksPage() {
                         </div>
                       </div>
 
-                      {/* ✅ follower preview is controlled by hovering the whole row */}
+                      {/* follower preview is controlled by hovering the whole row */}
                       <ProjectRowFollower
                         title={p.title}
                         preview={p.preview}

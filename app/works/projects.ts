@@ -42,13 +42,12 @@ export type Project = {
   year: string;
   yearLabel: string;
 
-  // ✅ NEW: primary grouping key for Works page sections
+  // primary grouping key for Works page sections
   projectType: ProjectType;
 
   tags: string[];
   cover?: string;
 
-  // ✅ NEW
   preview?: ProjectPreview;
 
   overview: string;
@@ -64,7 +63,7 @@ export type Project = {
   results?: string[];
 
   gallery?: string[];
-  sections?: ProjectSection[]; // ✅ NEW: per-subsystem sections with photos
+  sections?: ProjectSection[];
 };
 
 const PH = {
@@ -172,7 +171,10 @@ export const PROJECTS: Project[] = [
         title: "Valves: Pressure-Actuated + Pyro Valve",
         summary:
           "Lightweight actuation strategy for LOX/ethanol regulation with cryo-compatible final hardware.",
-        bullets: ["0.05 g black powder actuator with e-match ignition", "Thermal + pressure drop analysis validated via test"],
+        bullets: [
+          "0.05 g black powder actuator with e-match ignition",
+          "Thermal + pressure drop analysis validated via test",
+        ],
         images: ["/projects/ALULA/valves/01.jpg", "/projects/ALULA/valves/02.jpg"],
       },
       {
@@ -198,14 +200,32 @@ export const PROJECTS: Project[] = [
     ],
   },
 
-  // ...rest of your projects unchanged
+  // ✅ IMPORTANT:
+  // Make sure your other project objects are ACTUALLY present below,
+  // and that each one has a projectType that matches ProjectType exactly.
 ];
 
+// Build slug index
 export const PROJECTS_BY_SLUG = Object.fromEntries(
   PROJECTS.map((p) => [p.slug, p])
 ) as Record<string, Project>;
 
+// Optional: by-type grouping for other UI
 export const PROJECTS_BY_TYPE = PROJECT_TYPE_ORDER.map((type) => ({
   type,
   projects: PROJECTS.filter((p) => p.projectType === type),
 })).filter((group) => group.projects.length > 0);
+
+// ✅ DEV-ONLY: warn if any projectType is invalid (prevents “why is it missing?”)
+// This will catch typos like "Propulsion and Fluids" or "Propulsion & Fluids "
+if (process.env.NODE_ENV !== "production") {
+  const allowed = new Set(PROJECT_TYPE_ORDER);
+  const invalid = PROJECTS.filter((p) => !allowed.has(p.projectType));
+  if (invalid.length) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      "Projects with invalid projectType (will fall under Other on /works):",
+      invalid.map((p) => ({ slug: p.slug, projectType: p.projectType }))
+    );
+  }
+}
