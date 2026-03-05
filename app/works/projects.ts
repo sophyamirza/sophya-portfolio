@@ -358,6 +358,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2024",
     projectType: "Product Design & Mechanisms",
     tags: ["Product Design", "CNC Routing", "Prototyping", "Market Analysis", "Urban Design"],
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/MAGBOOM/magboom1.PNG",
+      hoverSrc: "/projects/MAGBOOM/magboom2.PNG",
+      alt: "MagBoom preview",
+    },
     overview:
       "Adaptive furniture concepts exploring transformable geometry, manufacturability, and real-world constraints.",
     highlights: [
