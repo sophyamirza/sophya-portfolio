@@ -38,7 +38,7 @@ export type Project = {
   title: string;
   subtitle: string;
 
-  // keep years for detail pages / timeline metadata, but stop using for sorting
+  // keep years for detail pages / timeline metadata
   year: string;
   yearLabel: string;
 
@@ -80,8 +80,6 @@ const PH = {
   ],
   tools: ["{insert tool}", "{insert tool}", "{insert tool}"],
 };
-
-const TEAM_PH = "Sophya Mirza, {insert team here}";
 
 export const PROJECTS: Project[] = [
   // =========================
@@ -138,7 +136,6 @@ export const PROJECTS: Project[] = [
       "Reached an apogee of 6,126 ft!",
       "Successful flight recovery.",
     ],
-
     sections: [
       {
         id: "feed-system",
@@ -182,7 +179,10 @@ export const PROJECTS: Project[] = [
         title: "Injector + De Laval Nozzle",
         summary:
           "Manufacturable nozzle selection and machining under limited tooling, verified by thermal + force simulation.",
-        bullets: ["De Laval chosen over bell for manufacturability", "Machined aluminum nozzle used for flight"],
+        bullets: [
+          "De Laval chosen over bell for manufacturability",
+          "Machined aluminum nozzle used for flight",
+        ],
         images: ["/projects/ALULA/nozzle/01.jpg", "/projects/ALULA/nozzle/02.jpg"],
       },
       {
@@ -190,7 +190,10 @@ export const PROJECTS: Project[] = [
         title: "Mojave Testing Campaign",
         summary:
           "Range testing and iteration cadence to close design–test loops prior to launch.",
-        bullets: ["Transported critical hardware + supported range ops", "Validated integrated stack prior to flight"],
+        bullets: [
+          "Transported critical hardware + supported range ops",
+          "Validated integrated stack prior to flight",
+        ],
         images: [
           "/projects/ALULA/test/01.jpg",
           "/projects/ALULA/test/02.jpg",
@@ -200,12 +203,98 @@ export const PROJECTS: Project[] = [
     ],
   },
 
-  // ✅ IMPORTANT:
-  // Make sure your other project objects are ACTUALLY present below,
-  // and that each one has a projectType that matches ProjectType exactly.
+  // =========================
+  // ADD YOUR OTHER PROJECTS BACK BELOW
+  // (These are safe placeholders so you immediately see multiple rows on /works)
+  // Replace titles/paths/content with your real ones.
+  // Make sure every slug is UNIQUE.
+  // =========================
+
+  {
+    slug: "cold-gas-thruster-stand",
+    title: "Cold Gas Thruster Test Stand",
+    subtitle: "Vacuum-compatible xenon feed + DAQ instrumentation",
+    year: "2025",
+    yearLabel: "2025",
+    projectType: "Test Systems & Instrumentation",
+    tags: ["Vacuum", "DAQ", "Beckhoff", "Xenon", "Test"],
+    cover: "/projects/PLACEHOLDERS/thruster-stand/cover.jpg",
+    preview: {
+      staticSrc: "/projects/PLACEHOLDERS/thruster-stand/thumb.jpg",
+      hoverSrc: "/projects/PLACEHOLDERS/thruster-stand/hover.jpg",
+      alt: "Thruster stand preview",
+    },
+    overview:
+      "End-to-end test stand to characterize cold gas thrusters in vacuum with a tight integration loop across plumbing, sensors, and controls.",
+    highlights: [
+      "Integrated sensors + DAQ and validated acquisition flow",
+      "Designed vacuum-compatible plumbing + interfaces",
+      "Built for iteration speed and repeatable runs",
+    ],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "{insert focus area here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: PH.tools,
+    contributions: PH.contributions,
+    results: PH.results,
+    gallery: ["/projects/PLACEHOLDERS/thruster-stand/01.jpg"],
+  },
+
+  {
+    slug: "hygromorphic-composite-skins",
+    title: "Adaptive Composite Skins",
+    subtitle: "Hygromorphic + stiffness-tunable composite concepts",
+    year: "2025",
+    yearLabel: "2025",
+    projectType: "Analysis & Simulation",
+    tags: ["Composites", "ANSYS", "Structures", "Aero"],
+    cover: "/projects/PLACEHOLDERS/composites/cover.jpg",
+    preview: {
+      staticSrc: "/projects/PLACEHOLDERS/composites/thumb.jpg",
+      hoverSrc: "/projects/PLACEHOLDERS/composites/hover.jpg",
+      alt: "Composite skins preview",
+    },
+    overview:
+      "Concept exploration and simulation of tunable composite skins for adaptive performance under constraints.",
+    highlights: ["Defined stackups + constraints", "Ran simulation sweeps", "Synthesized trade study outputs"],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "{insert focus area here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: PH.tools,
+    contributions: PH.contributions,
+    results: PH.results,
+  },
+
+  {
+    slug: "silent-mouse",
+    title: "Low-Cost Silent Mouse",
+    subtitle: "Hardware iteration + ergonomic improvements",
+    year: "2025",
+    yearLabel: "2025",
+    projectType: "Product Design & Mechanisms",
+    tags: ["Product", "Mechanisms", "Rapid Iteration", "DFM"],
+    cover: "/projects/PLACEHOLDERS/mouse/cover.jpg",
+    preview: {
+      staticSrc: "/projects/PLACEHOLDERS/mouse/thumb.jpg",
+      hoverSrc: "/projects/PLACEHOLDERS/mouse/hover.jpg",
+      alt: "Silent mouse preview",
+    },
+    overview:
+      "Designed and built a silent mouse with mechanical and ergonomic refinements driven by hands-on iteration.",
+    highlights: ["Switch + encoder modifications", "Assembly + wiring constraints solved", "Cost target achieved"],
+    status: "{insert status here}",
+    date: "{insert date here}",
+    focusArea: "{insert focus area here}",
+    systemOverview: PH.systemOverview,
+    toolsAndSkills: PH.tools,
+    contributions: PH.contributions,
+    results: PH.results,
+  },
 ];
 
-// Build slug index
+// Build slug index (unique slugs only)
 export const PROJECTS_BY_SLUG = Object.fromEntries(
   PROJECTS.map((p) => [p.slug, p])
 ) as Record<string, Project>;
@@ -216,8 +305,7 @@ export const PROJECTS_BY_TYPE = PROJECT_TYPE_ORDER.map((type) => ({
   projects: PROJECTS.filter((p) => p.projectType === type),
 })).filter((group) => group.projects.length > 0);
 
-// ✅ DEV-ONLY: warn if any projectType is invalid (prevents “why is it missing?”)
-// This will catch typos like "Propulsion and Fluids" or "Propulsion & Fluids "
+// DEV-ONLY: warn if any projectType is invalid
 if (process.env.NODE_ENV !== "production") {
   const allowed = new Set(PROJECT_TYPE_ORDER);
   const invalid = PROJECTS.filter((p) => !allowed.has(p.projectType));
@@ -227,5 +315,17 @@ if (process.env.NODE_ENV !== "production") {
       "Projects with invalid projectType (will fall under Other on /works):",
       invalid.map((p) => ({ slug: p.slug, projectType: p.projectType }))
     );
+  }
+
+  // DEV-ONLY: warn if any slugs are duplicated (prevents silent overwrites)
+  const seen = new Set<string>();
+  const dups: string[] = [];
+  for (const p of PROJECTS) {
+    if (seen.has(p.slug)) dups.push(p.slug);
+    seen.add(p.slug);
+  }
+  if (dups.length) {
+    // eslint-disable-next-line no-console
+    console.warn("Duplicate project slugs (will overwrite in PROJECTS_BY_SLUG):", dups);
   }
 }
