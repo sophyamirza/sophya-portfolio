@@ -37,7 +37,7 @@ export default function IndustryPage() {
       {
         org: "SpaceX",
         role: "Starship Primary Structures RE Intern",
-        when: "APR 2024 – AUG 2024 (5 Mos)" ,
+        when: "APR 2024 – AUG 2024 (5 Mos)",
         tags: "PRIMARY STRUCTURES DESIGN · WELD PROCESSES · TPS · HEADER TANK QUAL",
         logo: "/logos/spacex.PNG",
       },
@@ -73,8 +73,7 @@ export default function IndustryPage() {
         org: "Design for Nanomanufacturing Lab",
         role: "Mechanical Engineer",
         when: "AUG 2022 – MAY 2023 (1 YR)",
-        tags:
-          "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN· VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
+        tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN· VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
         logo: "/logos/DFM.png",
       },
       {
@@ -84,9 +83,9 @@ export default function IndustryPage() {
         tags: "PROPULSION · LOX/ETHYL FEED · VALVES · ENGINE TEST",
         logo: "/logos/star.PNG",
       },
-       {
+      {
         org: "Avanti Technologies",
-        role: " DIRECTOR OF SYSTEMS ENGINEERING · LEAD RISK MANAGEMENT OFFICER",
+        role: "DIRECTOR OF SYSTEMS ENGINEERING · LEAD RISK MANAGEMENT OFFICER",
         when: "2020 - 2021",
         tags: "SYSTEM ARCHITECTURE· QUALITY · INTEGRATION  · RISK MANAGEMENT · SPS",
         logo: "/logos/avantilogo.PNG",
@@ -152,37 +151,39 @@ export default function IndustryPage() {
         <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
-      {/* Campanile watermark */}
-<div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
-  <div
-    className={[
-      "sticky top-15 h-[calc(100vh-4rem)] w-[400px]",
-      "invert opacity-[0.10] mix-blend-screen",
-      "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
-    ].join(" ")}
-  >
-    <img
-      src="/images/campanile.svg"
-      alt=""
-      className="w-full h-full object-contain"
-    />
-  </div>
+      {/* Campanile watermark (large) */}
+      <div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
+        <div
+          className={[
+            "sticky top-16 h-[calc(100vh-4rem)] w-[400px]",
+            "invert opacity-[0.10] mix-blend-screen",
+            "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
+          ].join(" ")}
+        >
+          <img
+            src="/images/campanile.svg"
+            alt=""
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </div>
 
-<div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
-  <div
-    className={[
-      "sticky top-5 h-[calc(50vh-2rem)] w-[200px]",
-      "invert opacity-[0.10] mix-blend-screen",
-      "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
-    ].join(" ")}
-  >
-    <img
-      src="/images/campanile.svg"
-      alt=""
-      className="w-full h-full object-contain"
-    />
-  </div>
-</div>
+      {/* Campanile watermark (small) */}
+      <div className="pointer-events-none fixed inset-y-0 right-0 hidden md:block">
+        <div
+          className={[
+            "sticky top-5 h-[calc(50vh-2rem)] w-[200px]",
+            "invert opacity-[0.10] mix-blend-screen",
+            "[mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]",
+          ].join(" ")}
+        >
+          <img
+            src="/images/campanile.svg"
+            alt=""
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </div>
 
       {/* Header */}
       <div className="relative z-10 px-8 md:px-20 pt-20">
@@ -277,8 +278,8 @@ export default function IndustryPage() {
                 <div
                   key={`${m.org}-${m.when}`}
                   ref={(el) => {
-  itemRefs.current[i] = el;
-}}
+                    itemRefs.current[i] = el;
+                  }}
                   className="grid grid-cols-1 md:grid-cols-[1fr_72px_1fr] gap-y-8 md:gap-y-0"
                 >
                   <div className="md:col-start-1">
