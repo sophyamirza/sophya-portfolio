@@ -298,30 +298,6 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    slug: "nasa-suits-spacebears",
-    title: "NASA SUITS",
-    subtitle: "Founding team SPACEBEARS — UI tech for Artemis",
-    year: "2025",
-    yearLabel: "2025",
-    projectType: "Robotics & Autonomy",
-    tags: ["RESTful API", "Embedded Systems", "AR/XR", "LiDAR", "Sensors"],
-    overview:
-      "Spacesuit user interface technology targeting the Artemis campaign, spanning sensing, integration, and software-hardware interface considerations.",
-    highlights: [
-      "Defined system interfaces and integration constraints",
-      "Worked across embedded + sensing + UX requirements",
-      "Built toward reliable, testable subsystem behavior",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Embedded Sensing & Human Systems",
-    team: TEAM_PH,
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["Embedded systems", "APIs", "Sensors", "LiDAR", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
-  {
     slug: "rescuebot",
     title: "RescueBot",
     subtitle: "Quadrupedal robot",
