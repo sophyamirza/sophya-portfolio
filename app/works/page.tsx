@@ -62,7 +62,6 @@ function groupByType(projects: typeof PROJECTS) {
 export default function WorksPage() {
   const sections = useMemo(() => groupByType(PROJECTS), []);
 
-  // row hover state for follower preview
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -89,7 +88,7 @@ export default function WorksPage() {
         <div className="mt-16 space-y-20">
           {sections.map((section) => (
             <div key={section.type}>
-              <div className="flex items-center gap-6 mb-10">
+              <div className="mb-10 flex items-center gap-6">
                 <div
                   className="h-px flex-1 opacity-80"
                   style={{ background: THERMAL_GRADIENT }}
@@ -104,12 +103,10 @@ export default function WorksPage() {
               </div>
 
               <div className="space-y-12">
-                {section.projects.map((p) => {
-                  const show = activeSlug === p.slug;
-
-                  return (
+                {section.projects.map((p) => (
+                  <div key={p.slug} className="space-y-6">
+                    {/* Main project */}
                     <Link
-                      key={p.slug}
                       href={`/works/${p.slug}`}
                       className="group block"
                       onMouseEnter={() => setActiveSlug(p.slug)}
@@ -118,11 +115,12 @@ export default function WorksPage() {
                       }
                       onMouseMove={onMove}
                     >
-                      <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
+                      <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
                         <div>
                           <div className="text-5xl leading-tight tracking-tight">
                             {p.title}
                           </div>
+
                           <div className="mt-3 text-white/60">{p.subtitle}</div>
 
                           <div className="mt-5 flex flex-wrap gap-2">
@@ -137,7 +135,7 @@ export default function WorksPage() {
                           </div>
 
                           <div
-                            className="mt-4 h-px w-0 group-hover:w-[200px] transition-all duration-300"
+                            className="mt-4 h-px w-0 transition-all duration-300 group-hover:w-[200px]"
                             style={{ background: THERMAL_GRADIENT }}
                           />
                         </div>
@@ -152,18 +150,81 @@ export default function WorksPage() {
                         </div>
                       </div>
 
-                      {/* follower preview is controlled by hovering the whole row */}
                       <ProjectRowFollower
                         title={p.title}
                         preview={p.preview}
                         fallbackCover={p.cover}
                         fallbackGallery={p.gallery}
-                        show={show}
+                        show={activeSlug === p.slug}
                         pos={pos}
                       />
                     </Link>
-                  );
-                })}
+
+                    {/* Subprojects */}
+                    {p.subprojects?.length ? (
+                      <div className="ml-10 space-y-6 md:ml-16">
+                        {p.subprojects.map((sp) => (
+                          <Link
+                            key={sp.slug}
+                            href={`/works/${sp.slug}`}
+                            className="group block"
+                            onMouseEnter={() => setActiveSlug(sp.slug)}
+                            onMouseLeave={() =>
+                              setActiveSlug((s) => (s === sp.slug ? null : s))
+                            }
+                            onMouseMove={onMove}
+                          >
+                            <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
+                              <div>
+                                <div className="text-4xl leading-tight tracking-tight text-white/90">
+                                  {sp.title}
+                                </div>
+
+                                <div className="mt-2 text-sm text-white/50">
+                                  {sp.subtitle}
+                                </div>
+
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                  {sp.tags.slice(0, 5).map((t) => (
+                                    <span
+                                      key={t}
+                                      className="rounded-full border border-white/10 px-3 py-1 text-[10px] text-white/50"
+                                    >
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+
+                                <div
+                                  className="mt-4 h-px w-0 opacity-70 transition-all duration-300 group-hover:w-[160px]"
+                                  style={{ background: THERMAL_GRADIENT }}
+                                />
+                              </div>
+
+                              <div className="origin-top-right scale-90 pt-2">
+                                <ProjectRowThumb
+                                  title={sp.title}
+                                  preview={sp.preview}
+                                  fallbackCover={sp.cover}
+                                  fallbackGallery={sp.gallery}
+                                />
+                              </div>
+                            </div>
+
+                            <ProjectRowFollower
+                              title={sp.title}
+                              preview={sp.preview}
+                              fallbackCover={sp.cover}
+                              fallbackGallery={sp.gallery}
+                              show={activeSlug === sp.slug}
+                              pos={pos}
+                            />
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                ))}
               </div>
             </div>
           ))}
