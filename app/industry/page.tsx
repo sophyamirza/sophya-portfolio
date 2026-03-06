@@ -31,6 +31,16 @@ export default function IndustryPage() {
   const milestones: Milestone[] = useMemo(
     () => [
       {
+        org: "VC Technical Fellow",
+        role: "Venture Capital",
+        when: "2025 – Present",
+        tags: "VENTURE · DEEP TECH · STARTUPS",
+        logo: "/logos/haas.PNG",
+        size: "sm",
+        x: 10,
+        y: 54,
+      },
+      {
         org: "Astranis",
         role: "Propulsion RE Intern",
         when: "JAN 2025 – MAY 2025 (5 Mos)",
@@ -51,6 +61,16 @@ export default function IndustryPage() {
         y: 20,
       },
       {
+        org: "SAE International",
+        role: "AM / SAF / Aerospace Standards",
+        when: "AUG 2023 – AUG 2024 (1 YR)",
+        tags: "STANDARDS · SOFTWARE AUTOMATION · CERTIFICATION · ADDITIVE MANUFACTURING · SUSTAINABLE AVIATION FUELS",
+        logo: "/logos/sae.PNG",
+        size: "sm",
+        x: 84,
+        y: 49,
+      },
+      {
         org: "NASA: TRACERS MISSION",
         role: "Mechanical Intern",
         when: "MAY 2023 – AUG 2023 (4 Mos)",
@@ -61,24 +81,14 @@ export default function IndustryPage() {
         y: 42,
       },
       {
-        org: "VC Technical Fellow",
-        role: "Venture Capital",
-        when: "2025 – Present",
-        tags: "VENTURE · DEEP TECH · STARTUPS",
-        logo: "/logos/haas.PNG",
+        org: "Design for Nanomanufacturing Lab",
+        role: "Mechanical Engineer",
+        when: "AUG 2022 – MAY 2023 (1 YR)",
+        tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
+        logo: "/logos/DFM.png",
         size: "sm",
-        x: 10,
-        y: 54,
-      },
-      {
-        org: "SAE International",
-        role: "AM / SAF / Aerospace Standards",
-        when: "AUG 2023 – AUG 2024 (1 YR)",
-        tags: "STANDARDS · SOFTWARE AUTOMATION · CERTIFICATION · ADDITIVE MANUFACTURING · SUSTAINABLE AVIATION FUELS",
-        logo: "/logos/sae.PNG",
-        size: "sm",
-        x: 84,
-        y: 49,
+        x: 86,
+        y: 72,
       },
       {
         org: "Proterra",
@@ -99,16 +109,6 @@ export default function IndustryPage() {
         size: "md",
         x: 63,
         y: 73,
-      },
-      {
-        org: "Design for Nanomanufacturing Lab",
-        role: "Mechanical Engineer",
-        when: "AUG 2022 – MAY 2023 (1 YR)",
-        tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
-        logo: "/logos/DFM.png",
-        size: "sm",
-        x: 86,
-        y: 72,
       },
       {
         org: "Space Technologies & Rocketry",
@@ -360,6 +360,15 @@ export default function IndustryPage() {
     );
   };
 
+  const connectorPoints = nodes.map((node) => ({
+    x: node.x,
+    y: node.y,
+  }));
+
+  const polylinePoints = connectorPoints
+    .map((p) => `${p.x},${p.y}`)
+    .join(" ");
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
       <Analytics />
@@ -411,16 +420,21 @@ export default function IndustryPage() {
         </p>
       </div>
 
-      {/* Mobile stacked layout */}
+      {/* Mobile */}
       <section className="relative z-10 px-5 pb-20 pt-10 md:hidden">
         <div className="mx-auto flex max-w-xl flex-col gap-5">
-          {milestones.map((m) => (
-            <MilestoneCard key={`${m.org}-${m.when}`} m={m} />
+          {milestones.map((m, i) => (
+            <div key={`${m.org}-${m.when}`} className="relative">
+              <div className="mb-2 text-[11px] tracking-[0.28em] text-white/35">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <MilestoneCard m={m} />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Desktop floating layout */}
+      {/* Desktop floating */}
       <section className="relative z-10 hidden px-6 pb-24 pt-8 md:block md:px-10">
         <div
           ref={containerRef}
@@ -428,20 +442,87 @@ export default function IndustryPage() {
           onMouseLeave={handleMouseLeave}
           className="relative mx-auto h-[1200px] max-w-[1600px]"
         >
+          {/* Chronology connector layer */}
+          <svg
+            className="pointer-events-none absolute inset-0 h-full w-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="chronoLine" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(0,179,255,0.55)" />
+                <stop offset="35%" stopColor="rgba(57,255,20,0.45)" />
+                <stop offset="68%" stopColor="rgba(255,230,0,0.40)" />
+                <stop offset="100%" stopColor="rgba(255,0,51,0.42)" />
+              </linearGradient>
+
+              <filter id="chronoGlow">
+                <feGaussianBlur stdDeviation="0.6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <polyline
+              points={polylinePoints}
+              fill="none"
+              stroke="url(#chronoLine)"
+              strokeWidth="0.22"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.45"
+              filter="url(#chronoGlow)"
+              strokeDasharray="1.2 0.9"
+            />
+
+            {connectorPoints.map((p, i) => (
+              <g key={`marker-${i}`} transform={`translate(${p.x}, ${p.y})`}>
+                <circle
+                  r="0.72"
+                  fill="rgba(255,255,255,0.92)"
+                  opacity="0.95"
+                />
+                <circle
+                  r="1.35"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.22)"
+                  strokeWidth="0.12"
+                />
+                <text
+                  x="1.8"
+                  y="-1.2"
+                  fontSize="1.3"
+                  fill="rgba(255,255,255,0.38)"
+                  letterSpacing="0.12em"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </text>
+              </g>
+            ))}
+          </svg>
+
+          {/* Floating cards */}
           {milestones.map((m, i) => {
             const node = nodes[i];
 
             return (
               <div
                 key={`${m.org}-${m.when}`}
-                className="absolute will-change-transform"
+                className="absolute z-10 will-change-transform"
                 style={{
                   left: `${node.x}%`,
                   top: `${node.y}%`,
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <MilestoneCard m={m} desktop />
+                <div className="relative">
+                  <div className="pointer-events-none absolute -left-4 -top-4 rounded-full border border-white/12 bg-black/55 px-2 py-1 text-[10px] tracking-[0.22em] text-white/55 backdrop-blur-sm">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <MilestoneCard m={m} desktop />
+                </div>
               </div>
             );
           })}
