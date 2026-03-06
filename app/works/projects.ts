@@ -5,8 +5,7 @@ export type ProjectType =
   | "Robotics & Autonomy"
   | "Analysis & Simulation"
   | "Test Systems & Instrumentation"
-  | "Product Design & Mechanisms"
-  | "Power & Energy Systems";
+  | "Product Design & Mechanisms";
 
 export const PROJECT_TYPE_ORDER: ProjectType[] = [
   "Propulsion & Fluids",
@@ -14,7 +13,6 @@ export const PROJECT_TYPE_ORDER: ProjectType[] = [
   "Analysis & Simulation",
   "Test Systems & Instrumentation",
   "Product Design & Mechanisms",
-  "Power & Energy Systems",
 ];
 
 export type ProjectSection = {
@@ -474,7 +472,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Battery cell charging and discharging",
     year: "2021",
     yearLabel: "2021–2023",
-    projectType: "Power & Energy Systems",
+    projectType: "Test Systems & Instrumentation",
     tags: ["High voltage", "Power electronics", "Custom fixture", "Fiber temp sensing", "Circuit design"],
     overview:
       "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
