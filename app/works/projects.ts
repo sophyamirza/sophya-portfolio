@@ -284,8 +284,8 @@ export const PROJECTS: Project[] = [
         tags: ["Valves", "Flow Control", "Cryogenics", "Propellant System"],
         cover: "/projects/ALULA/valves/01.jpg",
         preview: {
-          staticSrc: "/projects/ALULA/valves/01.jpg",
-          hoverSrc: "/projects/ALULA/valves/02.jpg",
+          staticSrc: "/projects/VALVES/valves1.PNG",
+          hoverSrc: "/projects/VALVES/valves2.PNG",
           alt: "Main Valves System preview",
         },
         overview:
@@ -306,8 +306,8 @@ export const PROJECTS: Project[] = [
         tags: ["Engine", "Injector", "Nozzle", "Combustion Hardware"],
         cover: "/projects/ALULA/nozzle/01.jpg",
         preview: {
-          staticSrc: "/projects/ALULA/nozzle/01.jpg",
-          hoverSrc: "/projects/ALULA/nozzle/02.jpg",
+          staticSrc: "/projects/ALULA/engine1.PNG",
+          hoverSrc: "/projects/ALULA/engine2.PNG",
           alt: "ALULA Engine preview",
         },
         overview:
