@@ -113,7 +113,7 @@ export function ProjectRowFollower({
  */
 export function computeFollowerPos(clientX: number, clientY: number) {
   const pad = 18;
-  const offset = 22;
+  const offset = 2;
   const w = 420;
   const h = 260;
 
