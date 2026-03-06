@@ -1,9 +1,8 @@
-// app/works/page.tsx
 "use client";
 
 import Link from "next/link";
 import React, { useMemo, useRef, useState } from "react";
-import { PROJECTS } from "./projects";
+import { PROJECTS, type Project } from "./projects";
 import {
   ProjectRowFollower,
   ProjectRowThumb,
@@ -31,12 +30,6 @@ const SECTION_ORDER = [
 
 type SectionType = (typeof SECTION_ORDER)[number] | "Other";
 
-/**
- * Robust grouping:
- * - preserves your desired order
- * - never silently hides projects whose projectType has a typo / mismatch
- * - shows unknown types under "Other"
- */
 function groupByType(projects: typeof PROJECTS) {
   const knownTypes = new Set<string>(SECTION_ORDER);
 
@@ -50,7 +43,7 @@ function groupByType(projects: typeof PROJECTS) {
 
   if (unknownProjects.length > 0) {
     known.push({
-      type: "Other",
+      type: "Other" as SectionType,
       title: "Other",
       projects: unknownProjects,
     });
@@ -62,7 +55,7 @@ function groupByType(projects: typeof PROJECTS) {
 export default function WorksPage() {
   const sections = useMemo(() => groupByType(PROJECTS), []);
 
-  const [activeSlug, setActiveSlug] = useState<string | null>(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
   const raf = useRef<number | null>(null);
@@ -72,16 +65,25 @@ export default function WorksPage() {
     last.current = { x: e.clientX, y: e.clientY };
 
     if (raf.current) return;
+
     raf.current = window.requestAnimationFrame(() => {
       raf.current = null;
       setPos(computeFollowerPos(last.current.x, last.current.y));
     });
   };
 
+  const onEnterProject = (project: Project) => {
+    setActiveProject(project);
+  };
+
+  const onLeaveProject = () => {
+    setActiveProject(null);
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-32">
-        <h1 className="text-6xl md:text-7xl tracking-tight">
+      <section className="mx-auto max-w-6xl px-6 pb-32 pt-24">
+        <h1 className="text-6xl tracking-tight md:text-7xl">
           Engineering Gallery
         </h1>
 
@@ -109,10 +111,8 @@ export default function WorksPage() {
                     <Link
                       href={`/works/${p.slug}`}
                       className="group block"
-                      onMouseEnter={() => setActiveSlug(p.slug)}
-                      onMouseLeave={() =>
-                        setActiveSlug((s) => (s === p.slug ? null : s))
-                      }
+                      onMouseEnter={() => onEnterProject(p)}
+                      onMouseLeave={onLeaveProject}
                       onMouseMove={onMove}
                     >
                       <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
@@ -149,15 +149,6 @@ export default function WorksPage() {
                           />
                         </div>
                       </div>
-
-                      <ProjectRowFollower
-                        title={p.title}
-                        preview={p.preview}
-                        fallbackCover={p.cover}
-                        fallbackGallery={p.gallery}
-                        show={activeSlug === p.slug}
-                        pos={pos}
-                      />
                     </Link>
 
                     {/* Subprojects */}
@@ -168,10 +159,8 @@ export default function WorksPage() {
                             key={sp.slug}
                             href={`/works/${sp.slug}`}
                             className="group block"
-                            onMouseEnter={() => setActiveSlug(sp.slug)}
-                            onMouseLeave={() =>
-                              setActiveSlug((s) => (s === sp.slug ? null : s))
-                            }
+                            onMouseEnter={() => onEnterProject(sp)}
+                            onMouseLeave={onLeaveProject}
                             onMouseMove={onMove}
                           >
                             <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
@@ -210,15 +199,6 @@ export default function WorksPage() {
                                 />
                               </div>
                             </div>
-
-                            <ProjectRowFollower
-                              title={sp.title}
-                              preview={sp.preview}
-                              fallbackCover={sp.cover}
-                              fallbackGallery={sp.gallery}
-                              show={activeSlug === sp.slug}
-                              pos={pos}
-                            />
                           </Link>
                         ))}
                       </div>
@@ -230,6 +210,15 @@ export default function WorksPage() {
           ))}
         </div>
       </section>
+
+      <ProjectRowFollower
+        title={activeProject?.title ?? ""}
+        preview={activeProject?.preview}
+        fallbackCover={activeProject?.cover}
+        fallbackGallery={activeProject?.gallery}
+        show={Boolean(activeProject)}
+        pos={pos}
+      />
     </main>
   );
 }
