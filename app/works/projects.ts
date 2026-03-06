@@ -497,8 +497,8 @@ export const PROJECTS: Project[] = [
     tags: ["Planetary Gearbox", "Cable actuation", "Joint-space PID", "Embedded motor control", "3D Printing"],
     cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
     preview: {
-      staticSrc: "/projects/USV/usv1.PNG",
-      hoverSrc: "/projects/USV/usv2.PNG",
+      staticSrc: "/projects/PATRIS/patris.PNG",
+      hoverSrc: "/projects/PATRIS/patris2.PNG",
       alt: "Drone preview",
     },
     overview:
