@@ -89,30 +89,6 @@ export const PROJECTS: Project[] = [
   // 2026
   // =========================
   {
-    slug: "cf-rear-wing",
-    title: "Vehicle Optimized Carbon Fiber Rear Wing",
-    subtitle: "Custom Tesla Model 3 mods",
-    year: "2026",
-    yearLabel: "2026",
-    projectType: "Product Design & Mechanisms",
-    tags: ["Aerodynamics", "Composites", "Downforce", "Spoiler"],
-    overview:
-      "Carbon fiber rear wing concept focused on aero performance, vehicle integration, and manufacturability, iterated through design trades and build constraints.",
-    highlights: [
-      "Defined constraints: packaging, mounts, loads, manufacturability",
-      "Iterated geometry through aero + structural trade space",
-      "Designed for assembly, serviceability, and repeatable fabrication",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Aerodynamics & Composites",
-    team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["CFD", "Composites layup", "CAD", "Vehicle integration", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
-  {
     slug: "blunt-body-analysis",
     title: "Blunt Body Analysis",
     subtitle: "Supersonic flow over a blunt body",
@@ -382,6 +358,12 @@ export const PROJECTS: Project[] = [
     year: "2025",
     yearLabel: "2025",
     projectType: "Analysis & Simulation",
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/BIKEFRAME/naca1.PNG",
+      hoverSrc: "/projects/BIKEFRAME/naca2.PNG",
+      alt: "Drag preview",
+    },
     tags: ["Wind Tunnel Testing", "CFD", "MATLAB", "Aerodynamics"],
     overview:
       "Aerodynamic analysis of truncated NACA-profiled tubing combining testing and simulation to guide geometry choices.",
