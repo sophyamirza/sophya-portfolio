@@ -426,8 +426,8 @@ export const PROJECTS: Project[] = [
     cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
     preview: {
       staticSrc: "/projects/METAMORPHIC/table2.PNG",
-      hoverSrc: "/projects/METAMORPHIC/table1.PNGPNG",
-      alt: "Dunk Probe preview",
+      hoverSrc: "/projects/METAMORPHIC/table1.PNG",
+      alt: "Metamorphic Designs preview",
     },
     overview:
       "Adaptive furniture concepts exploring transformable geometry, manufacturability, and real-world constraints.",
