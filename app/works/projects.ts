@@ -423,9 +423,9 @@ export const PROJECTS: Project[] = [
     yearLabel: "2024",
     projectType: "Product Design & Mechanisms",
     tags: ["Product Design", "CNC Routing", "Prototyping", "Market Analysis", "Urban Design"],
-    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    cover: "/projects//METAMORPHIC/table2.PNG",
     preview: {
-      staticSrc: "/projects/METAMORPHIC/table2.PNG",
+      staticSrc: "/projects/METAMORPHIC/table2.jpg",
       hoverSrc: "/projects/METAMORPHIC/table1.PNG",
       alt: "Metamorphic Designs preview",
     },
