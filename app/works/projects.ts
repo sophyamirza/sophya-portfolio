@@ -474,6 +474,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2021–2023",
     projectType: "Test Systems & Instrumentation",
     tags: ["High voltage", "Power electronics", "Custom fixture", "Fiber temp sensing", "Circuit design"],
+     cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/TESTFIXTURE/charger5.PNG",
+      hoverSrc: "/projects/TESTFIXTURE/charger4.PNG",
+      alt: "Test Fixture preview",
+    },
     overview:
       "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
     highlights: [
