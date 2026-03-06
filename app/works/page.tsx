@@ -19,7 +19,6 @@ const SECTION_LABELS: Record<string, string> = {
   "Analysis & Simulation": "Analysis & Sims",
   "Product Design & Mechanisms": "Product Design & Dev",
   "Robotics & Autonomy": "Robotics, UAVs & Autonomy",
-  "Power & Energy Systems": "Power & Energy Systems",
 };
 
 const SECTION_ORDER = [
@@ -28,7 +27,6 @@ const SECTION_ORDER = [
   "Analysis & Simulation",
   "Product Design & Mechanisms",
   "Robotics & Autonomy",
-  "Power & Energy Systems",
 ] as const;
 
 type SectionType = (typeof SECTION_ORDER)[number] | "Other";

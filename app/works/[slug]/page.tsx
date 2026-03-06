@@ -14,7 +14,6 @@ const SECTION_LABELS: Record<string, string> = {
   "Analysis & Simulation": "Analysis & Sims",
   "Product Design & Mechanisms": "Product Design & Dev",
   "Robotics & Autonomy": "Robotics, UAVs & Autonomy",
-  "Power & Energy Systems": "Power & Energy Systems",
 };
 
 function HeroPlaceholder({ title }: { title: string }) {
