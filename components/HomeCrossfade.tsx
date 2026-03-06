@@ -36,7 +36,7 @@ function HighlightCard({
             <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
           </div>
 
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] md:h-24 md:w-24">
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:h-32 md:w-32">
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -237,7 +237,7 @@ export default function HomeCrossfade() {
               subtitle="Quadruped Robot"
               tags="ROBOTICS · CONTROL"
               href="/works/rescuebot"
-              imageSrc="/projects/RESCUEBOT/RESCUEBOT1.PNG"
+              imageSrc="/projects/RESCUEBOT/rescuebot1.PNG"
               imageAlt="RescueBot project preview"
             />
             <HighlightCard
