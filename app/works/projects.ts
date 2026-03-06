@@ -327,7 +327,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Quadrupedal robot",
     year: "2025",
     yearLabel: "2025",
-    projectType: "Robotics & Autonomy",
+    projectType: "Analysis & Simulation",
     tags: ["Gait optimization", "Mechanism design", "Automation", "Controls"],
     cover: "/projects/RESCUEBOT/rescuebot1.PNG",
         preview: {
