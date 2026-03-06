@@ -296,13 +296,13 @@ export default function IndustryPage() {
 
         <div className="relative p-5 md:p-6">
           <div className="mb-4 flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-black/20 md:h-16 md:w-16">
+            <div className="flex items-center justify-center">
               <Image
                 src={m.logo}
                 alt={m.org}
                 width={logoSize(m.size)}
                 height={logoSize(m.size)}
-                className="rounded object-contain"
+                className="object-contain"
               />
             </div>
 
@@ -442,7 +442,6 @@ export default function IndustryPage() {
           onMouseLeave={handleMouseLeave}
           className="relative mx-auto h-[1200px] max-w-[1600px]"
         >
-          {/* Chronology connector layer */}
           <svg
             className="pointer-events-none absolute inset-0 h-full w-full"
             viewBox="0 0 100 100"
@@ -503,7 +502,6 @@ export default function IndustryPage() {
             ))}
           </svg>
 
-          {/* Floating cards */}
           {milestones.map((m, i) => {
             const node = nodes[i];
 
