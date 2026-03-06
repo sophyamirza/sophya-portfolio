@@ -14,9 +14,6 @@ function clamp(n: number, a: number, b: number) {
   return Math.min(b, Math.max(a, n));
 }
 
-/**
- * Right-side static thumbnail.
- */
 export function ProjectRowThumb({
   title,
   preview,
@@ -47,9 +44,6 @@ export function ProjectRowThumb({
   );
 }
 
-/**
- * Cursor-follow hover preview.
- */
 export function ProjectRowFollower({
   title,
   preview,
@@ -78,7 +72,7 @@ export function ProjectRowFollower({
     <AnimatePresence>
       {enabled && show ? (
         <motion.div
-          className="pointer-events-none fixed z-[90]"
+          className="pointer-events-none fixed z-[9999]"
           style={{
             left: pos.x,
             top: pos.y,
@@ -107,26 +101,17 @@ export function ProjectRowFollower({
   );
 }
 
-/**
- * Compute a cursor-follow position that stays in view.
- * If near the right/bottom edge, flip the preview to the left/up.
- */
 export function computeFollowerPos(clientX: number, clientY: number) {
   const pad = 18;
-  const offset = 2;
+  const offset = 4;
   const w = 420;
   const h = 260;
 
   const placeRight = clientX + offset + w <= window.innerWidth - pad;
   const placeBelow = clientY + offset + h <= window.innerHeight - pad;
 
-  const x = placeRight
-    ? clientX + offset
-    : clientX - w - offset;
-
-  const y = placeBelow
-    ? clientY + offset
-    : clientY - h - offset;
+  const x = placeRight ? clientX + offset : clientX - w - offset;
+  const y = placeBelow ? clientY + offset : clientY - h - offset;
 
   return {
     x: clamp(x, pad, window.innerWidth - w - pad),
