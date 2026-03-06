@@ -1,12 +1,14 @@
 "use client";
 
+const DISPLAY_FONT = "'Playfair Display', serif";
+
 export default function PhilosophyTitle() {
   return (
     <>
-      {/* TITLE */}
       <h2
-        className="haloTitle mt-4 text-4xl md:text-6xl font-semibold tracking-tight"
+        className="haloTitle mt-4 text-4xl italic tracking-tight md:text-6xl"
         style={{
+          fontFamily: DISPLAY_FONT,
           color: "rgba(255,255,255,0.98)",
           textShadow: `
             0 0 2px rgba(255,255,255,0.95),
@@ -21,10 +23,9 @@ export default function PhilosophyTitle() {
           `,
         }}
       >
-        EXTREME OWNERSHIP
+        Extreme Ownership
       </h2>
 
-      {/* GLOBAL STYLES */}
       <style jsx global>{`
         @keyframes haloBreath {
           0% {

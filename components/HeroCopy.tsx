@@ -3,34 +3,31 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+const DISPLAY_FONT = "'Playfair Display', serif";
+
 export default function HeroCopy() {
   const ref = useRef<HTMLDivElement | null>(null);
   const raf = useRef<number | null>(null);
 
-  // parallax
   const target = useRef({ x: 0, y: 0 });
   const smooth = useRef({ x: 0, y: 0 });
   const [style, setStyle] = useState<{ transform: string }>({
     transform: "translate3d(0px,0px,0)",
   });
 
-  // typewriter
   const FULL =
     "I design, build, and test hardware at the extremes: from near absolute zero cryogenic systems to some of the hottest engines in aerospace.";
   const [typed, setTyped] = useState("");
   const [cursorOn, setCursorOn] = useState(true);
 
-  // -------- TUNABLES ----------
-  const START_DELAY_MS = 520; // wait for name to appear
-  const TYPE_MS = 9; // ✅ typing speed (lower=faster). Try 10, 12, 14, 18
-  // ----------------------------
+  const START_DELAY_MS = 520;
+  const TYPE_MS = 9;
 
-  // parallax loop
   useEffect(() => {
     const onMove = (e: PointerEvent) => {
       const w = window.innerWidth;
       const h = window.innerHeight;
-      const nx = (e.clientX / w - 0.5) * 2; // -1..1
+      const nx = (e.clientX / w - 0.5) * 2;
       const ny = (e.clientY / h - 0.5) * 2;
       target.current = { x: nx, y: ny };
     };
@@ -56,7 +53,6 @@ export default function HeroCopy() {
     };
   }, []);
 
-  // typewriter (with proper cleanup)
   useEffect(() => {
     let i = 0;
     let interval: number | null = null;
@@ -72,7 +68,6 @@ export default function HeroCopy() {
       }, TYPE_MS);
     }, START_DELAY_MS);
 
-    // optional: let user skip typing by click/press
     const skip = () => {
       setTyped(FULL);
       if (interval) {
@@ -93,7 +88,6 @@ export default function HeroCopy() {
     };
   }, []);
 
-  // blinking cursor
   useEffect(() => {
     const blink = window.setInterval(() => setCursorOn((v) => !v), 520);
     return () => window.clearInterval(blink);
@@ -106,24 +100,26 @@ export default function HeroCopy() {
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="text-xs tracking-[0.35em] text-white/70">HEY, I'M</div>
+        <div className="text-xs uppercase tracking-[0.35em] text-white/65">
+          HEY, I&apos;M
+        </div>
       </motion.div>
 
       <motion.h1
         initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.08 }}
-        className="mt-4 text-5xl md:text-7xl leading-[0.95] italic tracking-tight text-white/90"
-        style={{ fontFamily: "'Playfair Display', serif" }}
+        className="mt-4 text-5xl italic leading-[0.95] tracking-tight text-white/92 md:text-7xl"
+        style={{ fontFamily: DISPLAY_FONT }}
       >
-        SOPHYA
+        Sophya
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.16 }}
-        className="mt-6 max-w-2xl text-white/75 text-lg"
+        className="mt-6 max-w-2xl text-lg text-white/75"
       >
         <span>{typed}</span>
         <span className="ml-1 inline-block w-[0.6ch]">
