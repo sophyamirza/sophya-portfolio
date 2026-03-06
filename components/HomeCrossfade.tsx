@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import HeroScene from "@/components/HeroScene";
 import HeroCopy from "@/components/HeroCopy";
 import ScrollIndicator from "@/components/ScrollIndicator";
@@ -15,18 +16,35 @@ function HighlightCard({
   subtitle,
   tags,
   href,
+  imageSrc,
+  imageAlt,
 }: {
   title: string;
   subtitle: string;
   tags: string;
   href: string;
+  imageSrc: string;
+  imageAlt: string;
 }) {
   return (
     <Link href={href} className="group block">
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:border-white/35 hover:bg-white/[0.04]">
-        <h3 className="mb-2 text-2xl text-white md:text-3xl">{title}</h3>
-        <p className="mb-5 text-white/70">{subtitle}</p>
-        <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
+        <div className="flex items-start justify-between gap-6">
+          <div className="min-w-0 flex-1">
+            <h3 className="mb-2 text-2xl text-white md:text-3xl">{title}</h3>
+            <p className="mb-5 text-white/70">{subtitle}</p>
+            <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
+          </div>
+
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] md:h-24 md:w-24">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        </div>
 
         <div className="mt-6 text-xs tracking-[0.22em] uppercase text-white/55 transition-colors duration-300 group-hover:text-white/80">
           View project →
@@ -203,24 +221,32 @@ export default function HomeCrossfade() {
               subtitle="Liquid Bi-Prop Engine"
               tags="PROPULSION · VALVES · FEED SYSTEM"
               href="/works/alula"
+              imageSrc="/projects/ALULA/cover.PNG"
+              imageAlt="ALULA project preview"
             />
             <HighlightCard
               title="KITTA"
               subtitle="DARPA Challenge ~ Drone Delivery Platform"
               tags="UAV · AUTONOMY"
               href="/works/kitta"
+              imageSrc="/projects/KITTA/KITTA.PNG"
+              imageAlt="KITTA project preview"
             />
             <HighlightCard
               title="RescueBot"
               subtitle="Quadruped Robot"
               tags="ROBOTICS · CONTROL"
               href="/works/rescuebot"
+              imageSrc="/projects/RESCUEBOT/RESCUEBOT1.PNG"
+              imageAlt="RescueBot project preview"
             />
             <HighlightCard
               title="XLDsl + SQUIDs"
               subtitle="Cryogenic Systems"
               tags="CRYOGENICS · INSTRUMENTATION"
               href="/works/bluefors-dr1-cryostat"
+              imageSrc="/projects/BLUEFORS/instrument9.PNG"
+              imageAlt="Cryogenic systems project preview"
             />
           </div>
 
