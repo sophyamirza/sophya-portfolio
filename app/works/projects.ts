@@ -372,7 +372,7 @@ export const PROJECTS: Project[] = [
     cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
     preview: {
       staticSrc: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
-      hoverSrc: "/projects/DUNKPROBE/dunkprobebuild.PNG",
+      hoverSrc: "/projects/DUNKPROBE/badunk.PNG",
       alt: "Dunk Probe preview",
     },
     overview:
