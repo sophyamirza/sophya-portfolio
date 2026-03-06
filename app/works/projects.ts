@@ -260,10 +260,10 @@ export const PROJECTS: Project[] = [
         yearLabel: "2025",
         projectType: "Propulsion & Fluids",
         tags: ["RQD", "Pressurant Lines", "Machining", "Flight Hardware"],
-        cover: "/projects/ALULA/rqd/01.jpg",
+        cover: "/projects/RQD/RQD1.PNG",
         preview: {
-          staticSrc: "/projects/ALULA/rqd/01.jpg",
-          hoverSrc: "/projects/ALULA/rqd/02.jpg",
+          staticSrc: "/projects/RQD/RQD1.PNG",
+          hoverSrc: "/projects/RQD/rqd2.PNG",
           alt: "Remote Quick Disconnect preview",
         },
         overview:
