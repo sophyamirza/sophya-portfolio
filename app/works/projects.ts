@@ -353,6 +353,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2025",
     projectType: "Robotics & Autonomy",
     tags: ["Gait optimization", "Mechanism design", "Automation", "Controls"],
+    cover: "/projects/RESCUEBOT/rescuebot1.PNG",
+        preview: {
+          staticSrc: "/projects/RESCUEBOT/rescuebot1.PNG",
+          hoverSrc: "/projects/RESCUEBOT/rescuebot2.PNG",
+          alt: "RescueBot preview",
+        },
     overview:
       "Quadruped robotics project focused on mechanical robustness and performance iteration through testing.",
     highlights: [
@@ -489,6 +495,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2024",
     projectType: "Robotics & Autonomy",
     tags: ["Planetary Gearbox", "Cable actuation", "Joint-space PID", "Embedded motor control", "3D Printing"],
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/USV/usv1.PNG",
+      hoverSrc: "/projects/USV/usv2.PNG",
+      alt: "Drone preview",
+    },
     overview:
       "Robotic inspection system emphasizing drivetrain design, embedded motor control, and controllable articulation.",
     highlights: [
@@ -577,6 +589,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2021–2023",
     projectType: "Robotics & Autonomy",
     tags: ["UAV", "Payload release mechanism", "Autonomy", "Path planning"],
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/KITTA/KITTA.PNG",
+      hoverSrc: "/projects/kITTA/KITTA2.PNG",
+      alt: "Drone preview",
+    },
     overview:
       "Drone delivery platform work spanning mechanism design and autonomy-related system considerations.",
     highlights: [
@@ -601,6 +619,12 @@ export const PROJECTS: Project[] = [
     yearLabel: "2021–2023",
     projectType: "Robotics & Autonomy",
     tags: ["3D Printing", "Enclosure design", "Mechanism design", "Integration"],
+    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    preview: {
+      staticSrc: "/projects/USV/usv1.PNG",
+      hoverSrc: "/projects/USV/usv2.PNG",
+      alt: "Drone preview",
+    },
     overview:
       "Unmanned sea surface vehicle work focused on enclosure/mechanism design and practical integration.",
     highlights: [
