@@ -31,7 +31,7 @@ const SECTION_ORDER = [
 
 type SectionType = (typeof SECTION_ORDER)[number] | "Other";
 
-function groupByType(projects: typeof PROJECTS) {
+function groupByType(projects: Project[]) {
   const knownTypes = new Set<string>(SECTION_ORDER);
 
   const known = SECTION_ORDER.map((type) => ({
@@ -73,7 +73,7 @@ function ProjectRow({
   const show = activeSlug === project.slug;
 
   return (
-    <div className={isSubproject ? "ml-8 md:ml-16" : ""}>
+    <div className={isSubproject ? "ml-8 border-l border-white/10 pl-6 md:ml-14 md:pl-8" : ""}>
       <Link
         href={`/works/${project.slug}`}
         className="group block"
@@ -81,12 +81,18 @@ function ProjectRow({
         onMouseLeave={() => setActiveSlug((s) => (s === project.slug ? null : s))}
         onMouseMove={onMove}
       >
-        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
+        <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
           <div>
+            {isSubproject ? (
+              <div className="mb-3 text-[10px] uppercase tracking-[0.3em] text-white/35">
+                Subsystem
+              </div>
+            ) : null}
+
             <div
               className={
                 isSubproject
-                  ? "text-3xl md:text-4xl leading-tight tracking-tight text-white/92"
+                  ? "text-3xl leading-tight tracking-tight text-white/90 md:text-4xl"
                   : "text-5xl leading-tight tracking-tight"
               }
             >
@@ -121,14 +127,14 @@ function ProjectRow({
             <div
               className={
                 isSubproject
-                  ? "mt-4 h-px w-0 group-hover:w-[160px] transition-all duration-300 opacity-70"
-                  : "mt-4 h-px w-0 group-hover:w-[200px] transition-all duration-300"
+                  ? "mt-4 h-px w-0 opacity-70 transition-all duration-300 group-hover:w-[160px]"
+                  : "mt-4 h-px w-0 transition-all duration-300 group-hover:w-[200px]"
               }
               style={{ background: THERMAL_GRADIENT }}
             />
           </div>
 
-          <div className={isSubproject ? "pt-2 scale-90 origin-top-right" : "pt-2"}>
+          <div className={isSubproject ? "origin-top-right scale-90 pt-2" : "pt-2"}>
             <ProjectRowThumb
               title={project.title}
               preview={project.preview}
@@ -164,6 +170,7 @@ export default function WorksPage() {
     last.current = { x: e.clientX, y: e.clientY };
 
     if (raf.current) return;
+
     raf.current = window.requestAnimationFrame(() => {
       raf.current = null;
       setPos(computeFollowerPos(last.current.x, last.current.y));
@@ -172,15 +179,15 @@ export default function WorksPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-32">
-        <h1 className="text-6xl md:text-7xl tracking-tight">
+      <section className="mx-auto max-w-6xl px-6 pb-32 pt-24">
+        <h1 className="text-6xl tracking-tight md:text-7xl">
           Engineering Gallery
         </h1>
 
         <div className="mt-16 space-y-20">
           {sections.map((section) => (
             <div key={section.type}>
-              <div className="flex items-center gap-6 mb-10">
+              <div className="mb-10 flex items-center gap-6">
                 <div
                   className="h-px flex-1 opacity-80"
                   style={{ background: THERMAL_GRADIENT }}
@@ -205,7 +212,7 @@ export default function WorksPage() {
                       pos={pos}
                     />
 
-                    {project.subprojects?.length ? (
+                    {Array.isArray(project.subprojects) && project.subprojects.length > 0 ? (
                       <div className="space-y-6">
                         {project.subprojects.map((subproject) => (
                           <ProjectRow
