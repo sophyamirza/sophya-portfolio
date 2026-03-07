@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ImageCarousel from "../components/ImageCarousel";
-import { PROJECTS_BY_SLUG } from "../projects";
+import { PROJECTS, PROJECTS_BY_SLUG, type Project } from "../projects";
 
 const THERMAL_GRADIENT =
   "linear-gradient(90deg,#3b82f6 0%,#06b6d4 18%,#22c55e 40%,#eab308 62%,#f97316 82%,#ef4444 100%)";
@@ -25,7 +25,7 @@ function HeroPlaceholder({ title }: { title: string }) {
       <div className="absolute inset-0 bg-[radial-gradient(700px_420px_at_70%_80%,rgba(239,68,68,0.08),transparent_62%)]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
       <div className="absolute inset-x-0 bottom-6 px-6">
-        <div className="text-[34px] md:text-[44px] leading-none tracking-tight text-white/10 select-none">
+        <div className="select-none text-[34px] leading-none tracking-tight text-white/10 md:text-[44px]">
           {title}
         </div>
       </div>
@@ -39,6 +39,13 @@ function isPlaceholder(s?: string) {
   return s.trim().startsWith("{insert");
 }
 
+function flattenProjects(projects: Project[]): Project[] {
+  return projects.flatMap((project) => [
+    project,
+    ...(project.subprojects ? flattenProjects(project.subprojects) : []),
+  ]);
+}
+
 export default async function ProjectPage({
   params,
 }: {
@@ -49,7 +56,7 @@ export default async function ProjectPage({
 
   if (!p) {
     return (
-      <main className="min-h-screen bg-black text-white px-6 py-24">
+      <main className="min-h-screen bg-black px-6 py-24 text-white">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-3xl">Project not found</h1>
           <Link
@@ -62,6 +69,9 @@ export default async function ProjectPage({
       </main>
     );
   }
+
+  const allProjects = flattenProjects(PROJECTS);
+  const childProjects = allProjects.filter((project) => project.parentSlug === p.slug);
 
   const sectionLabel =
     SECTION_LABELS[p.projectType] ?? p.projectType ?? "Engineering";
@@ -80,8 +90,7 @@ export default async function ProjectPage({
 
   const contributions =
     p.contributions ??
-    p.highlights ??
-    [
+    p.highlights ?? [
       "{insert contribution here}",
       "{insert contribution here}",
       "{insert contribution here}",
@@ -95,7 +104,6 @@ export default async function ProjectPage({
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* background haze */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_18%_12%,rgba(59,130,246,0.10),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(1000px_650px_at_78%_18%,rgba(6,182,212,0.08),transparent_55%)]" />
@@ -103,10 +111,10 @@ export default async function ProjectPage({
         <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
-      <section className="relative mx-auto max-w-6xl px-6 pt-16 pb-10">
+      <section className="relative mx-auto max-w-6xl px-6 pb-10 pt-16">
         <Link
           href="/works"
-          className="inline-flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-white/60 hover:text-white/80"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/60 hover:text-white/80"
         >
           ← Back to Works
         </Link>
@@ -117,11 +125,11 @@ export default async function ProjectPage({
               {sectionLabel}
             </div>
 
-            <h1 className="mt-3 text-5xl md:text-6xl tracking-tight">
+            <h1 className="mt-3 text-5xl tracking-tight md:text-6xl">
               {p.title}
             </h1>
 
-            <div className="mt-3 text-white/70 text-lg md:text-xl">
+            <div className="mt-3 text-lg text-white/70 md:text-xl">
               {p.subtitle}
             </div>
           </div>
@@ -161,13 +169,12 @@ export default async function ProjectPage({
           style={{ background: THERMAL_GRADIENT }}
         />
 
-        {/* hero */}
-        <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+        <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
           {p.gallery?.length ? (
             <>
               <ImageCarousel images={p.gallery} alt={`${p.title} images`} />
               <div
-                className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] z-30"
+                className="pointer-events-none absolute left-0 right-0 top-0 z-30 h-[2px]"
                 style={{ background: THERMAL_GRADIENT }}
               />
               <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
@@ -194,12 +201,9 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      {/* body */}
       <section className="relative mx-auto max-w-6xl px-6 pb-28">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* LEFT */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           <div className="md:col-span-2">
-            {/* SYSTEM OVERVIEW */}
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 SYSTEM OVERVIEW
@@ -209,8 +213,33 @@ export default async function ProjectPage({
               </p>
             </div>
 
-            {/* ✅ NEW: STRUCTURED SECTIONS (each with its own photos) */}
-            {p.sections?.length ? (
+            {childProjects.length ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <div className="flex items-center justify-between gap-6">
+                  <div className="text-xs tracking-[0.35em] text-white/55">
+                    SUBSYSTEMS
+                  </div>
+                  <div
+                    className="h-px flex-1 opacity-60"
+                    style={{ background: THERMAL_GRADIENT }}
+                  />
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {childProjects.map((child) => (
+                    <Link
+                      key={child.slug}
+                      href={`/works/${child.slug}`}
+                      className="rounded-full border border-white/15 bg-white/[0.02] px-4 py-2 text-sm text-white/75 transition hover:border-white/35 hover:bg-white/[0.04] hover:text-white"
+                    >
+                      {child.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {!childProjects.length && p.sections?.length ? (
               <div className="mt-10 space-y-10">
                 {p.sections.map((s) => (
                   <section
@@ -228,12 +257,12 @@ export default async function ProjectPage({
                       />
                     </div>
 
-                    <h2 className="mt-4 text-2xl md:text-3xl tracking-tight text-white/90">
+                    <h2 className="mt-4 text-2xl tracking-tight text-white/90 md:text-3xl">
                       {s.title}
                     </h2>
 
                     {s.summary ? (
-                      <p className="mt-4 text-white/75 leading-relaxed">
+                      <p className="mt-4 leading-relaxed text-white/75">
                         {s.summary}
                       </p>
                     ) : null}
@@ -266,9 +295,7 @@ export default async function ProjectPage({
                             <div className="relative aspect-[4/3] w-full">
                               <Image
                                 src={src}
-                                alt={`${p.title} — ${s.title} photo ${
-                                  idx + 1
-                                }`}
+                                alt={`${p.title} — ${s.title} photo ${idx + 1}`}
                                 fill
                                 className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
                                 sizes="(min-width: 640px) 50vw, 100vw"
@@ -284,7 +311,6 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            {/* (Optional) Keep a general photo log for non-sectioned projects */}
             {!p.sections?.length && p.gallery?.length ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center justify-between gap-6">
@@ -319,7 +345,6 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            {/* HIGHLIGHTS */}
             {p.highlights?.length ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="text-xs tracking-[0.35em] text-white/55">
@@ -343,7 +368,6 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            {/* MY CONTRIBUTIONS */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 MY CONTRIBUTIONS
@@ -370,7 +394,6 @@ export default async function ProjectPage({
               </ol>
             </div>
 
-            {/* RESULTS */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 RESULTS
@@ -394,7 +417,6 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* RIGHT */}
           <aside className="space-y-10">
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
