@@ -169,7 +169,7 @@ export default async function ProjectPage({
           style={{ background: THERMAL_GRADIENT }}
         />
 
-        <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+        <div className="relative mt-10 w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
           {p.gallery?.length ? (
             <>
               <ImageCarousel images={p.gallery} alt={`${p.title} images`} />
@@ -183,12 +183,12 @@ export default async function ProjectPage({
             <>
               <Image
                 src={p.cover}
-               alt={p.title}
-              fill
-              className="object-contain object-center opacity-95"
-              sizes="100vw"
-              priority
-            />
+                alt={p.title}
+                width={1600}
+                height={900}
+                className="h-auto w-full object-contain opacity-95"
+                priority
+              />
 <div className="pointer-events-none absolute inset-0 bg-black/30" />
 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
               <div
