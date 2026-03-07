@@ -246,8 +246,8 @@ export const PROJECTS: Project[] = [
         ],
         gallery: ["/projects/RQD/RQD1.PNG", "/projects/RQD/rqd2.PNG"],
         extraGallery: [
-          "/projects/RQD/rqd-cad.png",
-          "/projects/RQD/rqd-drawing.png",
+          "/projects/RQD/RQDCAD.PNG",
+          "/projects/RQD/RQDDWG.PNG",
         ],
         videoSrc: "/projects/RQD/RQDTEST.mp4",
         videoPoster: "/projects/RQD/RQD1.PNG",
