@@ -130,7 +130,7 @@ export const PROJECTS: Project[] = [
     yearLabel: "2025",
     projectType: "Propulsion & Fluids",
     tags: ["Propulsion", "Feed System", "Cryogenics", "Fluids P&ID", "Ethanol/LOX"],
-    cover: "/projects/ALULA/feed/01.jpg",
+    cover: "/projects/ALULA/alulahotfire.png",
     preview: {
       staticSrc: "/projects/ALULA/cover.PNG",
       hoverSrc: "/projects/ALULA/engine1.PNG",
@@ -147,7 +147,7 @@ export const PROJECTS: Project[] = [
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "ALULA is a student-built liquid bi-propellant rocket using ethanol and liquid oxygen. The propulsion stack includes a pressure-fed cryogenic feed system, purpose-built valves and disconnects for safe ground operations, and a manufacturable de Laval nozzle selected to balance performance with the realities of student-shop tooling. The program closed design-test loops through subsystem verification, integrated hot-fire and range testing, and culminated in a flight campaign with successful recovery.",
+      "ALULA OVERVIEW",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
