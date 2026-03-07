@@ -183,13 +183,14 @@ export default async function ProjectPage({
             <>
               <Image
                 src={p.cover}
-                alt={p.title}
-                fill
-                className="object-cover opacity-95"
-                sizes="100vw"
-                priority
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
+               alt={p.title}
+              fill
+              className="object-contain object-center opacity-95"
+              sizes="100vw"
+              priority
+            />
+<div className="pointer-events-none absolute inset-0 bg-black/30" />
+<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
               <div
                 className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
                 style={{ background: THERMAL_GRADIENT }}
