@@ -1,8 +1,9 @@
+// app/works/page.tsx
 "use client";
 
 import Link from "next/link";
 import React, { useMemo, useRef, useState } from "react";
-import { PROJECTS, type Project } from "./projects";
+import { PROJECTS, Project } from "./projects";
 import {
   ProjectRowFollower,
   ProjectRowThumb,
@@ -52,10 +53,108 @@ function groupByType(projects: typeof PROJECTS) {
   return known;
 }
 
+type ProjectRowProps = {
+  project: Project;
+  activeSlug: string | null;
+  setActiveSlug: React.Dispatch<React.SetStateAction<string | null>>;
+  onMove: (e: React.MouseEvent) => void;
+  pos: { x: number; y: number };
+  isSubproject?: boolean;
+};
+
+function ProjectRow({
+  project,
+  activeSlug,
+  setActiveSlug,
+  onMove,
+  pos,
+  isSubproject = false,
+}: ProjectRowProps) {
+  const show = activeSlug === project.slug;
+
+  return (
+    <div className={isSubproject ? "ml-8 md:ml-16" : ""}>
+      <Link
+        href={`/works/${project.slug}`}
+        className="group block"
+        onMouseEnter={() => setActiveSlug(project.slug)}
+        onMouseLeave={() => setActiveSlug((s) => (s === project.slug ? null : s))}
+        onMouseMove={onMove}
+      >
+        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
+          <div>
+            <div
+              className={
+                isSubproject
+                  ? "text-3xl md:text-4xl leading-tight tracking-tight text-white/92"
+                  : "text-5xl leading-tight tracking-tight"
+              }
+            >
+              {project.title}
+            </div>
+
+            <div
+              className={
+                isSubproject
+                  ? "mt-2 text-sm text-white/50"
+                  : "mt-3 text-white/60"
+              }
+            >
+              {project.subtitle}
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.tags.slice(0, 5).map((t) => (
+                <span
+                  key={t}
+                  className={
+                    isSubproject
+                      ? "rounded-full border border-white/10 px-3 py-1 text-[10px] text-white/45"
+                      : "rounded-full border border-white/15 px-3 py-1 text-[11px] text-white/60"
+                  }
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div
+              className={
+                isSubproject
+                  ? "mt-4 h-px w-0 group-hover:w-[160px] transition-all duration-300 opacity-70"
+                  : "mt-4 h-px w-0 group-hover:w-[200px] transition-all duration-300"
+              }
+              style={{ background: THERMAL_GRADIENT }}
+            />
+          </div>
+
+          <div className={isSubproject ? "pt-2 scale-90 origin-top-right" : "pt-2"}>
+            <ProjectRowThumb
+              title={project.title}
+              preview={project.preview}
+              fallbackCover={project.cover}
+              fallbackGallery={project.gallery}
+            />
+          </div>
+        </div>
+
+        <ProjectRowFollower
+          title={project.title}
+          preview={project.preview}
+          fallbackCover={project.cover}
+          fallbackGallery={project.gallery}
+          show={show}
+          pos={pos}
+        />
+      </Link>
+    </div>
+  );
+}
+
 export default function WorksPage() {
   const sections = useMemo(() => groupByType(PROJECTS), []);
 
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
   const raf = useRef<number | null>(null);
@@ -65,35 +164,23 @@ export default function WorksPage() {
     last.current = { x: e.clientX, y: e.clientY };
 
     if (raf.current) return;
-
     raf.current = window.requestAnimationFrame(() => {
       raf.current = null;
       setPos(computeFollowerPos(last.current.x, last.current.y));
     });
   };
 
-  const onEnterProject = (project: Project) => {
-    setActiveProject(project);
-  };
-
-  const onLeaveProject = () => {
-    setActiveProject(null);
-  };
-
   return (
-    <main
-  className="min-h-screen bg-black text-white"
-  onMouseLeave={() => setActiveProject(null)}
->
-      <section className="mx-auto max-w-6xl px-6 pb-32 pt-24">
-        <h1 className="text-6xl tracking-tight md:text-7xl">
+    <main className="min-h-screen bg-black text-white">
+      <section className="mx-auto max-w-6xl px-6 pt-24 pb-32">
+        <h1 className="text-6xl md:text-7xl tracking-tight">
           Engineering Gallery
         </h1>
 
         <div className="mt-16 space-y-20">
           {sections.map((section) => (
             <div key={section.type}>
-              <div className="mb-10 flex items-center gap-6">
+              <div className="flex items-center gap-6 mb-10">
                 <div
                   className="h-px flex-1 opacity-80"
                   style={{ background: THERMAL_GRADIENT }}
@@ -108,101 +195,28 @@ export default function WorksPage() {
               </div>
 
               <div className="space-y-12">
-                {section.projects.map((p) => (
-                  <div key={p.slug} className="space-y-6">
-                    {/* Main project */}
-                    <Link
-                      href={`/works/${p.slug}`}
-                      className="group block"
-                      onMouseEnter={() => onEnterProject(p)}
-                      onMouseLeave={onLeaveProject}
-                      onMouseMove={onMove}
-                    >
-                      <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
-                        <div>
-                          <div className="text-5xl leading-tight tracking-tight">
-                            {p.title}
-                          </div>
+                {section.projects.map((project) => (
+                  <div key={project.slug} className="space-y-6">
+                    <ProjectRow
+                      project={project}
+                      activeSlug={activeSlug}
+                      setActiveSlug={setActiveSlug}
+                      onMove={onMove}
+                      pos={pos}
+                    />
 
-                          <div className="mt-3 text-white/60">{p.subtitle}</div>
-
-                          <div className="mt-5 flex flex-wrap gap-2">
-                            {p.tags.slice(0, 5).map((t) => (
-                              <span
-                                key={t}
-                                className="rounded-full border border-white/15 px-3 py-1 text-[11px] text-white/60"
-                              >
-                                {t}
-                              </span>
-                            ))}
-                          </div>
-
-                          <div
-                            className="mt-4 h-px w-0 transition-all duration-300 group-hover:w-[200px]"
-                            style={{ background: THERMAL_GRADIENT }}
+                    {project.subprojects?.length ? (
+                      <div className="space-y-6">
+                        {project.subprojects.map((subproject) => (
+                          <ProjectRow
+                            key={subproject.slug}
+                            project={subproject}
+                            activeSlug={activeSlug}
+                            setActiveSlug={setActiveSlug}
+                            onMove={onMove}
+                            pos={pos}
+                            isSubproject
                           />
-                        </div>
-
-                        <div className="pt-2">
-                          <ProjectRowThumb
-                            title={p.title}
-                            preview={p.preview}
-                            fallbackCover={p.cover}
-                            fallbackGallery={p.gallery}
-                          />
-                        </div>
-                      </div>
-                    </Link>
-
-                    {/* Subprojects */}
-                    {p.subprojects?.length ? (
-                      <div className="ml-10 space-y-6 md:ml-16">
-                        {p.subprojects.map((sp) => (
-                          <Link
-                            key={sp.slug}
-                            href={`/works/${sp.slug}`}
-                            className="group block"
-                            onMouseEnter={() => onEnterProject(sp)}
-                            onMouseLeave={onLeaveProject}
-                            onMouseMove={onMove}
-                          >
-                            <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
-                              <div>
-                                <div className="text-4xl leading-tight tracking-tight text-white/90">
-                                  {sp.title}
-                                </div>
-
-                                <div className="mt-2 text-sm text-white/50">
-                                  {sp.subtitle}
-                                </div>
-
-                                <div className="mt-4 flex flex-wrap gap-2">
-                                  {sp.tags.slice(0, 5).map((t) => (
-                                    <span
-                                      key={t}
-                                      className="rounded-full border border-white/10 px-3 py-1 text-[10px] text-white/50"
-                                    >
-                                      {t}
-                                    </span>
-                                  ))}
-                                </div>
-
-                                <div
-                                  className="mt-4 h-px w-0 opacity-70 transition-all duration-300 group-hover:w-[160px]"
-                                  style={{ background: THERMAL_GRADIENT }}
-                                />
-                              </div>
-
-                              <div className="origin-top-right scale-90 pt-2">
-                                <ProjectRowThumb
-                                  title={sp.title}
-                                  preview={sp.preview}
-                                  fallbackCover={sp.cover}
-                                  fallbackGallery={sp.gallery}
-                                />
-                              </div>
-                            </div>
-                          </Link>
                         ))}
                       </div>
                     ) : null}
@@ -213,15 +227,6 @@ export default function WorksPage() {
           ))}
         </div>
       </section>
-
-      <ProjectRowFollower
-        title={activeProject?.title ?? ""}
-        preview={activeProject?.preview}
-        fallbackCover={activeProject?.cover}
-        fallbackGallery={activeProject?.gallery}
-        show={Boolean(activeProject)}
-        pos={pos}
-      />
     </main>
   );
 }
