@@ -15,6 +15,11 @@ export const PROJECT_TYPE_ORDER: ProjectType[] = [
   "Product Design & Mechanisms",
 ];
 
+export type ProjectLink = {
+  label: string;
+  slug: string;
+};
+
 export type ProjectSection = {
   id: string; // stable anchor
   title: string;
@@ -63,7 +68,10 @@ export type Project = {
   gallery?: string[];
   sections?: ProjectSection[];
 
-  // NEW: nested projects rendered under a parent project
+  // optional links to other standalone project pages
+  relatedProjects?: ProjectLink[];
+
+  // nested projects rendered under a parent project
   subprojects?: Project[];
 };
 
@@ -146,8 +154,7 @@ export const PROJECTS: Project[] = [
     status: "COMPLETED",
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
-    systemOverview:
-      "ALULA OVERVIEW",
+    systemOverview: "ALULA OVERVIEW",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -173,7 +180,11 @@ export const PROJECTS: Project[] = [
       "Reached an apogee of 6,126 ft!",
       "Successful flight recovery.",
     ],
-
+    relatedProjects: [
+      { label: "Remote Quick Disconnect", slug: "remote-quick-disconnect" },
+      { label: "Main Valves System", slug: "main-valves-system" },
+      { label: "Engine", slug: "engine" },
+    ],
   },
 
   {
@@ -185,11 +196,11 @@ export const PROJECTS: Project[] = [
     projectType: "Analysis & Simulation",
     tags: ["Gait optimization", "Mechanism design", "Automation", "Controls"],
     cover: "/projects/RESCUEBOT/rescuebot1.PNG",
-        preview: {
-          staticSrc: "/projects/RESCUEBOT/rescuebot1.PNG",
-          hoverSrc: "/projects/RESCUEBOT/rescuebot2.PNG",
-          alt: "RescueBot preview",
-        },
+    preview: {
+      staticSrc: "/projects/RESCUEBOT/rescuebot1.PNG",
+      hoverSrc: "/projects/RESCUEBOT/rescuebot2.PNG",
+      alt: "RescueBot preview",
+    },
     overview:
       "Quadruped robotics project focused on mechanical robustness and performance iteration through testing.",
     highlights: [
@@ -526,6 +537,9 @@ if (process.env.NODE_ENV !== "production") {
   }
   if (dups.length) {
     // eslint-disable-next-line no-console
-    console.warn("Duplicate project slugs (will overwrite in PROJECTS_BY_SLUG):", dups);
+    console.warn(
+      "Duplicate project slugs (will overwrite in PROJECTS_BY_SLUG):",
+      dups
+    );
   }
 }

@@ -81,7 +81,10 @@ export default function WorksPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-black text-white">
+    <main
+  className="min-h-screen bg-black text-white"
+  onMouseLeave={() => setActiveProject(null)}
+>
       <section className="mx-auto max-w-6xl px-6 pb-32 pt-24">
         <h1 className="text-6xl tracking-tight md:text-7xl">
           Engineering Gallery
