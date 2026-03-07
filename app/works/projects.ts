@@ -131,7 +131,7 @@ export const PROJECTS: Project[] = [
     yearLabel: "2025",
     projectType: "Propulsion & Fluids",
     tags: ["Propulsion", "Feed System", "Cryogenics", "Fluids P&ID", "Ethanol/LOX"],
-    cover: "/projects/ALULA/feed/01.jpg",
+    cover: "/projects/ALULA/hotfire.png",
     preview: {
       staticSrc: "/projects/ALULA/cover.PNG",
       hoverSrc: "/projects/ALULA/engine1.PNG",
