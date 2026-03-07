@@ -73,12 +73,20 @@ function ProjectRow({
   const show = activeSlug === project.slug;
 
   return (
-    <div className={isSubproject ? "ml-8 border-l border-white/10 pl-6 md:ml-14 md:pl-8" : ""}>
+    <div
+      className={
+        isSubproject
+          ? "ml-8 border-l border-white/10 pl-6 md:ml-14 md:pl-8"
+          : ""
+      }
+    >
       <Link
         href={`/works/${project.slug}`}
         className="group block"
         onMouseEnter={() => setActiveSlug(project.slug)}
-        onMouseLeave={() => setActiveSlug((s) => (s === project.slug ? null : s))}
+        onMouseLeave={() =>
+          setActiveSlug((s) => (s === project.slug ? null : s))
+        }
         onMouseMove={onMove}
       >
         <div className="grid items-start gap-12 md:grid-cols-[1fr_auto]">
@@ -134,7 +142,9 @@ function ProjectRow({
             />
           </div>
 
-          <div className={isSubproject ? "origin-top-right scale-90 pt-2" : "pt-2"}>
+          <div
+            className={isSubproject ? "origin-top-right scale-90 pt-2" : "pt-2"}
+          >
             <ProjectRowThumb
               title={project.title}
               preview={project.preview}
@@ -212,7 +222,7 @@ export default function WorksPage() {
                       pos={pos}
                     />
 
-                    {Array.isArray(project.subprojects) && project.subprojects.length > 0 ? (
+                    {!!project.subprojects?.length && (
                       <div className="space-y-6">
                         {project.subprojects.map((subproject) => (
                           <ProjectRow
@@ -226,7 +236,7 @@ export default function WorksPage() {
                           />
                         ))}
                       </div>
-                    ) : null}
+                    )}
                   </div>
                 ))}
               </div>

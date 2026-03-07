@@ -15,7 +15,6 @@ export const PROJECT_TYPE_ORDER: ProjectType[] = [
   "Product Design & Mechanisms",
 ];
 
-
 export type ProjectSection = {
   id: string; // stable anchor
   title: string;
@@ -131,7 +130,7 @@ export const PROJECTS: Project[] = [
     yearLabel: "2025",
     projectType: "Propulsion & Fluids",
     tags: ["Propulsion", "Feed System", "Cryogenics", "Fluids P&ID", "Ethanol/LOX"],
-    cover: "/projects/ALULA/launch.PNG",
+    cover: "/projects/ALULA/feed/01.jpg",
     preview: {
       staticSrc: "/projects/ALULA/cover.PNG",
       hoverSrc: "/projects/ALULA/engine1.PNG",
@@ -148,7 +147,7 @@ export const PROJECTS: Project[] = [
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "ALULA OVERVIEW",
+      "ALULA is a student-built liquid bi-propellant rocket using ethanol and liquid oxygen. The propulsion stack includes a pressure-fed cryogenic feed system, purpose-built valves and disconnects for safe ground operations, and a manufacturable de Laval nozzle selected to balance performance with the realities of student-shop tooling. The program closed design-test loops through subsystem verification, integrated hot-fire and range testing, and culminated in a flight campaign with successful recovery.",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -174,7 +173,128 @@ export const PROJECTS: Project[] = [
       "Reached an apogee of 6,126 ft!",
       "Successful flight recovery.",
     ],
-
+    sections: [
+      {
+        id: "feed-system",
+        title: "Cryogenic Feed System",
+        summary:
+          "Pressure-fed LOX/ethanol architecture with student-shop manufacturable interfaces and test-driven integration.",
+        bullets: [
+          "Routing + interfaces designed for rapid assembly and leak-check iteration",
+          "Integration readiness for Mojave range ops",
+        ],
+        images: ["/projects/ALULA/feed/01.jpg", "/projects/ALULA/feed/02.jpg"],
+      },
+      {
+        id: "rqd",
+        title: "Remote Quick Disconnect (RQD)",
+        summary:
+          "Remotely actuated disconnect to release the pressurant fill line pre-launch and eliminate manual pad ops.",
+        bullets: [
+          "SolidWorks → manual machining (lathe + Bridgeport) → integration",
+          "Validated in ground ops and flight environment",
+        ],
+        images: [
+          "/projects/ALULA/rqd/01.jpg",
+          "/projects/ALULA/rqd/02.jpg",
+          "/projects/ALULA/rqd/03.jpg",
+        ],
+      },
+      {
+        id: "valves",
+        title: "Valves: Pressure-Actuated + Pyro Valve",
+        summary:
+          "Lightweight actuation strategy for LOX/ethanol regulation with cryo-compatible final hardware.",
+        bullets: [
+          "0.05 g black powder actuator with e-match ignition",
+          "Thermal + pressure drop analysis validated via test",
+        ],
+        images: ["/projects/ALULA/valves/01.jpg", "/projects/ALULA/valves/02.jpg"],
+      },
+      {
+        id: "injector-nozzle",
+        title: "Injector + De Laval Nozzle",
+        summary:
+          "Manufacturable nozzle selection and machining under limited tooling, verified by thermal + force simulation.",
+        bullets: ["De Laval chosen over bell for manufacturability", "Machined aluminum nozzle used for flight"],
+        images: ["/projects/ALULA/nozzle/01.jpg", "/projects/ALULA/nozzle/02.jpg"],
+      },
+      {
+        id: "testing",
+        title: "Mojave Testing Campaign",
+        summary: "Range testing and iteration cadence to close design–test loops prior to launch.",
+        bullets: ["Transported critical hardware + supported range ops", "Validated integrated stack prior to flight"],
+        images: ["/projects/ALULA/test/01.jpg", "/projects/ALULA/test/02.jpg", "/projects/ALULA/test/03.jpg"],
+      },
+    ],
+    subprojects: [
+      {
+        slug: "alula-rqd",
+        title: "Remote Quick Disconnect for Pressurant Lines",
+        subtitle: "Pressurant disconnect hardware",
+        year: "2025",
+        yearLabel: "2025",
+        projectType: "Propulsion & Fluids",
+        tags: ["RQD", "Pressurant Lines", "Machining", "Flight Hardware"],
+        cover: "/projects/RQD/RQD1.PNG",
+        preview: {
+          staticSrc: "/projects/RQD/RQD1.PNG",
+          hoverSrc: "/projects/RQD/rqd2.PNG",
+          alt: "Remote Quick Disconnect preview",
+        },
+        overview:
+          "Remote quick disconnect hardware designed for pressurant line separation during launch operations.",
+        highlights: [
+          "Designed and machined custom disconnect hardware",
+          "Integrated into pressurant line architecture",
+          "Validated through ground and launch operations",
+        ],
+      },
+      {
+        slug: "alula-main-valves-system",
+        title: "Main Valves System",
+        subtitle: "Primary propellant flow control",
+        year: "2025",
+        yearLabel: "2025",
+        projectType: "Propulsion & Fluids",
+        tags: ["Valves", "Flow Control", "Cryogenics", "Propellant System"],
+        cover: "/projects/ALULA/valves/01.jpg",
+        preview: {
+          staticSrc: "/projects/VALVES/valves1.PNG",
+          hoverSrc: "/projects/VALVES/valves2.PNG",
+          alt: "Main Valves System preview",
+        },
+        overview:
+          "Main valve system for controlling propellant flow through the ethanol and LOX feed architecture.",
+        highlights: [
+          "Supported primary fluid routing and control",
+          "Designed for cryogenic compatibility",
+          "Iterated through test-driven hardware development",
+        ],
+      },
+      {
+        slug: "alula-engine",
+        title: "Engine",
+        subtitle: "Injector, chamber, and nozzle hardware",
+        year: "2025",
+        yearLabel: "2025",
+        projectType: "Propulsion & Fluids",
+        tags: ["Engine", "Injector", "Nozzle", "Combustion Hardware"],
+        cover: "/projects/ALULA/nozzle/01.jpg",
+        preview: {
+          staticSrc: "/projects/ALULA/engine1.PNG",
+          hoverSrc: "/projects/ALULA/engine2.PNG",
+          alt: "ALULA Engine preview",
+        },
+        overview:
+          "Liquid rocket engine hardware including injector, chamber, and nozzle development for ALULA.",
+        highlights: [
+          "Supported engine hardware design and manufacturing",
+          "Selected manufacturable nozzle geometry",
+          "Contributed to integrated propulsion system validation",
+        ],
+      },
+    ],
   },
 
   {
