@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import React, { useMemo, useRef, useState } from "react";
-import { PROJECTS, Project } from "./projects";
+import { PROJECTS, type Project } from "./projects";
 import {
   ProjectRowFollower,
   ProjectRowThumb,
