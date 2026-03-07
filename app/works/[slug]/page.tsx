@@ -102,6 +102,10 @@ export default async function ProjectPage({
       ? p.highlights
       : ["{insert result here}", "{insert result here}"]);
 
+  const extraGallery = p.extraGallery ?? [];
+  const hasExtraGallery = extraGallery.length > 0;
+  const hasVideo = Boolean(p.videoSrc);
+
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="pointer-events-none fixed inset-0">
@@ -189,8 +193,8 @@ export default async function ProjectPage({
                 className="h-auto w-full object-contain opacity-95"
                 priority
               />
-<div className="pointer-events-none absolute inset-0 bg-black/30" />
-<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-black/30" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
               <div
                 className="pointer-events-none absolute left-0 right-0 top-0 h-[2px]"
                 style={{ background: THERMAL_GRADIENT }}
@@ -342,6 +346,59 @@ export default async function ProjectPage({
                       </div>
                     </figure>
                   ))}
+                </div>
+              </div>
+            ) : null}
+
+            {hasVideo ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <div className="flex items-center justify-between gap-6">
+                  <div className="text-xs tracking-[0.35em] text-white/55">
+                    TEST VIDEO
+                  </div>
+                  <div
+                    className="h-px flex-1 opacity-60"
+                    style={{ background: THERMAL_GRADIENT }}
+                  />
+                </div>
+
+                <div className="mt-6 overflow-hidden rounded-xl border border-white/10 bg-black">
+                  <video
+                    className="h-auto w-full"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={p.videoPoster}
+                  >
+                    <source src={p.videoSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            ) : null}
+
+            {hasExtraGallery ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <div className="flex items-center justify-between gap-6">
+                  <div className="text-xs tracking-[0.35em] text-white/55">
+                    CAD + DRAWING
+                  </div>
+                  <div
+                    className="h-px flex-1 opacity-60"
+                    style={{ background: THERMAL_GRADIENT }}
+                  />
+                </div>
+
+                <div className="relative mt-6 overflow-hidden rounded-xl border border-white/10 bg-black">
+                  <ImageCarousel
+                    images={extraGallery}
+                    alt={`${p.title} CAD and drawing`}
+                  />
+                  <div
+                    className="pointer-events-none absolute left-0 right-0 top-0 z-30 h-[2px]"
+                    style={{ background: THERMAL_GRADIENT }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
                 </div>
               </div>
             ) : null}

@@ -16,7 +16,7 @@ export const PROJECT_TYPE_ORDER: ProjectType[] = [
 ];
 
 export type ProjectSection = {
-  id: string; // stable anchor
+  id: string;
   title: string;
   summary?: string;
   bullets?: string[];
@@ -24,9 +24,7 @@ export type ProjectSection = {
 };
 
 export type ProjectPreview = {
-  // shown to the right of the title (always visible)
   staticSrc: string;
-  // follows the cursor on hover
   hoverSrc: string;
   alt?: string;
 };
@@ -36,16 +34,14 @@ export type Project = {
   title: string;
   subtitle: string;
 
-  year: string; // keep years for detail pages / timeline metadata
+  year: string;
   yearLabel: string;
 
-  // needed by Works grouping + slug page section label
   projectType: ProjectType;
 
   tags: string[];
   cover?: string;
 
-  // used by Works hover thumb + follower preview
   preview?: ProjectPreview;
 
   overview: string;
@@ -61,9 +57,13 @@ export type Project = {
   results?: string[];
 
   gallery?: string[];
+
+  extraGallery?: string[];
+  videoSrc?: string;
+  videoPoster?: string;
+
   sections?: ProjectSection[];
 
-  // nested projects rendered under a parent project
   subprojects?: Project[];
   parentSlug?: string;
 };
@@ -86,9 +86,6 @@ const PH = {
 const TEAM_PH = "Sophya Mirza, {insert team here}";
 
 export const PROJECTS: Project[] = [
-  // =========================
-  // 2026
-  // =========================
   {
     slug: "blunt-body-analysis",
     title: "Blunt Body Analysis",
@@ -120,9 +117,6 @@ export const PROJECTS: Project[] = [
     results: PH.results,
   },
 
-  // =========================
-  // 2025
-  // =========================
   {
     slug: "alula",
     title: "ALULA",
@@ -175,7 +169,6 @@ export const PROJECTS: Project[] = [
       "Successful flight recovery.",
     ],
 
-    // keep general program photos at the ALULA level if you want
     sections: [
       {
         id: "feed-system",
@@ -251,10 +244,13 @@ export const PROJECTS: Project[] = [
           "Integrated successfully into ALULA propulsion architecture.",
           "Validated in ground and flight environments.",
         ],
-        gallery: [
-          "/projects/RQD/RQD1.PNG",
-          "/projects/RQD/rqd2.PNG",
+        gallery: ["/projects/RQD/RQD1.PNG", "/projects/RQD/rqd2.PNG"],
+        extraGallery: [
+          "/projects/RQD/rqd-cad.png",
+          "/projects/RQD/rqd-drawing.png",
         ],
+        videoSrc: "/projects/RQD/RQDTEST.mp4",
+        videoPoster: "/projects/RQD/RQD1.PNG",
       },
       {
         slug: "alula-main-valves-system",
@@ -301,10 +297,7 @@ export const PROJECTS: Project[] = [
           "Integrated into the ALULA feed architecture.",
           "Validated through test-driven development.",
         ],
-        gallery: [
-          "/projects/VALVES/valves1.PNG",
-          "/projects/VALVES/valves2.PNG",
-        ],
+        gallery: ["/projects/VALVES/valves1.PNG", "/projects/VALVES/valves2.PNG"],
       },
       {
         slug: "alula-engine",
@@ -351,10 +344,7 @@ export const PROJECTS: Project[] = [
           "Manufacturable design choices enabled student-shop fabrication.",
           "Supported successful campaign through launch and recovery.",
         ],
-        gallery: [
-          "/projects/ALULA/engine1.PNG",
-          "/projects/ALULA/engine2.PNG",
-        ],
+        gallery: ["/projects/ALULA/engine1.PNG", "/projects/ALULA/engine2.PNG"],
       },
     ],
   },
@@ -420,9 +410,6 @@ export const PROJECTS: Project[] = [
     results: PH.results,
   },
 
-  // =========================
-  // 2024
-  // =========================
   {
     slug: "helium-dunk-probe",
     title: "Helium Dunk Probe",
@@ -582,9 +569,6 @@ export const PROJECTS: Project[] = [
     results: PH.results,
   },
 
-  // =========================
-  // 2021–2023
-  // =========================
   {
     slug: "4680-liion-test-fixture",
     title: "4680 Li-ion Cell Test Fixture",
@@ -677,7 +661,6 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// Build slug index including subprojects
 function flattenProjects(projects: Project[]): Project[] {
   return projects.flatMap((project) => [
     project,
@@ -696,13 +679,11 @@ export const PROJECTS_BY_TYPE = PROJECT_TYPE_ORDER.map((type) => ({
   projects: PROJECTS.filter((p) => p.projectType === type),
 })).filter((group) => group.projects.length > 0);
 
-// DEV-ONLY: warn if any projectType is invalid + if any slugs duplicate
 if (process.env.NODE_ENV !== "production") {
   const allowed = new Set(PROJECT_TYPE_ORDER);
 
   const invalid = ALL_PROJECTS.filter((p) => !allowed.has(p.projectType));
   if (invalid.length) {
-    // eslint-disable-next-line no-console
     console.warn(
       "Projects with invalid projectType (will fall under Other on /works):",
       invalid.map((p) => ({ slug: p.slug, projectType: p.projectType }))
@@ -716,7 +697,6 @@ if (process.env.NODE_ENV !== "production") {
     seen.add(p.slug);
   }
   if (dups.length) {
-    // eslint-disable-next-line no-console
     console.warn("Duplicate project slugs (will overwrite in PROJECTS_BY_SLUG):", dups);
   }
 }
