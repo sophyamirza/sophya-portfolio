@@ -441,11 +441,13 @@ export const PROJECTS: Project[] = [
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design", ...PH.tools],
     contributions: PH.contributions,
-    results: PH.results,gallery: [
+    results: PH.results,
+    gallery: [
           "/projects/DUNKPROBE/badunk.PNG",
           "/projects/DUNKPROBE/dunkprobebuild2.PNG",
           "/projects/DUNKPROBE/dunkprobecloseup.PNG",
           "/projects/DUNKPROBE/dunkprobecloseup2.PNG",
+          "/projects/DUNKPROBE/dunkprobefullassembly.PNG",
         ],
 
   },
@@ -508,6 +510,10 @@ export const PROJECTS: Project[] = [
     toolsAndSkills: ["Pneumatics", "Air bearings", "Instrumentation", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
+    gallery: [
+          "/projects/MAGBOOM/magboom3.PNG",
+          "/projects/MAGBOOM/magboom4.PNG",
+        ],
   },
   {
     slug: "patris",
