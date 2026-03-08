@@ -243,10 +243,9 @@ export const PROJECTS: Project[] = [
           "Validated in ground and flight environments.",
         ],
         gallery: [
-          "/projects/RQD/RQD1.PNG",
-          "/projects/RQD/rqd2.PNG",
           "/projects/RQD/RQDCAD.PNG",
           "/projects/RQD/RQDDWG.PNG",
+          "/projects/RQD/RQD1.PNG",
         ],
         videoSrc: "/projects/RQD/RQDTEST.mp4",
         videoPoster: "/projects/RQD/RQD1.PNG",
@@ -346,7 +345,9 @@ export const PROJECTS: Project[] = [
           "Manufacturable design choices enabled student-shop fabrication.",
           "Supported successful campaign through launch and recovery.",
         ],
-        gallery: ["/projects/ALULA/engine1.PNG", "/projects/ALULA/engine2.PNG"],
+        gallery: ["/projects/ALULA/engine1.PNG", 
+                  "/projects/ALULA/engine2.PNG"],
+      
       },
     ],
   },
@@ -440,7 +441,13 @@ export const PROJECTS: Project[] = [
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design", ...PH.tools],
     contributions: PH.contributions,
-    results: PH.results,
+    results: PH.results,gallery: [
+          "/projects/DUNKPROBE/badunk.PNG",
+          "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+          "/projects/DUNKPROBE/dunkprobecloseup.PNG",
+          "/projects/DUNKPROBE/dunkprobecloseup2.PNG",
+        ],
+
   },
   {
     slug: "metamorphic-designs",
