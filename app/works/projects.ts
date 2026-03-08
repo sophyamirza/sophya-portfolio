@@ -406,6 +406,17 @@ export const PROJECTS: Project[] = [
     toolsAndSkills: ["Mechanism design", "Controls", "Prototyping", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
+    gallery: [
+          "/projects/RESCUEBOT/bot1.png",
+          "/projects/RESCUEBOT/bot2.png",
+          "/projects/RESCUEBOT/bot3.png",
+          "/projects/RESCUEBOT/bot4.png",
+          "/projects/RESCUEBOT/bot5.png",
+          "/projects/RESCUEBOT/bot6.png",
+          "/projects/RESCUEBOT/bot7.png",
+          "/projects/RESCUEBOT/bot8.png",
+          "/projects/RESCUEBOT/bot9.png",
+        ],
   },
   {
     slug: "bike-frame-optimization",
