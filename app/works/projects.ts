@@ -296,7 +296,10 @@ export const PROJECTS: Project[] = [
           "Integrated into the ALULA feed architecture.",
           "Validated through test-driven development.",
         ],
-        gallery: ["/projects/VALVES/valves1.PNG", "/projects/VALVES/valves2.PNG"],
+       gallery: [
+          "/projects/VALVES/valves1.PNG",
+          "/projects/VALVES/valves2.PNG",
+        ],
       },
       {
         slug: "alula-engine",
