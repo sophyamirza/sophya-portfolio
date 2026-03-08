@@ -18,7 +18,7 @@ const SECTION_LABELS: Record<string, string> = {
 
 function HeroPlaceholder({ title }: { title: string }) {
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-[420px] w-full md:h-[560px]">
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01))]" />
       <div className="absolute inset-0 bg-[radial-gradient(900px_420px_at_20%_20%,rgba(59,130,246,0.18),transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(900px_460px_at_75%_25%,rgba(6,182,212,0.12),transparent_58%)]" />
@@ -171,7 +171,7 @@ export default async function ProjectPage({
           style={{ background: THERMAL_GRADIENT }}
         />
 
-        <div className="relative mt-10 w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+        <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 bg-black">
           {p.gallery?.length ? (
             <>
               <ImageCarousel images={p.gallery} alt={`${p.title} images`} />
@@ -183,14 +183,16 @@ export default async function ProjectPage({
             </>
           ) : p.cover ? (
             <>
-              <Image
-                src={p.cover}
-                alt={p.title}
-                width={1600}
-                height={900}
-                className="h-auto w-full object-contain opacity-95"
-                priority
-              />
+              <div className="relative min-h-[360px] w-full sm:min-h-[460px] md:min-h-[560px]">
+                <Image
+                  src={p.cover}
+                  alt={p.title}
+                  fill
+                  priority
+                  className="object-contain opacity-95"
+                  sizes="100vw"
+                />
+              </div>
               <div className="pointer-events-none absolute inset-0 bg-black/30" />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
               <div
@@ -289,24 +291,12 @@ export default async function ProjectPage({
                     ) : null}
 
                     {s.images?.length ? (
-                      <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {s.images.map((src, idx) => (
-                          <figure
-                            key={`${s.id}-${src}-${idx}`}
-                            className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
-                          >
-                            <div className="relative aspect-[4/3] w-full">
-                              <Image
-                                src={src}
-                                alt={`${p.title} — ${s.title} photo ${idx + 1}`}
-                                fill
-                                className="object-cover opacity-95 transition-transform duration-300 group-hover:scale-[1.02]"
-                                sizes="(min-width: 640px) 50vw, 100vw"
-                              />
-                              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
-                            </div>
-                          </figure>
-                        ))}
+                      <div className="relative mt-7 overflow-hidden rounded-xl border border-white/10 bg-black">
+                        <ImageCarousel
+                          images={s.images}
+                          alt={`${p.title} ${s.title} images`}
+                        />
+                        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
                       </div>
                     ) : null}
                   </section>
