@@ -57,8 +57,6 @@ export type Project = {
   results?: string[];
 
   gallery?: string[];
-
-  extraGallery?: string[];
   videoSrc?: string;
   videoPoster?: string;
 
@@ -244,8 +242,9 @@ export const PROJECTS: Project[] = [
           "Integrated successfully into ALULA propulsion architecture.",
           "Validated in ground and flight environments.",
         ],
-        gallery: ["/projects/RQD/RQD1.PNG", "/projects/RQD/rqd2.PNG"],
-        extraGallery: [
+        gallery: [
+          "/projects/RQD/RQD1.PNG",
+          "/projects/RQD/rqd2.PNG",
           "/projects/RQD/RQDCAD.PNG",
           "/projects/RQD/RQDDWG.PNG",
         ],
