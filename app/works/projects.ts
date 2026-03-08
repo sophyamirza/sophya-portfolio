@@ -625,6 +625,13 @@ export const PROJECTS: Project[] = [
     toolsAndSkills: ["HV safety", "Power electronics", "Fixture design", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
+      gallery: [      
+        "/projects/TESTFIXTURE/charger1.PNG",
+       "/projects/TESTFIXTURE/charger2.PNG",
+      "/projects/TESTFIXTURE/charger3.PNG",
+        "/projects/TESTFIXTURE/charger4.PNG",
+          "/projects/TESTFIXTURE/charger5.PNG",
+      ]
   },
   {
     slug: "kitta",
