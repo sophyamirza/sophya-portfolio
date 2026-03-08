@@ -547,7 +547,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "bluefors-dr1-cryostat",
-    title: "BlueFors DR1 Cryostat",
+    title: "BluFors DR1 Cryostat",
     subtitle: "Superconducting transition instrumentation",
     year: "2024",
     yearLabel: "2024",
@@ -561,7 +561,7 @@ export const PROJECTS: Project[] = [
       "DAQ",
       "ATP authoring",
     ],
-    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+    cover: "/projects/BLUEFORS/instrument1.PNG",
     preview: {
       staticSrc: "/projects/BLUEFORS/instrument9.PNG",
       hoverSrc: "/projects/BLUEFORS/instrument10.PNG",
@@ -582,6 +582,18 @@ export const PROJECTS: Project[] = [
     toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
+    gallery: [
+          "/projects/BLUEFORS/instrument9.PNG",
+          "/projects/BLUEFORS/instrument10.PNG",
+          "/projects/BLUEFORS/instrument1.PNG",
+          "/projects/BLUEFORS/instrument2.PNG",
+          "/projects/BLUEFORS/instrument3.PNG",
+          "/projects/BLUEFORS/instrument4.PNG",
+          "/projects/BLUEFORS/instrument5.PNG",
+          "/projects/BLUEFORS/instrument6.PNG",
+          "/projects/BLUEFORS/instrument7.PNG",
+          "/projects/BLUEFORS/instrument8.PNG",
+        ],
   },
 
   {
