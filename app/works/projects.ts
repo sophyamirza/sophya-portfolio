@@ -113,6 +113,24 @@ export const PROJECTS: Project[] = [
     toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
+    gallery: [      
+        "/projects/BLUNTBODY/contour1.PNG",
+       "/projects/BLUNTBODY/contour2.PNG",
+      "/projects/BLUNTBODY/contour3.PNG",
+        "/projects/BLUNTBODY/contour4.PNG",
+          "/projects/BLUNTBODY/contour5.PNG",
+          "/projects/BLUNTBODY/contour6.PNG",
+          "/projects/BLUNTBODY/contour7.PNG",
+          "/projects/BLUNTBODY/contour8.PNG",
+          "/projects/BLUNTBODY/contour9.PNG",
+          "/projects/BLUNTBODY/contour10.PNG",
+          "/projects/BLUNTBODY/contour11.PNG",
+          "/projects/BLUNTBODY/contour12.PNG",
+          "/projects/BLUNTBODY/contour13.PNG",
+          "/projects/BLUNTBODY/contour14.PNG",
+          "/projects/BLUNTBODY/contour15.PNG",
+          "/projects/BLUNTBODY/contour16.PNG",
+      ]
   },
 
   {
