@@ -304,32 +304,6 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            {!p.sections?.length && p.gallery?.length ? (
-              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-                <div className="flex items-center justify-between gap-6">
-                  <div className="text-xs tracking-[0.35em] text-white/55">
-                    PHOTO LOG
-                  </div>
-                  <div
-                    className="h-px flex-1 opacity-60"
-                    style={{ background: THERMAL_GRADIENT }}
-                  />
-                </div>
-
-                <div className="relative mt-6 overflow-hidden rounded-xl border border-white/10 bg-black">
-                  <ImageCarousel
-                    images={p.gallery}
-                    alt={`${p.title} photo log`}
-                  />
-                  <div
-                    className="pointer-events-none absolute left-0 right-0 top-0 z-30 h-[2px]"
-                    style={{ background: THERMAL_GRADIENT }}
-                  />
-                  <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
-                </div>
-              </div>
-            ) : null}
-
             {hasVideo ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="flex items-center justify-between gap-6">
