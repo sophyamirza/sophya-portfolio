@@ -184,6 +184,17 @@ export const PROJECTS: Project[] = [
       "Reached an apogee of 6,126 ft!",
       "Successful flight recovery.",
     ],
+    gallery: [
+          "/projects/ALULA/alulahotfire.png",
+          "/projects/ALULA/alulaCAD.PNG",
+          "/projects/ALULA/ALULAINTEGRATED.jpg",
+          "/projects/ALULA/cover.PNG",
+          "/projects/ALULA/engine1.PNG",
+          "/projects/ALULA/engine2.PNG",
+          "/projects/ALULA/feedsystem.PNG",
+          "/projects/ALULA/launch.PNG",
+          "/projects/ALULA/recovery.PNG",
+        ],
 
     sections: [
       {
@@ -206,17 +217,7 @@ export const PROJECTS: Project[] = [
           "Transported critical hardware + supported range ops",
           "Validated integrated stack prior to flight",
         ],
-        images: [
-          "/projects/ALULA/alulahotfire.png",
-          "/projects/ALULA/alulaCAD.PNG",
-          "/projects/ALULA/ALULAINTEGRATED.jpg",
-          "/projects/ALULA/cover.PNG",
-          "/projects/ALULA/engine1.PNG",
-          "/projects/ALULA/engine2.PNG",
-          "/projects/ALULA/feedsystem.PNG",
-          "/projects/ALULA/launch.PNG",
-          "/projects/ALULA/recovery.PNG",
-        ],
+    
       },
     ],
 
