@@ -207,8 +207,8 @@ export default async function ProjectPage({
       </section>
 
       <section className="relative mx-auto max-w-6xl px-6 pb-28">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="min-w-0">
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
                 SYSTEM OVERVIEW
