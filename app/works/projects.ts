@@ -150,7 +150,7 @@ export const PROJECTS: Project[] = [
     overview:
       "Liquid ethanol/LOX rocket program spanning propulsion architecture, feed system integration, and test-driven iteration to flight.",
     highlights: [
-      "Joined the ALULA liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
+      "Joined the STAR liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
       "Helped grow the propulsion subteam from roughly 5 to more than 15 active contributors by establishing machining training, design reviews, and structured test campaigns.",
       "Supported multiple FAR range campaigns, including >6 hr truck & trailer drives to Mojave Desert to deliver critical propulsion hardware and staff hot fire and flight operations at the Friends of Amateur Rocketry site.",
       "Had fun building sick rockets!",
