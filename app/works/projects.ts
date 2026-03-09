@@ -45,7 +45,7 @@ export type Project = {
   preview?: ProjectPreview;
 
   overview: string;
-  highlights: string[];
+  accomplishments: string[];
 
   status?: string;
   date?: string;
@@ -53,7 +53,6 @@ export type Project = {
   team?: string;
   systemOverview?: string;
   toolsAndSkills?: string[];
-  contributions?: string[];
   results?: string[];
 
   gallery?: string[];
@@ -69,10 +68,10 @@ export type Project = {
 const PH = {
   systemOverview:
     "{insert system overview here: architecture, constraints, analysis approach, validation plan, and key design decisions.}",
-  contributions: [
-    "{insert contribution here}",
-    "{insert contribution here}",
-    "{insert contribution here}",
+  accomplishments: [
+    "{insert accomplishment here}",
+    "{insert accomplishment here}",
+    "{insert accomplishment here}",
   ],
   results: [
     "{insert result here: metrics, validation outcome, performance improvement}",
@@ -100,10 +99,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
-    highlights: [
+    accomplishments: [
       "Built and refined meshes to resolve key gradients",
       "Ran parameter and convergence checks",
       "Interpreted flow features and sensitivity to numerical choices",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -111,26 +111,25 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
-    gallery: [      
-        "/projects/BLUNTBODY/contour1.PNG",
-       "/projects/BLUNTBODY/contour2.PNG",
+    gallery: [
+      "/projects/BLUNTBODY/contour1.PNG",
+      "/projects/BLUNTBODY/contour2.PNG",
       "/projects/BLUNTBODY/contour3.PNG",
-        "/projects/BLUNTBODY/contour4.PNG",
-          "/projects/BLUNTBODY/contour5.PNG",
-          "/projects/BLUNTBODY/contour6.PNG",
-          "/projects/BLUNTBODY/contour7.PNG",
-          "/projects/BLUNTBODY/contour8.PNG",
-          "/projects/BLUNTBODY/contour9.PNG",
-          "/projects/BLUNTBODY/contour10.PNG",
-          "/projects/BLUNTBODY/contour11.PNG",
-          "/projects/BLUNTBODY/contour12.PNG",
-          "/projects/BLUNTBODY/contour13.PNG",
-          "/projects/BLUNTBODY/contour14.PNG",
-          "/projects/BLUNTBODY/contour15.PNG",
-          "/projects/BLUNTBODY/contour16.PNG",
-      ]
+      "/projects/BLUNTBODY/contour4.PNG",
+      "/projects/BLUNTBODY/contour5.PNG",
+      "/projects/BLUNTBODY/contour6.PNG",
+      "/projects/BLUNTBODY/contour7.PNG",
+      "/projects/BLUNTBODY/contour8.PNG",
+      "/projects/BLUNTBODY/contour9.PNG",
+      "/projects/BLUNTBODY/contour10.PNG",
+      "/projects/BLUNTBODY/contour11.PNG",
+      "/projects/BLUNTBODY/contour12.PNG",
+      "/projects/BLUNTBODY/contour13.PNG",
+      "/projects/BLUNTBODY/contour14.PNG",
+      "/projects/BLUNTBODY/contour15.PNG",
+      "/projects/BLUNTBODY/contour16.PNG",
+    ],
   },
 
   {
@@ -149,17 +148,23 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Liquid ethanol/LOX rocket program spanning propulsion architecture, feed system integration, and test-driven iteration to flight.",
-    highlights: [
+    accomplishments: [
       "Joined the STAR liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
       "Helped grow the propulsion subteam from roughly 5 to more than 15 active contributors by establishing machining training, design reviews, and structured test campaigns.",
       "Supported multiple FAR range campaigns, including >6 hr truck & trailer drives to Mojave Desert to deliver critical propulsion hardware and staff hot fire and flight operations at the Friends of Amateur Rocketry site.",
       "Had fun building sick rockets!",
+      "Designed and developed an Electronic Pressure Regulator for accurate propellant pressurization, using SolidWorks and ASME Y14.5 GD&T to create DFM ready hardware that reduced feed system droop by ~35% at a MEOP of 6,000 psi and cryo @ −183∘C, with hand calc backed sizing for a ±3 psi regulation band and 440 kg-cm (32 ft-lb) actuation torque.",
+      "Machined the injector and supported end-to-end propulsion hardware fabrication for flight-ready integration.",
+      "Built an RPA driven sizing workflow for the ethanol/LOX thrust chamber and exhaust, trading nozzle contour against vehicle trajectory to meet our apogee target",
+      "Selected a manufacturable de Laval nozzle over a bell contour with only a minor performance penalty, then verified aluminum flight hardware using hand heat-flux/hoop-stress calculations and SolidWorks thermal/structural simulations to ensure adequate margin against melting and thrust loads.",
+      "Developed the final iteration pyrotechnic isolation valve for cryogenic LOX/ethanol service, using SolidWorks for kinematic layouts and dimensioned drawings with Y14.5 GD&T, running hand calcs for piston area, black powder energy, and sealing loads, and confirming actuation timing and structural margins with simulation before machining aluminum prototypes and stainless flight hardware.",
+      "Coordinated propulsion logistics and test operations while also closing the analysis loop on valves, the Electronic Pressure Regulator, RQD, and the main feed system by comparing test data to pre-flight hand calcs and simulation predictions, then feeding those results back into revised CAD, drawings, and DFM updates for subsequent iterations.",
     ],
     status: "COMPLETED",
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "STAR built UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
+      "STAR built UC Berkeley’s first successfully recovered liquid bi-propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student-shop tooling limits.",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -173,30 +178,22 @@ export const PROJECTS: Project[] = [
       "ANSYS",
       "long nights cronking fittings and bending hardine",
     ],
-    contributions: [
-      "Designed and developed an Electronic Pressure Regulator for accurate propellant pressurization, using SolidWorks and ASME Y14.5 GD&T to create DFM ready hardware that reduced feed system droop by ~35% at a MEOP of 6,000 psi and cryo @  −183∘C, with hand calc backed sizing for a ±3 psi regulation band and 440 kg‑cm (32 ft‑lb) actuation torque.",
-      "Machined the injector and supported end-to-end propulsion hardware fabrication for flight-ready integration.",
-      "Built an RPA driven sizing workflow for the ethanol/LOX thrust chamber and exhaust, trading nozzle contour against vehicle trajectory to meet our apogee target",
-      " selected a manufacturable de Laval nozzle over a bell contour with only a minor performance penalty, then verified aluminum flight hardware using hand heat‑flux/hoop‑stress calculations and SolidWorks thermal/structural simulations to ensure adequate margin against melting and thrust loads.",
-      "Developed the final iteration pyrotechnic isolation valve for cryogenic LOX/ethanol service, using SolidWorks for kinematic layouts and dimensioned drawings with Y14.5 GD&T, running hand calcs for piston area, black powder energy, and sealing loads, and confirming actuation timing and structural margins with simulation before machining aluminum prototypes and stainless flight hardware.",
-      "Coordinated propulsion logistics and test operations while also closing the analysis loop on valves, the Electronic Pressure Regulator, RQD, and the main feed system by comparing test data to pre‑flight hand calcs and simulation predictions, then feeding those results back into revised CAD, drawings, and DFM updates for subsequent iterations.",
-    ],
     results: [
       "Won the Friends of Amateur Rocketry ‘Dollar Per Foot’ competition.",
       "Reached an apogee of 6,126 ft!",
       "Successful flight recovery.",
     ],
     gallery: [
-          "/projects/ALULA/alulahotfire.png",
-          "/projects/ALULA/alulaCAD.PNG",
-          "/projects/ALULA/ALULAINTEGRATED.jpg",
-          "/projects/ALULA/cover.PNG",
-          "/projects/ALULA/engine1.PNG",
-          "/projects/ALULA/engine2.PNG",
-          "/projects/ALULA/feedsystem.PNG",
-          "/projects/ALULA/launch.PNG",
-          "/projects/ALULA/recovery.PNG",
-        ],
+      "/projects/ALULA/alulahotfire.png",
+      "/projects/ALULA/alulaCAD.PNG",
+      "/projects/ALULA/ALULAINTEGRATED.jpg",
+      "/projects/ALULA/cover.PNG",
+      "/projects/ALULA/engine1.PNG",
+      "/projects/ALULA/engine2.PNG",
+      "/projects/ALULA/feedsystem.PNG",
+      "/projects/ALULA/launch.PNG",
+      "/projects/ALULA/recovery.PNG",
+    ],
 
     sections: [
       {
@@ -219,7 +216,6 @@ export const PROJECTS: Project[] = [
           "Transported critical hardware + supported range ops",
           "Validated integrated stack prior to flight",
         ],
-    
       },
     ],
 
@@ -241,10 +237,13 @@ export const PROJECTS: Project[] = [
         },
         overview:
           "Remote quick disconnect hardware designed for pressurant line separation during launch operations.",
-        highlights: [
+        accomplishments: [
           "Designed and machined custom disconnect hardware",
           "Integrated into pressurant line architecture",
           "Validated through ground and launch operations",
+          "Designed the quick disconnect hardware around operational constraints and launch sequence requirements.",
+          "Machined and assembled the hardware for integration with the pressurant system.",
+          "Validated fit, function, and release behavior through ground operations and launch use.",
         ],
         status: "COMPLETED",
         date: "2025",
@@ -258,11 +257,6 @@ export const PROJECTS: Project[] = [
           "Bridgeport",
           "Lathe",
           "Flight hardware integration",
-        ],
-        contributions: [
-          "Designed the quick disconnect hardware around operational constraints and launch sequence requirements.",
-          "Machined and assembled the hardware for integration with the pressurant system.",
-          "Validated fit, function, and release behavior through ground operations and launch use.",
         ],
         results: [
           "Enabled remote line separation during launch ops.",
@@ -294,10 +288,13 @@ export const PROJECTS: Project[] = [
         },
         overview:
           "Main valve system for controlling propellant flow through the ethanol and LOX feed architecture.",
-        highlights: [
+        accomplishments: [
           "Supported primary fluid routing and control",
           "Designed for cryogenic compatibility",
           "Iterated through test-driven hardware development",
+          "Supported main propellant flow routing and control architecture.",
+          "Designed and iterated valve hardware for cryogenic compatibility.",
+          "Closed design-test loops through hardware iteration and validation.",
         ],
         status: "COMPLETED",
         date: "2025",
@@ -312,11 +309,6 @@ export const PROJECTS: Project[] = [
           "Pressure drop analysis",
           "SolidWorks CAD",
         ],
-        contributions: [
-          "Supported main propellant flow routing and control architecture.",
-          "Designed and iterated valve hardware for cryogenic compatibility.",
-          "Closed design-test loops through hardware iteration and validation.",
-        ],
         results: [
           "Provided reliable flow control for the propulsion system.",
           "Integrated into the ALULA feed architecture.",
@@ -324,10 +316,7 @@ export const PROJECTS: Project[] = [
         ],
         videoSrc: "/projects/ALULA/ALULALaunch.mp4",
         videoPoster: "/projects/ALULA/launch.PNG",
-       gallery: [
-          "/projects/VALVES/valves1.PNG",
-          "/projects/VALVES/valves2.PNG",
-        ],
+        gallery: ["/projects/VALVES/valves1.PNG", "/projects/VALVES/valves2.PNG"],
       },
       {
         slug: "alula-engine",
@@ -346,10 +335,13 @@ export const PROJECTS: Project[] = [
         },
         overview:
           "Liquid rocket engine hardware including injector, chamber, and nozzle development for ALULA.",
-        highlights: [
+        accomplishments: [
           "Supported engine hardware design and manufacturing",
           "Selected manufacturable nozzle geometry",
           "Contributed to integrated propulsion system validation",
+          "Supported design and manufacturing of engine hardware.",
+          "Selected manufacturable nozzle geometry based on performance and tooling constraints.",
+          "Contributed to integrated propulsion system validation prior to launch.",
         ],
         status: "COMPLETED",
         date: "2025",
@@ -364,19 +356,12 @@ export const PROJECTS: Project[] = [
           "Thermal analysis",
           "Machining",
         ],
-        contributions: [
-          "Supported design and manufacturing of engine hardware.",
-          "Selected manufacturable nozzle geometry based on performance and tooling constraints.",
-          "Contributed to integrated propulsion system validation prior to launch.",
-        ],
         results: [
           "Engine hardware integrated into the ALULA propulsion stack.",
           "Manufacturable design choices enabled student-shop fabrication.",
           "Supported successful campaign through launch and recovery.",
         ],
-        gallery: ["/projects/ALULA/engine1.PNG", 
-                  "/projects/ALULA/engine2.PNG"],
-      
+        gallery: ["/projects/ALULA/engine1.PNG", "/projects/ALULA/engine2.PNG"],
       },
     ],
   },
@@ -397,10 +382,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Quadruped robotics project focused on mechanical robustness and performance iteration through testing.",
-    highlights: [
+    accomplishments: [
       "Mechanism design informed by load paths and serviceability",
       "Iterated gaits and control behavior from test data",
       "Integrated subsystems for repeatable performance",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -408,19 +394,18 @@ export const PROJECTS: Project[] = [
     team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Mechanism design", "Controls", "Prototyping", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
     gallery: [
-          "/projects/RESCUEBOT/bot1.png",
-          "/projects/RESCUEBOT/bot2.png",
-          "/projects/RESCUEBOT/bot3.png",
-          "/projects/RESCUEBOT/bot4.png",
-          "/projects/RESCUEBOT/bot5.png",
-          "/projects/RESCUEBOT/bot6.png",
-          "/projects/RESCUEBOT/bot7.png",
-          "/projects/RESCUEBOT/bot8.png",
-          "/projects/RESCUEBOT/bot9.png",
-        ],
+      "/projects/RESCUEBOT/bot1.png",
+      "/projects/RESCUEBOT/bot2.png",
+      "/projects/RESCUEBOT/bot3.png",
+      "/projects/RESCUEBOT/bot4.png",
+      "/projects/RESCUEBOT/bot5.png",
+      "/projects/RESCUEBOT/bot6.png",
+      "/projects/RESCUEBOT/bot7.png",
+      "/projects/RESCUEBOT/bot8.png",
+      "/projects/RESCUEBOT/bot9.png",
+    ],
   },
   {
     slug: "bike-frame-optimization",
@@ -438,10 +423,11 @@ export const PROJECTS: Project[] = [
     tags: ["Wind Tunnel Testing", "CFD", "MATLAB", "Aerodynamics"],
     overview:
       "Aerodynamic analysis of truncated NACA-profiled tubing combining testing and simulation to guide geometry choices.",
-    highlights: [
+    accomplishments: [
       "Compared drag trends across geometry variants",
       "Built a workflow tying CFD, test, and post-processing",
       "Used results to inform practical design direction",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -449,7 +435,6 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Wind tunnel testing", "CFD", "MATLAB", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
   },
 
@@ -468,11 +453,12 @@ export const PROJECTS: Project[] = [
       alt: "Dunk Probe preview",
     },
     overview:
-      "Cryogenic dewar probe hardware with vacuum-compatible design, integration, and test procedures.",
-    highlights: [
-      "Designed vacuum-compatible mechanical hardware",
-      "Owned integration details and testing approach",
+      "Liquid-helium dunk probe and readout chain for low-noise 4-point resistance measurements of wire-bonded devices mounted on a copper/PCB stage inside a cryogenic dewar, read out through a Bendix feedthrough using a Lake Shore 372 AC resistance bridge.",
+    accomplishments: [
+      "Developed and documented a safe operating procedure for inserting and removing a custom dunk probe from a liquid-helium dewar, including venting via main and relief valves, controlled insertion to manage boil-off, and clearance management around the inner probe tube.",
+      "Designed the mechanical/electrical sample stack: copper stage with integrated PCB, wirebonded single-pixel chip, Samtec jumpers, and Bendix connector routing, ensuring all harnessing fits within the dewar bore without snagging.",
       "Improved reliability through iteration and documentation",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -480,16 +466,14 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
     gallery: [
-          "/projects/DUNKPROBE/badunk.PNG",
-          "/projects/DUNKPROBE/dunkprobebuild2.PNG",
-          "/projects/DUNKPROBE/dunkprobecloseup.PNG",
-          "/projects/DUNKPROBE/dunkprobecloseup2.PNG",
-          "/projects/DUNKPROBE/dunkprobefullassembly.PNG",
-        ],
-
+      "/projects/DUNKPROBE/badunk.PNG",
+      "/projects/DUNKPROBE/dunkprobebuild2.PNG",
+      "/projects/DUNKPROBE/dunkprobecloseup.PNG",
+      "/projects/DUNKPROBE/dunkprobecloseup2.PNG",
+      "/projects/DUNKPROBE/dunkprobefullassembly.PNG",
+    ],
   },
   {
     slug: "metamorphic-designs",
@@ -507,10 +491,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Adaptive furniture concepts exploring transformable geometry, manufacturability, and real-world constraints.",
-    highlights: [
+    accomplishments: [
       "Prototyped and refined mechanisms with practical constraints",
       "Balanced aesthetics, function, and manufacturability",
       "Incorporated market and user considerations into design choices",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -518,7 +503,6 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["CNC routing", "Prototyping", "Design for manufacture", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
   },
   {
@@ -537,10 +521,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
-    highlights: [
+    accomplishments: [
       "Designed pneumatic architecture and integration points",
       "Instrumented the setup for clean data capture",
       "Validated behavior through testing and iteration",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -548,12 +533,8 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Pneumatics", "Air bearings", "Instrumentation", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
-    gallery: [
-          "/projects/MAGBOOM/magboom3.PNG",
-          "/projects/MAGBOOM/magboom4.PNG",
-        ],
+    gallery: ["/projects/MAGBOOM/magboom3.PNG", "/projects/MAGBOOM/magboom4.PNG"],
   },
   {
     slug: "patris",
@@ -571,10 +552,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Robotic inspection system emphasizing drivetrain design, embedded motor control, and controllable articulation.",
-    highlights: [
+    accomplishments: [
       "Designed transmission and actuation approach",
       "Implemented and tuned joint-space control behavior",
       "Built prototypes to validate mechanics + control integration",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -582,7 +564,6 @@ export const PROJECTS: Project[] = [
     team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Gearbox design", "Embedded control", "3D printing", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
   },
   {
@@ -609,10 +590,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Cryostat instrumentation and enclosure work spanning integration constraints, analysis, and test procedure authoring.",
-    highlights: [
+    accomplishments: [
       "Designed mechanical enclosure + interfaces",
       "Supported analysis and integration constraints",
       "Authored test procedures (ATP) and supported bring-up",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -620,20 +602,19 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
     gallery: [
-          "/projects/BLUEFORS/instrument9.PNG",
-          "/projects/BLUEFORS/instrument10.PNG",
-          "/projects/BLUEFORS/instrument1.PNG",
-          "/projects/BLUEFORS/instrument2.PNG",
-          "/projects/BLUEFORS/instrument3.PNG",
-          "/projects/BLUEFORS/instrument4.PNG",
-          "/projects/BLUEFORS/instrument5.PNG",
-          "/projects/BLUEFORS/instrument6.PNG",
-          "/projects/BLUEFORS/instrument7.PNG",
-          "/projects/BLUEFORS/instrument8.PNG",
-        ],
+      "/projects/BLUEFORS/instrument9.PNG",
+      "/projects/BLUEFORS/instrument10.PNG",
+      "/projects/BLUEFORS/instrument1.PNG",
+      "/projects/BLUEFORS/instrument2.PNG",
+      "/projects/BLUEFORS/instrument3.PNG",
+      "/projects/BLUEFORS/instrument4.PNG",
+      "/projects/BLUEFORS/instrument5.PNG",
+      "/projects/BLUEFORS/instrument6.PNG",
+      "/projects/BLUEFORS/instrument7.PNG",
+      "/projects/BLUEFORS/instrument8.PNG",
+    ],
   },
 
   {
@@ -652,10 +633,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
-    highlights: [
+    accomplishments: [
       "Designed fixture for repeatability and safety",
       "Integrated sensing strategy for thermal/behavior insight",
       "Iterated based on testing and failure modes",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -663,15 +645,14 @@ export const PROJECTS: Project[] = [
     team: "Sophya Mirza",
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["HV safety", "Power electronics", "Fixture design", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
-      gallery: [      
-        "/projects/TESTFIXTURE/charger1.PNG",
-       "/projects/TESTFIXTURE/charger2.PNG",
+    gallery: [
+      "/projects/TESTFIXTURE/charger1.PNG",
+      "/projects/TESTFIXTURE/charger2.PNG",
       "/projects/TESTFIXTURE/charger3.PNG",
-        "/projects/TESTFIXTURE/charger4.PNG",
-          "/projects/TESTFIXTURE/charger5.PNG",
-      ]
+      "/projects/TESTFIXTURE/charger4.PNG",
+      "/projects/TESTFIXTURE/charger5.PNG",
+    ],
   },
   {
     slug: "kitta",
@@ -689,10 +670,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Drone delivery platform work spanning mechanism design and autonomy-related system considerations.",
-    highlights: [
+    accomplishments: [
       "Designed payload release mechanism with real constraints",
       "Considered autonomy + path planning requirements",
       "Prototyped and iterated to improve reliability",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -700,7 +682,6 @@ export const PROJECTS: Project[] = [
     team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Mechanism design", "Rapid prototyping", "Integration", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
   },
   {
@@ -719,10 +700,11 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Unmanned sea surface vehicle work focused on enclosure/mechanism design and practical integration.",
-    highlights: [
+    accomplishments: [
       "Designed enclosure and mechanisms for environmental constraints",
       "Built prototypes with fast iteration loops",
       "Integrated subsystems for dependable operation",
+      ...PH.accomplishments,
     ],
     status: "{insert status here}",
     date: "{insert date here}",
@@ -730,7 +712,6 @@ export const PROJECTS: Project[] = [
     team: TEAM_PH,
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Enclosure design", "3D printing", "Integration", ...PH.tools],
-    contributions: PH.contributions,
     results: PH.results,
   },
 ];
