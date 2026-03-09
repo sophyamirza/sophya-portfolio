@@ -88,19 +88,15 @@ export default async function ProjectPage({
   const toolsAndSkills =
     p.toolsAndSkills ?? ["{insert tool}", "{insert tool}", "{insert tool}"];
 
-  const contributions =
-    p.contributions ??
-    p.highlights ?? [
-      "{insert contribution here}",
-      "{insert contribution here}",
-      "{insert contribution here}",
+  const accomplishments =
+    p.accomplishments ?? [
+      "{insert accomplishment here}",
+      "{insert accomplishment here}",
+      "{insert accomplishment here}",
     ];
 
   const results =
-    p.results ??
-    (p.highlights?.length
-      ? p.highlights
-      : ["{insert result here}", "{insert result here}"]);
+    p.results ?? ["{insert result here}", "{insert result here}"];
 
   const hasVideo = Boolean(p.videoSrc);
 
@@ -331,37 +327,14 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            {p.highlights?.length ? (
-              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-                <div className="text-xs tracking-[0.35em] text-white/55">
-                  HIGHLIGHTS
-                </div>
-                <ul className="mt-6 space-y-3 text-white/80">
-                  {p.highlights.map((h, i) => (
-                    <li key={`${h}-${i}`} className="flex gap-3">
-                      <span
-                        className="mt-[7px] h-2 w-2 rounded-full"
-                        style={{
-                          background: THERMAL_GRADIENT,
-                          boxShadow: "0 0 16px rgba(255,255,255,0.08)",
-                          opacity: 0.9,
-                        }}
-                      />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
-                MY CONTRIBUTIONS
+                ACCOMPLISHMENTS
               </div>
 
               <ol className="mt-6 space-y-4">
-                {contributions.map((c, i) => (
-                  <li key={`${c}-${i}`} className="flex gap-4">
+                {accomplishments.map((a, i) => (
+                  <li key={`${a}-${i}`} className="flex gap-4">
                     <div
                       className="mt-[2px] w-10 shrink-0 text-[12px] tracking-[0.22em]"
                       style={{
@@ -369,12 +342,12 @@ export default async function ProjectPage({
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
                         color: "transparent",
-                        opacity: isPlaceholder(c) ? 0.5 : 0.95,
+                        opacity: isPlaceholder(a) ? 0.5 : 0.95,
                       }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div className="text-white/80">{c}</div>
+                    <div className="text-white/80">{a}</div>
                   </li>
                 ))}
               </ol>
