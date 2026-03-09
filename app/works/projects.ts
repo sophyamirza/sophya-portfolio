@@ -152,14 +152,14 @@ export const PROJECTS: Project[] = [
     highlights: [
       "Joined the ALULA liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
       "Helped grow the propulsion subteam from roughly 5 to more than 15 active contributors by establishing machining training, design reviews, and structured test campaigns.",
-      "Supported multiple FAR range campaigns, including >6‑hour truck‑and‑trailer drives each way to the Mojave Desert to deliver critical propulsion hardware and staff hot‑fire and flight operations at the Friends of Amateur Rocketry site.",
+      "Supported multiple FAR range campaigns, including >6 hr truck & trailer drives to Mojave Desert to deliver critical propulsion hardware and staff hot fire and flight operations at the Friends of Amateur Rocketry site.",
       "Had fun building sick rockets!",
     ],
     status: "COMPLETED",
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "ALULA is UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
+      "STAR built UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -178,7 +178,7 @@ export const PROJECTS: Project[] = [
       "Machined the injector and supported end-to-end propulsion hardware fabrication for flight-ready integration.",
       "Built an RPA driven sizing workflow for the ethanol/LOX thrust chamber and exhaust, trading nozzle contour against vehicle trajectory to meet our apogee target",
       " selected a manufacturable de Laval nozzle over a bell contour with only a minor performance penalty, then verified aluminum flight hardware using hand heat‑flux/hoop‑stress calculations and SolidWorks thermal/structural simulations to ensure adequate margin against melting and thrust loads.",
-      "Developed the final‑iteration pyrotechnic isolation valve for cryogenic LOX/ethanol service, using SolidWorks for kinematic layouts and dimensioned drawings with Y14.5 GD&T, running hand calcs for piston area, black‑powder energy, and sealing loads, and confirming actuation timing and structural margins with simulation before machining aluminum prototypes and stainless flight hardware.",
+      "Developed the final iteration pyrotechnic isolation valve for cryogenic LOX/ethanol service, using SolidWorks for kinematic layouts and dimensioned drawings with Y14.5 GD&T, running hand calcs for piston area, black powder energy, and sealing loads, and confirming actuation timing and structural margins with simulation before machining aluminum prototypes and stainless flight hardware.",
       "Coordinated propulsion logistics and test operations while also closing the analysis loop on valves, the Electronic Pressure Regulator, RQD, and the main feed system by comparing test data to pre‑flight hand calcs and simulation predictions, then feeding those results back into revised CAD, drawings, and DFM updates for subsequent iterations.",
     ],
     results: [
