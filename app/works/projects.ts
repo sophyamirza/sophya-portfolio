@@ -150,15 +150,16 @@ export const PROJECTS: Project[] = [
     overview:
       "Liquid ethanol/LOX rocket program spanning propulsion architecture, feed system integration, and test-driven iteration to flight.",
     highlights: [
-      "Led feed system build and critical valve hardware for ethanol/LOX",
-      "Designed + machined flight components (RQD, injector, nozzle)",
-      "Validated hardware through Mojave testing and successful launch + recovery",
+      "Joined the ALULA liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
+      "Helped grow the propulsion subteam from roughly 5 to more than 15 active contributors by establishing machining training, design reviews, and structured test campaigns.",
+      "Supported multiple FAR range campaigns, including >6‑hour truck‑and‑trailer drives each way to the Mojave Desert to deliver critical propulsion hardware and staff hot‑fire and flight operations at the Friends of Amateur Rocketry site.",
+      "Had fun building sick rockets!",
     ],
     status: "COMPLETED",
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "ALULA is a student-built liquid bi-propellant rocket using ethanol and liquid oxygen. The propulsion stack includes a pressure-fed cryogenic feed system, purpose-built valves and disconnects for safe ground operations, and a manufacturable de Laval nozzle selected to balance performance with the realities of student-shop tooling. The program closed design-test loops through subsystem verification, integrated hot-fire and range testing, and culminated in a flight campaign with successful recovery.",
+      "ALULA is UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure‑fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, student‑designed main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -169,15 +170,16 @@ export const PROJECTS: Project[] = [
       "Cryogenic handling",
       "RPA",
       "MATLAB",
+      "ANSYS",
       "long nights cronking fittings and bending hardine",
     ],
     contributions: [
-      "Owned Remote Quick Disconnect (RQD) from design → manufacturing → assembly → test → flight; modeled in SolidWorks, machined on lathe + Bridgeport, and validated in ground ops and launch environment.",
+      "Designed and developed an Electronic Pressure Regulator for accurate propellant pressurization, using SolidWorks and ASME Y14.5 GD&T to create DFM ready hardware that reduced feed system droop by ~35% at a MEOP of 6,000 psi and cryo @  −183∘C, with hand calc backed sizing for a ±3 psi regulation band and 440 kg‑cm (32 ft‑lb) actuation torque.",
       "Machined the injector and supported end-to-end propulsion hardware fabrication for flight-ready integration.",
-      "Built an RPA-driven workflow to optimize thrust chamber/nozzle geometry for the vehicle mission; selected a manufacturable de Laval nozzle over a bell nozzle due to tooling constraints, then verified integrity with thermal + force simulation prior to machining an aluminum nozzle used on launch.",
-      "Designed a pressure-actuated valve and led the build/integration of the ethanol/LOX feed system (interfaces, routing, and assembly readiness for test).",
-      "Designed and produced the final iteration pyro valve to regulate LOX/ethanol lines: SolidWorks design → prototype aluminum machining → flight stainless version for cryogenic compatibility; performed thermal and pressure-drop analysis and validated against real testing. (0.05 g black powder actuator with e-match ignition driving piston for flow control.)",
-      "Handled logistics and test execution support, including transporting critical propulsion hardware to Mojave for range testing and iteration.",
+      "Built an RPA driven sizing workflow for the ethanol/LOX thrust chamber and exhaust, trading nozzle contour against vehicle trajectory to meet our apogee target",
+      " selected a manufacturable de Laval nozzle over a bell contour with only a minor performance penalty, then verified aluminum flight hardware using hand heat‑flux/hoop‑stress calculations and SolidWorks thermal/structural simulations to ensure adequate margin against melting and thrust loads.",
+      "Developed the final‑iteration pyrotechnic isolation valve for cryogenic LOX/ethanol service, using SolidWorks for kinematic layouts and dimensioned drawings with Y14.5 GD&T, running hand calcs for piston area, black‑powder energy, and sealing loads, and confirming actuation timing and structural margins with simulation before machining aluminum prototypes and stainless flight hardware.",
+      "Coordinated propulsion logistics and test operations while also closing the analysis loop on valves, the Electronic Pressure Regulator, RQD, and the main feed system by comparing test data to pre‑flight hand calcs and simulation predictions, then feeding those results back into revised CAD, drawings, and DFM updates for subsequent iterations.",
     ],
     results: [
       "Won the Friends of Amateur Rocketry ‘Dollar Per Foot’ competition.",
