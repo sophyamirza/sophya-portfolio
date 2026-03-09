@@ -322,6 +322,8 @@ export const PROJECTS: Project[] = [
           "Integrated into the ALULA feed architecture.",
           "Validated through test-driven development.",
         ],
+        videoSrc: "/projects/ALULA/ALULALaunch.mp4",
+        videoPoster: "/projects/ALULA/launch.PNG",
        gallery: [
           "/projects/VALVES/valves1.PNG",
           "/projects/VALVES/valves2.PNG",
