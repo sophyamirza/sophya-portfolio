@@ -200,11 +200,11 @@ export default function BioPage() {
              
 
               <p>
-                Hey, I’m Sophya! I'm a first gen Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural North Carolina climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in Tennessee, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I am passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
+                Hey, I’m Sophya! I'm a first gen Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in TN, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I am passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
               </p>
 
               <p>
-                A few years ago a fortune cookie told me I “create enthusiasm,” and that is how I try to show up on every team, bringing energy, clarity, and momentum to hard problems. As a builder at heart, I have owned hardware at places such as SpaceX, Astranis, and NASA, focusing on satellite propulsion hardware, launch vehicle structures, and battery thermal management systems across materials, CAD, FEA, testing, and manufacturing. When I am not building hardware, I train jiu jitsu, a reminder to stay adaptable under pressure, and I bring that same mindset to engineering: first principles thinking, rapid test cycles, and a bias toward building and turnaround from real hardware.
+                A few years ago a fortune cookie told me I “create enthusiasm,” and that is how I try to show up on every team, bringing energy, clarity, and momentum to hard problems. As a builder at heart, I have owned hardware at places such as SpaceX where I shared the Texan roads with rocket launches, Astranis, and NASA, focusing on satellite propulsion hardware, launch vehicle structures, and battery thermal management systems across materials, CAD, FEA, testing, and manufacturing. When I am not building hardware, I train jiu jitsu, a reminder to stay adaptable under pressure, and I bring that same mindset to engineering: first principles thinking, rapid test cycles, and a bias toward building and turnaround from real hardware.
               </p>
 
               <p>
