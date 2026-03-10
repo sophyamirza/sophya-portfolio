@@ -90,7 +90,7 @@ export default async function ProjectPage({
 
   const contributions =
     p.contributions ??
-    p.highlights ?? [
+    p.accomplishments ?? [
       "{insert contribution here}",
       "{insert contribution here}",
       "{insert contribution here}",
@@ -98,8 +98,8 @@ export default async function ProjectPage({
 
   const results =
     p.results ??
-    (p.highlights?.length
-      ? p.highlights
+    (p.accomplishments?.length
+      ? p.accomplishments
       : ["{insert result here}", "{insert result here}"]);
 
   const hasVideo = Boolean(p.videoSrc);
@@ -357,13 +357,13 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            {p.highlights?.length ? (
+            {p.accomplishments?.length ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <div className="text-xs tracking-[0.35em] text-white/55">
-                  HIGHLIGHTS
+                  ACCOMPLISHMENTS
                 </div>
                 <ul className="mt-6 space-y-3 text-white/80">
-                  {p.highlights.map((h, i) => (
+                  {p.accomplishments.map((h, i) => (
                     <li key={`${h}-${i}`} className="flex gap-3">
                       <span
                         className="mt-[7px] h-2 w-2 rounded-full"
