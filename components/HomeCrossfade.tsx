@@ -10,7 +10,6 @@ import ScrollIndicator from "@/components/ScrollIndicator";
 import PhilosophyTitle from "@/components/PhilosophyTitle";
 
 const clamp = (n: number, a = 0, b = 1) => Math.min(b, Math.max(a, n));
-const DISPLAY_FONT = "'Playfair Display', serif";
 
 function HighlightCard({
   title,
@@ -29,15 +28,10 @@ function HighlightCard({
 }) {
   return (
     <Link href={href} className="group block">
-      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/35 hover:bg-white/[0.04] md:p-10">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:border-white/35 hover:bg-white/[0.04]">
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0 flex-1">
-            <h3
-              className="mb-2 text-2xl italic tracking-tight text-white md:text-3xl"
-              style={{ fontFamily: DISPLAY_FONT }}
-            >
-              {title}
-            </h3>
+            <h3 className="mb-2 text-2xl text-white md:text-3xl">{title}</h3>
             <p className="mb-5 text-white/70">{subtitle}</p>
             <p className="text-[11px] tracking-[0.18em] text-white/50">{tags}</p>
           </div>
@@ -52,7 +46,7 @@ function HighlightCard({
           </div>
         </div>
 
-        <div className="mt-6 text-xs uppercase tracking-[0.22em] text-white/55 transition-colors duration-300 group-hover:text-white/80">
+        <div className="mt-6 text-xs tracking-[0.22em] uppercase text-white/55 transition-colors duration-300 group-hover:text-white/80">
           View project →
         </div>
       </div>
@@ -108,7 +102,7 @@ export default function HomeCrossfade() {
   const philOpacity = t;
 
   return (
-    <div className="overflow-x-clip bg-black">
+    <div className="bg-black overflow-x-clip">
       {/* HERO */}
       <section
         ref={(n) => {
@@ -129,14 +123,11 @@ export default function HomeCrossfade() {
         </div>
 
         <div className="absolute bottom-14 right-14 z-10 text-right md:bottom-16 md:right-16">
-          <div className="text-xs uppercase tracking-[0.35em] text-white/60">
+          <div className="text-xs tracking-[0.35em] text-white/60">
             UC BERKELEY
           </div>
-          <div
-            className="mt-2 text-3xl italic leading-tight tracking-tight text-white/90 md:text-4xl"
-            style={{ fontFamily: DISPLAY_FONT }}
-          >
-            Mechanical Engineer
+          <div className="mt-2 text-3xl italic leading-tight text-white/90 md:text-4xl">
+            MECHANICAL ENGINEER
           </div>
         </div>
 
@@ -159,7 +150,7 @@ export default function HomeCrossfade() {
         <div className="mx-auto min-h-[92vh] max-w-6xl px-6 py-28">
           <div className="flex flex-col md:flex-row md:gap-12">
             <div className="max-w-3xl pt-20">
-              <div className="text-xs uppercase tracking-[0.35em] text-white/50">
+              <div className="text-xs tracking-[0.35em] text-white/50">
                 PHILOSOPHY
               </div>
 
@@ -170,7 +161,7 @@ export default function HomeCrossfade() {
               <div className="mt-10 h-px w-24 bg-gradient-to-r from-white/10 via-white/25 to-transparent" />
 
               <motion.ul
-                className="mt-12 space-y-4 text-xl leading-[1.6] text-white/80 md:text-2xl"
+                className="mt-12 space-y-4 text-xl md:text-2xl leading-[1.6] text-white/80"
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-80px" }}
@@ -203,10 +194,7 @@ export default function HomeCrossfade() {
             </div>
 
             <div className="mt-20 flex-1 md:mt-28">
-              <p
-                className="pointer-events-none select-none text-right text-3xl italic tracking-tight text-white/20 md:text-5xl"
-                style={{ fontFamily: DISPLAY_FONT }}
-              >
+              <p className="select-none pointer-events-none text-right text-3xl italic tracking-wide text-white/20 md:text-5xl">
                 Turning science fiction into engineered systems.
               </p>
             </div>
@@ -215,16 +203,13 @@ export default function HomeCrossfade() {
 
         {/* PORTFOLIO */}
         <div className="mx-auto max-w-6xl px-6 pb-28">
-          <div className="text-xs uppercase tracking-[0.35em] text-white/60">
+          <div className="text-xs tracking-[0.35em] text-white/60">
             PORTFOLIO
           </div>
 
           <div className="mt-3 flex items-end justify-between gap-6">
-            <h2
-              className="text-4xl italic tracking-tight text-white md:text-5xl"
-              style={{ fontFamily: DISPLAY_FONT }}
-            >
-              Project Highlights
+            <h2 className="text-4xl tracking-wide text-white md:text-5xl">
+              PROJECT HIGHLIGHTS
             </h2>
 
             <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-[rgba(255,59,31,0.22)] md:block" />
@@ -273,7 +258,7 @@ export default function HomeCrossfade() {
 
             <Link
               href="/works"
-              className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
             >
               View All Works →
             </Link>
