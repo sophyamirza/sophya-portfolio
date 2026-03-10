@@ -255,7 +255,7 @@ export const PROJECTS: Project[] = [
         focusArea: "Propulsion Hardware",
         team: "Sophya Mirza",
         systemOverview:
-          "Remotely actuated quick disconnect for ALULA rocket pressurant lines, designed to support safe pad operations, rapid separation, and robust integration into the broader propulsion stack.",
+          "Remotely actuated quick disconnect for ALULA rocket pressurant lines, designed to support safe pad operations, rapid separation, and robust integration into the broader propulsion stack.The mechanism is composed of two cylindrical sleeves. Upon the piston's actuation, the outer sleeve moves against the female socket of the swage, effectively releasing the male fitting. The system operates with a minimum pressure requirement of 60 PSI. I turned it on a lathe out of stainless steel to avoid freezing LoX under cryo.",
         toolsAndSkills: [
           "SolidWorks CAD",
           "Manual machining",
