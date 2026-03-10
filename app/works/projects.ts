@@ -159,7 +159,7 @@ export const PROJECTS: Project[] = [
     date: "LAUNCHED",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "STAR built UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
+      "UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -243,7 +243,7 @@ export const PROJECTS: Project[] = [
           alt: "Remote Quick Disconnect preview",
         },
         overview:
-          "Remote quick disconnect hardware designed for pressurant line separation during launch operations.",
+          "A remotely actuated quick disconnect (QD) system for the ALULA rocket pressurant umbilical to enable safe ground pressurization and rapid separation at liftoff. Pressurant flow into the system is controlled by a pressurant flow valve, preventing gas from entering the propellant tanks outside of controlled pressurization operations. A high pressure check valve on the pressurant fill tree prevents pressurant gas from escaping once the umbilical is disconnected prior to flight, protecting the exposed fill port and maintaining system pressure.",
         accomplishments: [
           "Designed and machined custom disconnect hardware",
           "Integrated into pressurant line architecture",
@@ -263,14 +263,14 @@ export const PROJECTS: Project[] = [
           "Flight hardware integration",
         ],
         contributions: [
-          "Designed the quick disconnect hardware around operational constraints and launch sequence requirements.",
-          "Machined and assembled the hardware for integration with the pressurant system.",
-          "Validated fit, function, and release behavior through ground operations and launch use.",
+          "Designed (Solidworks) quick disconnect hardware around operational constraints and launch sequence requirements.",
+          "3D printed working prototype and machined flight hardware out of SS. Built and assembled the hardware for integration within the pressurant system.",
+          "Validated fit, function, and release behavior through ground testing, operations and launch use.",
         ],
         results: [
           "Enabled remote line separation during launch ops.",
-          "Integrated successfully into ALULA propulsion architecture.",
-          "Validated in ground and flight environments.",
+          "Integrated successfully into ALULA propulsion architecture. Validated in ground and flight environments.",
+          "The high pressure side of the system is the primary leak risk, so I conducted extensive pressure testing and leak checks prior to cold flow operations. Based on testing, an acceptable leak rate of up to ~10 psi/min was defined for the pressurant tank and associated plumbing.",
         ],
         gallery: [
           "/projects/RQD/RQDCAD.PNG",
