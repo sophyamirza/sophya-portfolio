@@ -247,7 +247,7 @@ export const PROJECTS: Project[] = [
         accomplishments: [
           "Designed (Solidworks) quick disconnect hardware around operational constraints and launch sequence requirements.",
           "3D printed working prototype and machined flight hardware out of SS. Built and assembled the hardware for integration within the pressurant system.",
-          "Validated fit, function, and release behavior through ground testing, operations and launch use.",
+          "Validated fit, function, and release behavior through ground testing, Wrote ATPs foroperations and launch use.",
         
         ],
         status: "COMPLETED",
