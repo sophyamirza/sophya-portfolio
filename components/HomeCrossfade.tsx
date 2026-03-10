@@ -126,7 +126,7 @@ export default function HomeCrossfade() {
             UC BERKELEY
           </div>
           <div className="mt-2 text-3xl italic leading-tight text-white/90 md:text-4xl">
-            MECHANICAL ENGINEER
+            MECHANICAL ENGINEERING PORTFOLIO
           </div>
         </div>
 
