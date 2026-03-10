@@ -45,7 +45,7 @@ export type Project = {
   preview?: ProjectPreview;
 
   overview: string;
-  highlights: string[];
+  accomplishments: string[];
 
   status?: string;
   date?: string;
@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
-    highlights: [
+    accomplishments: [
       "Built and refined meshes to resolve key gradients",
       "Ran parameter and convergence checks",
       "Interpreted flow features and sensitivity to numerical choices",
@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Liquid ethanol/LOX rocket program spanning propulsion architecture, feed system integration, and test-driven iteration to flight.",
-    highlights: [
+    accomplishments: [
       "Joined the STAR liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
       "Helped grow the propulsion subteam from roughly 5 to more than 15 active contributors by establishing machining training, design reviews, and structured test campaigns.",
       "Supported multiple FAR range campaigns, including >6 hr truck & trailer drives to Mojave Desert to deliver critical propulsion hardware and staff hot fire and flight operations at the Friends of Amateur Rocketry site.",
@@ -241,7 +241,7 @@ export const PROJECTS: Project[] = [
         },
         overview:
           "Remote quick disconnect hardware designed for pressurant line separation during launch operations.",
-        highlights: [
+        accomplishments: [
           "Designed and machined custom disconnect hardware",
           "Integrated into pressurant line architecture",
           "Validated through ground and launch operations",
@@ -294,7 +294,7 @@ export const PROJECTS: Project[] = [
         },
         overview:
           "Main valve system for controlling propellant flow through the ethanol and LOX feed architecture.",
-        highlights: [
+        accomplishments: [
           "Supported primary fluid routing and control",
           "Designed for cryogenic compatibility",
           "Iterated through test-driven hardware development",
@@ -323,7 +323,7 @@ export const PROJECTS: Project[] = [
           "Validated through test-driven development.",
         ],
         videoSrc: "/projects/ALULA/ALULALaunch.mp4",
-        videoPoster: "/projects/ALULA/launch.PNG",
+        videoPoster: "/projects/ALULA/RQD1.PNG",
        gallery: [
           "/projects/VALVES/valves1.PNG",
           "/projects/VALVES/valves2.PNG",
@@ -346,7 +346,7 @@ export const PROJECTS: Project[] = [
         },
         overview:
           "Liquid rocket engine hardware including injector, chamber, and nozzle development for ALULA.",
-        highlights: [
+        accomplishments: [
           "Supported engine hardware design and manufacturing",
           "Selected manufacturable nozzle geometry",
           "Contributed to integrated propulsion system validation",
@@ -397,7 +397,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Quadruped robotics project focused on mechanical robustness and performance iteration through testing.",
-    highlights: [
+    accomplishments: [
       "Mechanism design informed by load paths and serviceability",
       "Iterated gaits and control behavior from test data",
       "Integrated subsystems for repeatable performance",
@@ -438,7 +438,7 @@ export const PROJECTS: Project[] = [
     tags: ["Wind Tunnel Testing", "CFD", "MATLAB", "Aerodynamics"],
     overview:
       "Aerodynamic analysis of truncated NACA-profiled tubing combining testing and simulation to guide geometry choices.",
-    highlights: [
+    accomplishments: [
       "Compared drag trends across geometry variants",
       "Built a workflow tying CFD, test, and post-processing",
       "Used results to inform practical design direction",
@@ -468,10 +468,10 @@ export const PROJECTS: Project[] = [
       alt: "Dunk Probe preview",
     },
     overview:
-      "Liquid‑helium dunk probe and readout chain for low‑noise 4‑point resistance measurements of wire‑bonded devices mounted on a copper/PCB stage inside a cryogenic dewar, read out through a Bendix feedthrough using a Lake Shore 372 AC resistance bridge.",
-    highlights: [
-      "Developed and documented a safe operating procedure for inserting and removing a custom dunk probe from a liquid‑helium dewar, including venting via main and relief valves, controlled insertion to manage boil‑off, and clearance management around the inner probe tube.",
-      "Designed the mechanical/electrical sample stack: copper stage with integrated PCB, wirebonded single‑pixel chip, Samtec jumpers, and Bendix connector routing, ensuring all harnessing fits within the dewar bore without snagging.",
+      "Cryogenic dewar probe hardware with vacuum-compatible design, integration, and test procedures.",
+    accomplishments: [
+      "Designed vacuum-compatible mechanical hardware",
+      "Owned integration details and testing approach",
       "Improved reliability through iteration and documentation",
     ],
     status: "{insert status here}",
@@ -507,7 +507,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Adaptive furniture concepts exploring transformable geometry, manufacturability, and real-world constraints.",
-    highlights: [
+    accomplishments: [
       "Prototyped and refined mechanisms with practical constraints",
       "Balanced aesthetics, function, and manufacturability",
       "Incorporated market and user considerations into design choices",
@@ -537,7 +537,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
-    highlights: [
+    accomplishments: [
       "Designed pneumatic architecture and integration points",
       "Instrumented the setup for clean data capture",
       "Validated behavior through testing and iteration",
@@ -571,7 +571,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Robotic inspection system emphasizing drivetrain design, embedded motor control, and controllable articulation.",
-    highlights: [
+    accomplishments: [
       "Designed transmission and actuation approach",
       "Implemented and tuned joint-space control behavior",
       "Built prototypes to validate mechanics + control integration",
@@ -609,7 +609,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Cryostat instrumentation and enclosure work spanning integration constraints, analysis, and test procedure authoring.",
-    highlights: [
+    accomplishments: [
       "Designed mechanical enclosure + interfaces",
       "Supported analysis and integration constraints",
       "Authored test procedures (ATP) and supported bring-up",
@@ -652,7 +652,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Battery test fixture designed for repeatable charge/discharge workflows, safe operation, and clean instrumentation.",
-    highlights: [
+    accomplishments: [
       "Designed fixture for repeatability and safety",
       "Integrated sensing strategy for thermal/behavior insight",
       "Iterated based on testing and failure modes",
@@ -689,7 +689,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Drone delivery platform work spanning mechanism design and autonomy-related system considerations.",
-    highlights: [
+    accomplishments: [
       "Designed payload release mechanism with real constraints",
       "Considered autonomy + path planning requirements",
       "Prototyped and iterated to improve reliability",
@@ -719,7 +719,7 @@ export const PROJECTS: Project[] = [
     },
     overview:
       "Unmanned sea surface vehicle work focused on enclosure/mechanism design and practical integration.",
-    highlights: [
+    accomplishments: [
       "Designed enclosure and mechanisms for environmental constraints",
       "Built prototypes with fast iteration loops",
       "Integrated subsystems for dependable operation",
