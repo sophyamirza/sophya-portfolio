@@ -356,31 +356,7 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-              <div className="text-xs tracking-[0.35em] text-white/55">
-                MY CONTRIBUTIONS
-              </div>
-
-              <ol className="mt-6 space-y-4">
-                {contributions.map((c, i) => (
-                  <li key={`${c}-${i}`} className="flex gap-4">
-                    <div
-                      className="mt-[2px] w-10 shrink-0 text-[12px] tracking-[0.22em]"
-                      style={{
-                        background: THERMAL_GRADIENT,
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        color: "transparent",
-                        opacity: isPlaceholder(c) ? 0.5 : 0.95,
-                      }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="text-white/80">{c}</div>
-                  </li>
-                ))}
-              </ol>
-            </div>
+          
 
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">
