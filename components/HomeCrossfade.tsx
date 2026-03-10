@@ -167,12 +167,12 @@ export default function HomeCrossfade() {
               imageAlt="KITTA project preview"
             />
             <HighlightCard
-              title="RescueBot"
-              subtitle="Quadruped Robot"
-              tags="ROBOTICS · CONTROL"
-              href="/works/rescuebot"
-              imageSrc="/projects/RESCUEBOT/rescuebot1.PNG"
-              imageAlt="RescueBot project preview"
+              title="Blunt Body Analysis"
+              subtitle="Supersonic Flow Over a Blunt Body"
+              tags="ANALYSIS · SIMULATION · MESH REFINEMENT"
+              href="/works/blunt-body-analysis"
+              imageSrc="/projects/BLUNTBODY/blunt1.PNG"
+              imageAlt="blunt body analysis project preview"
             />
             <HighlightCard
               title="XLDsl + SQUIDs"
