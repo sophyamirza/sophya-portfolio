@@ -479,11 +479,10 @@ export const PROJECTS: Project[] = [
   "Correlated cryogenic electrical data across dunk probe and BlueFors cryostat runs to validate experimental consistency and identify low-current anomalies"
 ],
 
-    status: "{insert status here}",
-    date: "{insert date here}",
+    status: "COMPLETED",
     focusArea: "Cryogenic Instrumentation",
     team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
+    systemOverview: "Liquid helium dunk probe and readout chain for low noise 4 point resistance measurements of wire bonded devices mounted on a copper/PCB stage inside a cryogenic dewar, read out through a Bendix feedthrough using a Lake Shore 372 AC resistance bridge.",
     toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design", ...PH.tools],
     contributions: PH.contributions,
     results: [
