@@ -200,7 +200,7 @@ export default function BioPage() {
              
 
               <p>
-                Hey, I’m Sophya Mirza, a first gen Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural North Carolina climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in Tennessee, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I’m passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
+                Hey, I’m Sophya! I'm a first gen Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural North Carolina climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in Tennessee, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I am passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
               </p>
 
               <p>
