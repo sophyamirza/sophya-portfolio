@@ -469,12 +469,16 @@ export const PROJECTS: Project[] = [
       alt: "Dunk Probe preview",
     },
     overview:
-      "Cryogenic dewar probe hardware with vacuum-compatible design, integration, and test procedures.",
+      "Liquid helium dunk probe and readout chain for low noise 4 point resistance measurements of wire bonded devices mounted on a copper/PCB stage inside a cryogenic dewar, read out through a Bendix feedthrough using a Lake Shore 372 AC resistance bridge.",
     accomplishments: [
-      "Designed vacuum-compatible mechanical hardware",
-      "Owned integration details and testing approach",
-      "Improved reliability through iteration and documentation",
-    ],
+  "Designed and modeled a liquid helium dunk probe assembly in SolidWorks with four-point measurement capability and integrated thermal anchoring for cryogenic stability",
+  "Developed a custom signal PCB in EAGLE with independent TES bias and sense lines to minimize cross-talk and improve low-resistance measurement accuracy",
+  "Machined and assembled a vacuum-compatible copper enclosure and probe housing, achieving a base temperature of 49 mK during continuous operation",
+  "Integrated and wire bonded TES samples, confirming shorts on full-wafer setup at 4 K (source under investigation)",
+  "Measured normal resistance (Rn) of LS CH1 sample 'DL‑LF‑r1‑001A‑Pix36‑40GHz‑Bot' using high-bias sweeps: 7.6 mΩ @ 31.6 mA, 6.7 mΩ @ 10 mA, 3.4 mΩ @ 3.16 mA, 0.007 mΩ ≤ 1 mA, indicating persistent niobium short behavior",
+  "Correlated cryogenic electrical data across dunk probe and BlueFors cryostat runs to validate experimental consistency and identify low-current anomalies"
+],
+
     status: "{insert status here}",
     date: "{insert date here}",
     focusArea: "Cryogenic Instrumentation",
@@ -482,7 +486,17 @@ export const PROJECTS: Project[] = [
     systemOverview: PH.systemOverview,
     toolsAndSkills: ["Vacuum hardware", "Cryogenic testing", "GSE design", ...PH.tools],
     contributions: PH.contributions,
-    results: PH.results,
+    results: [
+  "Validated the liquid helium dunk probe for four-point measurements, confirming electrical continuity and cryogenic stability.",
+  "Re-tested BT10-01-Dual-TES sample to verify a previously observed niobium short; results confirmed the anomaly using the new probe setup.",
+  "Conducted measurements on three 'Test B' dies (Q4B‑30T, Q5B, Q6B); Q4B‑30T indicated a possible short but was lost in the He dewar, while Q5B and Q6B showed no shorts.",
+  "Analyzed archived data for SOLF‑2B pixels 27 and 34; pixel 27 showed no short, and pixel 34 reproduced a low-current short consistent with earlier findings.",
+  "Observed negative resistance readings, interpreted as measurements below the instrument’s valid range due to extremely low resistance.",
+  "Verified 107 Ω warm resistance for BT10‑01‑Dual‑TES using both multimeter and Lakeshore setups for cross-validation.",
+  "Configured additional samples for follow-up BlueFors Cryostat testing to maintain continuity between dunk probe and cryostat datasets.",
+  "/projects/DUNKPROBE/dunkresults.PNG",
+],
+
     gallery: [
           "/projects/DUNKPROBE/badunk.PNG",
           "/projects/DUNKPROBE/dunkprobebuild2.PNG",
