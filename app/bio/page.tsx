@@ -200,27 +200,17 @@ export default function BioPage() {
              
 
               <p>
-                Hey, I’m Sophya!
+                Hey, I’m Sophya Mirza, a first gen Iranian American mechanical and aerospace engineer who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural North Carolina climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in Tennessee, where I first got hooked on turbines, generators, and the infrastructure that powers the world.
               </p>
 
               <p>
-                A few years ago a fortune cookie told me I create enthusiasm. Growing up between backyard builds, Chinese takeout, and the roar of LAX, I learned early that the best way to understand the world is to build it.
+                A few years ago a fortune cookie told me I “create enthusiasm,” and that is how I try to show up on every team, bringing energy, clarity, and momentum to hard problems. As a builder at heart, I have owned hardware at places such as SpaceX, Astranis, and NASA, focusing on satellite propulsion hardware, launch vehicle structures, and battery thermal management systems across materials, CAD, FEA, testing, and manufacturing. When I am not building hardware, I train jiu jitsu, a reminder to stay adaptable under pressure, and I bring that same mindset to engineering: first principles thinking, rapid test cycles, and a bias toward building and turnaround from real hardware.
               </p>
 
               <p>
-                At heart, I’m a designer and builder. I’ve owned full lifecycles of high consequence hardware across satellite propulsion systems, launch vehicle structures, EV battery thermal systems, and other systems where clarity and speed matter. I thrive in 0–1 environments and enjoy tackling deeply technical problems across energy, manufacturing, space, robotics, and flight.
+                I am excited to bring that enthusiasm and execution focus to your team!
               </p>
               
-              <p>
-                At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and working on refurb-ing hydroelectric dams in TN. That was where I first got hooked on turbines, generators, and the infrastructure that powers the world.
-              </p>
-
-              <p>
-                Outside of work, I train jiu jitsu, which has become a way to practice adaptability under pressure. That mindset carries into how I approach engineering: first principles thinking, rapid test cycles, and a bias toward building and learning from real hardware.
-              </p>
-              <p>
-               I’m excited to bring that same enthusiasm, rigor, and curiosity, and a bias toward execution to your team!
-              </p>
             </div>
 
             {/* MANIFESTO */}
@@ -249,7 +239,7 @@ export default function BioPage() {
                   Extreme ownership closes the loop: if it breaks, I own it. If a
                   test fails, I own it.
                 </p>
-                <p>Success is cycle time. Ship hardware that survives reality.</p>
+                <p>Success is cycle time and quality. Ship hardware that survives reality.</p>
 
                 {/* CTA */}
                 <div className="pt-6">

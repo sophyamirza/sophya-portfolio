@@ -230,7 +230,7 @@ export default function RecreationPage() {
         {/* MENTORSHIP */}
         <div className="mt-24">
           <h2 className="text-sm tracking-[0.35em] text-white/55">
-            MENTORSHIP & ADVOCACY
+            TECHNICAL MENTORSHIP
           </h2>
 
           <div className="mt-10 grid gap-10 md:grid-cols-3">
@@ -257,7 +257,7 @@ export default function RecreationPage() {
               />
               <h3 className="mt-4 text-xl">The Mars Generation</h3>
               <p className="mt-2 text-white/70 text-sm">
-                Ambassador supporting next-generation space advocacy and outreach,
+                Ambassador supporting next generation space advocacy and outreach,
                 previous scholarship recipient.
               </p>
             </div>
