@@ -150,10 +150,10 @@ export const PROJECTS: Project[] = [
     overview:
       "Liquid ethanol/LOX rocket program spanning propulsion architecture, feed system integration, and test-driven iteration to flight.",
     accomplishments: [
-      "Joined the STAR liquid program as a freshman propulsion member and one of the few trained machinists, later becoming responsible engineer for the main valves and eventually Propulsion Deputy Lead for both the liquid vehicle",
-      "Helped grow the propulsion subteam from roughly 5 to more than 15 active contributors by establishing machining training, design reviews, and structured test campaigns.",
-      "Supported multiple FAR range campaigns, including >6 hr truck & trailer drives to Mojave Desert to deliver critical propulsion hardware and staff hot fire and flight operations at the Friends of Amateur Rocketry site.",
-      "Had fun building sick rockets!",
+      "Designed (Solidworks) and developed an Electronic Pressure Regulator for accurate propellant pressurization, using SolidWorks and ASME Y14.5 GD&T to create DFM ready hardware that reduced feed system droop by ~35% at a MEOP of 6,000 psi and cryo @  −183∘C, with hand calc backed sizing for a ±3 psi regulation band and 440 kg‑cm (32 ft‑lb) actuation torque.",
+      "Developed the final‑iteration pyrotechnic isolation valve for cryogenic LOX/ethanol service, using SolidWorks for kinematic layouts and dimensioned drawings with Y14.5 GD&T, running hand calcs for piston area, black‑powder energy, and sealing loads, and confirming actuation timing and structural margins with simulation before machining aluminum prototypes and stainless flight hardware.",
+      "Built (RPA) driven sizing workflow for the ethanol/LOX thrust chamber and exhaust, trading nozzle contour against vehicle trajectory to meet our apogee target by selecting a manufacturable de Laval nozzle over a bell contour with only a minor performance penalty, then verified aluminum and steel flight hardware using hand heat flux/hoop stress calculations and SolidWorks thermal/structural simulations to ensure adequate margin against melting and thrust loads.",
+      "Grew from prop member to prop subsytems RE and led as prop. dept. lead.Had fun building sick rockets!",
     ],
     status: "COMPLETED",
     date: "LAUNCHED",
@@ -198,7 +198,7 @@ export const PROJECTS: Project[] = [
           "/projects/ALULA/feedsystem.PNG",
           "/projects/ALULA/launch.PNG",
           "/projects/ALULA/recovery.PNG",
-          "/projects/ALULA/star2.PNG",
+          "/projects/ALULA/star2.jpg",
         ],
 
     sections: [
