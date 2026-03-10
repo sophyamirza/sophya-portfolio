@@ -276,6 +276,7 @@ export const PROJECTS: Project[] = [
           "/projects/RQD/RQDCAD.PNG",
           "/projects/RQD/RQDDWG.PNG",
           "/projects/RQD/RQD1.PNG",
+          "/projects/RQD/RQ3D.jpg",
         ],
         videoSrc: "/projects/RQD/RQDTEST.mp4",
         videoPoster: "/projects/RQD/RQD1.PNG",
