@@ -245,16 +245,17 @@ export const PROJECTS: Project[] = [
         overview:
           "A remotely actuated quick disconnect (QD) system for the ALULA rocket pressurant umbilical to enable safe ground pressurization and rapid separation at liftoff. Pressurant flow into the system is controlled by a pressurant flow valve, preventing gas from entering the propellant tanks outside of controlled pressurization operations. A high pressure check valve on the pressurant fill tree prevents pressurant gas from escaping once the umbilical is disconnected prior to flight, protecting the exposed fill port and maintaining system pressure.",
         accomplishments: [
-          "Designed and machined custom disconnect hardware",
-          "Integrated into pressurant line architecture",
-          "Validated through ground and launch operations",
+          "Designed (Solidworks) quick disconnect hardware around operational constraints and launch sequence requirements.",
+          "3D printed working prototype and machined flight hardware out of SS. Built and assembled the hardware for integration within the pressurant system.",
+          "Validated fit, function, and release behavior through ground testing, operations and launch use.",
+        
         ],
         status: "COMPLETED",
         date: "2025",
         focusArea: "Propulsion Hardware",
         team: "Sophya Mirza",
         systemOverview:
-          "Remotely actuated quick disconnect for ALULA pressurant lines, designed to support safe pad operations, rapid separation, and robust integration into the broader propulsion stack.",
+          "Remotely actuated quick disconnect for ALULA rocket pressurant lines, designed to support safe pad operations, rapid separation, and robust integration into the broader propulsion stack.",
         toolsAndSkills: [
           "SolidWorks CAD",
           "Manual machining",
@@ -262,11 +263,7 @@ export const PROJECTS: Project[] = [
           "Lathe",
           "Flight hardware integration",
         ],
-        contributions: [
-          "Designed (Solidworks) quick disconnect hardware around operational constraints and launch sequence requirements.",
-          "3D printed working prototype and machined flight hardware out of SS. Built and assembled the hardware for integration within the pressurant system.",
-          "Validated fit, function, and release behavior through ground testing, operations and launch use.",
-        ],
+          
         results: [
           "Enabled remote line separation during launch ops.",
           "Integrated successfully into ALULA propulsion architecture. Validated in ground and flight environments.",
