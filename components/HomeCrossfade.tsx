@@ -7,7 +7,6 @@ import Image from "next/image";
 import HeroScene from "@/components/HeroScene";
 import HeroCopy from "@/components/HeroCopy";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import PhilosophyTitle from "@/components/PhilosophyTitle";
 
 const clamp = (n: number, a = 0, b = 1) => Math.min(b, Math.max(a, n));
 
@@ -135,71 +134,6 @@ export default function HomeCrossfade() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* PHILOSOPHY */}
-      <section
-        id="philosophy"
-        ref={(n) => {
-          philRef.current = n;
-        }}
-        className="relative w-full bg-black"
-        style={{
-          opacity: philOpacity,
-          transform: `translate3d(0, ${Math.round((1 - philOpacity) * 10)}px, 0)`,
-        }}
-      >
-        <div className="mx-auto min-h-[92vh] max-w-6xl px-6 py-28">
-          <div className="flex flex-col md:flex-row md:gap-12">
-            <div className="max-w-3xl pt-20">
-              <div className="text-xs tracking-[0.35em] text-white/50">
-                PHILOSOPHY
-              </div>
-
-              <div className="mt-6">
-                <PhilosophyTitle />
-              </div>
-
-              <div className="mt-10 h-px w-24 bg-gradient-to-r from-white/10 via-white/25 to-transparent" />
-
-              <motion.ul
-                className="mt-12 space-y-4 text-xl md:text-2xl leading-[1.6] text-white/80"
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-80px" }}
-                variants={{
-                  hidden: {},
-                  show: { transition: { staggerChildren: 0.12 } },
-                }}
-              >
-                {[
-                  "Ambiguity to requirements",
-                  "1st principles hand calcs into design trades",
-                  "PROTOYPE EARLY, TEST OFTEN, CLOSE LOOPS",
-                ].map((text, i) => (
-                  <motion.li
-                    key={i}
-                    className="flex items-start gap-3"
-                    variants={{
-                      hidden: { opacity: 0, y: 12 },
-                      show: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    <span className="mt-[2px] h-2 w-2 rounded-full bg-[rgba(255,59,31,0.55)] shadow-[0_0_18px_rgba(255,59,31,0.18)]" />
-                    <span>{text}</span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-
-              <div className="pointer-events-none mt-10 h-10 w-full rounded-3xl bg-[radial-gradient(500px_60px_at_15%_40%,rgba(255,59,31,0.10),transparent_70%)]" />
-            </div>
-
-            <div className="mt-20 flex-1 md:mt-28">
-              <p className="select-none pointer-events-none text-right text-3xl italic tracking-wide text-white/20 md:text-5xl">
-                Turning science fiction into engineered systems.
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* PORTFOLIO */}
         <div className="mx-auto max-w-6xl px-6 pb-28">
@@ -264,7 +198,7 @@ export default function HomeCrossfade() {
             </Link>
           </div>
         </div>
-      </section>
+    
     </div>
   );
 }
