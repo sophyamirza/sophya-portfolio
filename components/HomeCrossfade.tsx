@@ -58,32 +58,62 @@ function PhotoCollage() {
     {
       src: "/images/collage/collage1.jpg",
       alt: "Portfolio collage image 1",
-      className: "col-span-12 md:col-span-6",
+      className: "col-span-12 md:col-span-6 aspect-[4/3] md:aspect-[5/4]",
     },
     {
       src: "/images/collage/collage2.jpg",
       alt: "Portfolio collage image 2",
-      className: "col-span-6 md:col-span-3",
+      className: "col-span-6 md:col-span-3 aspect-[3/4]",
     },
     {
       src: "/images/collage/collage3.jpg",
       alt: "Portfolio collage image 3",
-      className: "col-span-6 md:col-span-3",
+      className: "col-span-6 md:col-span-3 aspect-[3/4]",
     },
     {
       src: "/images/collage/collage4.jpg",
       alt: "Portfolio collage image 4",
-      className: "col-span-7 md:col-span-4",
+      className: "col-span-6 md:col-span-4 aspect-[4/5]",
     },
     {
       src: "/images/collage/collage5.jpg",
       alt: "Portfolio collage image 5",
-      className: "col-span-5 md:col-span-4",
+      className: "col-span-6 md:col-span-4 aspect-[4/3]",
     },
     {
       src: "/images/collage/collage6.jpg",
       alt: "Portfolio collage image 6",
-      className: "col-span-12 md:col-span-4",
+      className: "col-span-12 md:col-span-4 aspect-[4/5]",
+    },
+    {
+      src: "/images/collage/collage7.jpg",
+      alt: "Portfolio collage image 7",
+      className: "col-span-6 md:col-span-3 aspect-[3/4]",
+    },
+    {
+      src: "/images/collage/collage8.jpg",
+      alt: "Portfolio collage image 8",
+      className: "col-span-6 md:col-span-3 aspect-[3/4]",
+    },
+    {
+      src: "/images/collage/collage9.jpg",
+      alt: "Portfolio collage image 9",
+      className: "col-span-12 md:col-span-6 aspect-[16/10]",
+    },
+    {
+      src: "/images/collage/collage10.PNG",
+      alt: "Portfolio collage image 10",
+      className: "col-span-6 md:col-span-3 aspect-[4/5]",
+    },
+    {
+      src: "/images/collage/collage11.PNG",
+      alt: "Portfolio collage image 11",
+      className: "col-span-6 md:col-span-3 aspect-[4/5]",
+    },
+    {
+      src: "/images/collage/collage14.PNG",
+      alt: "Portfolio collage image 14",
+      className: "col-span-12 md:col-span-6 aspect-[5/4]",
     },
   ];
 
@@ -93,24 +123,22 @@ function PhotoCollage() {
         BEYOND THE WORK
       </div>
 
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-12 gap-4 md:gap-5">
         {images.map((image, i) => (
           <motion.div
             key={image.src}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.55, delay: i * 0.06 }}
-            className={`group rounded-2xl border border-white/10 bg-white/[0.03] p-3 ${image.className}`}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.55, delay: i * 0.04 }}
+            className={`group relative overflow-hidden rounded-2xl ${image.className}`}
           >
-            <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-xl bg-black/20 md:min-h-[260px]">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
-              />
-            </div>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+            />
           </motion.div>
         ))}
       </div>
@@ -172,7 +200,6 @@ export default function HomeCrossfade() {
   }, []);
 
   const heroOpacity = 1 - t;
-  const philOpacity = t;
 
   return (
     <div className="bg-black overflow-x-clip">
