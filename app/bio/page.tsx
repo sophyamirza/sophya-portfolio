@@ -244,7 +244,7 @@ export default function BioPage() {
                 {/* CTA */}
                 <div className="pt-6">
                   <a
-                    href="https://sophyamirza.substack.com/p/manifesto"
+                    href="https://substack.com/home/post/p-190588622"
                     target="_blank"
                     rel="noreferrer"
                     className={[
