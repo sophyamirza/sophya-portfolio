@@ -450,8 +450,8 @@ export const PROJECTS: Project[] = [
         "Heat flux at injector face remained acceptable through hot-fire",
       ],
       images: [
-        "/projects/ALULA/engine1.PNG",
-        "/projects/ALULA/engine2.PNG",
+        "/projects/ALULA/2engine.PNG",
+        "/projects/ALULA/7engine.PNG",
       ],
     },
     {
@@ -521,8 +521,8 @@ export const PROJECTS: Project[] = [
         "Used simulation results to guide confidence in the final hardware geometry",
       ],
       images: [
-        "/projects/ALULA/engine1.PNG",
-        "/projects/ALULA/engine2.PNG",
+        "/projects/ALULA/1engine.PNG",
+        "/projects/ALULA/3engine.PNG",
       ],
     },
     {
@@ -539,7 +539,7 @@ export const PROJECTS: Project[] = [
         "Required follow-on work included modifying clamps to fit the new nozzle geometry",
       ],
       images: [
-        "/projects/ALULA/engine1.PNG",
+        "/projects/ALULA/4engine.PNG",
       ],
     },
   ],
