@@ -45,7 +45,7 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "DEV + TEST",
+    title: "DEV, BUILD + TEST",
     subtitle: "Prototyping, diagnostics, ATPs, Acceptance/Quals Testing",
     previewSrc: "/toolkit/test.PNG",
     items: [
