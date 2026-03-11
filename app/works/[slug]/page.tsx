@@ -57,15 +57,15 @@ function SectionImageCollage({
 
   if (images.length === 1) {
     return (
-      <div className="grid grid-cols-1 gap-6">
-        <div className="relative min-h-[520px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4">
-          <div className="relative h-full min-h-[460px] overflow-hidden rounded-xl bg-black">
+      <div className="grid grid-cols-1">
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+          <div className="relative min-h-[520px] overflow-hidden rounded-xl bg-black">
             <Image
               src={images[0]}
               alt={`${altBase} 1`}
               fill
               className="object-contain"
-              sizes="(max-width: 1024px) 100vw, 44vw"
+              sizes="(max-width: 1279px) 100vw, 42vw"
             />
           </div>
         </div>
@@ -75,19 +75,19 @@ function SectionImageCollage({
 
   if (images.length === 2) {
     return (
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 2xl:grid-cols-2">
         {images.map((src, i) => (
           <div
             key={`${src}-${i}`}
-            className="relative min-h-[500px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4"
+            className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4"
           >
-            <div className="relative h-full min-h-[440px] overflow-hidden rounded-xl bg-black">
+            <div className="relative min-h-[460px] overflow-hidden rounded-xl bg-black">
               <Image
                 src={src}
                 alt={`${altBase} ${i + 1}`}
                 fill
                 className="object-contain"
-                sizes="(max-width: 1280px) 100vw, 28vw"
+                sizes="(max-width: 1535px) 100vw, 36vw"
               />
             </div>
           </div>
@@ -97,19 +97,19 @@ function SectionImageCollage({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 2xl:grid-cols-2">
       {images.map((src, i) => (
         <div
           key={`${src}-${i}`}
-          className="relative min-h-[420px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4"
+          className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-4"
         >
-          <div className="relative h-full min-h-[360px] overflow-hidden rounded-xl bg-black">
+          <div className="relative min-h-[400px] overflow-hidden rounded-xl bg-black">
             <Image
               src={src}
               alt={`${altBase} ${i + 1}`}
               fill
               className="object-contain"
-              sizes="(max-width: 1280px) 100vw, 28vw"
+              sizes="(max-width: 1535px) 100vw, 36vw"
             />
           </div>
         </div>
@@ -178,7 +178,7 @@ export default async function ProjectPage({
         <div className="absolute inset-0 [background:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.62)_60%,rgba(0,0,0,0.95)_100%)]" />
       </div>
 
-      <section className="relative mx-auto max-w-[1600px] px-6 pb-10 pt-16 xl:px-10">
+      <section className="relative mx-auto max-w-[1750px] px-6 pb-10 pt-16 2xl:px-12">
         <Link
           href="/works"
           className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/60 hover:text-white/80"
@@ -271,8 +271,8 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-[1600px] px-6 pb-28 xl:px-10">
-        <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,1.7fr)_minmax(320px,0.7fr)]">
+      <section className="relative mx-auto max-w-[1750px] px-6 pb-28 2xl:px-12">
+        <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,1.95fr)_minmax(320px,0.65fr)]">
           <div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
               <div className="text-xs tracking-[0.35em] text-white/55">
@@ -320,13 +320,13 @@ export default async function ProjectPage({
                     <section key={s.id} id={s.id}>
                       <div
                         className={[
-                          "grid grid-cols-1 gap-8 xl:gap-10",
+                          "grid grid-cols-1 gap-8 2xl:gap-10",
                           splitLayout
-                            ? "xl:grid-cols-[minmax(520px,1.1fr)_minmax(620px,1.25fr)] xl:items-start"
+                            ? "2xl:grid-cols-[minmax(680px,1.15fr)_minmax(720px,1.2fr)] 2xl:items-start"
                             : "",
                         ].join(" ")}
                       >
-                        <div className={reverse && splitLayout ? "xl:order-2" : ""}>
+                        <div className={reverse && splitLayout ? "2xl:order-2" : ""}>
                           <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
                             <div className="flex items-center justify-between gap-6">
                               <div className="text-xs tracking-[0.35em] text-white/55">
@@ -349,7 +349,7 @@ export default async function ProjectPage({
                             ) : null}
 
                             {s.bullets?.length ? (
-                              <ul className="mt-6 space-y-3 text-lg leading-relaxed text-white/80">
+                              <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-3 text-lg leading-relaxed text-white/80 md:grid-cols-2">
                                 {s.bullets.map((b, i) => (
                                   <li key={`${s.id}-b-${i}`} className="flex gap-4">
                                     <span
@@ -369,7 +369,7 @@ export default async function ProjectPage({
                         </div>
 
                         {hasImages ? (
-                          <div className={reverse && splitLayout ? "xl:order-1" : ""}>
+                          <div className={reverse && splitLayout ? "2xl:order-1" : ""}>
                             {useSectionCollage ? (
                               <SectionImageCollage
                                 images={s.images!}
