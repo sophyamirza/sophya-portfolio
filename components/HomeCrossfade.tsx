@@ -71,11 +71,24 @@ function PhotoCollage() {
 
   return (
     <div className="mt-20">
-      <div className="mb-6 text-xs tracking-[0.35em] text-white/50">
+
+      {/* Section Title */}
+      <div className="text-xs tracking-[0.35em] text-white/50 text-center">
         BEYOND THE WORK
       </div>
 
-      <div className="grid grid-cols-12 gap-6">
+      {/* Read Bio Button */}
+      <div className="mt-6 flex justify-center">
+        <Link
+          href="/bio"
+          className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
+        >
+          Read Bio →
+        </Link>
+      </div>
+
+      {/* Collage Grid */}
+      <div className="mt-12 grid grid-cols-12 gap-6">
         {images.map((src, i) => (
           <motion.div
             key={src}
@@ -97,14 +110,6 @@ function PhotoCollage() {
         ))}
       </div>
 
-      <div className="mt-12 flex justify-center">
-        <Link
-          href="/bio"
-          className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
-        >
-          Read Bio →
-        </Link>
-      </div>
     </div>
   );
 }
