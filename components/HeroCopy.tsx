@@ -21,8 +21,8 @@ export default function HeroCopy() {
   const [cursorOn, setCursorOn] = useState(true);
 
   // -------- TUNABLES ----------
-  const START_DELAY_MS = 520; // wait for name to appear
-  const TYPE_MS = 5; // ✅ typing speed (lower=faster). Try 10, 12, 14, 18
+  const START_DELAY_MS = 200; // wait for name to appear
+  const TYPE_MS = 10; // ✅ typing speed (lower=faster). Try 10, 12, 14, 18
   // ----------------------------
 
   // parallax loop
