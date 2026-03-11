@@ -723,21 +723,40 @@ export const PROJECTS: Project[] = [
       alt: "MagBoom preview",
     },
     overview:
-      "Pneumatic / air-bearing GSE enabling controlled testing with instrumentation and repeatable workflows.",
-    accomplishments: [
-      "Designed pneumatic architecture and integration points",
-      "Instrumented the setup for clean data capture",
-      "Validated behavior through testing and iteration",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Test Systems & GSE",
-    team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["Pneumatics", "Air bearings", "Instrumentation", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-    gallery: ["/projects/MAGBOOM/magboom3.PNG", "/projects/MAGBOOM/magboom4.PNG"],
+  "Pneumatic / air-bearing GSE enabling controlled testing of spacecraft boom deployment with instrumentation and repeatable workflows.",
+
+accomplishments: [
+  "Designed pneumatic manifold providing three regulated outputs for high-pressure supply, piston actuation, and air-bearing operation",
+  "Integrated vent valves, pressure gauges, and PTC inlet connectors for monitoring, safety, and flexible mounting",
+  "Enabled frictionless boom deployment testing using an air-bearing system to simulate the zero-gravity environment of space",
+],
+
+status: "Completed",
+date: "2023",
+
+focusArea: "Test Systems & GSE",
+team: "Sophya Mirza",
+
+systemOverview:
+  "Ground support equipment designed to test deployment of long spacecraft magnetometer booms in a near-zero-friction environment. The pneumatic manifold provides three pressure-regulated outputs for a high-pressure line, a low-pressure piston supply, and an air-bearing feed. Vent valves, pressure gauges, and PTC connectors at the main inlet allow monitoring and flexible integration with the test platform. The air-bearing system produces a thin film of pressurized air that supports the boom and removes surface friction, allowing deployment mechanisms to operate as they would in microgravity. This setup enables validation of deployment dynamics, stiffness, and alignment of TRACERS magnetometer booms without gravitational sag introducing false loading conditions.",
+
+toolsAndSkills: [
+  "Pneumatics",
+  "Air bearings",
+  "Instrumentation",
+  "Ground Support Equipment",
+  "Pressure Regulation",
+  "Test Fixtures",
+  ...PH.tools
+],
+
+contributions: PH.contributions,
+results: PH.results,
+
+gallery: [
+  "/projects/MAGBOOM/magboom3.PNG",
+  "/projects/MAGBOOM/magboom4.PNG"
+],
   },
 
   {
