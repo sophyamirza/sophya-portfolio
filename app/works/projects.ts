@@ -786,18 +786,30 @@ export const PROJECTS: Project[] = [
     overview:
       "Cryostat instrumentation and enclosure work spanning integration constraints, analysis, and test procedure authoring.",
     accomplishments: [
-      "Designed mechanical enclosure + interfaces",
-      "Supported analysis and integration constraints",
-      "Authored test procedures (ATP) and supported bring-up",
+      "Mechanical enclosure design (Solidworks)",
+      "PCB Design (CAD, CAM, etc) (EAGLE)",
+      "Magnetic Shielding analysis (ANSYS)",
+      "DAQ and Diagnostics (LabVIEW)",
+      "ATPs for test procedures and test",
     ],
-    status: "{insert status here}",
-    date: "{insert date here}",
+    status: "COMPLETED",
+    date: "2021-2023",
     focusArea: "Cryogenics & Test Engineering",
     team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
+    systemOverview: "Designed and validated a cryogenic measurement module enabling repeatable 90 K superconducting characterization inside a BlueFors cryostat, owning the full product lifecycle from requirements definition through prototype validation."
+,
     toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", ...PH.tools],
     contributions: PH.contributions,
-    results: PH.results,
+    results: [
+      "Clear, repeatable R(T) transition near 90 K confirms effective cryogenic integration and measurement fidelity.",
+      "Temperature logged continuously during cooldown and warm-up (sub-second sampling via cryostat sensors)",
+      "Pressure tracked throughout ³He/⁴He pump down to correlate thermal response with gas handling state",
+      "Four-point resistance measurements acquired for each sample (eliminates lead/contact resistance)",
+      "R(T) curves generated on cooldown and warm-up (2× passes) to check hysteresis and measurement consistency",
+      "Superconducting transition observed near ~90 K, defined by sharp resistance drop across ΔT window",
+      "Stable resistance baseline above Tc with no observable drift, indicating good thermal contact and electrical integrity",
+      "Low noise floor in resistance data, consistent with magnetic shielding and grounding design"
+    ],
     gallery: [
       "/projects/BLUEFORS/instrument9.PNG",
       "/projects/BLUEFORS/instrument10.PNG",
