@@ -116,7 +116,7 @@ function PhotoCollage() {
 
       <div className="mt-10 flex justify-center">
         <Link
-          href="/about"
+          href="/bio"
           className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
         >
           Read Bio →
