@@ -2,7 +2,7 @@
 
 import StarOrbsBackground from "@/components/StarOrbsBackground";
 import { Analytics } from "@vercel/analytics/next";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -92,8 +92,19 @@ export default function IndustryPage() {
     []
   );
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const active = milestones[activeIndex];
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const active = activeIndex !== null ? milestones[activeIndex] : null;
+
+  const closeModal = () => setActiveIndex(null);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -146,102 +157,93 @@ export default function IndustryPage() {
           </p>
         </div>
 
-        {/* Main Bento Layout */}
-        <div className="mt-8 grid min-h-0 flex-1 grid-cols-1 gap-6 xl:grid-cols-[1.15fr_1.85fr]">
-          {/* Info Card */}
-          <div className="min-h-0">
-            <div className="flex h-full min-h-[320px] flex-col rounded-[28px] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm md:min-h-[360px] md:p-6 lg:p-7">
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] md:h-20 md:w-20">
-                  <Image
-                    src={active.logo}
-                    alt={active.org}
-                    fill
-                    className="object-contain p-2.5"
-                  />
+        {/* Logo Grid Only */}
+        <div className="mt-8 flex-1">
+          <div className="grid h-full min-h-[520px] grid-cols-5 grid-rows-2 gap-3 md:gap-4">
+            {milestones.map((m, i) => (
+              <button
+                key={`${m.org}-${m.when}`}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={[
+                  "group relative flex min-h-0 items-center justify-center overflow-hidden rounded-[22px] border border-white/10",
+                  "bg-white/[0.03] backdrop-blur-sm transition-all duration-300",
+                  "hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_32px_rgba(255,255,255,0.05)]",
+                ].join(" ")}
+                aria-label={`Show ${m.org}`}
+              >
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-[radial-gradient(120px_80px_at_50%_45%,rgba(255,255,255,0.08),transparent_70%)]" />
                 </div>
 
-                <div className="min-w-0">
-                  <div className="text-[11px] uppercase tracking-[0.34em] text-white/50 md:text-xs">
-                    {active.when}
+                <div className="relative flex h-full w-full items-center justify-center p-3 md:p-4">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={m.logo}
+                      alt={m.org}
+                      fill
+                      className="object-contain opacity-90 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
+                    />
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-6">
-                <h2 className="max-w-[14ch] text-4xl leading-[0.95] tracking-tight text-white md:text-5xl">
-                  {active.org}
-                </h2>
-                <p className="mt-3 text-2xl leading-tight text-white/75 md:text-3xl">
-                  {active.role}
-                </p>
-              </div>
-
-              <div className="mt-8 text-sm uppercase tracking-[0.22em] text-white/45 md:text-[15px]">
-                {active.tags}
-              </div>
-
-              <div className="mt-auto pt-8">
-                <div className="h-[2px] w-56 max-w-full bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
-              </div>
-            </div>
-          </div>
-
-          {/* Logo Grid */}
-          <div className="min-h-0">
-            <div className="grid h-full grid-cols-5 grid-rows-2 gap-3 md:gap-4">
-              {milestones.map((m, i) => {
-                const isActive = i === activeIndex;
-
-                return (
-                  <button
-                    key={`${m.org}-${m.when}`}
-                    type="button"
-                    onClick={() => setActiveIndex(i)}
-                    className={[
-                      "group relative flex min-h-0 items-center justify-center overflow-hidden rounded-[22px] border transition-all duration-300",
-                      "bg-white/[0.03] backdrop-blur-sm",
-                      isActive
-                        ? "border-white/30 shadow-[0_0_32px_rgba(255,255,255,0.08)]"
-                        : "border-white/10 hover:border-white/20",
-                    ].join(" ")}
-                    aria-label={`Show ${m.org}`}
-                  >
-                    <div
-                      className={[
-                        "absolute inset-0 opacity-0 transition-opacity duration-300",
-                        isActive ? "opacity-100" : "group-hover:opacity-100",
-                      ].join(" ")}
-                    >
-                      <div className="absolute inset-0 bg-[radial-gradient(120px_80px_at_50%_45%,rgba(255,255,255,0.08),transparent_70%)]" />
-                    </div>
-
-                    <div className="relative flex h-full w-full items-center justify-center p-3 md:p-4">
-                      <div className="relative h-full w-full">
-                        <Image
-                          src={m.logo}
-                          alt={m.org}
-                          fill
-                          className={[
-                            "object-contain transition-all duration-300",
-                            isActive
-                              ? "scale-100 opacity-100"
-                              : "scale-[0.96] opacity-85 group-hover:scale-100 group-hover:opacity-100",
-                          ].join(" ")}
-                        />
-                      </div>
-                    </div>
-
-                    {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-90" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Modal */}
+      {active && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-6 backdrop-blur-md"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-full max-w-3xl rounded-[30px] border border-white/15 bg-[#050505]/95 p-6 shadow-[0_0_80px_rgba(0,0,0,0.55)] md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={closeModal}
+              className="mb-6 inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/80 transition hover:border-white/25 hover:text-white"
+            >
+              ← Back
+            </button>
+
+            <div className="flex items-center gap-4">
+              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] md:h-20 md:w-20">
+                <Image
+                  src={active.logo}
+                  alt={active.org}
+                  fill
+                  className="object-contain p-2.5"
+                />
+              </div>
+
+              <div className="min-w-0">
+                <div className="text-[11px] uppercase tracking-[0.34em] text-white/50 md:text-xs">
+                  {active.when}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h2 className="max-w-[14ch] text-4xl leading-[0.95] tracking-tight text-white md:text-6xl">
+                {active.org}
+              </h2>
+              <p className="mt-3 text-2xl leading-tight text-white/75 md:text-3xl">
+                {active.role}
+              </p>
+            </div>
+
+            <div className="mt-8 text-sm uppercase tracking-[0.22em] text-white/45 md:text-[15px]">
+              {active.tags}
+            </div>
+
+            <div className="mt-10 h-[2px] w-56 max-w-full bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
