@@ -56,13 +56,13 @@ function HighlightCard({
 function PhotoCollage() {
   const images = [
     "/images/collage/collage1.PNG",
+    "/images/collage/collage17.jpg",
     "/images/collage/collage2.jpg",
     "/images/collage/collage3.jpg",
-    "/images/collage/collage17.jpg",
     "/images/collage/collage4.jpg",
     "/images/collage/collage5.jpg",
-    "/images/collage/collage16.jpg",
     "/images/collage/collage6.jpg",
+    "/images/collage/collage16.jpg",
     "/images/collage/collage7.jpg",
     "/images/collage/collage8.jpg",
     "/images/collage/collage15.jpg",
