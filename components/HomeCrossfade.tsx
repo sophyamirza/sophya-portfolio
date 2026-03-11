@@ -58,32 +58,32 @@ function PhotoCollage() {
     {
       src: "/images/collage/collage1.jpg",
       alt: "Portfolio collage image 1",
-      className: "col-span-12 row-span-2 md:col-span-5 md:row-span-2",
+      className: "col-span-12 md:col-span-6",
     },
     {
       src: "/images/collage/collage2.jpg",
       alt: "Portfolio collage image 2",
-      className: "col-span-6 row-span-1 md:col-span-3 md:row-span-1",
+      className: "col-span-6 md:col-span-3",
     },
     {
       src: "/images/collage/collage3.jpg",
       alt: "Portfolio collage image 3",
-      className: "col-span-6 row-span-1 md:col-span-4 md:row-span-1",
+      className: "col-span-6 md:col-span-3",
     },
     {
       src: "/images/collage/collage4.jpg",
       alt: "Portfolio collage image 4",
-      className: "col-span-7 row-span-1 md:col-span-4 md:row-span-1",
+      className: "col-span-7 md:col-span-4",
     },
     {
       src: "/images/collage/collage5.jpg",
       alt: "Portfolio collage image 5",
-      className: "col-span-5 row-span-1 md:col-span-3 md:row-span-1",
+      className: "col-span-5 md:col-span-4",
     },
     {
       src: "/images/collage/collage6.jpg",
       alt: "Portfolio collage image 6",
-      className: "col-span-12 row-span-1 md:col-span-5 md:row-span-1",
+      className: "col-span-12 md:col-span-4",
     },
   ];
 
@@ -93,7 +93,7 @@ function PhotoCollage() {
         BEYOND THE WORK
       </div>
 
-      <div className="grid auto-rows-[140px] grid-cols-12 gap-4 md:auto-rows-[180px]">
+      <div className="grid grid-cols-12 gap-4">
         {images.map((image, i) => (
           <motion.div
             key={image.src}
@@ -101,15 +101,16 @@ function PhotoCollage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55, delay: i * 0.06 }}
-            className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] ${image.className}`}
+            className={`group rounded-2xl border border-white/10 bg-white/[0.03] p-3 ${image.className}`}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-xl bg-black/20 md:min-h-[260px]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </div>
           </motion.div>
         ))}
       </div>
