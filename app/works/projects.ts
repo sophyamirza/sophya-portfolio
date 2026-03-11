@@ -731,36 +731,7 @@ export const PROJECTS: Project[] = [
     results: PH.results,
     gallery: ["/projects/MAGBOOM/magboom3.PNG", "/projects/MAGBOOM/magboom4.PNG"],
   },
-  {
-    slug: "patris",
-    title: "PATRIS",
-    subtitle: "Probing articulated tubular robotic inspection",
-    year: "2024",
-    yearLabel: "2024",
-    projectType: "Robotics & Autonomy",
-    tags: ["Planetary Gearbox", "Cable actuation", "Joint-space PID", "Embedded motor control", "3D Printing"],
-    cover: "/projects/DUNKPROBE/dunkprobebuild2.PNG",
-    preview: {
-      staticSrc: "/projects/PATRIS/patris.PNG",
-      hoverSrc: "/projects/PATRIS/patris2.PNG",
-      alt: "Drone preview",
-    },
-    overview:
-      "Robotic inspection system emphasizing drivetrain design, embedded motor control, and controllable articulation.",
-    accomplishments: [
-      "Designed transmission and actuation approach",
-      "Implemented and tuned joint-space control behavior",
-      "Built prototypes to validate mechanics + control integration",
-    ],
-    status: "{insert status here}",
-    date: "{insert date here}",
-    focusArea: "Robotics & Embedded Control",
-    team: TEAM_PH,
-    systemOverview: PH.systemOverview,
-    toolsAndSkills: ["Gearbox design", "Embedded control", "3D printing", ...PH.tools],
-    contributions: PH.contributions,
-    results: PH.results,
-  },
+
   {
     slug: "bluefors-dr1-cryostat",
     title: "BluFors DR1 Cryostat",
