@@ -137,8 +137,8 @@ export const PROJECTS: Project[] = [
     slug: "alula",
     title: "ALULA",
     subtitle: "Liquid bi-prop engine rocket",
-    year: "2025",
-    yearLabel: "2025",
+    year: "2021-2025",
+    yearLabel: "2021-2025",
     projectType: "Propulsion & Fluids",
     tags: ["Propulsion", "Feed System", "Cryogenics", "Fluids P&ID", "Ethanol/LOX"],
     cover: "/projects/ALULA/alulahotfire.png",
@@ -156,10 +156,10 @@ export const PROJECTS: Project[] = [
       "Grew from prop member to prop subsytems RE and led as prop. dept. lead.Had fun building sick rockets!",
     ],
     status: "COMPLETED",
-    date: "LAUNCHED",
+    date: "2021-2025",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits.",
+      "UC Berkeley’s first successfully recovered liquid bi‑propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert.The vehicle uses a pressure fed cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student‑shop tooling limits. I started on the team my Freshman year of college as a Prop member, them became a prop RE, and eventually led the prop team as the prop deputy lead and PM ",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -199,6 +199,7 @@ export const PROJECTS: Project[] = [
           "/projects/ALULA/launch.PNG",
           "/projects/ALULA/recovery.PNG",
           "/projects/ALULA/star2.jpg",
+          "/projects/ALULA/alula13.jpg",
         ],
 
     sections: [
