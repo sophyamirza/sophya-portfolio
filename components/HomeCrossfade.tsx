@@ -213,7 +213,7 @@ export default function HomeCrossfade() {
           <HighlightCard
             title="ALULA"
             subtitle="Liquid Bi-Prop Engine"
-            tags="PROPULSION · VALVES · FEED SYSTEM"
+            tags="PROPULSION · VALVES · ENGINE"
             href="/works/alula"
             imageSrc="/projects/ALULA/cover.PNG"
             imageAlt="ALULA project preview"
