@@ -22,7 +22,7 @@ export default function HeroCopy() {
 
   // -------- TUNABLES ----------
   const START_DELAY_MS = 520; // wait for name to appear
-  const TYPE_MS = 9; // ✅ typing speed (lower=faster). Try 10, 12, 14, 18
+  const TYPE_MS = 5; // ✅ typing speed (lower=faster). Try 10, 12, 14, 18
   // ----------------------------
 
   // parallax loop
