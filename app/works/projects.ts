@@ -340,54 +340,215 @@ export const PROJECTS: Project[] = [
         gallery: ["/projects/VALVES/valves1.PNG", "/projects/VALVES/valves2.PNG"],
       },
       {
-        slug: "alula-engine",
-        parentSlug: "alula",
-        title: "Engine",
-        subtitle: "Injector, chamber, and nozzle hardware",
-        year: "2025",
-        yearLabel: "2025",
-        projectType: "Propulsion & Fluids",
-        tags: ["Engine", "Injector", "Nozzle", "Combustion Hardware"],
-        cover: "/projects/ALULA/engine1.PNG",
-        preview: {
-          staticSrc: "/projects/ALULA/engine1.PNG",
-          hoverSrc: "/projects/ALULA/engine2.PNG",
-          alt: "ALULA Engine preview",
-        },
-        overview:
-          "Liquid rocket engine hardware including injector, chamber, and nozzle development for ALULA.",
-        accomplishments: [
-          "Supported engine hardware design and manufacturing",
-          "Selected manufacturable nozzle geometry",
-          "Contributed to integrated propulsion system validation",
-        ],
-        status: "COMPLETED",
-        date: "2025",
-        focusArea: "Rocket Engine Hardware",
-        team: "Sophya Mirza",
-        systemOverview:
-          "Engine hardware development for ALULA, including injector, chamber, and nozzle trade studies, manufacturing decisions, and integration into the broader liquid propulsion system.",
-        toolsAndSkills: [
-          "Injector manufacturing",
-          "Nozzle design",
-          "RPA",
-          "Thermal analysis",
-          "Machining",
-        ],
-        contributions: [
-          "Supported design and manufacturing of engine hardware.",
-          "Selected manufacturable nozzle geometry based on performance and tooling constraints.",
-          "Contributed to integrated propulsion system validation prior to launch.",
-        ],
-        results: [
-          "Engine hardware integrated into the ALULA propulsion stack.",
-          "Manufacturable design choices enabled student-shop fabrication.",
-          "Supported successful campaign through launch and recovery.",
-        ],
-        gallery: ["/projects/ALULA/engine1.PNG", "/projects/ALULA/engine2.PNG"],
-      },
-    ],
+  slug: "alula-engine",
+  parentSlug: "alula",
+  title: "Engine",
+  subtitle: "Injector, chamber, and nozzle hardware",
+  year: "2025",
+  yearLabel: "2025",
+  projectType: "Propulsion & Fluids",
+  tags: ["Engine", "Injector", "Nozzle", "Combustion Hardware"],
+  cover: "/projects/ALULA/engine1.PNG",
+  preview: {
+    staticSrc: "/projects/ALULA/engine1.PNG",
+    hoverSrc: "/projects/ALULA/engine2.PNG",
+    alt: "ALULA Engine preview",
   },
+  overview:
+    "Liquid rocket engine development for ALULA spanning injector design, thrust chamber sizing, manufacturable nozzle trades, thermal validation, and integration into the full ethanol/LOX propulsion stack.",
+  accomplishments: [
+    "Used RPA to model the thrust chamber and nozzle geometry around vehicle-level performance goals and target apogee.",
+    "Designed one of the earliest injector concepts and machined the final injector hardware.",
+    "Selected a manufacturable de Laval nozzle over a bell nozzle to preserve performance while matching student-shop tooling limits.",
+    "Ran SolidWorks thermal and force simulations to verify the chamber and nozzle would survive launch conditions.",
+    "Supported integrated engine validation through design iteration, manufacturing, and hot-fire-informed updates.",
+  ],
+  status: "COMPLETED",
+  date: "2025",
+  focusArea: "Rocket Engine Hardware",
+  team: "Sophya Mirza",
+  systemOverview:
+    "I supported development of the ALULA liquid rocket engine, including the injector, chamber, and nozzle. I used RPA to model the ideal thrust chamber shape around our specific flight vehicle, thrust target, burn duration, and apogee goal. We intentionally moved away from a standard bell nozzle because it was too difficult to manufacture with the tools available to us, and instead selected a de Laval geometry that gave similar performance with a much more practical machining path. I also designed one of the earliest injector concepts and later manufactured and machined the final injector version, then used SolidWorks thermal and structural simulations to verify the hardware would survive launch loads and heating.",
+  toolsAndSkills: [
+    "RPA",
+    "SolidWorks CAD",
+    "SolidWorks Simulation",
+    "Injector design",
+    "Nozzle design",
+    "Thermal analysis",
+    "Combustion hardware",
+    "Manual machining",
+    "Lathe",
+    "Manufacturing for limited-tool environments",
+  ],
+  contributions: [
+    "Modeled the engine around vehicle-level requirements, including thrust target, burn duration, and apogee, using RPA.",
+    "Traded manufacturability against ideal performance and selected a de Laval nozzle instead of a standard bell contour.",
+    "Designed one of the first injector concepts and machined the final injector hardware used for the engine program.",
+    "Ran thermal and force simulations in SolidWorks to check chamber and nozzle survivability under expected launch conditions.",
+    "Supported engine integration into the broader ALULA propulsion system and fed analysis results back into hardware decisions.",
+  ],
+  results: [
+    "Engine geometry was sized around a realistic, vehicle-specific mission target rather than a generic textbook configuration.",
+    "De Laval nozzle selection preserved near-target performance while enabling practical manufacturing with student-shop tools.",
+    "Injector, chamber, and nozzle hardware were carried through design, machining, and integrated propulsion validation.",
+    "Thermal and structural analysis established acceptable margin before fabrication and launch use.",
+  ],
+
+  sections: [
+    {
+      id: "engine-overview",
+      title: "High-Level System Parameters",
+      summary:
+        "Vehicle-level and engine-level targets used to size the chamber, nozzle, and injector architecture.",
+      bullets: [
+        "Target Apogee: 2500 m ±10%",
+        "Approx. Vehicle Mass: 40 kg dry",
+        "Approx. Thrust Level / Burn Time: 1.80 kN, 10 s",
+        "Priorities: stable, conservative performance and efficient manufacturing / assembly",
+        "Injector: unlike-doublet impinging, LOX-centered",
+        "Chamber: ablative + fuel-jetted wall film, 6061 aluminum jacket",
+        "Nozzle: graphite throat, 316 stainless steel expansion section",
+      ],
+      images: [
+        "/projects/ALULA/engine1.PNG",
+        "/projects/ALULA/engine2.PNG",
+      ],
+    },
+    {
+      id: "engine-details",
+      title: "Engine Details",
+      summary:
+        "Baseline operating parameters and combustion hardware choices used to define the engine configuration.",
+      bullets: [
+        "Initial Thrust: 500 lbf",
+        "Chamber: 375 psi, 3300 K",
+        "Burn Time: 12–16 s",
+        "Propellants: LOX / Ethanol",
+        "O/F Ratio: 1.6 > 1.5",
+        "Cooling: Ablative Canvas / Phenolic",
+        "Injector: Unlike Doublet Impinging",
+      ],
+      images: [
+        "/projects/ALULA/engine1.PNG",
+      ],
+    },
+    {
+      id: "injector-design",
+      title: "Injector Design",
+      summary:
+        "I designed one of the earliest injector concepts and later machined the final injector version, balancing atomization behavior, manufacturability, and hot-fire robustness.",
+      bullets: [
+        "Designed one of the earliest injector concepts and manufactured / machined the final version",
+        "Unlike-doublet impinging injector, LOX-centered",
+        "Roughly 8:1 orifice L:D",
+        "Free Path : Fuel Diameter = 4.5:1",
+        "Impinger total angle: 69°",
+        "Resulting fan angle: 1.0° inwards",
+        "Area split: 1/3 inner / outer",
+        "Fuel shedding instability reduced from 2.66 kHz to 1.06 kHz",
+        "Heat flux at injector face remained acceptable through hot-fire",
+      ],
+      images: [
+        "/projects/ALULA/engine1.PNG",
+        "/projects/ALULA/engine2.PNG",
+      ],
+    },
+    {
+      id: "wall-film-cooling",
+      title: "Wall Film Cooling Strategy",
+      summary:
+        "Secondary ethanol film cooling was added around the chamber wall to protect the phenolic liner and control local heating near the hottest regions.",
+      bullets: [
+        "No change to injection holes",
+        "8 holes pointed radially around hotspot regions",
+        "10–15% of ethanol mass flow rate allocated to film cooling",
+        "Simple geometry improved machine-ability",
+        "Primary concerns: pressure drop through cooling holes",
+        "Primary concerns: high frictional losses",
+        "Primary concerns: selecting an impact angle that hit the phenolic without splash-back while still spreading ethanol broadly",
+      ],
+      images: [
+        "/projects/ALULA/engine2.PNG",
+      ],
+    },
+    {
+      id: "chamber-and-nozzle",
+      title: "Chamber and Nozzle Architecture",
+      summary:
+        "The chamber and nozzle were split into manufacturable material sections to manage heat load, fabrication limits, and structural margin.",
+      bullets: [
+        "Chamber Sleeve: 6061-T6 aluminum, 3.625 in OD, 3.25 in ID",
+        "Ablative Sleeve: canvas phenolic, 3.25 in OD, 2.75 in ID",
+        "Nozzle: upper graphite section",
+        "Nozzle: lower 316 stainless steel section",
+        "Planned YSZ or alternative ceramic coating to reduce steel temperature",
+        "Nozzle redesign followed a previous nozzle blowout",
+        "Mounted using a steel snap ring",
+      ],
+      images: [
+        "/projects/ALULA/engine1.PNG",
+        "/projects/ALULA/engine2.PNG",
+      ],
+    },
+    {
+      id: "rpa-nozzle-trade",
+      title: "RPA Sizing and Nozzle Trade",
+      summary:
+        "I used RPA to size the thrust chamber shape and nozzle around the actual ALULA flight vehicle and apogee target, then selected a manufacturable de Laval contour instead of a standard bell nozzle.",
+      bullets: [
+        "Modeled the ideal thrust chamber shape around the specific flight vehicle and mission goal",
+        "Used target apogee and thrust requirements to guide chamber and nozzle sizing",
+        "Decided against a standard bell nozzle because it was too difficult to manufacture with available tools",
+        "Selected a de Laval nozzle that delivered similar performance with a far more practical manufacturing path",
+        "Closed the loop between propulsion analysis and hardware fabrication constraints",
+      ],
+      images: [
+        "/projects/ALULA/engine2.PNG",
+      ],
+    },
+    {
+      id: "thermal-structural-validation",
+      title: "Thermal and Structural Validation",
+      summary:
+        "I ran SolidWorks thermal and force simulations to verify the engine hardware would survive expected launch heating and load cases before fabrication and use.",
+      bullets: [
+        "Highest stresses were concentrated in the nozzle assembly, especially the stainless expansion section",
+        "Projected factor of safety for stainless expansion section: ~2.4",
+        "Projected factor of safety for graphite section: ~1.5",
+        "Temperatures were believed to be conservative / likely overestimates",
+        "Planned ceramic coating on stainless section to further reduce temperature",
+        "Used simulation results to guide confidence in the final hardware geometry",
+      ],
+      images: [
+        "/projects/ALULA/engine1.PNG",
+        "/projects/ALULA/engine2.PNG",
+      ],
+    },
+    {
+      id: "igniter-and-integration",
+      title: "Igniter and Integration Updates",
+      summary:
+        "Igniter and mounting geometry were iterated for better reliability, cleaner integration, and reduced risk of interference with the updated nozzle hardware.",
+      bullets: [
+        "Igniter core kept the same base architecture but was slimmed down",
+        "Considered extra e-match / black powder for improved reliability",
+        "Top cup on the mount was reduced or removed to lower chance of nozzle strike",
+        "Mount changed from 3 arms to 4 arms for simpler, thicker geometry",
+        "Planned further testing with COM-DAQ hardware to prevent misfires and board damage",
+        "Required follow-on work included modifying clamps to fit the new nozzle geometry",
+      ],
+      images: [
+        "/projects/ALULA/engine1.PNG",
+      ],
+    },
+  ],
+
+  gallery: [
+    "/projects/ALULA/engine1.PNG",
+    "/projects/ALULA/engine2.PNG",
+  ],
+},
 
   {
     slug: "rescuebot",
