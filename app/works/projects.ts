@@ -410,10 +410,7 @@ export const PROJECTS: Project[] = [
         "Chamber: ablative + fuel-jetted wall film, 6061 aluminum jacket",
         "Nozzle: graphite throat, 316 stainless steel expansion section",
       ],
-      images: [
-        "/projects/ALULA/engine1.PNG",
-        "/projects/ALULA/engine2.PNG",
-      ],
+      
     },
     {
       id: "engine-details",
@@ -468,9 +465,7 @@ export const PROJECTS: Project[] = [
         "Primary concerns: high frictional losses",
         "Primary concerns: selecting an impact angle that hit the phenolic without splash-back while still spreading ethanol broadly",
       ],
-      images: [
-        "/projects/ALULA/engine2.PNG",
-      ],
+      
     },
     {
       id: "chamber-and-nozzle",
@@ -487,8 +482,7 @@ export const PROJECTS: Project[] = [
         "Mounted using a steel snap ring",
       ],
       images: [
-        "/projects/ALULA/engine1.PNG",
-        "/projects/ALULA/engine2.PNG",
+        "/projects/ALULA/9engine.PNG",
       ],
     },
     {
