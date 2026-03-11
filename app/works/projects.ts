@@ -340,7 +340,12 @@ export const PROJECTS: Project[] = [
         ],
         videoSrc: "/projects/ALULA/ALULALaunch.mp4",
         videoPoster: "/projects/ALULA/RQD1.PNG",
-        gallery: ["/projects/VALVES/valves1.PNG", "/projects/VALVES/valves2.PNG"],
+        gallery: ["/projects/VALVES/valves1.PNG", 
+          "/projects/VALVES/valves2.PNG",
+          "/projects/VALVES/valves3.jpg",
+          "/projects/VALVES/valves4.PNG",
+          "/projects/VALVES/valves5.PNG",
+          ]
       },
       {
   slug: "alula-engine",
