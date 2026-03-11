@@ -55,66 +55,18 @@ function HighlightCard({
 
 function PhotoCollage() {
   const images = [
-    {
-      src: "/images/collage/collage1.jpg",
-      alt: "Portfolio collage image 1",
-      className: "col-span-12 md:col-span-6 aspect-[4/3] md:aspect-[5/4]",
-    },
-    {
-      src: "/images/collage/collage2.jpg",
-      alt: "Portfolio collage image 2",
-      className: "col-span-6 md:col-span-3 aspect-[3/4]",
-    },
-    {
-      src: "/images/collage/collage3.jpg",
-      alt: "Portfolio collage image 3",
-      className: "col-span-6 md:col-span-3 aspect-[3/4]",
-    },
-    {
-      src: "/images/collage/collage4.jpg",
-      alt: "Portfolio collage image 4",
-      className: "col-span-6 md:col-span-4 aspect-[4/5]",
-    },
-    {
-      src: "/images/collage/collage5.jpg",
-      alt: "Portfolio collage image 5",
-      className: "col-span-6 md:col-span-4 aspect-[4/3]",
-    },
-    {
-      src: "/images/collage/collage6.jpg",
-      alt: "Portfolio collage image 6",
-      className: "col-span-12 md:col-span-4 aspect-[4/5]",
-    },
-    {
-      src: "/images/collage/collage7.jpg",
-      alt: "Portfolio collage image 7",
-      className: "col-span-6 md:col-span-3 aspect-[3/4]",
-    },
-    {
-      src: "/images/collage/collage8.jpg",
-      alt: "Portfolio collage image 8",
-      className: "col-span-6 md:col-span-3 aspect-[3/4]",
-    },
-    {
-      src: "/images/collage/collage9.jpg",
-      alt: "Portfolio collage image 9",
-      className: "col-span-12 md:col-span-6 aspect-[16/10]",
-    },
-    {
-      src: "/images/collage/collage10.PNG",
-      alt: "Portfolio collage image 10",
-      className: "col-span-6 md:col-span-3 aspect-[4/5]",
-    },
-    {
-      src: "/images/collage/collage11.PNG",
-      alt: "Portfolio collage image 11",
-      className: "col-span-6 md:col-span-3 aspect-[4/5]",
-    },
-    {
-      src: "/images/collage/collage14.PNG",
-      alt: "Portfolio collage image 14",
-      className: "col-span-12 md:col-span-6 aspect-[5/4]",
-    },
+    "/images/collage/collage1.jpg",
+    "/images/collage/collage2.jpg",
+    "/images/collage/collage3.jpg",
+    "/images/collage/collage4.jpg",
+    "/images/collage/collage5.jpg",
+    "/images/collage/collage6.jpg",
+    "/images/collage/collage7.jpg",
+    "/images/collage/collage8.jpg",
+    "/images/collage/collage9.jpg",
+    "/images/collage/collage10.PNG",
+    "/images/collage/collage11.PNG",
+    "/images/collage/collage14.PNG",
   ];
 
   return (
@@ -123,27 +75,29 @@ function PhotoCollage() {
         BEYOND THE WORK
       </div>
 
-      <div className="grid grid-cols-12 gap-4 md:gap-5">
-        {images.map((image, i) => (
+      <div className="grid grid-cols-12 gap-6">
+        {images.map((src, i) => (
           <motion.div
-            key={image.src}
+            key={src}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.55, delay: i * 0.04 }}
-            className={`group relative overflow-hidden rounded-2xl ${image.className}`}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.03 }}
+            className="col-span-6 md:col-span-3 flex items-center justify-center"
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            <div className="relative h-[220px] w-full md:h-[260px]">
+              <Image
+                src={src}
+                alt="Collage image"
+                fill
+                className="object-contain transition-transform duration-500 hover:scale-[1.03]"
+              />
+            </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-12 flex justify-center">
         <Link
           href="/bio"
           className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
@@ -157,8 +111,6 @@ function PhotoCollage() {
 
 export default function HomeCrossfade() {
   const heroRef = useRef<HTMLElement | null>(null);
-  const philRef = useRef<HTMLElement | null>(null);
-
   const [t, setT] = useState(0);
 
   useEffect(() => {
@@ -168,8 +120,7 @@ export default function HomeCrossfade() {
     const update = () => {
       raf = null;
       const hero = heroRef.current;
-      const phil = philRef.current;
-      if (!hero || !phil) return;
+      if (!hero) return;
 
       const vh = window.innerHeight || 1;
       const heroTop = hero.offsetTop;
@@ -203,7 +154,6 @@ export default function HomeCrossfade() {
 
   return (
     <div className="bg-black overflow-x-clip">
-      {/* HERO */}
       <section
         ref={(n) => {
           heroRef.current = n;
@@ -232,14 +182,12 @@ export default function HomeCrossfade() {
         </div>
 
         <ScrollIndicator targetId="philosophy" />
+
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* PORTFOLIO */}
       <div className="mx-auto max-w-6xl px-6 pb-28">
-        <div className="text-xs tracking-[0.35em] text-white/60">
-          PORTFOLIO
-        </div>
+        <div className="text-xs tracking-[0.35em] text-white/60">PORTFOLIO</div>
 
         <div className="mt-3 flex items-end justify-between gap-6">
           <h2 className="text-4xl tracking-wide text-white md:text-5xl">
@@ -258,6 +206,7 @@ export default function HomeCrossfade() {
             imageSrc="/projects/ALULA/cover.PNG"
             imageAlt="ALULA project preview"
           />
+
           <HighlightCard
             title="KITTA"
             subtitle="DARPA Challenge ~ Drone Delivery Platform"
@@ -266,6 +215,7 @@ export default function HomeCrossfade() {
             imageSrc="/projects/KITTA/KITTA.PNG"
             imageAlt="KITTA project preview"
           />
+
           <HighlightCard
             title="Blunt Body Analysis"
             subtitle="Supersonic Flow Over a Blunt Body"
@@ -274,6 +224,7 @@ export default function HomeCrossfade() {
             imageSrc="/projects/BLUNTBODY/blunt1.PNG"
             imageAlt="blunt body analysis project preview"
           />
+
           <HighlightCard
             title="XLDsl + SQUIDs"
             subtitle="Cryogenic Systems"
