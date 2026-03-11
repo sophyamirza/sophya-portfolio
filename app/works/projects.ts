@@ -188,6 +188,7 @@ export const PROJECTS: Project[] = [
     ],
     gallery: [
       "/projects/ALULA/alulahotfire.png",
+      "/images/collage/collage8.jpg",
       "/projects/ALULA/cover.PNG",
       "/projects/ALULA/star3.jpg",
       "/projects/ALULA/alulaCAD.PNG",
