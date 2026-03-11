@@ -46,6 +46,84 @@ function flattenProjects(projects: Project[]): Project[] {
   ]);
 }
 
+function SectionImageCollage({
+  images,
+  altBase,
+}: {
+  images: string[];
+  altBase: string;
+}) {
+  if (!images.length) return null;
+
+  if (images.length === 1) {
+    return (
+      <div className="grid grid-cols-1 gap-4">
+        <div className="relative min-h-[320px] overflow-hidden rounded-xl border border-white/10 bg-black md:min-h-[460px]">
+          <Image
+            src={images[0]}
+            alt={`${altBase} 1`}
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 100vw, 66vw"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (images.length === 2) {
+    return (
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {images.map((src, i) => (
+          <div
+            key={`${src}-${i}`}
+            className="relative min-h-[260px] overflow-hidden rounded-xl border border-white/10 bg-black md:min-h-[360px]"
+          >
+            <Image
+              src={src}
+              alt={`${altBase} ${i + 1}`}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+      {images.map((src, i) => {
+        const isHero = i === 0;
+        return (
+          <div
+            key={`${src}-${i}`}
+            className={[
+              "relative overflow-hidden rounded-xl border border-white/10 bg-black",
+              isHero
+                ? "min-h-[320px] md:col-span-7 md:min-h-[520px]"
+                : "min-h-[220px] md:col-span-5 md:min-h-[250px]",
+            ].join(" ")}
+          >
+            <Image
+              src={src}
+              alt={`${altBase} ${i + 1}`}
+              fill
+              className="object-contain"
+              sizes={
+                isHero
+                  ? "(max-width: 768px) 100vw, 58vw"
+                  : "(max-width: 768px) 100vw, 40vw"
+              }
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default async function ProjectPage({
   params,
 }: {
@@ -88,14 +166,6 @@ export default async function ProjectPage({
   const toolsAndSkills =
     p.toolsAndSkills ?? ["{insert tool}", "{insert tool}", "{insert tool}"];
 
-  const contributions =
-    p.contributions ??
-    p.accomplishments ?? [
-      "{insert contribution here}",
-      "{insert contribution here}",
-      "{insert contribution here}",
-    ];
-
   const results =
     p.results ??
     (p.accomplishments?.length
@@ -103,6 +173,7 @@ export default async function ProjectPage({
       : ["{insert result here}", "{insert result here}"]);
 
   const hasVideo = Boolean(p.videoSrc);
+  const useSectionCollage = p.slug === "alula-engine";
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -246,65 +317,87 @@ export default async function ProjectPage({
 
             {!childProjects.length && p.sections?.length ? (
               <div className="mt-10 space-y-10">
-                {p.sections.map((s) => (
-                  <section
-                    key={s.id}
-                    id={s.id}
-                    className="rounded-2xl border border-white/10 bg-white/[0.02] p-8"
-                  >
-                    <div className="flex items-center justify-between gap-6">
-                      <div className="text-xs tracking-[0.35em] text-white/55">
-                        SECTION
-                      </div>
-                      <div
-                        className="h-px flex-1 opacity-60"
-                        style={{ background: THERMAL_GRADIENT }}
-                      />
-                    </div>
+                {p.sections.map((s, index) => {
+                  const reverse = index % 2 === 1;
 
-                    <h2 className="mt-4 text-2xl tracking-tight text-white/90 md:text-3xl">
-                      {s.title}
-                    </h2>
-
-                    {s.summary ? (
-                      <p className="mt-4 leading-relaxed text-white/75">
-                        {s.summary}
-                      </p>
-                    ) : null}
-
-                    {s.bullets?.length ? (
-                      <ul className="mt-5 space-y-2 text-white/80">
-                        {s.bullets.map((b, i) => (
-                          <li key={`${s.id}-b-${i}`} className="flex gap-3">
-                            <span
-                              className="mt-[7px] h-2 w-2 rounded-full"
-                              style={{
-                                background: THERMAL_GRADIENT,
-                                boxShadow: "0 0 16px rgba(255,255,255,0.08)",
-                                opacity: 0.9,
-                              }}
-                            />
-                            <span>{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-
-                    {s.images?.length ? (
-                      <div className="relative mt-7 overflow-hidden rounded-xl border border-white/10 bg-black">
-                        <ImageCarousel
-                          images={s.images}
-                          alt={`${p.title} ${s.title} images`}
+                  return (
+                    <section
+                      key={s.id}
+                      id={s.id}
+                      className="rounded-2xl border border-white/10 bg-white/[0.02] p-8"
+                    >
+                      <div className="flex items-center justify-between gap-6">
+                        <div className="text-xs tracking-[0.35em] text-white/55">
+                          SECTION
+                        </div>
+                        <div
+                          className="h-px flex-1 opacity-60"
+                          style={{ background: THERMAL_GRADIENT }}
                         />
-                        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
                       </div>
-                    ) : null}
-                  </section>
-                ))}
+
+                      <div
+                        className={[
+                          "mt-6 grid grid-cols-1 gap-8",
+                          useSectionCollage && s.images?.length
+                            ? "lg:grid-cols-2 lg:items-start"
+                            : "",
+                        ].join(" ")}
+                      >
+                        <div className={reverse && useSectionCollage ? "lg:order-2" : ""}>
+                          <h2 className="text-2xl tracking-tight text-white/90 md:text-3xl">
+                            {s.title}
+                          </h2>
+
+                          {s.summary ? (
+                            <p className="mt-4 leading-relaxed text-white/75">
+                              {s.summary}
+                            </p>
+                          ) : null}
+
+                          {s.bullets?.length ? (
+                            <ul className="mt-5 space-y-2 text-white/80">
+                              {s.bullets.map((b, i) => (
+                                <li key={`${s.id}-b-${i}`} className="flex gap-3">
+                                  <span
+                                    className="mt-[7px] h-2 w-2 rounded-full"
+                                    style={{
+                                      background: THERMAL_GRADIENT,
+                                      boxShadow: "0 0 16px rgba(255,255,255,0.08)",
+                                      opacity: 0.9,
+                                    }}
+                                  />
+                                  <span>{b}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </div>
+
+                        {s.images?.length ? (
+                          <div className={reverse && useSectionCollage ? "lg:order-1" : ""}>
+                            {useSectionCollage ? (
+                              <SectionImageCollage
+                                images={s.images}
+                                altBase={`${p.title} ${s.title} images`}
+                              />
+                            ) : (
+                              <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black">
+                                <ImageCarousel
+                                  images={s.images}
+                                  alt={`${p.title} ${s.title} images`}
+                                />
+                                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/10 via-transparent to-black/10" />
+                              </div>
+                            )}
+                          </div>
+                        ) : null}
+                      </div>
+                    </section>
+                  );
+                })}
               </div>
             ) : null}
-
-            
 
             {hasVideo ? (
               <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
@@ -355,8 +448,6 @@ export default async function ProjectPage({
                 </ul>
               </div>
             ) : null}
-
-          
 
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
               <div className="text-xs tracking-[0.35em] text-white/55">

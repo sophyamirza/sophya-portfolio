@@ -544,11 +544,13 @@ export const PROJECTS: Project[] = [
     },
   ],
 
-  gallery: [
+    gallery: [
     "/projects/ALULA/engine1.PNG",
     "/projects/ALULA/engine2.PNG",
   ],
 },
+    ],
+  },
 
   {
     slug: "rescuebot",
