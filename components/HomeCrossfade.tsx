@@ -55,7 +55,7 @@ function HighlightCard({
 
 function PhotoCollage() {
   const images = [
-    "/images/collage/collage1.jpg",
+    "/images/collage/collage1.PNG",
     "/images/collage/collage2.jpg",
     "/images/collage/collage3.jpg",
     "/images/collage/collage4.jpg",
