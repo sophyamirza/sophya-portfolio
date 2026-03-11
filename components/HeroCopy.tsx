@@ -21,8 +21,9 @@ export default function HeroCopy() {
   const [cursorOn, setCursorOn] = useState(true);
 
   // -------- TUNABLES ----------
-  const START_DELAY_MS = 200; // wait for name to appear
-  const TYPE_MS = 10; // ✅ typing speed (lower=faster). Try 10, 12, 14, 18
+  const START_DELAY_MS = 80;
+  const CHARS_PER_TICK = 3;
+  const TICK_MS = 16;
   // ----------------------------
 
   // parallax loop
@@ -30,7 +31,7 @@ export default function HeroCopy() {
     const onMove = (e: PointerEvent) => {
       const w = window.innerWidth;
       const h = window.innerHeight;
-      const nx = (e.clientX / w - 0.5) * 2; // -1..1
+      const nx = (e.clientX / w - 0.5) * 2;
       const ny = (e.clientY / h - 0.5) * 2;
       target.current = { x: nx, y: ny };
     };
@@ -56,23 +57,23 @@ export default function HeroCopy() {
     };
   }, []);
 
-  // typewriter (with proper cleanup)
+  // typewriter
   useEffect(() => {
     let i = 0;
     let interval: number | null = null;
 
     const startDelay = window.setTimeout(() => {
       interval = window.setInterval(() => {
-        i++;
+        i = Math.min(i + CHARS_PER_TICK, FULL.length);
         setTyped(FULL.slice(0, i));
+
         if (i >= FULL.length && interval) {
           window.clearInterval(interval);
           interval = null;
         }
-      }, TYPE_MS);
+      }, TICK_MS);
     }, START_DELAY_MS);
 
-    // optional: let user skip typing by click/press
     const skip = () => {
       setTyped(FULL);
       if (interval) {
@@ -91,7 +92,7 @@ export default function HeroCopy() {
       window.clearTimeout(startDelay);
       if (interval) window.clearInterval(interval);
     };
-  }, []);
+  }, [FULL, START_DELAY_MS, CHARS_PER_TICK, TICK_MS]);
 
   // blinking cursor
   useEffect(() => {
@@ -113,7 +114,7 @@ export default function HeroCopy() {
         initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.08 }}
-        className="mt-4 text-5xl md:text-7xl leading-[0.95] italic tracking-tight text-white/90"
+        className="mt-4 text-5xl leading-[0.95] italic tracking-tight text-white/90 md:text-7xl"
         style={{ fontFamily: "'Playfair Display', serif" }}
       >
         SOPHYA
@@ -123,7 +124,7 @@ export default function HeroCopy() {
         initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.16 }}
-        className="mt-6 max-w-2xl text-white/75 text-lg"
+        className="mt-6 max-w-2xl text-lg text-white/75"
       >
         <span>{typed}</span>
         <span className="ml-1 inline-block w-[0.6ch]">
