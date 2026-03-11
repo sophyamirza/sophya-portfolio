@@ -309,10 +309,12 @@ export const PROJECTS: Project[] = [
         overview:
           "Main valve system for controlling propellant flow through the ethanol and LOX feed architecture.",
         accomplishments: [
-          "Supported primary fluid routing and control",
-          "Designed for cryogenic compatibility",
-          "Iterated through test-driven hardware development",
-        ],
+          "System design and team integration: I designed two valves for the liquid propulsion system including a refurbished version of a previously developed pyrotechnic valve and a follow on pressure actuated valve developed to address issues discovered during testing. This work was done in close collaboration with the propulsion team to ensure proper integration with the propellant feed system and overall vehicle architecture.",
+
+          "Designed in SolidWorks and machined prototype hardware: The first design was a lightweight pyro valve used to actuate liquid oxygen and ethanol lines. An e match ignites about 0.05 g of black powder stored in the top cap which drives a piston downward and opens the flow path. Pyro actuation was selected because it is significantly lighter and simpler than solenoids or servo driven valves and does not require a large power supply. I designed the valve in SolidWorks and machined the prototype components from aluminum before working with the team to assemble and test the system. The flight version was redesigned in stainless steel for compatibility with liquid oxygen. I also ran thermal and pressure drop simulations and compared those results with experimental test data.",
+
+          "Test driven redesign and sealing architecture: Testing revealed leakage at cryogenic temperatures and high pressure due to Viton O rings which are not designed for liquid oxygen temperatures. After diagnosing the failure mode with the team I designed a second pressure actuated valve using PTFE spring energized seals rated for cryogenic service. This required a full redesign of the sealing architecture. The updated design ensures sealing surfaces do not pass over ports and uses tightly toleranced grooves based on the EriksUSA spring energized seal design guide to maintain sealing performance under cryogenic contraction."
+],
         status: "COMPLETED",
         date: "2025",
         focusArea: "Valve Design & Propellant Control",
