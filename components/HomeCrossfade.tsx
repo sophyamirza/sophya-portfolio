@@ -194,12 +194,19 @@ export default function HomeCrossfade() {
       <div className="mx-auto max-w-6xl px-6 pb-28">
         <div className="text-xs tracking-[0.35em] text-white/60">PORTFOLIO</div>
 
-        <div className="mt-3 flex items-end justify-between gap-6">
+        <div className="mt-3 flex items-center gap-6">
           <h2 className="text-4xl tracking-wide text-white md:text-5xl">
             PROJECT HIGHLIGHTS
           </h2>
 
-          <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-[rgba(255,59,31,0.22)] md:block" />
+          <div className="hidden md:block h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-[rgba(255,59,31,0.22)]" />
+
+          <Link
+            href="/works"
+            className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-2 text-[11px] tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
+          >
+            View All Works →
+          </Link>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
@@ -246,12 +253,7 @@ export default function HomeCrossfade() {
             product design.
           </p>
 
-          <Link
-            href="/works"
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-10 py-3 text-xs tracking-[0.22em] uppercase text-white transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
-          >
-            View All Works →
-          </Link>
+          
         </div>
 
         <PhotoCollage />
