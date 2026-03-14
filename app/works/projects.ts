@@ -750,8 +750,7 @@ toolsAndSkills: [
   ...PH.tools
 ],
 
-contributions: PH.contributions,
-results: PH.results,
+
 
 gallery: [
   "/projects/MAGBOOM/magboom3.PNG",

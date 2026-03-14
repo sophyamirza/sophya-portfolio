@@ -204,7 +204,7 @@ export default function BioPage() {
               </p>
 
               <p>
-                A few years ago a fortune cookie told me I “create enthusiasm,” and that is how I try to show up on every team, bringing energy, clarity, and momentum to hard problems. As a builder at heart, I have owned hardware at places such as SpaceX where I shared the Texan roads with rocket launches, Astranis, and NASA, focusing on satellite propulsion hardware, launch vehicle structures, and battery thermal management systems across materials, CAD, FEA, testing, and manufacturing. When I am not building hardware, I train jiu jitsu, a reminder to stay adaptable under pressure, and I bring that same mindset to engineering: first principles thinking, rapid test cycles, and a bias toward building and turnaround from real hardware.
+                A few years ago a fortune cookie told me I “create enthusiasm,” and that is how I try to show up on every team, bringing energy, clarity, and momentum to hard problems. As a builder at heart, I have owned hardware at places such as SpaceX where I shared the Texan roads with rocket launches, Proterra, and NASA, focusing on satellite propulsion hardware, launch vehicle structures, and battery thermal management systems across materials, CAD, FEA, testing, and manufacturing. When I am not building hardware, I train jiu jitsu, a reminder to stay adaptable under pressure, and I bring that same mindset to engineering: first principles thinking, rapid test cycles, and a bias toward building and turnaround from real hardware.
               </p>
 
               <p>
@@ -312,7 +312,7 @@ export default function BioPage() {
               <ChipSection
                 title="EDUCATION"
                 dense
-                items={["UC Berkeley · Mechanical Engineering"]}
+                items={["UC Berkeley · Mechanical Engineering · Spring '25"]}
               />
 
               <ChipSection
