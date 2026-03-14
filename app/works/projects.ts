@@ -753,6 +753,7 @@ toolsAndSkills: [
 
 
 gallery: [
+  "/projects/MAGBOOM/tracersboom.PNG",
   "/projects/MAGBOOM/magboom3.PNG",
   "/projects/MAGBOOM/magboom4.PNG",
   "/projects/MAGBOOM/magboom5.jpg",
