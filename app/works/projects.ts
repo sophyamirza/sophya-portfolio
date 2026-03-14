@@ -757,8 +757,7 @@ gallery: [
   "/projects/MAGBOOM/magboom3.PNG",
   "/projects/MAGBOOM/magboom4.PNG",
   "/projects/MAGBOOM/magboom5.jpg",
-  "/projects/MAGBOOM/magboom2.PNG",
-  "/projects/MAGBOOM/magboom1.PNG"
+
 
 ],
   },

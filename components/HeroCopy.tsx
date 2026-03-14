@@ -16,7 +16,7 @@ export default function HeroCopy() {
 
   // typewriter
   const FULL =
-    "I design, build, and test hardware at the extremes: from near absolute zero cryogenic systems to some of the hottest engines in aerospace.";
+    "I design, build, and test hardware at the extremes: from near absolute zero cryogenic systems to the hottest engines in aerospace.";
   const [typed, setTyped] = useState("");
   const [cursorOn, setCursorOn] = useState(true);
 
