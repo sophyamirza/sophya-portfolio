@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, FileText } from "lucide-react";
+import { Mail, Linkedin, FileText, CalendarDays } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -85,6 +85,7 @@ export default function ContactPage() {
   const LINKEDIN = "https://www.linkedin.com/in/sophya-mirza-4947981b7/";
   const SUBSTACK = "https://substack.com/@sophyamirza";
   const RESUME = "/S__MIRZA_Resume_LaTeX.pdf";
+  const APPOINTMENTS = "https://calendar.app.google/Kus5EfP5zBro4Uqw6";
 
   return (
     <main className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -94,7 +95,6 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-6xl px-6 md:px-16 pt-20 pb-20">
         <motion.div variants={container} initial="hidden" animate="show">
-
           <motion.div
             variants={container}
             className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto"
@@ -130,6 +130,14 @@ export default function ContactPage() {
               display="View Resume"
               hint="Detailed experience."
             />
+
+            <ContactCard
+              icon={<CalendarDays size={22} />}
+              label="Appointments"
+              href={APPOINTMENTS}
+              display="Book a time"
+              hint="Schedule a meeting on my calendar."
+            />
           </motion.div>
 
           <motion.p
@@ -139,7 +147,6 @@ export default function ContactPage() {
             Open to engineering roles.
             Let’s build something ambitious!
           </motion.p>
-
         </motion.div>
       </section>
     </main>
