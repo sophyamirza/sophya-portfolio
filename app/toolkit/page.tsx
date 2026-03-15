@@ -27,6 +27,8 @@ type Award = {
   issuer: string;
   when: string;
   description: string;
+  image: string;
+  href: string;
 };
 
 const sections: Section[] = [
@@ -167,17 +169,20 @@ const awards: Award[] = [
   {
     title: "Edison Scholars: The Makers of Tomorrow",
     issuer: "Southern California Edison",
-    when: "2021 -2025",
+    when: "2021 – 2025",
     description:
-      "The Edison Scholars program recognizes students who want to be the makers of tomorrow, the changemakers, inventors, and pioneers, those who dare to be great. Funding them with $50,000 towards their college tuition.",
-    
-    },
+      "The Edison Scholars program recognizes students who want to be the makers of tomorrow, the changemakers, inventors, and pioneers. Awarded $50,000 toward college tuition.",
+    image: "/awards/edison.png",
+    href: "https://energized.edison.com/meet-our-2021-edison-scholars-6837617",
+  },
   {
     title: "Awards / Honor Title",
     issuer: "Organization or Institution",
     when: "2025",
     description:
       "Use this space for competitive recognitions, fellowships, grants, scholarships, or high-signal distinctions.",
+    image: "/awards/award-placeholder.png",
+    href: "https://example.com",
   },
   {
     title: "Awards / Honor Title",
@@ -185,6 +190,8 @@ const awards: Award[] = [
     when: "2024",
     description:
       "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+    image: "/awards/award-placeholder.png",
+    href: "https://example.com",
   },
 ];
 
@@ -436,7 +443,7 @@ export default function ToolkitPage() {
             ))}
           </div>
 
-          {/* AWARDS + HONORS */}
+          {/* AWARDS SECTION */}
           <div className="mt-20">
             <div className="text-xs tracking-[0.35em] text-white/50">
               RECOGNITION
@@ -455,37 +462,55 @@ export default function ToolkitPage() {
 
             <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
               {awards.map((award) => (
-                <div
+                <Link
                   key={`${award.title}-${award.when}`}
-                  className="group relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                  href={award.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
                 >
-                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
-                    <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
-                  </div>
-
-                  <div className="relative">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.3em] text-white/45">
-                          {award.when}
-                        </div>
-                        <h4 className="mt-3 text-xl leading-tight text-white">
-                          {award.title}
-                        </h4>
-                        <p className="mt-2 text-sm uppercase tracking-[0.18em] text-white/55">
-                          {award.issuer}
-                        </p>
-                      </div>
-
-                      <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[rgba(255,59,31,0.65)] shadow-[0_0_18px_rgba(255,59,31,0.25)]" />
+                  <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(255,255,255,0.06)]">
+                    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
+                      <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
                     </div>
 
-                    <p className="mt-6 text-sm leading-relaxed text-white/68">
-                      {award.description}
-                    </p>
+                    <div className="relative">
+                      <div className="flex items-start gap-4">
+                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.12)]">
+                          <Image
+                            src={award.image}
+                            alt={award.title}
+                            fill
+                            className="object-contain p-1.5"
+                          />
+                        </div>
+
+                        <div className="min-w-0">
+                          <div className="text-[11px] uppercase tracking-[0.3em] text-white/45">
+                            {award.when}
+                          </div>
+
+                          <h4 className="mt-1 text-xl leading-tight text-white">
+                            {award.title}
+                          </h4>
+
+                          <p className="mt-1 text-sm uppercase tracking-[0.18em] text-white/55">
+                            {award.issuer}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="mt-6 text-sm leading-relaxed text-white/68">
+                        {award.description}
+                      </p>
+
+                      <div className="mt-5 text-[11px] uppercase tracking-[0.22em] text-white/40 transition-colors duration-300 group-hover:text-white/70">
+                        View →
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
