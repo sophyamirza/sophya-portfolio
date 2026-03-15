@@ -95,6 +95,7 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-6xl px-6 md:px-16 pt-20 pb-20">
         <motion.div variants={container} initial="hidden" animate="show">
+
           <motion.div
             variants={container}
             className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto"
@@ -131,13 +132,19 @@ export default function ContactPage() {
               hint="Detailed experience."
             />
 
-            <ContactCard
-              icon={<CalendarDays size={22} />}
-              label="Appointments"
-              href={APPOINTMENTS}
-              display="Book a time"
-              hint="Schedule a meeting on my calendar."
-            />
+            {/* Centered Appointments Card */}
+            <div className="md:col-span-2 flex justify-center">
+              <div className="w-full md:w-1/2">
+                <ContactCard
+                  icon={<CalendarDays size={22} />}
+                  label="Appointments"
+                  href={APPOINTMENTS}
+                  display="Book a time"
+                  hint="Schedule a meeting on my calendar."
+                />
+              </div>
+            </div>
+
           </motion.div>
 
           <motion.p
@@ -147,6 +154,7 @@ export default function ContactPage() {
             Open to engineering roles.
             Let’s build something ambitious!
           </motion.p>
+
         </motion.div>
       </section>
     </main>
