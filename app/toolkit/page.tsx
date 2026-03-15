@@ -176,11 +176,11 @@ const awards: Award[] = [
     href: "https://energized.edison.com/meet-our-2021-edison-scholars-6837617",
   },
   {
-    title: "Awards / Honor Title",
-    issuer: "Organization or Institution",
-    when: "2025",
+    title: "The Mars Generation: 24 Under 24",
+    issuer: "Innovators and Leaders in Space Award",
+    when: "",
     description:
-      "Use this space for competitive recognitions, fellowships, grants, scholarships, or high-signal distinctions.",
+      "Not too many people can say their earliest achievements include building alternating current electromagnetic generators and deciphering the artificial intelligence behind tactile and photocell navigating mechanisms that play a key role in…",
     image: "/logos/award-placeholder.png",
     href: "https://example.com",
   },
