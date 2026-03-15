@@ -739,7 +739,7 @@ team: "Sophya Mirza",
 
 systemOverview:
 
-  "Non Disclosure Agreement: I will only disclose non proprietary information regarding my work at SSL. All images are public knowledge. I designed and built GSE to test deployment of  spacecraft magnetometer booms in a near-zero-friction environment. The pneumatic manifold provides three pressure-regulated outputs for a high-pressure line, a low-pressure piston supply, and an air-bearing feed. Vent valves, pressure gauges, and PTC connectors at the main inlet allow monitoring and flexible integration with the test platform. The air-bearing system produces a thin film of pressurized air that supports the boom and removes surface friction, allowing deployment mechanisms to operate as they would in microgravity. This setup enables validation of deployment dynamics, stiffness, and alignment of TRACERS magnetometer booms without gravitational sag introducing false loading conditions.",
+  "NDA: I will only disclose non proprietary information regarding my work at SSL. All images are public knowledge. I designed and built GSE to test deployment of  spacecraft magnetometer booms in a near-zero-friction environment. The pneumatic manifold provides three pressure-regulated outputs for a high-pressure line, a low-pressure piston supply, and an air-bearing feed. Vent valves, pressure gauges, and PTC connectors at the main inlet allow monitoring and flexible integration with the test platform. The air-bearing system produces a thin film of pressurized air that supports the boom and removes surface friction, allowing deployment mechanisms to operate as they would in microgravity. This setup enables validation of deployment dynamics, stiffness, and alignment of TRACERS magnetometer booms without gravitational sag introducing false loading conditions.",
 
 toolsAndSkills: [
   "Pneumatics",
@@ -755,9 +755,8 @@ toolsAndSkills: [
 
 gallery: [
   "/projects/MAGBOOM/tracersbooms.PNG",
-  "/projects/MAGBOOM/magboom3.PNG",
-  "/projects/MAGBOOM/magboom4.PNG",
-  "/projects/MAGBOOM/magboom5.jpg",
+  "/projects/MAGBOOM/MSCBOOM.PNG",
+
 
 
 ],
