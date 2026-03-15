@@ -169,7 +169,7 @@ const awards: Award[] = [
   {
     title: "Edison Scholars: The Makers of Tomorrow",
     issuer: "Southern California Edison",
-    when: "2021 – 2025",
+    when: "",
     description:
       "The Edison Scholars program recognizes students who want to be the makers of tomorrow, the changemakers, inventors, and pioneers. Awarded $50,000 toward college tuition.",
     image: "/logos/edisonlogo.PNG",
@@ -181,8 +181,8 @@ const awards: Award[] = [
     when: "",
     description:
       "Not too many people can say their earliest achievements include building alternating current electromagnetic generators and deciphering the artificial intelligence behind tactile and photocell navigating mechanisms that play a key role in…",
-    image: "/logos/award-placeholder.png",
-    href: "https://example.com",
+    image: "/logos/tmglogoblack.PNG",
+    href: "https://themarsgeneration.org/the-mars-generation-announces-24-under-24-leaders-and-innovators-in-steam-and-space-award-winners-for-2019/",
   },
   {
     title: "Awards / Honor Title",
