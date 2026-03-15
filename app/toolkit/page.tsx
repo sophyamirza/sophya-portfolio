@@ -165,12 +165,13 @@ const milestones: Milestone[] = [
 
 const awards: Award[] = [
   {
-    title: "Awards / Honor Title",
-    issuer: "Organization or Institution",
-    when: "2026",
+    title: "Edison Scholars: The Makers of Tomorrow",
+    issuer: "Southern California Edison",
+    when: "2021 -2025",
     description:
-      "Brief one-line description of the recognition, selection, scholarship, fellowship, or competitive honor.",
-  },
+      "The Edison Scholars program recognizes students who want to be the makers of tomorrow, the changemakers, inventors, and pioneers, those who dare to be great. Funding them with $50,000 towards their college tuition.",
+    
+    },
   {
     title: "Awards / Honor Title",
     issuer: "Organization or Institution",
