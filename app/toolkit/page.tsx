@@ -22,6 +22,13 @@ type Milestone = {
   secondaryLogo?: string;
 };
 
+type Award = {
+  title: string;
+  issuer: string;
+  when: string;
+  description: string;
+};
+
 const sections: Section[] = [
   {
     title: "CAD",
@@ -153,6 +160,30 @@ const milestones: Milestone[] = [
     when: "2020 – 2021",
     tags: "SYSTEM ARCHITECTURE · QUALITY · INTEGRATION · RISK MANAGEMENT · SPS",
     logo: "/logos/avantilogo.PNG",
+  },
+];
+
+const awards: Award[] = [
+  {
+    title: "Awards / Honor Title",
+    issuer: "Organization or Institution",
+    when: "2026",
+    description:
+      "Brief one-line description of the recognition, selection, scholarship, fellowship, or competitive honor.",
+  },
+  {
+    title: "Awards / Honor Title",
+    issuer: "Organization or Institution",
+    when: "2025",
+    description:
+      "Use this space for competitive recognitions, fellowships, grants, scholarships, or high-signal distinctions.",
+  },
+  {
+    title: "Awards / Honor Title",
+    issuer: "Organization or Institution",
+    when: "2024",
+    description:
+      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
   },
 ];
 
@@ -402,6 +433,60 @@ export default function ToolkitPage() {
                 </div>
               </button>
             ))}
+          </div>
+
+          {/* AWARDS + HONORS */}
+          <div className="mt-20">
+            <div className="text-xs tracking-[0.35em] text-white/50">
+              RECOGNITION
+            </div>
+
+            <h3 className="mt-4 text-3xl tracking-tight md:text-4xl">
+              Awards + Honors
+            </h3>
+
+            <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
+
+            <p className="mt-6 max-w-2xl text-white/70">
+              Fellowships, distinctions, and recognitions earned across
+              engineering, leadership, and technical work.
+            </p>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {awards.map((award) => (
+                <div
+                  key={`${award.title}-${award.when}`}
+                  className="group relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                >
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
+                    <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
+                  </div>
+
+                  <div className="relative">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <div className="text-[11px] uppercase tracking-[0.3em] text-white/45">
+                          {award.when}
+                        </div>
+                        <h4 className="mt-3 text-xl leading-tight text-white">
+                          {award.title}
+                        </h4>
+                        <p className="mt-2 text-sm uppercase tracking-[0.18em] text-white/55">
+                          {award.issuer}
+                        </p>
+                      </div>
+
+                      <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[rgba(255,59,31,0.65)] shadow-[0_0_18px_rgba(255,59,31,0.25)]" />
+                    </div>
+
+                    <p className="mt-6 text-sm leading-relaxed text-white/68">
+                      {award.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
