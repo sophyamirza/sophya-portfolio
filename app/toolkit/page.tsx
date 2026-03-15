@@ -172,7 +172,7 @@ const awards: Award[] = [
     when: "2021 – 2025",
     description:
       "The Edison Scholars program recognizes students who want to be the makers of tomorrow, the changemakers, inventors, and pioneers. Awarded $50,000 toward college tuition.",
-    image: "/awards/edison.png",
+    image: "/logos/edisonlogo.PNG",
     href: "https://energized.edison.com/meet-our-2021-edison-scholars-6837617",
   },
   {
@@ -181,7 +181,7 @@ const awards: Award[] = [
     when: "2025",
     description:
       "Use this space for competitive recognitions, fellowships, grants, scholarships, or high-signal distinctions.",
-    image: "/awards/award-placeholder.png",
+    image: "/logos/award-placeholder.png",
     href: "https://example.com",
   },
   {
