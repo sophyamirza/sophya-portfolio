@@ -3,14 +3,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Variants } from "framer-motion";
 
 type Section = {
   title: string;
   subtitle: string;
   items: string[];
-  previewSrc: string; // <-- add a hover preview image per section
+  previewSrc: string;
+};
+
+type Milestone = {
+  org: string;
+  role: string;
+  when: string;
+  tags: string;
+  logo: string;
+  secondaryLogo?: string;
 };
 
 const sections: Section[] = [
@@ -54,7 +63,7 @@ const sections: Section[] = [
       "Fluids P&ID, cryo experience",
       "3D printing (FDM + SLA)",
       "Instrumentation (seals, manifolds, tubing)",
-      "DAQ (NI, Beckhoff, Arduino, etc.",
+      "DAQ (NI, Beckhoff, Arduino, etc.)",
       "Valves + regulators",
       "ATP authoring",
       "Sift, Grafana, Ion, WarpDrive",
@@ -71,6 +80,79 @@ const sections: Section[] = [
       "S-016, 91-710 + additional standards",
       "ESD Rev L(24) — NASA JPL",
     ],
+  },
+];
+
+const milestones: Milestone[] = [
+  {
+    org: "VC Technical Fellow",
+    role: "Venture Capital",
+    when: "2025 – Present",
+    tags: "VENTURE · DEEP TECH · STARTUPS",
+    logo: "/logos/haas.PNG",
+  },
+  {
+    org: "Astranis",
+    role: "Propulsion RE Intern",
+    when: "JAN 2025 – MAY 2025 (5 Mos)",
+    tags: "PROPULSION · SEALS / MANIFOLDS · TEST STAND · BECKHOFF DAQ",
+    logo: "/logos/astranis.PNG",
+  },
+  {
+    org: "SpaceX",
+    role: "Starship Primary Structures RE Intern",
+    when: "APR 2024 – AUG 2024 (5 Mos)",
+    tags: "PRIMARY STRUCTURES DESIGN · WELD PROCESSES · TPS · HEADER TANK QUAL",
+    logo: "/logos/spacex.PNG",
+  },
+  {
+    org: "SAE International",
+    role: "AM / SAF / Aerospace Standards",
+    when: "AUG 2023 – AUG 2024 (1 YR)",
+    tags: "STANDARDS · SOFTWARE AUTOMATION · CERTIFICATION · ADDITIVE MANUFACTURING · SUSTAINABLE AVIATION FUELS",
+    logo: "/logos/sae.PNG",
+  },
+  {
+    org: "NASA: TRACERS MISSION",
+    role: "Mechanical Intern",
+    when: "MAY 2023 – AUG 2023 (4 Mos)",
+    tags: "GSE DESIGN · TVAC, VIBE, MOI TESTING · INTEGRATION · PNEUMATIC PROTOTYPING",
+    logo: "/logos/NASA.png",
+  },
+  {
+    org: "Proterra",
+    role: "Thermals / Battery R&D Co-op",
+    when: "MAY 2022 – DEC 2022 (8 Mos)",
+    tags: "BATTERIES · THERMALS · TEST FIXTURE DESIGN · MANUFACTURING QUALITY",
+    logo: "/logos/proterra.PNG",
+  },
+  {
+    org: "Lawrence Berkeley National Lab",
+    role: "Cryogenic Mechanical Engineer",
+    when: "JAN 2022 – AUG 2023 (1.5 YR)",
+    tags: "CRYOGENICS · INSTRUMENTATION DESIGN · SUPERCONDUCTING SYSTEMS",
+    logo: "/logos/lbnl.PNG",
+  },
+  {
+    org: "Design for Nanomanufacturing Lab",
+    role: "Mechanical Engineer",
+    when: "AUG 2022 – MAY 2023 (1 YR)",
+    tags: "PHOTOLITHOGRAPHY · MICROFLUIDICS DESIGN · VOLUMETRIC ADDITIVE MANUFACTURING · COMPUTER AXIAL LITHOGRAPHY",
+    logo: "/logos/DFM.png",
+  },
+  {
+    org: "Space Technologies & Rocketry",
+    role: "Propulsion RE → Deputy Lead",
+    when: "NOV 2021 – JAN 2025 (3+ YR)",
+    tags: "PROPULSION · LOX/ETHYL FEED · VALVES · ENGINE TEST",
+    logo: "/logos/star.PNG",
+  },
+  {
+    org: "Avanti Technologies",
+    role: "Director of Systems Engineering · Lead RMO",
+    when: "2020 – 2021",
+    tags: "SYSTEM ARCHITECTURE · QUALITY · INTEGRATION · RISK MANAGEMENT · SPS",
+    logo: "/logos/avantilogo.PNG",
   },
 ];
 
@@ -97,7 +179,6 @@ function SkillChip({ children }: { children: string }) {
 }
 
 export default function ToolkitPage() {
-  // hover-preview state
   const [hover, setHover] = useState<{
     show: boolean;
     src: string;
@@ -106,7 +187,9 @@ export default function ToolkitPage() {
     y: number;
   }>({ show: false, src: "", title: "", x: 0, y: 0 });
 
-  // rAF throttle so we don't setState on every mousemove
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const active = activeIndex !== null ? milestones[activeIndex] : null;
+
   const raf = useRef<number | null>(null);
   const nextPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
@@ -119,12 +202,21 @@ export default function ToolkitPage() {
     });
   };
 
-  // preview box sizing/offset
-  const PREVIEW = 168; // px (small square)
+  const closeModal = () => setActiveIndex(null);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  const PREVIEW = 168;
   const OFFSET = 18;
 
   const previewStyle: React.CSSProperties = {
-    // keep the square slightly offset from the cursor
     left: hover.x + OFFSET,
     top: hover.y + OFFSET,
     width: PREVIEW,
@@ -146,10 +238,8 @@ export default function ToolkitPage() {
           style={previewStyle}
         >
           <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/15 bg-black/60 shadow-[0_0_36px_rgba(255,255,255,0.10)]">
-            {/* subtle thermal top edge */}
             <div className="absolute inset-x-0 top-0 z-10 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-50" />
 
-            {/* image */}
             {hover.src ? (
               <Image
                 src={hover.src}
@@ -161,7 +251,6 @@ export default function ToolkitPage() {
               />
             ) : null}
 
-            {/* label */}
             <div className="absolute inset-x-0 bottom-0 z-10 bg-black/55 px-3 py-2 backdrop-blur">
               <div className="text-[10px] tracking-[0.28em] text-white/80">
                 {hover.title.toUpperCase()}
@@ -176,7 +265,7 @@ export default function ToolkitPage() {
 
         <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="text-5xl md:text-6xl tracking-tight">
+            <h1 className="text-5xl tracking-tight md:text-6xl">
               Technical Arsenal
             </h1>
 
@@ -191,7 +280,7 @@ export default function ToolkitPage() {
           <div className="flex flex-col items-start gap-3 md:items-end">
             <Link
               href="/works"
-              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-xs tracking-[0.22em] uppercase text-white/90 transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-xs uppercase tracking-[0.22em] text-white/90 transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
             >
               See projects that use this →
             </Link>
@@ -227,7 +316,6 @@ export default function ToolkitPage() {
                 setHover((h) => ({ ...h, show: false, src: "", title: "" }))
               }
             >
-              {/* subtle glow + thermal edge */}
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="absolute -inset-24 bg-[radial-gradient(600px_200px_at_20%_20%,rgba(255,59,31,0.16),transparent_60%)]" />
                 <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
@@ -257,14 +345,123 @@ export default function ToolkitPage() {
           ))}
         </motion.div>
 
-        <div className="mt-16 flex flex-col items-center gap-4">
-          <p className="max-w-2xl text-center text-sm tracking-wide text-white/55">
-            
-          </p>
+        {/* EXPERIENCE SECTION */}
+        <section className="mt-24">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="text-xs tracking-[0.35em] text-white/50">
+                EXPERIENCE
+              </div>
 
+              <h2 className="mt-4 text-4xl tracking-tight md:text-5xl">
+                Built in Industry
+              </h2>
+
+              <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
+
+              <p className="mt-6 max-w-2xl text-white/70">
+                A selection of engineering roles across propulsion, structures,
+                cryogenics, batteries, research, and venture.
+              </p>
+            </div>
+
+            <Link
+              href="/contact#resume"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-xs uppercase tracking-[0.22em] text-white/90 transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
+            >
+              Detailed Resume
+            </Link>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {milestones.map((m, i) => (
+              <button
+                key={`${m.org}-${m.when}`}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={[
+                  "group relative flex aspect-[1.15/1] items-center justify-center overflow-hidden rounded-[22px] border border-white/10",
+                  "bg-white/[0.03] p-4 backdrop-blur-sm transition-all duration-300",
+                  "hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_32px_rgba(255,255,255,0.05)]",
+                ].join(" ")}
+                aria-label={`Show ${m.org}`}
+              >
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-[radial-gradient(120px_80px_at_50%_45%,rgba(255,255,255,0.08),transparent_70%)]" />
+                </div>
+
+                <div className="relative flex h-full w-full items-center justify-center">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={m.logo}
+                      alt={m.org}
+                      fill
+                      className="object-contain opacity-90 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
+                    />
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-16 flex flex-col items-center gap-4">
           <div className="h-px w-64 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
         </div>
       </div>
+
+      {/* EXPERIENCE MODAL */}
+      {active && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-6 backdrop-blur-md"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-full max-w-3xl rounded-[30px] border border-white/15 bg-[#050505]/95 p-6 shadow-[0_0_80px_rgba(0,0,0,0.55)] md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={closeModal}
+              className="mb-6 inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/80 transition hover:border-white/25 hover:text-white"
+            >
+              ← Back
+            </button>
+
+            <div className="flex items-center gap-4">
+              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] md:h-20 md:w-20">
+                <Image
+                  src={active.logo}
+                  alt={active.org}
+                  fill
+                  className="object-contain p-2.5"
+                />
+              </div>
+
+              <div className="min-w-0">
+                <div className="text-[11px] uppercase tracking-[0.34em] text-white/50 md:text-xs">
+                  {active.when}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h2 className="max-w-[14ch] text-4xl leading-[0.95] tracking-tight text-white md:text-6xl">
+                {active.org}
+              </h2>
+              <p className="mt-3 text-2xl leading-tight text-white/75 md:text-3xl">
+                {active.role}
+              </p>
+            </div>
+
+            <div className="mt-8 text-sm uppercase tracking-[0.22em] text-white/45 md:text-[15px]">
+              {active.tags}
+            </div>
+
+            <div className="mt-10 h-[2px] w-56 max-w-full bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-80" />
+          </div>
+        </div>
+      )}
     </main>
   );
 }

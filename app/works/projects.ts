@@ -159,7 +159,7 @@ export const PROJECTS: Project[] = [
     date: "2021-2025",
     focusArea: "Propulsion Engineering",
     systemOverview:
-      "UC Berkeley’s first successfully recovered liquid bi-propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert. The vehicle uses a cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student-shop tooling limits. I started on the team my Freshman year of college as a Prop member, them became a prop RE, and eventually led the prop team as the prop deputy lead and PM.",
+      "UC Berkeley’s first successfully recovered liquid bi-propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert. The vehicle uses a cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student-shop tooling limits. I started on the team my Freshman year of college as a Prop member, them became a prop RE, and eventually led the prop team as the prop deputy lead.",
     toolsAndSkills: [
       "SolidWorks CAD",
       "Manual milling (Bridgeport)",
@@ -738,7 +738,7 @@ focusArea: "Test Systems & GSE",
 team: "Sophya Mirza",
 
 systemOverview:
-  "Ground support equipment designed to test deployment of long spacecraft magnetometer booms in a near-zero-friction environment. The pneumatic manifold provides three pressure-regulated outputs for a high-pressure line, a low-pressure piston supply, and an air-bearing feed. Vent valves, pressure gauges, and PTC connectors at the main inlet allow monitoring and flexible integration with the test platform. The air-bearing system produces a thin film of pressurized air that supports the boom and removes surface friction, allowing deployment mechanisms to operate as they would in microgravity. This setup enables validation of deployment dynamics, stiffness, and alignment of TRACERS magnetometer booms without gravitational sag introducing false loading conditions.",
+  "Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at Caterpillar. All images are public knowledge.Ground support equipment designed to test deployment of  spacecraft magnetometer booms in a near-zero-friction environment. The pneumatic manifold provides three pressure-regulated outputs for a high-pressure line, a low-pressure piston supply, and an air-bearing feed. Vent valves, pressure gauges, and PTC connectors at the main inlet allow monitoring and flexible integration with the test platform. The air-bearing system produces a thin film of pressurized air that supports the boom and removes surface friction, allowing deployment mechanisms to operate as they would in microgravity. This setup enables validation of deployment dynamics, stiffness, and alignment of TRACERS magnetometer booms without gravitational sag introducing false loading conditions.",
 
 toolsAndSkills: [
   "Pneumatics",
