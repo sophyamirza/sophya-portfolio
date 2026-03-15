@@ -99,7 +99,7 @@ export const PROJECTS: Project[] = [
       alt: "Blunt Body Analysis preview",
     },
     overview:
-      "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
+      "",
     accomplishments: [
       "Built and refined meshes to resolve key gradients",
       "Ran parameter and convergence checks",
@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
     date: "{insert date here}",
     focusArea: "High-Speed Aerodynamics",
     team: "Sophya Mirza",
-    systemOverview: PH.systemOverview,
+    systemOverview: "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
     toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
     contributions: PH.contributions,
     results: PH.results,
