@@ -194,12 +194,12 @@ const awards: Award[] = [
     href: "https://legacy.sae.org/binaries//content/assets/cm/content/participate/scholarships/21_sae_scholarship_recipient_list.pdf",
   },
    {
-    title: "Awards / Honor Title",
-    issuer: "Organization or Institution",
-    when: "2024",
+    title: "Mechanical Engineering Scholars Program (ME Scholars)",
+    issuer: "Dept. of Mechanical Engineering, UC Berkeley",
+    when: "",
     description:
       "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
-    image: "/awards/award-placeholder.png",
+    image: "/logos/meche.PNG",
     href: "https://example.com",
   },
   {
