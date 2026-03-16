@@ -202,6 +202,15 @@ const awards: Award[] = [
     image: "/awards/award-placeholder.png",
     href: "https://example.com",
   },
+  {
+    title: "Engineering Scholars as Engaged Scholars (ES^2)",
+    issuer: "UC Berkeley College of Engineering",
+    when: "",
+    description:
+      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+    image: "/logos/es2.PNG",
+    href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
+  },
 ];
 
 const container: Variants = {
