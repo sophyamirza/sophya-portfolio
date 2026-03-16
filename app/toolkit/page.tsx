@@ -221,14 +221,21 @@ const awards: Award[] = [
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
   },
   {
-    title: "Young Eisner Scholars",
-    issuer: "(YES Program)",
+    title: "All Ways Up Scholar",
+    issuer: "Class of 2025!",
     when: "",
     description:
       "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
-    image: "/logos/YES.PNG",
-    href: "https://yesscholars.org/",
+    image: "/logos/AWU.PNG",
+    href: "https://www.allwaysup.org/what-we-do/scholarships/",
   },
+];
+
+const otherAwards = [
+  "Broadcom MASTERS Alumni",
+  "Society of Women Engineers",
+  "FRC Mentor of the Year Award",
+  "and more",
 ];
 
 const container: Variants = {
@@ -413,7 +420,7 @@ export default function ToolkitPage() {
             engineering, leadership, and technical work.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {awards.map((award) => (
               <Link
                 key={`${award.title}-${award.when}`}
@@ -422,49 +429,80 @@ export default function ToolkitPage() {
                 rel="noopener noreferrer"
                 className="group block"
               >
-                <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(255,255,255,0.06)]">
+                <div className="relative h-full overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:scale-[1.015] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(255,255,255,0.05)]">
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
                     <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
                   </div>
 
                   <div className="relative">
-                    <div className="flex items-start gap-4">
-                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.12)]">
+                    <div className="flex items-start gap-3">
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:shadow-[0_0_18px_rgba(255,255,255,0.10)]">
                         <Image
                           src={award.image}
                           alt={award.title}
                           fill
-                          className="object-contain p-1.5"
+                          className="object-contain p-1"
                         />
                       </div>
 
                       <div className="min-w-0">
-                        <div className="text-[11px] uppercase tracking-[0.3em] text-white/45">
+                        <div className="text-[10px] uppercase tracking-[0.28em] text-white/40">
                           {award.when}
                         </div>
 
-                        <h3 className="mt-1 text-xl leading-tight text-white">
+                        <h3 className="mt-1 text-base leading-tight text-white">
                           {award.title}
                         </h3>
 
-                        <p className="mt-1 text-sm uppercase tracking-[0.18em] text-white/55">
+                        <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-white/55">
                           {award.issuer}
                         </p>
                       </div>
                     </div>
 
-                    <p className="mt-6 text-sm leading-relaxed text-white/68">
+                    <p className="mt-4 text-xs leading-relaxed text-white/66">
                       {award.description}
                     </p>
 
-                    <div className="mt-5 text-[11px] uppercase tracking-[0.22em] text-white/40 transition-colors duration-300 group-hover:text-white/70">
+                    <div className="mt-4 text-[10px] uppercase tracking-[0.22em] text-white/40 transition-colors duration-300 group-hover:text-white/70">
                       View →
                     </div>
                   </div>
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* OTHER AWARDS BOX */}
+          <div className="mt-6">
+            <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
+              <div className="pointer-events-none absolute inset-0 opacity-100">
+                <div className="absolute -inset-20 bg-[radial-gradient(320px_120px_at_15%_10%,rgba(255,59,31,0.10),transparent_60%)]" />
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-30" />
+              </div>
+
+              <div className="relative">
+                <div className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                  Additional Recognition
+                </div>
+
+                <h3 className="mt-2 text-xl tracking-tight text-white">
+                  Other Awards + Affiliations
+                </h3>
+
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  {otherAwards.map((award) => (
+                    <span
+                      key={award}
+                      className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm text-white/75"
+                    >
+                      {award}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
