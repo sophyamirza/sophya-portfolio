@@ -185,6 +185,15 @@ const awards: Award[] = [
     href: "https://themarsgeneration.org/the-mars-generation-announces-24-under-24-leaders-and-innovators-in-steam-and-space-award-winners-for-2019/",
   },
   {
+    title: "SAE Engineering Scholar",
+    issuer: "SAE International",
+    when: "2024",
+    description:
+      "For academic excellence pursuing their passion for engineering.",
+    image: "/logos/sae.PNG",
+    href: "https://legacy.sae.org/binaries//content/assets/cm/content/participate/scholarships/21_sae_scholarship_recipient_list.pdf",
+  },
+   {
     title: "Awards / Honor Title",
     issuer: "Organization or Institution",
     when: "2024",
