@@ -187,7 +187,7 @@ const awards: Award[] = [
   {
     title: "SAE Engineering Scholar",
     issuer: "SAE International",
-    when: "2024",
+    when: "",
     description:
       "For academic excellence pursuing their passion for engineering.",
     image: "/logos/sae.PNG",
@@ -210,6 +210,24 @@ const awards: Award[] = [
       "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
     image: "/logos/es2.PNG",
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
+  },
+  {
+    title: "Young Eisner Scholars",
+    issuer: "(YES Program)",
+    when: "",
+    description:
+      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+    image: "/logos/YES.PNG",
+    href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
+  },
+  {
+    title: "Young Eisner Scholars",
+    issuer: "(YES Program)",
+    when: "",
+    description:
+      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+    image: "/logos/YES.PNG",
+    href: "https://yesscholars.org/",
   },
 ];
 
