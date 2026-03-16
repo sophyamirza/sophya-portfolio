@@ -193,7 +193,7 @@ const awards: Award[] = [
     image: "/logos/sae.PNG",
     href: "https://legacy.sae.org/binaries//content/assets/cm/content/participate/scholarships/21_sae_scholarship_recipient_list.pdf",
   },
-   {
+  {
     title: "Mechanical Engineering Scholars Program (ME Scholars)",
     issuer: "Dept. of Mechanical Engineering, UC Berkeley",
     when: "",
@@ -291,7 +291,7 @@ export default function ToolkitPage() {
   const PREVIEW = 168;
   const OFFSET = 18;
 
-  const previewStyle: React.CSSProperties = {
+  const previewStyle = {
     left: hover.x + OFFSET,
     top: hover.y + OFFSET,
     width: PREVIEW,
@@ -336,101 +336,17 @@ export default function ToolkitPage() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6 pb-28 pt-20 md:pt-24">
-        <div className="text-xs tracking-[0.35em] text-white/50">TOOLKIT</div>
-
-        <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h1 className="text-5xl tracking-tight md:text-6xl">
-              Technical Arsenal
-            </h1>
-
-            <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
-
-            <p className="mt-6 max-w-2xl text-white/70">
-              Design, build, test, iterate, with a bias toward shipping hardware
-              that works in real constraints.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-start gap-3 md:items-end">
-            <Link
-              href="/works"
-              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-xs uppercase tracking-[0.22em] text-white/90 transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
-            >
-              See projects that use this →
-            </Link>
-          </div>
-        </div>
-
-        <motion.div
-          className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2"
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {sections.map((s) => (
-            <motion.div
-              key={s.title}
-              variants={item}
-              className={[
-                "group relative overflow-hidden rounded-3xl border border-white/10",
-                "bg-white/[0.02] p-8 md:p-10",
-                "transition-all duration-300 hover:border-white/25 hover:bg-white/[0.04]",
-              ].join(" ")}
-              onMouseEnter={(e) => {
-                setHover({
-                  show: true,
-                  src: s.previewSrc,
-                  title: s.title,
-                  x: e.clientX,
-                  y: e.clientY,
-                });
-              }}
-              onMouseMove={(e) => updatePos(e.clientX, e.clientY)}
-              onMouseLeave={() =>
-                setHover((h) => ({ ...h, show: false, src: "", title: "" }))
-              }
-            >
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="absolute -inset-24 bg-[radial-gradient(600px_200px_at_20%_20%,rgba(255,59,31,0.16),transparent_60%)]" />
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
-              </div>
-
-              <div className="relative">
-                <div className="flex items-start justify-between gap-6">
-                  <div>
-                    <h2 className="text-lg tracking-[0.22em] text-white/85">
-                      {s.title.toUpperCase()}
-                    </h2>
-                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60">
-                      {s.subtitle}
-                    </p>
-                  </div>
-
-                  <div className="mt-1 h-2.5 w-2.5 rounded-full bg-[rgba(255,59,31,0.65)] shadow-[0_0_18px_rgba(255,59,31,0.25)]" />
-                </div>
-
-                <div className="mt-7 flex flex-wrap gap-2.5">
-                  {s.items.map((x) => (
-                    <SkillChip key={x}>{x}</SkillChip>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* EXPERIENCE SECTION */}
-        <section className="mt-24">
+        {/* EXPERIENCE FIRST */}
+        <section>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <div className="text-xs tracking-[0.35em] text-white/50">
                 EXPERIENCE
               </div>
 
-              <h2 className="mt-4 text-4xl tracking-tight md:text-5xl">
+              <h1 className="mt-4 text-5xl tracking-tight md:text-6xl">
                 Built in Industry
-              </h2>
+              </h1>
 
               <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
 
@@ -478,78 +394,165 @@ export default function ToolkitPage() {
               </button>
             ))}
           </div>
+        </section>
 
-          {/* AWARDS SECTION */}
-          <div className="mt-20">
-            <div className="text-xs tracking-[0.35em] text-white/50">
-              RECOGNITION
-            </div>
+        {/* AWARDS SECOND */}
+        <section className="mt-24">
+          <div className="text-xs tracking-[0.35em] text-white/50">
+            RECOGNITION
+          </div>
 
-            <h3 className="mt-4 text-3xl tracking-tight md:text-4xl">
-              Awards + Honors
-            </h3>
+          <h2 className="mt-4 text-4xl tracking-tight md:text-5xl">
+            Awards + Honors
+          </h2>
 
-            <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
+          <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
 
-            <p className="mt-6 max-w-2xl text-white/70">
-              Fellowships, distinctions, and recognitions earned across
-              engineering, leadership, and technical work.
-            </p>
+          <p className="mt-6 max-w-2xl text-white/70">
+            Fellowships, distinctions, and recognitions earned across
+            engineering, leadership, and technical work.
+          </p>
 
-            <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {awards.map((award) => (
-                <Link
-                  key={`${award.title}-${award.when}`}
-                  href={award.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                >
-                  <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(255,255,255,0.06)]">
-                    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
-                      <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {awards.map((award) => (
+              <Link
+                key={`${award.title}-${award.when}`}
+                href={award.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_30px_rgba(255,255,255,0.06)]">
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
+                    <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
+                  </div>
+
+                  <div className="relative">
+                    <div className="flex items-start gap-4">
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.12)]">
+                        <Image
+                          src={award.image}
+                          alt={award.title}
+                          fill
+                          className="object-contain p-1.5"
+                        />
+                      </div>
+
+                      <div className="min-w-0">
+                        <div className="text-[11px] uppercase tracking-[0.3em] text-white/45">
+                          {award.when}
+                        </div>
+
+                        <h3 className="mt-1 text-xl leading-tight text-white">
+                          {award.title}
+                        </h3>
+
+                        <p className="mt-1 text-sm uppercase tracking-[0.18em] text-white/55">
+                          {award.issuer}
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="relative">
-                      <div className="flex items-start gap-4">
-                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.12)]">
-                          <Image
-                            src={award.image}
-                            alt={award.title}
-                            fill
-                            className="object-contain p-1.5"
-                          />
-                        </div>
+                    <p className="mt-6 text-sm leading-relaxed text-white/68">
+                      {award.description}
+                    </p>
 
-                        <div className="min-w-0">
-                          <div className="text-[11px] uppercase tracking-[0.3em] text-white/45">
-                            {award.when}
-                          </div>
-
-                          <h4 className="mt-1 text-xl leading-tight text-white">
-                            {award.title}
-                          </h4>
-
-                          <p className="mt-1 text-sm uppercase tracking-[0.18em] text-white/55">
-                            {award.issuer}
-                          </p>
-                        </div>
-                      </div>
-
-                      <p className="mt-6 text-sm leading-relaxed text-white/68">
-                        {award.description}
-                      </p>
-
-                      <div className="mt-5 text-[11px] uppercase tracking-[0.22em] text-white/40 transition-colors duration-300 group-hover:text-white/70">
-                        View →
-                      </div>
+                    <div className="mt-5 text-[11px] uppercase tracking-[0.22em] text-white/40 transition-colors duration-300 group-hover:text-white/70">
+                      View →
                     </div>
                   </div>
-                </Link>
-              ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* TECHNICAL ARSENAL THIRD */}
+        <section className="mt-24">
+          <div className="text-xs tracking-[0.35em] text-white/50">TOOLKIT</div>
+
+          <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-4xl tracking-tight md:text-5xl">
+                Technical Arsenal
+              </h2>
+
+              <div className="mt-4 h-[2px] w-40 bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-45" />
+
+              <p className="mt-6 max-w-2xl text-white/70">
+                Design, build, test, iterate, with a bias toward shipping
+                hardware that works in real constraints.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start gap-3 md:items-end">
+              <Link
+                href="/works"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-xs uppercase tracking-[0.22em] text-white/90 transition-all duration-300 hover:border-[rgba(255,59,31,0.45)] hover:bg-[rgba(255,59,31,0.06)]"
+              >
+                See projects that use this →
+              </Link>
             </div>
           </div>
+
+          <motion.div
+            className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            {sections.map((s) => (
+              <motion.div
+                key={s.title}
+                variants={item}
+                className={[
+                  "group relative overflow-hidden rounded-3xl border border-white/10",
+                  "bg-white/[0.02] p-8 md:p-10",
+                  "transition-all duration-300 hover:border-white/25 hover:bg-white/[0.04]",
+                ].join(" ")}
+                onMouseEnter={(e) => {
+                  setHover({
+                    show: true,
+                    src: s.previewSrc,
+                    title: s.title,
+                    x: e.clientX,
+                    y: e.clientY,
+                  });
+                }}
+                onMouseMove={(e) => updatePos(e.clientX, e.clientY)}
+                onMouseLeave={() =>
+                  setHover((h) => ({ ...h, show: false, src: "", title: "" }))
+                }
+              >
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute -inset-24 bg-[radial-gradient(600px_200px_at_20%_20%,rgba(255,59,31,0.16),transparent_60%)]" />
+                  <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
+                </div>
+
+                <div className="relative">
+                  <div className="flex items-start justify-between gap-6">
+                    <div>
+                      <h3 className="text-lg tracking-[0.22em] text-white/85">
+                        {s.title.toUpperCase()}
+                      </h3>
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60">
+                        {s.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="mt-1 h-2.5 w-2.5 rounded-full bg-[rgba(255,59,31,0.65)] shadow-[0_0_18px_rgba(255,59,31,0.25)]" />
+                  </div>
+
+                  <div className="mt-7 flex flex-wrap gap-2.5">
+                    {s.items.map((x) => (
+                      <SkillChip key={x}>{x}</SkillChip>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </section>
 
         <div className="mt-16 flex flex-col items-center gap-4">
