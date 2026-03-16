@@ -217,7 +217,7 @@ const awards: Award[] = [
     when: "",
     description:
       "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
-    image: "/logos/YES.PNG",
+    image: "/logos/yes.PNG",
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
   },
   {
