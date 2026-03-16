@@ -307,7 +307,6 @@ export default function ToolkitPage() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Cursor-follow preview */}
       <div className="pointer-events-none fixed inset-0 z-[60]">
         <motion.div
           initial={false}
@@ -343,7 +342,6 @@ export default function ToolkitPage() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6 pb-28 pt-20 md:pt-24">
-        {/* EXPERIENCE FIRST */}
         <section>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
@@ -403,7 +401,6 @@ export default function ToolkitPage() {
           </div>
         </section>
 
-        {/* AWARDS SECOND */}
         <section className="mt-24">
           <div className="text-xs tracking-[0.35em] text-white/50">
             RECOGNITION
@@ -472,41 +469,39 @@ export default function ToolkitPage() {
                 </div>
               </Link>
             ))}
-          </div>
 
-          {/* OTHER AWARDS BOX */}
-          <div className="mt-6">
-            <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
-              <div className="pointer-events-none absolute inset-0 opacity-100">
-                <div className="absolute -inset-20 bg-[radial-gradient(320px_120px_at_15%_10%,rgba(255,59,31,0.10),transparent_60%)]" />
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-30" />
-              </div>
-
-              <div className="relative">
-                <div className="text-[11px] uppercase tracking-[0.28em] text-white/45">
-                  Additional Recognition
+            <div className="group block">
+              <div className="relative h-full overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(255,255,255,0.05)]">
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
+                  <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
                 </div>
 
-                <h3 className="mt-2 text-xl tracking-tight text-white">
-                  Other Awards + Affiliations
-                </h3>
+                <div className="relative flex h-full flex-col">
+                  <div className="text-[10px] uppercase tracking-[0.28em] text-white/40">
+                    Additional Recognition
+                  </div>
 
-                <div className="mt-4 flex flex-wrap gap-2.5">
-                  {otherAwards.map((award) => (
-                    <span
-                      key={award}
-                      className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm text-white/75"
-                    >
-                      {award}
-                    </span>
-                  ))}
+                  <h3 className="mt-2 text-base leading-tight text-white">
+                    Other Awards + Affiliations
+                  </h3>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {otherAwards.map((award) => (
+                      <span
+                        key={award}
+                        className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] text-white/75"
+                      >
+                        {award}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* TECHNICAL ARSENAL THIRD */}
         <section className="mt-24">
           <div className="text-xs tracking-[0.35em] text-white/50">TOOLKIT</div>
 
@@ -598,7 +593,6 @@ export default function ToolkitPage() {
         </div>
       </div>
 
-      {/* EXPERIENCE MODAL */}
       {active && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-6 backdrop-blur-md"
