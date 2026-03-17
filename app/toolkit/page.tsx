@@ -213,19 +213,19 @@ const awards: Award[] = [
   },
   {
     title: "Young Eisner Scholars",
-    issuer: "(YES Program)",
+    issuer: "",
     when: "",
-    description:
-      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+    description: "",
+      
     image: "/logos/yes.PNG",
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
   },
   {
     title: "All Ways Up Scholar",
-    issuer: "Class of 2025!",
+    issuer: "Class of 2025",
     when: "",
     description:
-      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+      "",
     image: "/logos/AWU.PNG",
     href: "https://www.allwaysup.org/what-we-do/scholarships/",
   },
@@ -234,8 +234,10 @@ const awards: Award[] = [
 const otherAwards = [
   "Broadcom MASTERS Alumni",
   "Society of Women Engineers",
-  "FRC Mentor of the Year Award",
-  "and more",
+  "FRC Robotics Judge + Mentor",
+  "AIAA @ Berkeley",
+  "Founder of SAE University Chapter at Berkeley",
+  "etc.",
 ];
 
 const container: Variants = {
