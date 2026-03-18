@@ -215,8 +215,8 @@ const awards: Award[] = [
     title: "Young Eisner Scholars",
     issuer: "",
     when: "",
-    description: "Supporting high acheiving students from middle school till college and career onwards",
-      
+    description:
+      "Supporting high acheiving students from middle school till college and career onwards",
     image: "/logos/yes.PNG",
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
   },
@@ -419,22 +419,22 @@ export default function ToolkitPage() {
             engineering, leadership, and technical work.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {awards.map((award) => (
               <Link
                 key={`${award.title}-${award.when}`}
                 href={award.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="group block h-full"
               >
-                <div className="relative h-full overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:scale-[1.015] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(255,255,255,0.05)]">
+                <div className="relative h-full min-h-[260px] overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:scale-[1.015] hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(255,255,255,0.05)]">
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
                     <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
                   </div>
 
-                  <div className="relative">
+                  <div className="relative flex h-full flex-col">
                     <div className="flex items-start gap-3">
                       <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:shadow-[0_0_18px_rgba(255,255,255,0.10)]">
                         <Image
@@ -460,7 +460,7 @@ export default function ToolkitPage() {
                       </div>
                     </div>
 
-                    <p className="mt-4 text-xs leading-relaxed text-white/66">
+                    <p className="mt-4 flex-1 text-xs leading-relaxed text-white/66">
                       {award.description}
                     </p>
 
@@ -472,8 +472,8 @@ export default function ToolkitPage() {
               </Link>
             ))}
 
-            <div className="group block">
-              <div className="relative h-full overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(255,255,255,0.05)]">
+            <div className="group block h-full">
+              <div className="relative h-full min-h-[260px] overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(255,255,255,0.05)]">
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="absolute -inset-20 bg-[radial-gradient(300px_120px_at_20%_10%,rgba(255,59,31,0.14),transparent_60%)]" />
                   <div className="absolute inset-x-0 top-0 h-[2px] bg-[linear-gradient(90deg,#00b3ff,#39ff14,#ffe600,#ff7a00,#ff0033)] opacity-35" />
@@ -488,7 +488,7 @@ export default function ToolkitPage() {
                     Other Awards + Affiliations
                   </h3>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-1 flex-wrap content-start gap-2">
                     {otherAwards.map((award) => (
                       <span
                         key={award}
