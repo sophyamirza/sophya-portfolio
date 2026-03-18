@@ -215,7 +215,7 @@ const awards: Award[] = [
     title: "Young Eisner Scholars",
     issuer: "",
     when: "",
-    description: "",
+    description: "Supporting high acheiving students from middle school till college and career onwards",
       
     image: "/logos/yes.PNG",
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
@@ -225,7 +225,7 @@ const awards: Award[] = [
     issuer: "Class of 2025",
     when: "",
     description:
-      "",
+      "Nurturing the potential of our country’s future leaders, activists and philanthropists,",
     image: "/logos/AWU.PNG",
     href: "https://www.allwaysup.org/what-we-do/scholarships/",
   },
