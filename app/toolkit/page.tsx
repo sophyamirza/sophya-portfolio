@@ -198,7 +198,7 @@ const awards: Award[] = [
     issuer: "Dept. of Mechanical Engineering, UC Berkeley",
     when: "",
     description:
-      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+      "Distingushed as top acheiveing students in the ME department for strong academic performance, leadership, and contributions to the community.",
     image: "/logos/meche.PNG",
     href: "https://example.com",
   },
@@ -207,7 +207,7 @@ const awards: Award[] = [
     issuer: "UC Berkeley College of Engineering",
     when: "",
     description:
-      "Keep each entry concise and make it feel earned with specificity rather than generic praise.",
+      "Design & Innovation, Social Responsibility, Community Collaboration, Leadership and Impact Oriented Technical Researh Fellow",
     image: "/logos/es2.PNG",
     href: "https://engineering.berkeley.edu/students/programs/engineering-scholars-as-engaged-scholars/",
   },
