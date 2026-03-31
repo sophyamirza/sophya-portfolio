@@ -200,7 +200,7 @@ export default function BioPage() {
              
 
               <p>
-                Hey, I’m Sophya! I'm a first gen Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in TN, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I am passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
+                Hey, I’m Sophya! I'm a first generation Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in TN, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I am passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
               </p>
 
               <p>
@@ -233,11 +233,9 @@ export default function BioPage() {
                 </p>
                 <p>
                   Onshoring is compression: tighter loops, faster feedback, greater ownership.
-                
                 </p>
                 <p>
-                  Extreme ownership closes the loop: if it breaks, I own it. If a
-                  test fails, I own it.
+                  Extreme ownership closes the loop: if it breaks, I own it. If a test fails, I own it.
                 </p>
                 <p>Success is cycle time and quality. Ship hardware that survives reality.</p>
 
@@ -279,12 +277,11 @@ export default function BioPage() {
                   "Astranis",
                   "NASA",
                   "Proterra",
-                  "Space Sciences Lab",
-                  "SAE International",
-                  "Lawrence Berkeley National Lab",
+                  "SSL",
+                  "SAE",
+                  "LBNL",
                   "Avanti Technologies",
-                  "SPACE",
-                  "NAR"
+              
             
                 ]}
               />
@@ -292,7 +289,7 @@ export default function BioPage() {
               <ChipSection
                 title="DESIGN"
                 dense
-                items={["NX", "CATIA", "SolidWorks", "GD&T", "PLM", "PDM"]}
+                items={["NX", "CATIA", "Onshape", "Fusion", "SolidWorks", "GD&T", "PLM", "PDM"]}
               />
 
               <ChipSection
@@ -301,11 +298,13 @@ export default function BioPage() {
                 items={[
                   "Prototyping",
                   "CNC",
-                  "Manual Milling + Turning",
+                  "Manual Mill",
+                  "Lathe",
                   "3D Printing",
                   "amateur welding (MIG, HHLBW, Stud, TIG)",
-                  "CF Layups",
-                  "waterjet/laser",
+                  "Carbon Fiber Layups",
+                  "laserjet",
+                  "waterjet",
                 ]}
               />
 
