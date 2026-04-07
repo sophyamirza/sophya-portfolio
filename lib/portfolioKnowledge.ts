@@ -13,6 +13,9 @@ export type PortfolioKnowledgeEntry = {
   details: string[];
   keywords: string[];
   references: PortfolioReference[];
+  projectType?: string;
+  yearLabel?: string;
+  tags?: string[];
 };
 
 function flattenProjects(projects: Project[]): Project[] {
@@ -20,6 +23,27 @@ function flattenProjects(projects: Project[]): Project[] {
     project,
     ...(project.subprojects ? flattenProjects(project.subprojects) : []),
   ]);
+}
+
+function cleanText(text: string) {
+  return text.replace(/\s+/g, " ").trim();
+}
+
+function isPlaceholderText(text: string) {
+  const normalized = text.toLowerCase();
+  return (
+    normalized.includes("{insert") ||
+    normalized.includes("team_ph") ||
+    normalized.includes("ph.") ||
+    normalized.includes("placeholder")
+  );
+}
+
+function usableText(text: string) {
+  const cleaned = cleanText(text);
+  if (!cleaned) return false;
+  if (isPlaceholderText(cleaned)) return false;
+  return true;
 }
 
 const staticEntries: PortfolioKnowledgeEntry[] = [
@@ -168,7 +192,9 @@ const projectEntries: PortfolioKnowledgeEntry[] = flattenProjects(PROJECTS).map(
     id: project.slug,
     type: "project",
     title: project.title,
-    summary: project.overview || project.systemOverview || project.subtitle,
+    summary: [project.overview, project.systemOverview, project.subtitle]
+      .map((item) => (item ? cleanText(item) : ""))
+      .find((item) => usableText(item)) ?? project.title,
     details: [
       project.subtitle,
       ...(project.accomplishments ?? []),
@@ -180,7 +206,9 @@ const projectEntries: PortfolioKnowledgeEntry[] = flattenProjects(PROJECTS).map(
         section.summary ?? "",
         ...(section.bullets ?? []),
       ]) ?? []),
-    ].filter(Boolean),
+    ]
+      .map((item) => cleanText(item))
+      .filter((item) => usableText(item)),
     keywords: [
       project.slug.replace(/-/g, " "),
       project.title,
@@ -199,6 +227,9 @@ const projectEntries: PortfolioKnowledgeEntry[] = flattenProjects(PROJECTS).map(
       { href: `/works/${project.slug}`, label: project.title },
       { href: "/works", label: "All Projects" },
     ],
+    projectType: project.projectType,
+    yearLabel: project.yearLabel,
+    tags: project.tags,
   })
 );
 
