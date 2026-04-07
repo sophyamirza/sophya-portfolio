@@ -338,8 +338,7 @@ export const PROJECTS: Project[] = [
           "Integrated into the ALULA feed architecture.",
           "Validated through test-driven development.",
         ],
-        videoSrc: "/projects/ALULA/ALULALaunch.mp4",
-        videoPoster: "/projects/ALULA/RQD1.PNG",
+        
         gallery: ["/projects/VALVES/valves1.PNG", 
           "/projects/VALVES/valves2.PNG",
           "/projects/VALVES/valves3.jpg",
@@ -402,7 +401,8 @@ export const PROJECTS: Project[] = [
     "Injector, chamber, and nozzle hardware were carried through design, machining, and integrated propulsion validation.",
     "Thermal and structural analysis established acceptable margin before fabrication and launch use.",
   ],
-
+        videoSrc: "/projects/ALULA/ALULALaunch.mp4",
+        videoPoster: "/projects/ALULA/RQD1.PNG",
   sections: [
     {
       id: "engine-overview",

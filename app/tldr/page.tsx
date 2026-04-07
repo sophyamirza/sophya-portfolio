@@ -38,8 +38,8 @@ const SYNONYMS: Record<string, string[]> = {
   cryogenic: ["cryo", "cryogenic", "lox", "liquid", "bluefors", "dunk", "helium"],
   propulsion: ["propulsion", "rocket", "engine", "valve", "feed", "rqd", "astranis", "alula"],
   resume: ["resume", "experience", "background", "work", "roles"],
-  cad: ["cad", "solidworks", "catia", "nx", "fusion", "onshape"],
-  analysis: ["analysis", "simulation", "fea", "cfd", "ansys", "matlab", "python"],
+  cad: ["solidworks", "catia", "nx", "fusion", "onshape", "PDM", "PLM"],
+  analysis: ["analysis", "", "fea", "cfd", "ansys", "matlab", "python"],
   community: ["community", "leadership", "mentor", "mentorship", "outreach", "advocacy"],
 };
 
@@ -138,10 +138,12 @@ function searchPortfolio(query: string): SearchResult {
 }
 
 const starterPrompts = [
-  "What propulsion work has Sophya done?",
-  "What tools does Sophya use for CAD and analysis?",
+  "What propulsion systems has she worked on?",
+  "What CAD sotware is Sophya fluent in?",
   "Which projects show cryogenic experience?",
-  "What did Sophya do at SpaceX or Astranis?",
+  "Show me examples of Sophya's experience with batteries?",
+  "Can she do FEA or CFD analysis?", 
+  "What are examples of Sophya's leadership experience?",
 ];
 
 export default function TldrPage() {
