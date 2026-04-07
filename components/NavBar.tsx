@@ -7,6 +7,7 @@ const nav = [
   { href: "/bio", label: "BIO" },
   { href: "/works", label: "PROJECTS" },
   { href: "/toolkit", label: "EXPERIENCE" }, 
+  { href: "/tldr", label: "TLDR" },
   { href: "/recreation", label: "COMMUNITY" },
   { href: "/contact", label: "CONTACT" },
 ];
