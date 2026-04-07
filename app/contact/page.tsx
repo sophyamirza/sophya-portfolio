@@ -128,7 +128,7 @@ export default function ContactPage() {
               icon={<FileText size={22} />}
               label="Resume"
               href={RESUME}
-              display="View Resume"
+              display="Open Resume"
               hint="Detailed experience."
             />
 
