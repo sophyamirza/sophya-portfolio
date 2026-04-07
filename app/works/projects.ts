@@ -373,7 +373,8 @@ export const PROJECTS: Project[] = [
   status: "COMPLETED",
   date: "2025",
   focusArea: "Rocket Engine Hardware",
-  team: "Sophya Mirza",
+videoSrc: "/projects/ALULA/ALULALaunch.mp4",
+videoPoster: "/projects/ALULA/RQD1.PNG",
   systemOverview:
     "I supported development of the ALULA liquid rocket engine, including the injector, chamber, and nozzle. I used RPA to model the ideal thrust chamber shape around our specific flight vehicle, thrust target, burn duration, and apogee goal. We intentionally moved away from a standard bell nozzle because it was too difficult to manufacture with the tools available to us, and instead selected a de Laval geometry that gave similar performance with a much more practical machining path. I also designed one of the earliest injector concepts and later manufactured and machined the final injector version, then used SolidWorks thermal and structural simulations to verify the hardware would survive launch loads and heating.",
   toolsAndSkills: [
@@ -401,8 +402,7 @@ export const PROJECTS: Project[] = [
     "Injector, chamber, and nozzle hardware were carried through design, machining, and integrated propulsion validation.",
     "Thermal and structural analysis established acceptable margin before fabrication and launch use.",
   ],
-        videoSrc: "/projects/ALULA/ALULALaunch.mp4",
-        videoPoster: "/projects/ALULA/RQD1.PNG",
+        
   sections: [
     {
       id: "engine-overview",
