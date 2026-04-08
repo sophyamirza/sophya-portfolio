@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 import NavBar from "@/components/NavBar";
 import PageTransition from "@/components/PageTransition";
 import CursorHalo from "@/components/CursorHalo";
