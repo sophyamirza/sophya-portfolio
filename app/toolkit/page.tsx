@@ -597,7 +597,7 @@ export default function ToolkitPage() {
 
       {active && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-6 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/72 px-6 pb-8 pt-20 backdrop-blur-md md:pt-24"
           onClick={closeModal}
         >
           <div
