@@ -129,7 +129,7 @@ export default function ContactPage() {
               label="Resume"
               href={RESUME}
               display="Open Resume"
-              hint="Detailed experience."
+              hint="Download the latest resume."
             />
 
             {/* Centered Appointments Card */}
