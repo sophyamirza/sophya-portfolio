@@ -799,7 +799,7 @@ gallery: [
     team: "Sophya Mirza",
     systemOverview: "Designed and validated a cryogenic measurement module enabling repeatable 90 K superconducting characterization inside a BlueFors cryostat, owning the full product lifecycle from requirements definition through prototype validation."
 ,
-    toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", ...PH.tools],
+    toolsAndSkills: ["DAQ", "ANSYS", "PCB design", "ATP authoring", "EAGLE", "SolidWorks", "LABVIEW"],
     contributions: PH.contributions,
     results: [
       "Clear, repeatable R(T) transition near 90 K confirms effective cryogenic integration and measurement fidelity.",
