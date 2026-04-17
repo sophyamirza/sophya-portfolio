@@ -110,7 +110,7 @@ export const PROJECTS: Project[] = [
     focusArea: "Aerodynamics",
     team: "Sophya Mirza",
     systemOverview: "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
-    toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
+    toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study"],
     contributions: PH.contributions,
     results: ["view slides for details"],
     gallery: [
