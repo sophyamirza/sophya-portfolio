@@ -112,7 +112,6 @@ export const PROJECTS: Project[] = [
     systemOverview: "Computation of supersonic flow over a blunt body with emphasis on meshing strategy, convergence, and result interpretation.",
     toolsAndSkills: ["ANSYS Fluent", "Meshing", "Convergence study", ...PH.tools],
     contributions: PH.contributions,
-    results: PH.results,
     gallery: [
       "/projects/BLUNTBODY/contour1.PNG",
       "/projects/BLUNTBODY/contour2.PNG",
