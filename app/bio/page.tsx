@@ -200,17 +200,25 @@ export default function BioPage() {
              
 
               <p>
-                Hey, I’m Sophya! I'm a first generation Iranian American mechanical engineer at UC Berkeley who grew up under the flight path of LAX, where a Space Shuttle flyover and role models like Anousheh Ansari first pulled me toward space. At 14, I spent a summer in rural NC climbing The Chimneys, wandering wind farms, and helping refurbish hydroelectric dams in TN, where I first got hooked on turbines, generators, and the infrastructure that powers the world. I am passionate about designing technologies that drive progress in aerospace, automotive, and energy fields.
+                Hey, I’m Sophya! A first gen Persian American mechanical engineer (UC Berkeley) who grew up under the LAX flight path where the Shuttle made its final touch down to the Science Center turning that curiosity into direction. At 14, I spent a summer in rural NC climbing The Chimneys, exploring wind farms, and helping refurbish hydroelectric dams in TN, where I first got hooked on turbines, generators, and the infrastructure that generates, moves, and scales. Since then, I’ve been driven to build technologies that push progress in aerospace, energy, and transportation.
+
               </p>
 
               <p>
-                A few years ago a fortune cookie told me I “create enthusiasm,” and that is how I try to show up on every team, bringing energy, clarity, and momentum to hard problems. As a builder at heart, I have owned hardware at places such as SpaceX where I shared the Texan roads with rocket launches, Proterra, and NASA, focusing on satellite propulsion hardware, launch vehicle structures, and battery thermal management systems across materials, CAD, FEA, testing, and manufacturing. When I am not building hardware, I train jiu jitsu, a reminder to stay adaptable under pressure, and I bring that same mindset to engineering: first principles thinking, rapid test cycles, and a bias toward building and turnaround from real hardware.
+                I’m a builder at heart. I’ve owned and delivered hardware working on satellite propulsion, launch vehicle structures, SAFs, manufacturing, batteries and more. My work spans the full stack: CAD, FEA, testing, and manufacturing, with a focus on turning designs into real, working systems quickly and reliably.
               </p>
 
               <p>
-                I am excited to bring that enthusiasm and execution focus to your team!
+                A fortune cookie once told me I “create enthusiasm,” and I’ve taken that seriously. I bring energy, clarity, and momentum to hard problems, especially in fast moving, ambiguous environments.
               </p>
               
+              <p>
+                Outside of engineering, I train jiu jitsu, which keeps me grounded in adaptability and composure under pressure. That same mindset shows up in my work: first principles thinking, rapid iteration, and a bias toward building and learning from real hardware.
+              </p>
+              
+              <p>
+                I’m excited to bring that mindset and execution to your team!
+              </p>
             </div>
 
             {/* MANIFESTO */}
