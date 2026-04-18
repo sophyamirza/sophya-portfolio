@@ -28,6 +28,7 @@ function ChipSection({
   dense?: boolean;
 }) {
   const clean = items.map((x) => x.trim()).filter(Boolean);
+  const isPlainTextSection = title === "EDUCATION";
 
   const container: Variants = {
     hidden: {},
@@ -63,41 +64,47 @@ function ChipSection({
 
       <div className={`mt-4 h-[2px] w-32 ${THERMAL} opacity-40`} />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="mt-6 flex flex-wrap gap-2.5"
-      >
-        {clean.map((x) => (
-          <motion.span
-            key={x}
-            variants={chip}
-            className={[
-              // Smaller bubble
-              "px-3.5 py-1.5",
-              "rounded-full",
+      {isPlainTextSection ? (
+        <div className="mt-6 text-[13px] font-medium tracking-wide text-white/85">
+          {clean.join(" ")}
+        </div>
+      ) : (
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="mt-6 flex flex-wrap gap-2.5"
+        >
+          {clean.map((x) => (
+            <motion.span
+              key={x}
+              variants={chip}
+              className={[
+                // Smaller bubble
+                "px-3.5 py-1.5",
+                "rounded-full",
 
-              // Smaller font
-              "text-[12px] sm:text-[13px]",
-              "font-medium tracking-wide",
+                // Smaller font
+                "text-[12px] sm:text-[13px]",
+                "font-medium tracking-wide",
 
-              // Cleaner background
-              variant === "thermal"
-                ? "bg-[rgba(0,179,255,0.18)] text-white border border-white/15"
-                : "bg-white/[0.04] text-white/85 border border-white/12",
+                // Cleaner background
+                variant === "thermal"
+                  ? "bg-[rgba(0,179,255,0.18)] text-white border border-white/15"
+                  : "bg-white/[0.04] text-white/85 border border-white/12",
 
-              // Sleek interaction
-              "transition-all duration-300",
-              "hover:bg-white/[0.08] hover:border-white/30",
-              "hover:scale-[1.02]",
-              "backdrop-blur-md",
-            ].join(" ")}
-          >
-            {x}
-          </motion.span>
-        ))}
-      </motion.div>
+                // Sleek interaction
+                "transition-all duration-300",
+                "hover:bg-white/[0.08] hover:border-white/30",
+                "hover:scale-[1.02]",
+                "backdrop-blur-md",
+              ].join(" ")}
+            >
+              {x}
+            </motion.span>
+          ))}
+        </motion.div>
+      )}
     </div>
   );
 }
@@ -327,19 +334,20 @@ export default function BioPage() {
                 dense
                 items={[
                   "podcasts",
+                  "Muay Thai",
                   "sci-fi novels",
-                  "CNC", "",
+                  "CNC", "machining",
                   "Jiu jitsu",
                   "Climbing", "hiking", "backpacking",
                   "Fostering builder communities",
                   "Industry engagement",
-                  "Technical Mentorship & STEM advocacy",
+                  "Technical Mentorship", "STEM advocacy",
                   "Persian food",
                 ]}
               />
 
               <div className="mt-8 text-[11px] tracking-[0.28em] text-white/45">
-                DESIGN · INTEGRATE · TEST · FIX · SHIP
+                DESIGN · BUILD · INTEGRATE · TEST · SHIP · FIX
               </div>
             </div>
           </aside>
