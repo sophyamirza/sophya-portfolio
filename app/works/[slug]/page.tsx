@@ -445,27 +445,29 @@ export default async function ProjectPage({
               </div>
             ) : null}
 
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
-              <div className="text-xs tracking-[0.35em] text-white/55">
-                RESULTS
-              </div>
+            {results.length ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10">
+                <div className="text-xs tracking-[0.35em] text-white/55">
+                  RESULTS
+                </div>
 
-              <ul className="mt-6 space-y-4 text-lg leading-relaxed text-white/80">
-                {results.map((r, i) => (
-                  <li key={`${r}-${i}`} className="flex gap-4">
-                    <span
-                      className="mt-[11px] h-2.5 w-2.5 shrink-0 rounded-full"
-                      style={{
-                        background: THERMAL_GRADIENT,
-                        boxShadow: "0 0 16px rgba(255,255,255,0.08)",
-                        opacity: isPlaceholder(r) ? 0.45 : 0.9,
-                      }}
-                    />
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <ul className="mt-6 space-y-4 text-lg leading-relaxed text-white/80">
+                  {results.map((r, i) => (
+                    <li key={`${r}-${i}`} className="flex gap-4">
+                      <span
+                        className="mt-[11px] h-2.5 w-2.5 shrink-0 rounded-full"
+                        style={{
+                          background: THERMAL_GRADIENT,
+                          boxShadow: "0 0 16px rgba(255,255,255,0.08)",
+                          opacity: isPlaceholder(r) ? 0.45 : 0.9,
+                        }}
+                      />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
 
           <aside className="space-y-10">
