@@ -46,6 +46,12 @@ function flattenProjects(projects: Project[]): Project[] {
   ]);
 }
 
+export function generateStaticParams() {
+  return flattenProjects(PROJECTS).map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 function SectionImageCollage({
   images,
   altBase,

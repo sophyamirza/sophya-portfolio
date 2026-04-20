@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 
 type Preview = {
@@ -60,13 +60,6 @@ export function ProjectRowFollower({
   show: boolean;
   pos: { x: number; y: number };
 }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
-
   const hoverSrc =
     preview?.hoverSrc ??
     fallbackGallery?.[1] ??
@@ -76,7 +69,7 @@ export function ProjectRowFollower({
   const enabled = Boolean(hoverSrc);
   const hoverAlt = preview?.alt ?? `${title} hover preview`;
 
-  if (!mounted) return null;
+  if (typeof document === "undefined") return null;
 
   return createPortal(
     <AnimatePresence>

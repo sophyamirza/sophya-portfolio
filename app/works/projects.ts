@@ -161,17 +161,20 @@ export const PROJECTS: Project[] = [
     systemOverview:
       "UC Berkeley’s first successfully recovered liquid bi-propellant rocket, flown at the Friends of Amateur Rocketry launch site in the Mojave Desert. The vehicle uses a cryogenic feed system with ethanol fuel and liquid oxygen oxidizer, main valves and remote quick disconnects for safe ground handling, and a manufacturable de Laval nozzle selected to balance performance with student-shop tooling limits. I started on the team my Freshman year of college as a Prop member, them became a prop RE, and eventually led the prop team as the prop deputy lead.",
     toolsAndSkills: [
-      "SolidWorks CAD",
+      "SolidWorks",
       "Manual milling (Bridgeport)",
-      "Lathe machining",
+      "Lathe",
       "Injector / nozzle manufacturing",
-      "Fluids P&ID",
+      "P&ID",
       "Feed system design",
       "Cryogenic handling",
       "RPA",
       "MATLAB",
       "ANSYS",
-      "long nights cronking fittings and bending hardine",
+      "tube bending",
+      "OnShape",
+      "Python",
+      "GD&T (ASME Y14.5 2018)"
     ],
     contributions: [
       "Designed and developed an Electronic Pressure Regulator for accurate propellant pressurization, using SolidWorks and ASME Y14.5 GD&T to create DFM ready hardware that reduced feed system droop by ~35% at a MEOP of 6,000 psi and cryo @  −183∘C, with hand calc backed sizing for a ±3 psi regulation band and 440 kg-cm (32 ft-lb) actuation torque.",
